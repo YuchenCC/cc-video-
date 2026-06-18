@@ -1,0 +1,13 @@
+{
+  "name": "hyperframes-tech-explainer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A framework-agnostic project template for whiteboard-style technical explainer videos.",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/validate-project.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
