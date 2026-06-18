@@ -208,6 +208,42 @@ layerStack
 
 字幕统一维护在 [`scripts/subtitles.md`](scripts/subtitles.md)，详细规则见 [`docs/SUBTITLE_RULES.md`](docs/SUBTITLE_RULES.md)。
 
+## 人物 IP 引用
+
+人物 IP 用于引导视线、表达观众反应和建立视频识别度。人物不是技术内容本身，不应替代结构图、流程图或准确标签。
+
+选图前必须查阅 [`assets/characters/CHARACTER_CATALOG.md`](assets/characters/CHARACTER_CATALOG.md)。目录按姿态、情绪、视觉方向和推荐场景分析了全部人物 PNG。
+
+### 使用步骤
+
+1. 先明确人物承担的语义：问候、疑问、警告、行动、成功或收尾。
+2. 在人物目录的“快速选择”中选择情绪强度最低但足够准确的图片。
+3. 根据人物手势、视线和运动方向安排技术主体。
+4. 在分镜中明确路径、用途、位置、入场和退场。
+5. 确认人物没有遮挡核心图解、字幕或流程箭头。
+
+分镜中的标准写法：
+
+```markdown
+人物：assets/characters/39.png
+用途：讲解者举手，引出右上方的核心定义
+位置：左下
+入场：0.4s fadeIn
+退场：结论出现后 localReplace
+```
+
+### 引用规则
+
+- 素材统一从 `assets/characters/<文件名>.png` 引用。
+- 不将人物图片复制到各个场景目录。
+- 不凭数字文件名判断语义，必须通过人物目录选图。
+- 每个分镜默认最多出现一个人物。
+- 人物面积建议不超过画面的 20%；开场和结尾可放宽到 30%。
+- 保留透明背景和原始宽高比，不拉伸、不裁掉手势或情绪符号。
+- 人物优先位于画面边侧，手势、视线或动作朝向技术主体。
+- 入场优先使用 `fadeIn`、`slideUp` 或轻量 `popIn`。
+- 强情绪人物只短暂用于明确的异常、警告或失败语义。
+
 ## 禁止项
 
 - 赛博朋克和强科技炫光。
@@ -245,5 +281,6 @@ layerStack
 | [`docs/TRANSITION_RULES.md`](docs/TRANSITION_RULES.md) | 幕间与局部转场 |
 | [`docs/STORYBOARD_TEMPLATE.md`](docs/STORYBOARD_TEMPLATE.md) | 分镜设计模板 |
 | [`docs/ACCEPTANCE_CHECKLIST.md`](docs/ACCEPTANCE_CHECKLIST.md) | 最终验收 |
+| [`assets/characters/CHARACTER_CATALOG.md`](assets/characters/CHARACTER_CATALOG.md) | 人物姿态、情绪、场景与引用方式 |
 
 当不同文件的描述出现冲突时，以本文件的设计目标和 `PROJECT_MEMORY.md` 的核心原则为判断依据，并优先选择更清晰、更克制、更有利于理解技术概念的方案。

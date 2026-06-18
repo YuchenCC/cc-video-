@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const required = [
+  'AGENTS.md',
   'README.md',
   'DESIGN.md',
   'docs/PROJECT_MEMORY.md',
@@ -14,6 +15,7 @@ const required = [
   'docs/TRANSITION_RULES.md',
   'docs/STORYBOARD_TEMPLATE.md',
   'docs/ACCEPTANCE_CHECKLIST.md',
+  'assets/characters/CHARACTER_CATALOG.md',
   'src/styles/colors.ts',
   'src/styles/typography.ts',
   'src/styles/spacing.ts',
