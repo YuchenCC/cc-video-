@@ -97,6 +97,8 @@
 | 展示命令和日志 | `TerminalWindow` |
 | 表示本地机或服务器 | `MachineBox` |
 | 表示容器或运行环境 | `ContainerBox` |
+| 表示技术栈外层方框 | `StackFrame` |
+| 表示技术栈中的单层标签 | `StackLabel` |
 | 表示技术分层 | `LayerStack` |
 | 表示方向和数据流 | `FlowArrow` |
 | 表示两种方案差异 | `CompareLayout` |

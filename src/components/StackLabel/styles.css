@@ -1,0 +1,56 @@
+:root {
+  --cc-stack-label-coral-bg: #ef7b85;
+  --cc-stack-label-blue-bg: #233b5e;
+  --cc-stack-label-teal-bg: #2c9a9a;
+  --cc-stack-label-dark-text: #111111;
+  --cc-stack-label-light-text: #ffffff;
+  --cc-stack-label-font-family: "Noto Sans CJK SC", "PingFang SC", Inter, sans-serif;
+}
+
+.cc-stack-label {
+  align-items: center;
+  border-radius: 28px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: var(--cc-stack-label-font-family);
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1.1;
+  min-width: 280px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cc-stack-label--block {
+  width: 100%;
+}
+
+.cc-stack-label--lg {
+  font-size: 44px;
+  min-height: 92px;
+  padding: 18px 36px;
+}
+
+.cc-stack-label--md {
+  border-radius: 22px;
+  font-size: 32px;
+  min-height: 70px;
+  padding: 14px 28px;
+}
+
+.cc-stack-label--coral-dark {
+  background: var(--cc-stack-label-coral-bg);
+  color: var(--cc-stack-label-dark-text);
+}
+
+.cc-stack-label--blue-light {
+  background: var(--cc-stack-label-blue-bg);
+  color: var(--cc-stack-label-light-text);
+}
+
+.cc-stack-label--teal-light {
+  background: var(--cc-stack-label-teal-bg);
+  color: var(--cc-stack-label-light-text);
+}

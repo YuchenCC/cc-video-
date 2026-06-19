@@ -12,7 +12,7 @@
 
 - `docs/`：工程记忆、视觉、节奏、动画、字幕、转场和验收规范。
 - `assets/`：图标、品牌、角色和背景素材。
-- `src/components/`：可复用图解组件的规格说明。
+- `src/components/`：可复用图解组件的规格说明与 HTML 渲染模块。
 - `src/scenes/`：分镜定义与实现。
 - `src/styles/`：颜色、字体、间距和动画 token。
 - `src/utils/`：时间与分镜数据工具。

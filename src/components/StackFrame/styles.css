@@ -1,0 +1,62 @@
+:root {
+  --cc-stack-frame-blue: #233b5e;
+  --cc-stack-frame-teal: #2c9a9a;
+  --cc-stack-frame-coral: #ef7b85;
+  --cc-stack-frame-gray: #aab4be;
+  --cc-stack-frame-bg: #ffffff;
+  --cc-stack-frame-font-family: "Noto Sans CJK SC", "PingFang SC", Inter, sans-serif;
+}
+
+.cc-stack-frame {
+  --cc-stack-frame-border-color: var(--cc-stack-frame-blue);
+  --cc-stack-frame-title-color: var(--cc-stack-frame-border-color);
+
+  box-sizing: border-box;
+  display: grid;
+  gap: 18px;
+  height: auto;
+  justify-items: stretch;
+  margin: 0;
+  min-height: 0;
+  min-width: 360px;
+  width: 100%;
+}
+
+.cc-stack-frame__title {
+  color: var(--cc-stack-frame-title-color);
+  font-family: var(--cc-stack-frame-font-family);
+  font-size: 58px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+}
+
+.cc-stack-frame__body {
+  background: var(--cc-stack-frame-bg);
+  border: 6px solid var(--cc-stack-frame-border-color);
+  border-radius: 36px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 14px;
+  height: auto;
+  min-height: 0;
+  padding: 28px;
+  width: 100%;
+}
+
+.cc-stack-frame--blue {
+  --cc-stack-frame-border-color: var(--cc-stack-frame-blue);
+}
+
+.cc-stack-frame--teal {
+  --cc-stack-frame-border-color: var(--cc-stack-frame-teal);
+}
+
+.cc-stack-frame--coral {
+  --cc-stack-frame-border-color: var(--cc-stack-frame-coral);
+}
+
+.cc-stack-frame--gray {
+  --cc-stack-frame-border-color: var(--cc-stack-frame-gray);
+}
