@@ -51,8 +51,8 @@
         --concept-left-width: 25%;
         --concept-center-width: 50%;
         --concept-right-width: 25%;
-        --concept-top-padding: 194px;
-        --concept-bottom-padding: 324px;
+        --concept-top-padding: 238px;
+        --concept-bottom-padding: 238px;
         position: relative;
         width: 1920px;
         height: 1080px;
@@ -139,7 +139,7 @@
       #concept-expansion .concept-node {
         position: absolute;
         z-index: 3;
-        top: 220px;
+        top: 264px;
         left: 540px;
         display: grid;
         place-items: center;
@@ -165,7 +165,7 @@
        * borders, or colored background containers.
        */
       #concept-expansion .concept-node--asset {
-        top: 194px;
+        top: 238px;
         left: 560px;
         width: 800px;
         height: 440px;
@@ -183,6 +183,60 @@
         object-fit: contain;
         object-position: center top;
         filter: drop-shadow(0 22px 32px rgba(47, 111, 143, 0.16));
+      }
+
+      /*
+       * Definition assets may be built from several nested images, but they
+       * should behave as one concept: all internal images enter and exit
+       * together unless the narration explicitly explains the nesting.
+       */
+      #concept-expansion .concept-definition-asset {
+        position: absolute;
+        z-index: 3;
+        top: var(--concept-top-padding);
+        left: 560px;
+        width: 800px;
+        height: 440px;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #concept-expansion .concept-definition-asset img {
+        position: absolute;
+        display: block;
+        object-fit: contain;
+      }
+
+      /*
+       * Enhancer badges are the only image-backed nodes allowed to use a
+       * white backing. They represent a plug-in / patch / capability that is
+       * implanted into an existing parent concept rather than a standalone
+       * asset concept.
+       */
+      #concept-expansion .concept-enhancer-badge {
+        position: absolute;
+        z-index: 4;
+        display: grid;
+        place-items: center;
+        width: 132px;
+        height: 132px;
+        padding: 18px;
+        border-radius: 28px;
+        background: #ffffff;
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.16);
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #concept-expansion .concept-enhancer-badge img,
+      #concept-expansion .concept-enhancer-badge::before {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
       /*
@@ -223,9 +277,12 @@
 
       #concept-expansion .concept-stack-label-stage > .cc-stack-label {
         grid-area: 1 / 1;
+        display: grid;
+        place-items: center;
         width: 100%;
         min-width: 0;
         white-space: nowrap;
+        text-align: center;
       }
 
       #concept-expansion .concept-stack-check {
@@ -233,6 +290,32 @@
         top: 50%;
         right: 14px;
         transform: translateY(-50%);
+      }
+
+      /*
+       * Context elements support the narration but do not become the central
+       * concept. Use them for characters, terminal snippets, records, scripts,
+       * or result artifacts in the side zones.
+       */
+      #concept-expansion .concept-context {
+        position: absolute;
+        z-index: 4;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #concept-expansion .concept-context--right {
+        top: 254px;
+        right: 100px;
+        max-width: 420px;
+        max-height: 520px;
+      }
+
+      #concept-expansion .concept-context--left {
+        top: 260px;
+        left: 80px;
+        max-width: 500px;
+        max-height: 620px;
       }
 
       #concept-expansion .concept-watermark {

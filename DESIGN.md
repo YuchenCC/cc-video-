@@ -121,8 +121,8 @@ compositionPatterns:
   conceptExpansion:
     origin: center
     horizontalZones: [25, 50, 25]
-    topPaddingPercent: 18
-    bottomPaddingPercent: 30
+    topPaddingPercent: 22
+    bottomPaddingPercent: 22
     expansionDepthPerBeat: 1
     preserveAncestors: true
     ancestorPosition: left
@@ -260,7 +260,7 @@ avoid:
 
 - 屏幕中央只保留当前正在讲解的概念。
 - 画布固定分为左、中、右三个区域，宽度比例为 25% / 50% / 25%；中区是主视图。
-- 主视图顶部保留约 18%、底部保留约 30% 画布高度；底部安全区优先供字幕使用，主概念不得进入。
+- 主视图顶部保留约 22%、底部保留约 22% 画布高度；底部安全区优先供字幕使用，主概念不得进入。
 - 不显示场景主标题、副标题、章节标签、说明段落或底部字幕。
 - 右上角只固定展示 Logo；`concept-expansion` 模板使用约 56px 高度，确保在 1920×1080 画面中清晰可辨。
 - 子概念从父概念的形态和位置中衍生，再移动到中央主视区。
@@ -269,8 +269,18 @@ avoid:
 - 当前节点始终使用完整对比度和主强调色。
 - 当前概念应在主视图可用区域内尽量撑开；图片使用 `object-fit: contain` 等比放大，不因原始像素尺寸较小而维持缩略图大小。
 - 从 `assets/` 引入的图标和人物直接使用素材轮廓，不添加卡片、圆形底、描边或有色背景容器；仅允许轻量投影增强分离度。
+- 例外：用于“接入、增强、插件、补丁”的小型增强件可以使用白底圆角徽章承载，方便植入 StackFrame、终端或复杂父概念；飞入峰值通常不超过 1.5 倍，完成解释后可替换为稳定的技术徽章。
 - 一次只扩展一个层级；禁止一次展开多个层级或平铺所有概念。
 - 当左侧概念轨迹无法继续清晰容纳时，应开始新的 Beat，而不是继续缩小节点。
+
+模板优先复用以下槽位：
+
+- `definition-asset`：中区展示一个完整定义图标或图解，多张图片作为一体同时出现和消失。
+- `entry-stack`：使用 `StackFrame + StackLabel` 展示入口、层级或候选对象，Label 可按口播逐项出现。
+- `enhancer-badge`：插件或增强能力从右上/右侧飞入父概念，植入边角、插槽或内部增强位。
+- `state-replacement`：旧状态在原位替换为新状态，配合 `CheckBadge` 表示完成或覆盖。
+- `context-character`：右区人物表达人工负担、成功反馈或情绪语义，不遮挡中区。
+- `context-artifact`：终端、依赖、记录、脚本等只作为左右辅助证据，不成为新的主焦点。
 
 实现模板位于 [`compositions/concept-expansion.html`](compositions/concept-expansion.html)，详细使用方式见 [`docs/CONCEPT_EXPANSION_PATTERN.md`](docs/CONCEPT_EXPANSION_PATTERN.md)。
 
