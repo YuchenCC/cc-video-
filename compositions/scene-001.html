@@ -76,9 +76,7 @@
         <img src="../assets/icons/plug.png" alt="">
       </section>
 
-      <section id="s1-java-badge" class="stack-java-badge" aria-label="Java 脱敏组件已接入">
-        <img src="../assets/icons/java_logo.png" alt="">
-      </section>
+      <section id="s1-java-badge" class="stack-java-badge" aria-label="Java 脱敏组件已接入"></section>
 
       <section id="s1-dependency-demo" class="dependency-demo" aria-label="Maven 依赖接入示例" data-layout-ignore>
         <div id="s1-dependency-terminal" class="dependency-terminal">
@@ -315,11 +313,15 @@
         transform-origin: center center;
       }
 
-      #scene-001 .stack-java-badge img {
+      #scene-001 .stack-java-badge::before {
+        content: "";
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        background-image: url("../assets/icons/java_logo.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
       #scene-001 .dependency-demo {
