@@ -62,6 +62,34 @@
 - 当前节点最多增加一行 12–18 字的内部说明；默认不使用。
 - 左侧轨迹拥挤时切换到新的 Beat，不继续缩小文字。
 
+## StackFrame 清单
+
+当概念使用 `StackFrame` 包含多个 `StackLabel` 时：
+
+- Frame 使用 `width: fit-content`，内部 body 使用 `width: max-content`。
+- Label 使用单行 `max-content` 宽度，Frame 的最终宽度由最长 Label、可选 CheckBadge 和内边距共同决定。
+- 同一位置的新旧 Label 应使用 CSS Grid 重叠，容器同时参与两者的固有尺寸计算；禁止绝对定位后再手写固定宽度。
+- 如果口播依次介绍各项，Label 可以按口播语义点逐个进入，推荐间隔 0.8–1.4 秒。
+- 风险/问题使用 `coral-dark`，技术中性使用 `blue-light`，流程或覆盖完成使用 `teal-light`。
+- 颜色切换必须表达状态变化，不随机轮换。
+
+推荐结构：
+
+```html
+<figure class="cc-stack-frame concept-stack concept-stack--sequential">
+  <div class="cc-stack-frame__body">
+    <div class="concept-stack-row">
+      <div class="concept-stack-label-stage">
+        <div class="cc-stack-label cc-stack-label--coral-dark">旧状态</div>
+        <div class="cc-stack-label cc-stack-label--teal-light">新状态</div>
+      </div>
+    </div>
+  </div>
+</figure>
+```
+
+使用 `concept-stack--sequential` 时，各 `.concept-stack-row` 初始为透明，必须在主 GSAP timeline 中按口播时间逐项进入。若口播一次性概括整组内容，则省略该修饰类，让 Label 同时出现。
+
 ## 使用方式
 
 复制模板并修改以下内容：

@@ -29,15 +29,15 @@
 
       <section
         id="s1-stack-frame"
-        class="cc-stack-frame cc-stack-frame--blue entry-frame"
+        class="cc-stack-frame cc-stack-frame--blue concept-stack concept-stack--sequential entry-frame"
         aria-label="敏感信息入口"
         data-layout-ignore
       >
         <div class="cc-stack-frame__body">
-          <div id="s1-row-api" class="coverage-row">
-            <div class="coverage-label-stage" data-layout-ignore>
-              <div id="s1-old-api" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">接口</div>
-              <div id="s1-new-api" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">覆盖接口响应</div>
+          <div id="s1-row-api" class="concept-stack-row coverage-row">
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+              <div id="s1-old-api" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md coverage-label coverage-label--old">接口</div>
+              <div id="s1-new-api" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">覆盖接口响应</div>
             </div>
             <span id="s1-check-api" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="接口响应已覆盖">
@@ -46,10 +46,10 @@
             </span>
           </div>
 
-          <div id="s1-row-log" class="coverage-row">
-            <div class="coverage-label-stage" data-layout-ignore>
-              <div id="s1-old-log" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">日志</div>
-              <div id="s1-new-log" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">覆盖日志输出</div>
+          <div id="s1-row-log" class="concept-stack-row coverage-row">
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+              <div id="s1-old-log" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md coverage-label coverage-label--old">日志</div>
+              <div id="s1-new-log" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">覆盖日志输出</div>
             </div>
             <span id="s1-check-log" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="日志输出已覆盖">
@@ -58,10 +58,10 @@
             </span>
           </div>
 
-          <div id="s1-row-cross" class="coverage-row">
-            <div class="coverage-label-stage" data-layout-ignore>
-              <div id="s1-old-cross" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">跨系统调用</div>
-              <div id="s1-new-cross" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">主动脱敏</div>
+          <div id="s1-row-cross" class="concept-stack-row coverage-row">
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+              <div id="s1-old-cross" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md coverage-label coverage-label--old">跨系统调用</div>
+              <div id="s1-new-cross" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">主动脱敏</div>
             </div>
             <span id="s1-check-cross" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="主动脱敏已覆盖">
@@ -195,14 +195,18 @@
         position: absolute;
         z-index: 3;
         top: 230px;
-        left: 530px;
-        width: 860px;
+        left: 50%;
+        width: fit-content;
         min-width: 0;
+        max-width: 960px;
+        translate: -50% 0;
         opacity: 0;
         transform-origin: center center;
       }
 
       #scene-001 .entry-frame .cc-stack-frame__body {
+        width: max-content;
+        max-width: 960px;
         gap: 22px;
         padding: 38px;
         border-width: 5px;
@@ -211,22 +215,23 @@
 
       #scene-001 .coverage-row {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 72px;
+        grid-template-columns: max-content 72px;
         align-items: center;
         gap: 18px;
-        min-width: 0;
+        width: max-content;
+        opacity: 0;
         transform-origin: center center;
       }
 
       #scene-001 .coverage-label-stage {
-        position: relative;
-        min-width: 0;
+        display: grid;
+        width: max-content;
         height: 104px;
       }
 
       #scene-001 .coverage-label {
-        position: absolute;
-        inset: 0;
+        grid-area: 1 / 1;
+        width: max-content;
         min-width: 0;
         min-height: 104px;
         font-size: 42px;
@@ -338,7 +343,7 @@
 
       tl.to(
         "#s1-stack-frame",
-        { x: -700, scale: 0.5, duration: 0.9, ease: "power3.inOut" },
+        { x: -720, scale: 0.5, duration: 0.9, ease: "power3.inOut" },
         15
       );
       tl.to(

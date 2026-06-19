@@ -185,6 +185,46 @@
         filter: drop-shadow(0 22px 32px rgba(47, 111, 143, 0.16));
       }
 
+      /*
+       * StackFrame + StackLabel composition contract:
+       * content determines width; replacement labels share a grid cell so
+       * the frame reserves the longest state before animation starts.
+       */
+      #concept-expansion .concept-stack {
+        width: fit-content;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      #concept-expansion .concept-stack .cc-stack-frame__body {
+        width: max-content;
+        max-width: 100%;
+      }
+
+      #concept-expansion .concept-stack-row {
+        display: grid;
+        grid-template-columns: max-content auto;
+        align-items: center;
+        gap: 18px;
+        width: max-content;
+      }
+
+      #concept-expansion .concept-stack--sequential .concept-stack-row {
+        opacity: 0;
+      }
+
+      #concept-expansion .concept-stack-label-stage {
+        display: grid;
+        width: max-content;
+      }
+
+      #concept-expansion .concept-stack-label-stage > .cc-stack-label {
+        grid-area: 1 / 1;
+        width: max-content;
+        min-width: 0;
+        white-space: nowrap;
+      }
+
       #concept-expansion .concept-watermark {
         position: absolute;
         z-index: 10;
