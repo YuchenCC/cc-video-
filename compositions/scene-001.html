@@ -1,15 +1,7 @@
 <template id="scene-001-template">
-  <div
-    id="scene-001"
-    class="scene-root scene-001"
-    data-composition-id="scene-001"
-    data-width="1920"
-    data-height="1080"
-    data-start="0"
-    data-duration="28"
-  >
-    <main class="concept-stage" data-layout-ignore>
-      <div class="concept-zones" aria-hidden="true" data-layout-ignore>
+  <div id="scene-001" class="scene-root scene-001" data-composition-id="scene-001" data-width="1920" data-height="1080" data-start="0" data-duration="28">
+    <main class="concept-stage" data-layout-ignore="">
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore="">
         <div class="concept-zone concept-zone--left"></div>
         <div class="concept-zone concept-zone--center"></div>
         <div class="concept-zone concept-zone--right"></div>
@@ -27,45 +19,40 @@
         </div>
       </section>
 
-      <section
-        id="s1-stack-frame"
-        class="cc-stack-frame cc-stack-frame--blue concept-stack concept-stack--sequential entry-frame"
-        aria-label="敏感信息入口"
-        data-layout-ignore
-      >
+      <section id="s1-stack-frame" class="cc-stack-frame cc-stack-frame--blue concept-stack concept-stack--sequential entry-frame" aria-label="敏感信息入口" data-layout-ignore="">
         <div class="cc-stack-frame__body">
           <div id="s1-row-api" class="concept-stack-row coverage-row">
-            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore="">
               <div id="s1-old-api" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md coverage-label coverage-label--old">接口</div>
               <div id="s1-new-api" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">覆盖接口响应</div>
             </div>
             <span id="s1-check-api" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="接口响应已覆盖">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
 
           <div id="s1-row-log" class="concept-stack-row coverage-row">
-            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore="">
               <div id="s1-old-log" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md coverage-label coverage-label--old">日志</div>
               <div id="s1-new-log" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">覆盖日志输出</div>
             </div>
             <span id="s1-check-log" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="日志输出已覆盖">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
 
           <div id="s1-row-cross" class="concept-stack-row coverage-row">
-            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore>
+            <div class="concept-stack-label-stage coverage-label-stage" data-layout-ignore="">
               <div id="s1-old-cross" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md coverage-label coverage-label--old">跨系统调用</div>
               <div id="s1-new-cross" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md coverage-label coverage-label--new">主动脱敏</div>
             </div>
             <span id="s1-check-cross" class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--static coverage-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="主动脱敏已覆盖">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
@@ -78,7 +65,7 @@
 
       <section id="s1-java-badge" class="stack-java-badge" aria-label="Java 脱敏组件已接入"></section>
 
-      <section id="s1-dependency-demo" class="dependency-demo" aria-label="Maven 依赖接入示例" data-layout-ignore>
+      <section id="s1-dependency-demo" class="dependency-demo" aria-label="Maven 依赖接入示例" data-layout-ignore="">
         <div id="s1-dependency-terminal" class="dependency-terminal">
           <div class="dependency-terminal__bar" aria-hidden="true">
             <span></span>
@@ -96,13 +83,15 @@
 
       <img id="s1-character-tired" class="scene-character" src="../assets/characters/9.png" alt="疲惫等待的程序员">
       <img id="s1-character-success" class="scene-character" src="../assets/characters/17.png" alt="成功振奋的程序员">
+      <img id="s1-note-art" class="scene-right-note" src="../assets/images/note.png" alt="脱敏记录笔记">
+      <img id="s1-script-art" class="scene-right-script" src="../assets/icons/script.png" alt="补齐规则脚本">
     </main>
 
-    <div class="caption" data-layout-allow-overlap>这是一个 Java 通用信息脱敏组件</div>
-    <div class="caption" data-layout-allow-overlap>敏感字段可能分散在多个输出入口</div>
-    <div class="caption" data-layout-allow-overlap>人工逐个排查工作量大，也容易遗漏</div>
-    <div class="caption" data-layout-allow-overlap>接入组件后统一覆盖三类使用场景</div>
-    <div class="caption" data-layout-allow-overlap>脱敏记录会继续帮助程序员补齐规则</div>
+    <div class="caption" data-layout-allow-overlap="">这是一个 Java 通用信息脱敏组件</div>
+    <div class="caption" data-layout-allow-overlap="">敏感字段可能分散在多个输出入口</div>
+    <div class="caption" data-layout-allow-overlap="">人工逐个排查工作量大，也容易遗漏</div>
+    <div class="caption" data-layout-allow-overlap="">接入组件后统一覆盖三类使用场景</div>
+    <div class="caption" data-layout-allow-overlap="">脱敏记录会继续帮助程序员补齐规则</div>
 
     <style>
       @import url("../src/styles/runtime.css");
@@ -122,8 +111,8 @@
         --concept-left-width: 25%;
         --concept-center-width: 50%;
         --concept-right-width: 25%;
-        --concept-top-padding: 194px;
-        --concept-bottom-padding: 324px;
+        --concept-top-padding: 238px;
+        --concept-bottom-padding: 238px;
         position: relative;
         width: 100%;
         height: 100%;
@@ -153,7 +142,7 @@
         content: "";
         position: absolute;
         z-index: 0;
-        top: 164px;
+        top: 208px;
         left: 50%;
         width: 920px;
         height: 720px;
@@ -167,7 +156,7 @@
       #scene-001 .plug-concept {
         position: absolute;
         z-index: 3;
-        top: 194px;
+        top: 238px;
         left: 560px;
         width: 800px;
         height: 440px;
@@ -214,7 +203,7 @@
         --s1-stack-frame-extra-width: 86px;
         position: absolute;
         z-index: 3;
-        top: 230px;
+        top: 274px;
         left: 50%;
         width: calc(var(--s1-stack-label-width) + var(--s1-stack-frame-extra-width));
         min-width: 0;
@@ -279,17 +268,17 @@
       #scene-001 .plug-concept {
         display: grid;
         place-items: center;
-        top: 182px;
+        top: 226px;
         left: 1168px;
         width: 132px;
         height: 132px;
-        opacity: 0;
-        transform-origin: center center;
         padding: 18px;
         box-sizing: border-box;
         border-radius: 28px;
         background: #ffffff;
         box-shadow: 0 18px 34px rgba(35, 59, 94, 0.16);
+        opacity: 0;
+        transform-origin: center center;
       }
 
       #scene-001 .plug-concept img {
@@ -304,7 +293,7 @@
       #scene-001 .stack-java-badge {
         position: absolute;
         z-index: 4;
-        top: 188px;
+        top: 232px;
         left: 1188px;
         display: grid;
         place-items: center;
@@ -332,16 +321,19 @@
       #scene-001 .dependency-demo {
         position: absolute;
         z-index: 5;
-        top: 118px;
-        left: 26px;
-        width: 782px;
-        height: 594px;
+        top: 260px;
+        left: 80px;
+        display: flex;
+        width: 500px;
+        height: 620px;
+        flex-direction: column;
+        align-items: center;
         pointer-events: none;
       }
 
       #scene-001 .dependency-terminal {
         width: 100%;
-        height: 368px;
+        height: 470px;
         overflow: hidden;
         border: 2px solid rgba(31, 41, 51, 0.2);
         border-radius: 16px;
@@ -379,14 +371,15 @@
 
       #scene-001 .dependency-terminal__code {
         margin: 0;
-        padding: 28px 28px 30px;
+        padding: 26px 24px 30px;
         color: #e5e7eb;
         font-family: "JetBrains Mono", Menlo, monospace;
         font-size: 20px;
         font-weight: 400;
-        line-height: 1.54;
+        line-height: 1.5;
         letter-spacing: 0;
-        white-space: pre;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
         tab-size: 2;
         box-sizing: border-box;
       }
@@ -406,8 +399,8 @@
       #scene-001 .dependency-keyboard {
         display: block;
         width: 500px;
-        height: 176px;
-        margin: 34px auto 0;
+        height: 200px;
+        margin: 20px auto 0;
         object-fit: contain;
         filter: drop-shadow(0 22px 32px rgba(35, 59, 94, 0.16));
         opacity: 0;
@@ -417,13 +410,39 @@
       #scene-001 .scene-character {
         position: absolute;
         z-index: 4;
-        top: 210px;
-        right: 50px;
+        top: 254px;
+        right: 100px;
         width: 380px;
         height: 520px;
         object-fit: contain;
         object-position: bottom center;
         opacity: 0;
+      }
+
+      #scene-001 .scene-right-note,
+      #scene-001 .scene-right-script {
+        position: absolute;
+        z-index: 4;
+        object-fit: contain;
+        opacity: 0;
+        filter: drop-shadow(0 20px 30px rgba(35, 59, 94, 0.14));
+      }
+
+      #scene-001 .scene-right-note {
+        top: 266px;
+        right: 110px;
+        width: 450px;
+        object-position: center;
+        transform-origin: center center;
+      }
+
+      #scene-001 .scene-right-script {
+        top: 586px;
+        right: 220px;
+        width: 220px;
+        height: 400px;
+        object-position: center;
+        transform-origin: center top;
       }
 
       #scene-001 .caption {
@@ -614,12 +633,6 @@
         { opacity: 0, x: 34, scale: 0.94, duration: 0.4, ease: "power2.in" },
         20.8
       );
-      tl.fromTo(
-        "#s1-character-success",
-        { opacity: 0, x: 44, y: 18, scale: 0.9 },
-        { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.2)", immediateRender: false },
-        21.05
-      );
       tl.to(
         "#s1-plug-concept",
         {
@@ -630,6 +643,23 @@
           repeat: 1
         },
         21.2
+      );
+      tl.to(
+        "#s1-character-success",
+        { opacity: 0, duration: 0.28, ease: "power2.in", overwrite: "auto" },
+        24
+      );
+      tl.fromTo(
+        "#s1-note-art",
+        { opacity: 0, x: 38, y: 10, scale: 0.94 },
+        { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.42, ease: "power3.out", immediateRender: false },
+        24.04
+      );
+      tl.fromTo(
+        "#s1-script-art",
+        { opacity: 0, y: 32, scale: 0.9 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.12)", immediateRender: false },
+        24.24
       );
 
       [
@@ -650,6 +680,10 @@
           { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" },
           item[2]
         );
+        tl.fromTo("#s1-character-success", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "back.out(1.2)", immediateRender: false }, 21.05);
+        tl.fromTo("#s1-character-success", { x: 44, y: 18 }, { x: 0, y: 0, duration: 0.6, ease: "back.out(1.2)", immediateRender: false }, 21.05);
+        tl.fromTo("#s1-character-success", { scale: 0.9 }, { scale: 1, duration: 0.6, ease: "back.out(1.2)", immediateRender: false }, 21.05);
+        tl.to("#s1-character-success", { keyframes: { "0%": { x: 0, y: 0 }, "10.9%": { x: 0, y: 0 }, "100%": { x: -96, y: -8 } }, duration: 5.483 }, 21.05);
       });
 
       window.__timelines["scene-001"] = tl;
