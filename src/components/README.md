@@ -10,7 +10,7 @@ import { TechCard, FlowArrow, SubtitleBar } from './components/index'
 
 Components return HTML strings and use the shared style tokens from `src/styles/`. Text props are escaped at component boundaries; child slots such as `ContainerBox.children` and `CompareLayout.left/right` are intended for trusted component HTML.
 
-Class-based components such as `CheckBadge`, `StackFrame`, and `StackLabel` require their component CSS to be loaded by the HTML renderer.
+Class-based components such as `CheckBadge`, `StackFrame`, `StackLabel`, and `TitleTransition` require their component CSS to be loaded by the HTML renderer.
 
 Keep component implementations aligned with:
 

@@ -23,6 +23,8 @@ const required = [
   'src/components/StackFrame/styles.css',
   'src/components/StackLabel/README.md',
   'src/components/StackLabel/styles.css',
+  'src/components/TitleTransition/README.md',
+  'src/components/TitleTransition/styles.css',
   'src/components/html.ts',
   'src/components/index.ts',
   'src/styles/colors.ts',

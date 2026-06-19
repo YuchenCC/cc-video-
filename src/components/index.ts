@@ -29,6 +29,7 @@ export type StackLabelSize = 'md' | 'lg'
 export type StackFrameColorScheme = 'blue' | 'teal' | 'coral' | 'gray'
 export type CheckBadgeColorScheme = 'teal' | 'green' | 'blue'
 export type CheckBadgeSize = 'sm' | 'md' | 'lg'
+export type TitleTransitionColorScheme = 'blue' | 'teal' | 'coral' | 'dark'
 
 export interface BaseComponentProps {
   id?: string
@@ -129,6 +130,13 @@ export interface CheckBadgeProps extends BaseComponentProps {
   label?: string
   colorScheme?: CheckBadgeColorScheme
   size?: CheckBadgeSize
+  animated?: boolean
+  animationDurationMs?: number
+}
+
+export interface TitleTransitionProps extends BaseComponentProps {
+  text: string
+  colorScheme?: TitleTransitionColorScheme
   animated?: boolean
   animationDurationMs?: number
 }
@@ -351,6 +359,41 @@ export const CheckBadge = ({
     )}">
       <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
     </svg>`,
+  )
+
+export const TitleTransition = ({
+  text,
+  colorScheme = 'blue',
+  animated = true,
+  animationDurationMs,
+  ...props
+}: TitleTransitionProps): string =>
+  html(
+    'section',
+    cssRootAttrs(
+      cx(
+        'cc-title-transition',
+        `cc-title-transition--${colorScheme}`,
+        animated
+          ? 'cc-title-transition--animated'
+          : 'cc-title-transition--static',
+      ),
+      {
+        ...props,
+        style:
+          animationDurationMs === undefined
+            ? props.style
+            : {
+                ...props.style,
+                '--cc-title-transition-animation-duration': `${animationDurationMs}ms`,
+              },
+      },
+    ),
+    html(
+      'h1',
+      { className: 'cc-title-transition__text' },
+      escapeHtml(text),
+    ),
   )
 
 export const MachineBox = ({

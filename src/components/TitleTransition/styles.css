@@ -1,0 +1,78 @@
+:root {
+  --cc-title-transition-blue: #233b5e;
+  --cc-title-transition-teal: #2c9a9a;
+  --cc-title-transition-coral: #ef7b85;
+  --cc-title-transition-dark: #333333;
+  --cc-title-transition-font-family: "Noto Sans CJK SC", "PingFang SC", Inter, sans-serif;
+  --cc-title-transition-animation-duration: 520ms;
+}
+
+.cc-title-transition {
+  align-items: center;
+  background: transparent;
+  box-sizing: border-box;
+  display: grid;
+  height: 100%;
+  inset: 0;
+  justify-items: center;
+  min-height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.cc-title-transition__text {
+  color: var(--cc-title-transition-blue);
+  font-family: var(--cc-title-transition-font-family);
+  font-size: clamp(72px, 9vw, 156px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  transform-origin: center;
+  white-space: nowrap;
+}
+
+.cc-title-transition--blue .cc-title-transition__text {
+  color: var(--cc-title-transition-blue);
+}
+
+.cc-title-transition--teal .cc-title-transition__text {
+  color: var(--cc-title-transition-teal);
+}
+
+.cc-title-transition--coral .cc-title-transition__text {
+  color: var(--cc-title-transition-coral);
+}
+
+.cc-title-transition--dark .cc-title-transition__text {
+  color: var(--cc-title-transition-dark);
+}
+
+.cc-title-transition--animated .cc-title-transition__text {
+  animation: cc-title-transition-fly-spin var(--cc-title-transition-animation-duration) cubic-bezier(0.18, 0.9, 0.24, 1) both;
+}
+
+.cc-title-transition--static .cc-title-transition__text {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+}
+
+@keyframes cc-title-transition-fly-spin {
+  0% {
+    opacity: 0;
+    transform: translate3d(-44vw, 18vh, 0) rotate(-1080deg) scale(0.72);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(10deg) scale(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0) scale(1);
+  }
+}

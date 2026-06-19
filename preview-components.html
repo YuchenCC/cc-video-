@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="src/components/StackFrame/styles.css">
     <link rel="stylesheet" href="src/components/StackLabel/styles.css">
     <link rel="stylesheet" href="src/components/CheckBadge/styles.css">
+    <link rel="stylesheet" href="src/components/TitleTransition/styles.css">
     <style>
       :root {
         color: #333333;
@@ -45,6 +46,7 @@
 
       .preview-actions {
         display: flex;
+        flex-wrap: wrap;
         gap: 12px;
       }
 
@@ -93,6 +95,21 @@
         margin: 0;
       }
 
+      .preview-transition-stage {
+        aspect-ratio: 16 / 9;
+        background:
+          linear-gradient(rgba(47, 111, 143, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(47, 111, 143, 0.08) 1px, transparent 1px),
+          #ffffff;
+        background-size: 48px 48px;
+        border: 1px solid #d9e1e8;
+        border-radius: 12px;
+        box-sizing: border-box;
+        min-height: 320px;
+        overflow: hidden;
+        position: relative;
+      }
+
       @media (max-width: 900px) {
         .preview-page {
           padding: 28px;
@@ -118,6 +135,7 @@
         </div>
         <div class="preview-actions">
           <button class="preview-button" type="button" id="replay-check">Replay Check</button>
+          <button class="preview-button" type="button" id="replay-title">Replay Title</button>
         </div>
       </header>
 
@@ -184,12 +202,37 @@
             </div>
           </figure>
         </div>
+
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">TitleTransition</h2>
+          <div class="preview-transition-stage" id="title-transition-demo">
+            <section class="cc-title-transition cc-title-transition--blue cc-title-transition--animated">
+              <h1 class="cc-title-transition__text">配置篇</h1>
+            </section>
+          </div>
+          <p class="preview-note">Transparent full-stage layer with a fast one-shot spin fly-in title.</p>
+        </div>
+
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">Title Variants</h2>
+          <div class="preview-transition-stage">
+            <section
+              class="cc-title-transition cc-title-transition--teal cc-title-transition--animated"
+              style="--cc-title-transition-animation-duration: 680ms;"
+            >
+              <h1 class="cc-title-transition__text">接入篇</h1>
+            </section>
+          </div>
+          <p class="preview-note">This variant overrides the animation duration to 680ms.</p>
+        </div>
       </section>
     </main>
 
     <script>
       var replayButton = document.getElementById("replay-check");
+      var replayTitleButton = document.getElementById("replay-title");
       var demo = document.getElementById("check-demo");
+      var titleDemo = document.getElementById("title-transition-demo");
 
       replayButton.addEventListener("click", function () {
         var badges = demo.querySelectorAll(".cc-check-badge");
@@ -198,6 +241,13 @@
           void badge.offsetWidth;
           badge.classList.add("cc-check-badge--animated");
         });
+      });
+
+      replayTitleButton.addEventListener("click", function () {
+        var titleTransition = titleDemo.querySelector(".cc-title-transition");
+        titleTransition.classList.remove("cc-title-transition--animated");
+        void titleTransition.offsetWidth;
+        titleTransition.classList.add("cc-title-transition--animated");
       });
     </script>
   </body>
