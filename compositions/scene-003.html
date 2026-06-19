@@ -1,5 +1,10 @@
 <template id="scene-003-template">
   <div id="scene-003" class="scene-root scene-003" data-composition-id="scene-003" data-width="1920" data-height="1080" data-start="0" data-duration="34.5">
+    <section id="s3-title" class="cc-title-transition cc-title-transition--coral cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap="">
+      <h1 class="cc-title-transition__text">配置篇</h1>
+      <div class="chapter-rule"></div>
+    </section>
+
     <main id="s3-stage" class="concept-stage" data-layout-ignore="">
       <div class="concept-zones" aria-hidden="true" data-layout-ignore="">
         <div class="concept-zone concept-zone--left"></div>
@@ -172,6 +177,7 @@
 
     <style>
       @import url("../src/styles/runtime.css");
+      @import url("../src/components/TitleTransition/styles.css");
       @import url("../src/components/StackFrame/styles.css");
       @import url("../src/components/StackLabel/styles.css");
       @import url("../src/components/CheckBadge/styles.css");
@@ -186,6 +192,10 @@
 
       #scene-003 * {
         box-sizing: border-box;
+      }
+
+      #scene-003 .chapter-beat {
+        z-index: 20;
       }
 
       #scene-003 .concept-stage {
@@ -574,6 +584,10 @@
       function hidePanel(selector, time) {
         tl.to(selector, { opacity: 0, y: 18, scale: 0.96, duration: 0.24, ease: "power2.in", overwrite: "auto" }, time);
       }
+
+      tl.fromTo("#s3-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 0.2);
+      tl.fromTo("#s3-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
+      tl.to("#s3-title", { opacity: 0, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 2.18);
 
       tl.fromTo("#s3-entry", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 2.5);
       tl.fromTo("#s3-entry-label", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.48, ease: "expo.out", immediateRender: false }, 2.62);
