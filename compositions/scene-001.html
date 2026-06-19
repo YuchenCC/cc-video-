@@ -262,6 +262,10 @@
       #scene-001 .plug-concept {
         display: grid;
         place-items: center;
+        top: 182px;
+        left: 1168px;
+        width: 132px;
+        height: 132px;
         opacity: 0;
         transform-origin: center center;
       }
@@ -350,19 +354,28 @@
 
       tl.to(
         "#s1-stack-frame",
-        { x: -720, scale: 0.5, duration: 0.9, ease: "power3.inOut" },
+        { scale: 1.035, duration: 0.38, ease: "sine.inOut", yoyo: true, repeat: 1 },
         15
-      );
-      tl.to(
-        rows.join(", "),
-        { opacity: 0.35, duration: 0.45, ease: "power1.inOut" },
-        15.25
       );
       tl.fromTo(
         "#s1-plug-concept",
-        { opacity: 0, scale: 0.3 },
-        { opacity: 1, scale: 1, duration: 0.85, ease: "expo.out", immediateRender: false },
-        15.35
+        { opacity: 0, x: 310, y: -210, scale: 0.46, rotation: 8 },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          rotation: 0,
+          duration: 0.85,
+          ease: "expo.out",
+          immediateRender: false
+        },
+        15.15
+      );
+      tl.to(
+        "#s1-stack-frame .cc-stack-frame__body",
+        { borderColor: "#2C9A9A", duration: 0.45, ease: "power1.inOut" },
+        15.55
       );
 
       oldLabels.forEach(function (oldSelector, index) {
@@ -404,6 +417,12 @@
           start + 1.05
         );
       });
+
+      tl.to(
+        rows.join(", "),
+        { opacity: 1, duration: 0.4, ease: "power1.inOut", overwrite: "auto" },
+        20.65
+      );
 
       tl.to(
         "#s1-character-tired",
