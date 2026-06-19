@@ -36,6 +36,7 @@ const required = [
   'src/utils/timing.ts',
   'src/utils/scene.ts',
   'index.html',
+  'compositions/concept-expansion.html',
   'compositions/scene-001.html',
   'compositions/scene-002.html',
   'compositions/scene-003.html',

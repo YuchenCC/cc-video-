@@ -1,0 +1,335 @@
+<template id="concept-expansion-template">
+  <div
+    id="concept-expansion"
+    class="concept-expansion"
+    data-composition-id="concept-expansion"
+    data-width="1920"
+    data-height="1080"
+    data-start="0"
+    data-duration="20"
+  >
+    <div class="concept-canvas">
+      <svg
+        class="concept-links"
+        viewBox="0 0 1920 1080"
+        aria-hidden="true"
+        data-layout-ignore
+      >
+        <path id="concept-focus-link-1" d="M 310 290 C 500 290, 700 540, 960 540"></path>
+        <path id="concept-trail-link-1" d="M 310 290 C 330 350, 360 410, 400 460"></path>
+        <path id="concept-focus-link-2" d="M 400 460 C 570 460, 760 540, 960 540"></path>
+        <path id="concept-trail-link-2" d="M 400 460 C 430 520, 460 590, 490 640"></path>
+        <path id="concept-focus-link-3" d="M 490 640 C 650 640, 790 540, 960 540"></path>
+      </svg>
+
+      <!-- Replace these four labels with one continuous concept chain. -->
+      <div id="concept-root" class="concept-node">技术系统</div>
+      <div id="concept-child-1" class="concept-node">运行环境</div>
+      <div id="concept-child-2" class="concept-node">容器隔离</div>
+      <div id="concept-child-3" class="concept-node">命名空间</div>
+
+      <div class="concept-watermark" aria-label="CC Video">
+        <img src="../assets/logos/signature-logo.svg" alt="">
+      </div>
+    </div>
+
+    <style>
+      #concept-expansion {
+        --cc-bg: #F7F8FA;
+        --cc-surface: #FFFFFF;
+        --cc-blue: #2F6F8F;
+        --cc-blue-deep: #233B5E;
+        --cc-teal: #2C9A9A;
+        --cc-line: #D9E1E8;
+        --cc-muted: #AAB4BE;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--cc-bg);
+        color: var(--cc-blue-deep);
+        font-family: sans-serif;
+      }
+
+      #concept-expansion *,
+      #concept-expansion *::before,
+      #concept-expansion *::after {
+        box-sizing: border-box;
+      }
+
+      #concept-expansion .concept-canvas {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: var(--cc-bg);
+        background-image:
+          linear-gradient(rgba(47, 111, 143, 0.045) 2px, transparent 2px),
+          linear-gradient(90deg, rgba(47, 111, 143, 0.045) 2px, transparent 2px);
+        background-size: 64px 64px;
+      }
+
+      #concept-expansion .concept-canvas::after {
+        content: "";
+        position: absolute;
+        inset: 120px 180px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(44, 154, 154, 0.1) 0%,
+          rgba(44, 154, 154, 0) 68%
+        );
+        pointer-events: none;
+      }
+
+      #concept-expansion .concept-links {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      #concept-expansion .concept-links path {
+        fill: none;
+        stroke: var(--cc-teal);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 700;
+        stroke-dashoffset: 700;
+        opacity: 0.35;
+      }
+
+      #concept-expansion .concept-links path[id*="trail"] {
+        stroke: var(--cc-line);
+      }
+
+      #concept-expansion .concept-node {
+        position: absolute;
+        z-index: 3;
+        top: 444px;
+        left: 710px;
+        display: grid;
+        place-items: center;
+        width: 500px;
+        min-height: 192px;
+        padding: 36px 48px;
+        border: 4px solid var(--cc-blue);
+        border-radius: 32px;
+        background: var(--cc-surface);
+        box-shadow: 0 24px 60px rgba(47, 111, 143, 0.18);
+        color: var(--cc-blue-deep);
+        font-size: 56px;
+        font-weight: 600;
+        line-height: 1.18;
+        text-align: center;
+        transform-origin: center center;
+        opacity: 0;
+      }
+
+      #concept-expansion .concept-watermark {
+        position: absolute;
+        z-index: 10;
+        top: 28px;
+        right: 38px;
+        opacity: 0.76;
+        pointer-events: none;
+      }
+
+      #concept-expansion .concept-watermark img {
+        display: block;
+        width: auto;
+        height: 28px;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      var tl = gsap.timeline({ paused: true });
+      var ancestorOpacity = 0.35;
+
+      /*
+       * Fixed transforms keep rendering deterministic:
+       * root   -> left trail position 1
+       * child1 -> left trail position 2
+       * child2 -> left trail position 3
+       * child3 remains the current center focus
+       */
+      var trail = {
+        root: { x: -650, y: -250, scale: 0.68 },
+        child1: { x: -560, y: -80, scale: 0.72 },
+        child2: { x: -470, y: 100, scale: 0.76 }
+      };
+
+      tl.fromTo(
+        "#concept-root",
+        { opacity: 0, scale: 0.82 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.7,
+          ease: "back.out(1.35)",
+          immediateRender: false
+        },
+        0.2
+      );
+
+      tl.to(
+        "#concept-root",
+        {
+          x: trail.root.x,
+          y: trail.root.y,
+          scale: trail.root.scale,
+          opacity: ancestorOpacity,
+          duration: 0.8,
+          ease: "power3.inOut"
+        },
+        3
+      );
+      tl.to(
+        "#concept-focus-link-1",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        3.45
+      );
+      tl.fromTo(
+        "#concept-child-1",
+        {
+          x: trail.root.x,
+          y: trail.root.y,
+          scale: trail.root.scale,
+          opacity: ancestorOpacity,
+          borderRadius: 32,
+          backgroundColor: "#FFFFFF"
+        },
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          borderRadius: 32,
+          backgroundColor: "#FFFFFF",
+          duration: 0.9,
+          ease: "expo.out",
+          immediateRender: false
+        },
+        3.55
+      );
+
+      tl.to(
+        "#concept-focus-link-1",
+        { opacity: 0, duration: 0.35, ease: "power1.out" },
+        7.2
+      );
+      tl.to(
+        "#concept-trail-link-1",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        7.35
+      );
+      tl.to(
+        "#concept-child-1",
+        {
+          x: trail.child1.x,
+          y: trail.child1.y,
+          scale: trail.child1.scale,
+          opacity: ancestorOpacity,
+          duration: 0.8,
+          ease: "power3.inOut"
+        },
+        7.2
+      );
+      tl.to(
+        "#concept-focus-link-2",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        7.65
+      );
+      tl.fromTo(
+        "#concept-child-2",
+        {
+          x: trail.child1.x,
+          y: trail.child1.y,
+          scale: trail.child1.scale,
+          opacity: ancestorOpacity,
+          borderColor: "#2C9A9A"
+        },
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          borderColor: "#2F6F8F",
+          duration: 0.9,
+          ease: "expo.out",
+          immediateRender: false
+        },
+        7.75
+      );
+
+      tl.to(
+        "#concept-focus-link-2",
+        { opacity: 0, duration: 0.35, ease: "power1.out" },
+        11.4
+      );
+      tl.to(
+        "#concept-trail-link-2",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        11.55
+      );
+      tl.to(
+        "#concept-child-2",
+        {
+          x: trail.child2.x,
+          y: trail.child2.y,
+          scale: trail.child2.scale,
+          opacity: ancestorOpacity,
+          duration: 0.8,
+          ease: "power3.inOut"
+        },
+        11.4
+      );
+      tl.to(
+        "#concept-focus-link-3",
+        { strokeDashoffset: 0, duration: 0.55, ease: "power2.out" },
+        11.85
+      );
+      tl.fromTo(
+        "#concept-child-3",
+        {
+          x: trail.child2.x,
+          y: trail.child2.y,
+          scale: trail.child2.scale,
+          opacity: ancestorOpacity,
+          borderColor: "#2C9A9A"
+        },
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          borderColor: "#2F6F8F",
+          duration: 0.9,
+          ease: "expo.out",
+          immediateRender: false
+        },
+        11.95
+      );
+
+      tl.fromTo(
+        "#concept-child-3",
+        { boxShadow: "0 24px 60px rgba(47, 111, 143, 0.18)" },
+        {
+          boxShadow: "0 30px 76px rgba(47, 111, 143, 0.28)",
+          duration: 0.8,
+          ease: "power1.inOut",
+          immediateRender: false
+        },
+        15.2
+      );
+
+      window.__timelines["concept-expansion"] = tl;
+    </script>
+  </div>
+</template>

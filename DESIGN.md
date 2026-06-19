@@ -116,6 +116,20 @@ composition:
   watermarkPosition: top-right
   subtitlePosition: bottom-center
 
+compositionPatterns:
+  primary: concept-expansion
+  conceptExpansion:
+    origin: center
+    expansionDepthPerBeat: 1
+    preserveAncestors: true
+    ancestorPosition: left
+    ancestorOpacity: 0.35
+    childEntrance: morph-from-parent
+    focusPosition: center
+    showSceneHeadings: false
+    showSubtitles: false
+    showWatermark: true
+
 components:
   concept: [TechCard]
   command: [TerminalWindow]
@@ -227,6 +241,21 @@ avoid:
 3. **引导层**：箭头、标签、局部高亮、字幕和低存在感水印。
 
 背景层必须保持安静。工程的 3–5 个核心元素限制针对承载信息的内容层；装饰元素不计入核心元素，但数量和运动仍应克制。
+
+### 主构图叙事模式
+
+工程默认使用 `concept-expansion` 作为技术讲解的主场景模式：
+
+- 屏幕中央只保留当前正在讲解的概念。
+- 不显示场景主标题、副标题、章节标签、说明段落或底部字幕。
+- 右上角只固定展示低存在感 Logo。
+- 子概念从父概念的形态和位置中衍生，再移动到中央主视区。
+- 父概念保留在画面左侧的概念轨迹中，缩小并降低至 35% 透明度。
+- 当前节点始终使用完整对比度和主强调色。
+- 一次只扩展一个层级；禁止一次展开多个层级或平铺所有概念。
+- 当左侧概念轨迹无法继续清晰容纳时，应开始新的 Beat，而不是继续缩小节点。
+
+实现模板位于 [`compositions/concept-expansion.html`](compositions/concept-expansion.html)，详细使用方式见 [`docs/CONCEPT_EXPANSION_PATTERN.md`](docs/CONCEPT_EXPANSION_PATTERN.md)。
 
 ## 内容设计目标
 
