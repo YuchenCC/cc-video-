@@ -120,6 +120,8 @@ compositionPatterns:
   primary: concept-expansion
   conceptExpansion:
     origin: center
+    horizontalZones: [25, 50, 25]
+    verticalPaddingPercent: 20
     expansionDepthPerBeat: 1
     preserveAncestors: true
     ancestorPosition: left
@@ -247,11 +249,14 @@ avoid:
 工程默认使用 `concept-expansion` 作为技术讲解的主场景模式：
 
 - 屏幕中央只保留当前正在讲解的概念。
+- 画布固定分为左、中、右三个区域，宽度比例为 25% / 50% / 25%；中区是主视图。
+- 主视图上下各保留约 20% 画布高度作为安全留白，可用高度约为画布的 60%。
 - 不显示场景主标题、副标题、章节标签、说明段落或底部字幕。
 - 右上角只固定展示 Logo；`concept-expansion` 模板使用约 56px 高度，确保在 1920×1080 画面中清晰可辨。
 - 子概念从父概念的形态和位置中衍生，再移动到中央主视区。
 - 父概念保留在画面左侧的概念轨迹中，缩小并降低至 35% 透明度。
 - 当前节点始终使用完整对比度和主强调色。
+- 当前概念应在主视图可用区域内尽量撑开；图片使用 `object-fit: contain` 等比放大，不因原始像素尺寸较小而维持缩略图大小。
 - 从 `assets/` 引入的图标和人物直接使用素材轮廓，不添加卡片、圆形底、描边或有色背景容器；仅允许轻量投影增强分离度。
 - 一次只扩展一个层级；禁止一次展开多个层级或平铺所有概念。
 - 当左侧概念轨迹无法继续清晰容纳时，应开始新的 Beat，而不是继续缩小节点。

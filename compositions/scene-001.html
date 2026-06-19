@@ -8,7 +8,13 @@
     data-start="0"
     data-duration="28"
   >
-    <main class="concept-stage">
+    <main class="concept-stage" data-layout-ignore>
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore>
+        <div class="concept-zone concept-zone--left"></div>
+        <div class="concept-zone concept-zone--center"></div>
+        <div class="concept-zone concept-zone--right"></div>
+      </div>
+
       <section id="s1-nested-concept" class="nested-concept" aria-label="Java 通用信息脱敏组件">
         <div id="s1-computer-shell" class="nested-icon nested-icon--computer">
           <img src="../assets/icons/computer.png" alt="">
@@ -21,10 +27,15 @@
         </div>
       </section>
 
-      <section id="s1-stack-frame" class="cc-stack-frame cc-stack-frame--blue entry-frame" aria-label="敏感信息入口">
+      <section
+        id="s1-stack-frame"
+        class="cc-stack-frame cc-stack-frame--blue entry-frame"
+        aria-label="敏感信息入口"
+        data-layout-ignore
+      >
         <div class="cc-stack-frame__body">
           <div id="s1-row-api" class="coverage-row">
-            <div class="coverage-label-stage">
+            <div class="coverage-label-stage" data-layout-ignore>
               <div id="s1-old-api" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">接口</div>
               <div id="s1-new-api" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">覆盖接口响应</div>
             </div>
@@ -36,7 +47,7 @@
           </div>
 
           <div id="s1-row-log" class="coverage-row">
-            <div class="coverage-label-stage">
+            <div class="coverage-label-stage" data-layout-ignore>
               <div id="s1-old-log" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">日志</div>
               <div id="s1-new-log" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">覆盖日志输出</div>
             </div>
@@ -48,7 +59,7 @@
           </div>
 
           <div id="s1-row-cross" class="coverage-row">
-            <div class="coverage-label-stage">
+            <div class="coverage-label-stage" data-layout-ignore>
               <div id="s1-old-cross" class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md cc-stack-label--block coverage-label coverage-label--old">跨系统调用</div>
               <div id="s1-new-cross" class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block coverage-label coverage-label--new">主动脱敏</div>
             </div>
@@ -90,10 +101,32 @@
       }
 
       #scene-001 .concept-stage {
+        --concept-left-width: 25%;
+        --concept-center-width: 50%;
+        --concept-right-width: 25%;
+        --concept-vertical-padding: 216px;
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
+      }
+
+      #scene-001 .concept-zones {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        display: grid;
+        grid-template-columns:
+          var(--concept-left-width)
+          var(--concept-center-width)
+          var(--concept-right-width);
+        padding-block: var(--concept-vertical-padding);
+        pointer-events: none;
+      }
+
+      #scene-001 .concept-zone {
+        min-width: 0;
+        min-height: 0;
       }
 
       #scene-001 .concept-stage::after {
@@ -114,10 +147,10 @@
       #scene-001 .plug-concept {
         position: absolute;
         z-index: 3;
-        top: 330px;
-        left: 710px;
-        width: 500px;
-        height: 390px;
+        top: 216px;
+        left: 480px;
+        width: 960px;
+        height: 648px;
       }
 
       #scene-001 .nested-concept {
@@ -143,33 +176,33 @@
       }
 
       #scene-001 .nested-icon--file {
-        top: 92px;
-        left: 132px;
-        width: 236px;
-        height: 220px;
+        top: 154px;
+        left: 310px;
+        width: 340px;
+        height: 340px;
       }
 
       #scene-001 .nested-icon--java {
-        top: 144px;
-        left: 190px;
-        width: 120px;
-        height: 120px;
+        top: 244px;
+        left: 400px;
+        width: 160px;
+        height: 160px;
       }
 
       #scene-001 .entry-frame {
         position: absolute;
         z-index: 3;
-        top: 292px;
-        left: 600px;
-        width: 720px;
+        top: 274px;
+        left: 530px;
+        width: 860px;
         min-width: 0;
         opacity: 0;
         transform-origin: center center;
       }
 
       #scene-001 .entry-frame .cc-stack-frame__body {
-        gap: 18px;
-        padding: 32px;
+        gap: 22px;
+        padding: 38px;
         border-width: 5px;
         border-radius: 32px;
       }
@@ -186,16 +219,16 @@
       #scene-001 .coverage-label-stage {
         position: relative;
         min-width: 0;
-        height: 76px;
+        height: 104px;
       }
 
       #scene-001 .coverage-label {
         position: absolute;
         inset: 0;
         min-width: 0;
-        min-height: 76px;
-        font-size: 34px;
-        border-radius: 24px;
+        min-height: 104px;
+        font-size: 42px;
+        border-radius: 28px;
       }
 
       #scene-001 .coverage-label--new,
@@ -221,8 +254,8 @@
 
       #scene-001 .plug-concept img {
         display: block;
-        width: 340px;
-        height: 340px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         filter: drop-shadow(0 24px 34px rgba(47, 111, 143, 0.18));
       }
@@ -230,10 +263,10 @@
       #scene-001 .scene-character {
         position: absolute;
         z-index: 4;
-        right: 110px;
-        bottom: 138px;
-        width: 300px;
-        height: 360px;
+        top: 250px;
+        right: 50px;
+        width: 380px;
+        height: 560px;
         object-fit: contain;
         object-position: bottom center;
         opacity: 0;
@@ -320,7 +353,7 @@
 
       tl.to(
         "#s1-stack-frame",
-        { x: -490, scale: 0.78, duration: 0.9, ease: "power3.inOut" },
+        { x: -700, scale: 0.5, duration: 0.9, ease: "power3.inOut" },
         15
       );
       tl.to(
