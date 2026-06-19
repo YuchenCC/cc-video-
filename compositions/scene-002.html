@@ -83,7 +83,7 @@
             </span>
           </div>
           <div id="s2-source-log" class="left-stack-row">
-            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">日志格式</div>
+            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">日志格式灵活配置</div>
             <span id="s2-check-log" class="cc-check-badge cc-check-badge--green cc-check-badge--md left-stack-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="日志格式已接入">
                 <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
@@ -400,7 +400,7 @@
         position: absolute;
         z-index: 4;
         top: 241px;
-        left: 18px;
+        left: 48px;
         width: calc(var(--s2-left-label-width) + var(--s2-left-frame-extra-width));
         min-width: 0;
         opacity: 0;
@@ -455,8 +455,8 @@
         position: absolute;
         z-index: 2;
         top: 226px;
-        left: 42px;
-        width: 1366px;
+        left: 192px;
+        width: 1216px;
         height: 642px;
         border: 5px solid rgba(44, 154, 154, 0.76);
         border-radius: 42px;
@@ -564,9 +564,9 @@
       tl.to("#s2-source-message", { scale: 1, duration: 0.3, ease: "power1.inOut", overwrite: "auto" }, 28.25);
       tl.to("#s2-left-stack .cc-stack-frame__body", { borderColor: "#233b5e", backgroundColor: "#ffffff", boxShadow: "0 20px 42px rgba(47, 111, 143, 0.12)", duration: 0.5, ease: "power2.out" }, 28.85);
 
-      tl.to("#s2-left-stack", { x: 237, duration: 2, ease: "power3.inOut" }, 30.4);
+      tl.to("#s2-left-stack", { x: 207, duration: 2, ease: "power3.inOut" }, 30.4);
       tl.to("#s2-project", { x: -42, scale: 0.96, duration: 2, ease: "power3.inOut", overwrite: "auto" }, 30.4);
-      tl.fromTo("#s2-unified-box", { opacity: 0, x: -92, scaleX: 0.83, scaleY: 0.94 }, { opacity: 1, x: 0, scaleX: 1, scaleY: 1, duration: 2, ease: "power3.inOut", immediateRender: false }, 30.4);
+      tl.fromTo("#s2-unified-box", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out", immediateRender: false }, 32.42);
       tl.fromTo("#s2-config-art", { opacity: 0, x: 0, y: 0, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, 32.45);
       tl.to("#s2-config-art", { x: -565, y: 30, scale: 0.34, opacity: 0, duration: 3, ease: "power3.inOut" }, 34.4);
       tl.to("#s2-unified-box", { borderColor: "rgba(60, 174, 163, 0.95)", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 32.7);
