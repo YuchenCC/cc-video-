@@ -5,7 +5,7 @@
 视觉特征：
 
 - 胶囊圆角矩形，横向撑满容器。
-- 在 `StackFrame` 中，同组 Label 由最长文案确定可用宽度，其余 Label 使用 `width: 100%` 撑到相同宽度。
+- 在 `StackFrame` 中，同组 Label 使用固定宽度；该宽度等于当前 StackFrame 的内容宽度，不随单条文案长短变化。
 - 颜色由 `colorScheme` 显式决定，不根据文案字符串自动猜测；场景应按语义动态选择。
 - `coral-dark`：粉红背景 + 深色文字。
 - `blue-light`：深蓝背景 + 白色文字。

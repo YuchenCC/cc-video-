@@ -237,8 +237,9 @@ avoid:
 
 ### StackFrame 与 StackLabel
 
-- `StackFrame` 与 `StackLabel` 组合时，Frame 宽度由内部最长 Label、状态图标和 padding 自适应决定，不使用与内容无关的固定宽度。
-- Label 默认保持单行；Frame 先按最长 Label、状态图标和 padding 计算宽度，再让同组所有较短 Label 横向撑满 Frame 的可用内容宽度。同组新旧文案替换时从一开始就按最长文案预留，避免动画过程中 Frame 宽度跳变。
+- `StackFrame` 与 `StackLabel` 组合时，必须先确定一个当前 Frame 内容宽度，再让同组所有 Label 使用同一个固定宽度；Label 宽度等于当前 StackFrame 的内容宽度，不随单条文案长短变化。
+- Label 默认保持单行；Frame 内容宽度可由最长 Label、可选状态图标和 padding 估算后写入场景变量，但一旦进入该 Beat 就保持不变。同组新旧文案替换时从一开始就按这个宽度预留，避免动画过程中 Frame 或 Label 宽度跳变。
+- CheckBadge 等状态图标应作为行内状态覆盖或右侧固定锚点处理，不让某一行因为状态图标额外变宽，也不改变 Label 的固定宽度。
 - 口播逐项介绍多个层级或入口时，可让 Label 按语义点依次出现；每项间隔通常为 0.8–1.4 秒。
 - Label 颜色按语义动态选择：风险、问题和旧方案使用 `coral-dark`；技术中性、结构和稳定对象使用 `blue-light`；当前流程、已接入和已覆盖状态使用 `teal-light`。
 - 同组 Label 不为“颜色丰富”随机换色；颜色变化必须对应语义或状态变化。

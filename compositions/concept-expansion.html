@@ -187,28 +187,28 @@
 
       /*
        * StackFrame + StackLabel composition contract:
-       * content determines width; replacement labels share a grid cell so
-       * the frame reserves the longest state before animation starts.
+       * each beat fixes the current frame content width, then every row,
+       * label stage, and label fills that width. Check badges are anchored
+       * inside the row so they never change the label width.
        */
       #concept-expansion .concept-stack {
-        width: fit-content;
+        --concept-stack-label-width: 520px;
+        width: calc(var(--concept-stack-label-width) + 76px);
         min-width: 0;
         max-width: 100%;
       }
 
       #concept-expansion .concept-stack .cc-stack-frame__body {
         display: grid;
-        width: max-content;
+        width: var(--concept-stack-label-width);
         max-width: 100%;
         justify-items: stretch;
       }
 
       #concept-expansion .concept-stack-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: center;
-        gap: 18px;
-        width: 100%;
+        position: relative;
+        display: block;
+        width: var(--concept-stack-label-width);
       }
 
       #concept-expansion .concept-stack--sequential .concept-stack-row {
@@ -217,8 +217,7 @@
 
       #concept-expansion .concept-stack-label-stage {
         display: grid;
-        width: 100%;
-        min-width: max-content;
+        width: var(--concept-stack-label-width);
       }
 
       #concept-expansion .concept-stack-label-stage > .cc-stack-label {
@@ -226,6 +225,13 @@
         width: 100%;
         min-width: 0;
         white-space: nowrap;
+      }
+
+      #concept-expansion .concept-stack-check {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
       }
 
       #concept-expansion .concept-watermark {

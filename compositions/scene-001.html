@@ -192,11 +192,12 @@
       }
 
       #scene-001 .entry-frame {
+        --s1-stack-label-width: 460px;
         position: absolute;
         z-index: 3;
         top: 230px;
         left: 50%;
-        width: fit-content;
+        width: calc(var(--s1-stack-label-width) + 86px);
         min-width: 0;
         max-width: 960px;
         translate: -50% 0;
@@ -206,7 +207,7 @@
 
       #scene-001 .entry-frame .cc-stack-frame__body {
         display: grid;
-        width: max-content;
+        width: var(--s1-stack-label-width);
         max-width: 960px;
         justify-items: stretch;
         gap: 22px;
@@ -216,19 +217,16 @@
       }
 
       #scene-001 .coverage-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 72px;
-        align-items: center;
-        gap: 18px;
-        width: 100%;
+        position: relative;
+        display: block;
+        width: var(--s1-stack-label-width);
         opacity: 0;
         transform-origin: center center;
       }
 
       #scene-001 .coverage-label-stage {
         display: grid;
-        width: 100%;
-        min-width: max-content;
+        width: var(--s1-stack-label-width);
         height: 104px;
       }
 
@@ -237,6 +235,7 @@
         width: 100%;
         min-width: 0;
         min-height: 104px;
+        padding-right: 116px;
         font-size: 42px;
         border-radius: 28px;
       }
@@ -247,7 +246,11 @@
       }
 
       #scene-001 .coverage-check {
+        position: absolute;
+        top: 50%;
+        right: 16px;
         width: 72px;
+        translate: 0 -50%;
         transform-origin: center center;
       }
 

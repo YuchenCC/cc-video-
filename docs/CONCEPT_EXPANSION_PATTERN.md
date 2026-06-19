@@ -66,10 +66,11 @@
 
 当概念使用 `StackFrame` 包含多个 `StackLabel` 时：
 
-- Frame 使用 `width: fit-content`，内部 body 使用 `width: max-content`。
-- Frame 的最终宽度由最长 Label、可选 CheckBadge 和内边距共同决定。
-- Label 槽使用 `min-width: max-content` 提供最长文案的固有宽度；Frame 宽度确定后，所有行、Label 槽和 Label 本体使用 `width: 100%`，让较短 Label 与最长 Label 等宽。
-- 同一位置的新旧 Label 应使用 CSS Grid 重叠，容器同时参与两者的固有尺寸计算；禁止绝对定位后再手写固定宽度。
+- Frame 必须先确定一个当前内容宽度，例如 `--concept-stack-label-width: 520px`；内部 body、每一行、Label 槽和 Label 本体都使用这个固定宽度。
+- Label 宽度等于当前 StackFrame 的内容宽度，不随单条文案、旧新状态或 CheckBadge 出现而变化。
+- 内容宽度可以按最长 Label、可选 CheckBadge 预留区和 padding 估算，但该宽度必须作为场景 Token 固定下来，禁止动画过程中自适应跳变。
+- 同一位置的新旧 Label 使用 CSS Grid 重叠，共享同一个固定宽度；不要用绝对定位脱离尺寸计算。
+- CheckBadge 等状态图标使用行内右侧固定锚点或覆盖层，不能额外撑宽某一行。
 - 如果口播依次介绍各项，Label 可以按口播语义点逐个进入，推荐间隔 0.8–1.4 秒。
 - 风险/问题使用 `coral-dark`，技术中性使用 `blue-light`，流程或覆盖完成使用 `teal-light`。
 - 颜色切换必须表达状态变化，不随机轮换。
@@ -84,6 +85,7 @@
         <div class="cc-stack-label cc-stack-label--coral-dark">旧状态</div>
         <div class="cc-stack-label cc-stack-label--teal-light">新状态</div>
       </div>
+      <span class="cc-check-badge concept-stack-check"></span>
     </div>
   </div>
 </figure>
