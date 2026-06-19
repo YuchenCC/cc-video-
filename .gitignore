@@ -12,3 +12,5 @@ snapshots/
 !.env.example
 exports/*
 !exports/README.md
+.idea
+.waveform-cache
