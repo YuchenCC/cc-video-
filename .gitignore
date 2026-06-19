@@ -1,6 +1,10 @@
 node_modules/
 dist/
 .cache/
+.hyperframes/
+.thumbnails/
+renders/
+snapshots/
 .DS_Store
 *.log
 .env

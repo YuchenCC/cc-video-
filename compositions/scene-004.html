@@ -1,0 +1,103 @@
+<template id="scene-004-template">
+  <div class="scene-root" data-composition-id="scene-004" data-width="1920" data-height="1080" data-start="0" data-duration="53.5">
+    <div class="orb orb--one" data-layout-allow-overflow></div>
+    <div class="orb orb--two" data-layout-allow-overflow></div>
+    <div class="ghost-word" data-layout-ignore>LOG SAFETY</div>
+
+    <section id="s4-title" class="cc-title-transition cc-title-transition--dark cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
+      <h1 class="cc-title-transition__text">日志篇</h1>
+      <div class="chapter-rule"></div>
+    </section>
+
+    <main id="s4-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow>
+      <div class="scene-meta">SCENE 04 · LOGGING</div>
+      <h1 class="scene-heading">日志来源复杂，但处理路径可以很清楚</h1>
+      <p class="scene-kicker">有字段名时复用接口规则；没有字段名时，只对边界明确的数据做兜底识别。</p>
+
+      <section class="stage stage--split">
+        <div class="stage">
+          <div class="stage stage--three">
+            <article id="s4-up" class="panel"><span class="panel-label">UPSTREAM</span><h2 class="panel-title">上游参数</h2></article>
+            <article id="s4-self" class="panel panel--focus"><span class="panel-label">LOCAL</span><h2 class="panel-title">本系统数据</h2></article>
+            <article id="s4-down" class="panel"><span class="panel-label">DOWNSTREAM</span><h2 class="panel-title">下游返回</h2></article>
+          </div>
+          <div id="s4-terminal" class="terminal">
+            <div class="terminal-head">
+              <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+            </div>
+            <pre class="terminal-body"><span class="terminal-line">INFO request user.mobile=138****0000</span><span class="terminal-line">DEBUG downstream response payload=...</span><span class="terminal-line terminal-line--hot">WARN raw text contains 110***********1234</span></pre>
+          </div>
+        </div>
+
+        <div class="stage">
+          <article id="s4-fields" class="panel panel--success">
+            <span class="panel-label">STRUCTURED LOG</span>
+            <h2 class="panel-title">有字段名：复用接口配置</h2>
+            <div class="chip-row">
+              <span class="chip chip--success">user.mobile</span>
+              <span class="chip chip--success">customer.email</span>
+            </div>
+          </article>
+          <article id="s4-fallback" class="panel panel--risk">
+            <span class="panel-label">PLAIN TEXT</span>
+            <h2 class="panel-title">无字段名：进入兜底检测器</h2>
+            <div class="chip-row">
+              <span class="chip chip--risk">手机号</span>
+              <span class="chip chip--risk">证件号</span>
+              <span class="chip chip--risk">邮箱</span>
+            </div>
+          </article>
+          <article id="s4-performance" class="panel">
+            <span class="panel-label">PERFORMANCE BOUNDARY</span>
+            <div class="metric"><strong>3</strong><span>类边界明确的数据</span></div>
+            <p class="panel-copy">不是全量扫描，尽量控制对日志性能的影响。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="caption" data-layout-allow-overlap>日志往往是最难治理的地方</div>
+    <div class="caption" data-layout-allow-overlap>上游、本系统和下游内容都可能被直接打印</div>
+    <div class="caption" data-layout-allow-overlap>只靠人工梳理，很难保证没有遗漏</div>
+    <div class="caption" data-layout-allow-overlap>有明确字段名时直接复用接口脱敏配置</div>
+    <div class="caption" data-layout-allow-overlap>整段文本没有字段名时使用兜底识别</div>
+    <div class="caption" data-layout-allow-overlap>兜底只处理边界明确的数据类型</div>
+
+    <style>
+      @import url("../src/styles/runtime.css");
+      @import url("../src/components/TitleTransition/styles.css");
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      var captions = document.querySelectorAll('[data-composition-id="scene-004"] .caption');
+
+      tl.fromTo("#s4-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out" }, 0.2);
+      tl.fromTo("#s4-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.46);
+      tl.to("#s4-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
+      tl.fromTo("#s4-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.3);
+      tl.fromTo(".scene-meta", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.45);
+      tl.fromTo(".scene-heading", { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.66, ease: "expo.out" }, 2.65);
+      tl.fromTo(".scene-kicker", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "sine.out" }, 3.05);
+      tl.fromTo("#s4-up", { opacity: 0, x: -38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out" }, 5);
+      tl.fromTo("#s4-self", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "circ.out" }, 6.2);
+      tl.fromTo("#s4-down", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power4.out" }, 7.4);
+      tl.fromTo("#s4-terminal", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.12)" }, 10.5);
+      tl.to("#s4-up, #s4-self, #s4-down", { opacity: 0.42, duration: 0.35, ease: "power1.inOut" }, 16);
+      tl.fromTo("#s4-fields", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.56, ease: "expo.out" }, 21.5);
+      tl.to("#s4-fields", { scale: 1.025, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 27);
+      tl.fromTo("#s4-fallback", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.58, ease: "power3.out" }, 33.5);
+      tl.to("#s4-fallback", { boxShadow: "0 22px 46px rgba(239,123,133,0.2)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 40);
+      tl.fromTo("#s4-performance", { opacity: 0, y: 38 }, { opacity: 1, y: 0, duration: 0.6, ease: "circ.out" }, 45.8);
+      tl.to("#s4-performance", { borderColor: "#3CAEA3", duration: 0.55, ease: "power2.inOut" }, 50);
+
+      [[0, 2.7, 8.4], [1, 8.7, 16.7], [2, 17, 23.2], [3, 23.5, 33], [4, 33.3, 44.5], [5, 44.8, 53.1]].forEach(function (item) {
+        tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" }, item[1]);
+        tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);
+      });
+
+      window.__timelines["scene-004"] = tl;
+    </script>
+  </div>
+</template>

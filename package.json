@@ -5,9 +5,13 @@
   "description": "A framework-agnostic project template for whiteboard-style technical explainer videos.",
   "type": "module",
   "scripts": {
-    "check": "node scripts/validate-project.mjs"
+    "preview": "npx hyperframes preview",
+    "lint": "npx hyperframes lint",
+    "inspect": "npx hyperframes inspect --samples 30",
+    "snapshot": "npx hyperframes snapshot --frames 11 --describe false",
+    "check": "node scripts/validate-project.mjs && npx hyperframes lint"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   }
 }

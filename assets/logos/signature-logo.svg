@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="132" viewBox="0 0 420 132" role="img" aria-label="@再见手艺人">
+  <title>@再见手艺人</title>
+  <defs>
+    <linearGradient id="signature-ink" x1="32" y1="24" x2="378" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="0.56" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="soft-paper-lift" x="-12%" y="-24%" width="124%" height="148%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft-paper-lift)">
+    <path
+      d="M26 93 C70 65, 118 47, 166 53 C207 58, 243 82, 289 75 C324 70, 352 48, 391 35"
+      fill="none"
+      stroke="#F97316"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.42"/>
+    <path
+      d="M50 104 C103 91, 160 89, 211 98 C252 105, 303 101, 361 78"
+      fill="none"
+      stroke="#2563EB"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.26"/>
+    <text
+      x="20"
+      y="82"
+      fill="url(#signature-ink)"
+      font-family="STXingkai, FZShuTi, KaiTi, Kaiti SC, serif"
+      font-size="55"
+      font-weight="500"
+      letter-spacing="1.5">
+      @再见手艺人
+    </text>
+  </g>
+</svg>

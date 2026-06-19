@@ -8,6 +8,7 @@ const required = [
   'README.md',
   'DESIGN.md',
   'docs/PROJECT_MEMORY.md',
+  'docs/init.md',
   'docs/STYLE_GUIDE.md',
   'docs/RHYTHM_RULES.md',
   'docs/MOTION_PRESETS.md',
@@ -31,8 +32,16 @@ const required = [
   'src/styles/typography.ts',
   'src/styles/spacing.ts',
   'src/styles/motion.ts',
+  'src/styles/runtime.css',
   'src/utils/timing.ts',
   'src/utils/scene.ts',
+  'index.html',
+  'compositions/scene-001.html',
+  'compositions/scene-002.html',
+  'compositions/scene-003.html',
+  'compositions/scene-004.html',
+  'compositions/scene-005.html',
+  'compositions/scene-006.html',
 ]
 
 const missing = []

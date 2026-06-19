@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1920, height=1080">
-    <title>CC Video - Scene 001 Cover</title>
+    <title>Safe Output 组件介绍</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
+      html,
       body {
         margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #f7f8fa;
+        background: #F7F8FA;
       }
 
       #main {
@@ -19,66 +20,77 @@
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #f7f8fa;
+        background: #F7F8FA;
       }
 
-      .cover-scene {
+      .scene-host {
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #f7f8fa;
+        width: 1920px;
+        height: 1080px;
       }
 
-      .cover-image {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .fade-to-next {
+      .root-watermark {
         position: absolute;
-        inset: 0;
+        z-index: 100;
+        top: 28px;
+        right: 38px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #6F7C88;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        opacity: 0.76;
         pointer-events: none;
-        background: #f7f8fa;
-        opacity: 0;
+      }
+
+      .root-watermark img {
+        width: auto;
+        height: 28px;
+      }
+
+      .chapter-wipe {
+        position: absolute;
+        z-index: 90;
+        inset: 0;
+        background: #2F6F8F;
+        transform: scaleX(0);
+        transform-origin: left center;
+        pointer-events: none;
       }
     </style>
   </head>
   <body>
-    <div id="main" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="4">
-      <section id="scene-001" class="cover-scene" aria-label="Cover image">
-        <img id="scene-001-cover" class="cover-image" src="assets/ppt/01-cover-pptmob-v3-cib-fintech-ai.png" alt="">
-      </section>
-      <div id="fade-to-next" class="fade-to-next"></div>
+    <div data-hf-id="hf-izc3" id="main" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="287.5">
+      <div data-hf-id="hf-x704" id="scene-host-001" class="scene-host" data-composition-id="scene-001" data-composition-src="compositions/scene-001.html" data-start="0" data-duration="28" data-track-index="0"></div>
+      <div data-hf-id="hf-9wvy" id="scene-host-002" class="scene-host" data-composition-id="scene-002" data-composition-src="compositions/scene-002.html" data-start="27.6" data-duration="37.5" data-track-index="1"></div>
+      <div data-hf-id="hf-uuml" id="scene-host-003" class="scene-host" data-composition-id="scene-003" data-composition-src="compositions/scene-003.html" data-start="64.7" data-duration="34.5" data-track-index="0"></div>
+      <div data-hf-id="hf-tzn6" id="scene-host-004" class="scene-host" data-composition-id="scene-004" data-composition-src="compositions/scene-004.html" data-start="98.8" data-duration="53.5" data-track-index="1"></div>
+      <div data-hf-id="hf-zt86" id="scene-host-005" class="scene-host" data-composition-id="scene-005" data-composition-src="compositions/scene-005.html" data-start="151.9" data-duration="76.5" data-track-index="0"></div>
+      <div data-hf-id="hf-p3pp" id="scene-host-006" class="scene-host" data-composition-id="scene-006" data-composition-src="compositions/scene-006.html" data-start="228" data-duration="59.5" data-track-index="1"></div>
+
+      <div data-hf-id="hf-y6mf" class="root-watermark" aria-label="CC Video">
+        <img data-hf-id="hf-se6t" src="assets/logos/signature-logo.svg" alt="">
+      </div>
+      <div data-hf-id="hf-bram" id="chapter-wipe" class="chapter-wipe"></div>
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
-
       var tl = gsap.timeline({ paused: true });
-      tl.from(
-        "#scene-001-cover",
-        {
-          opacity: 0,
-          duration: 0.3,
-          ease: "power2.out",
-        },
-        0.1,
-      );
-      tl.to(
-        "#fade-to-next",
-        {
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        3.5,
-      );
+      var boundaries = [27.6, 64.7, 98.8, 151.9, 228];
+      var colors = ["#2F6F8F", "#2C9A9A", "#EF7B85", "#233B5E", "#2C9A9A"];
 
-      window.__timelines["main"] = tl;
+      boundaries.forEach(function (time, index) {
+        tl.set("#chapter-wipe", { backgroundColor: colors[index], transformOrigin: "left center" }, time);
+        tl.fromTo("#chapter-wipe", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.in", overwrite: "auto" }, time);
+        tl.set("#chapter-wipe", { transformOrigin: "right center" }, time + 0.2);
+        tl.to("#chapter-wipe", { scaleX: 0, duration: 0.2, ease: "power2.out", overwrite: "auto" }, time + 0.2);
+      });
+
+      window.__timelines.main = tl;
     </script>
   </body>
 </html>

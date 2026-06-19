@@ -1,18 +1,18 @@
 export const typography = {
   title: {
-    fontFamily: '"Noto Sans CJK SC", "PingFang SC", Inter, sans-serif',
+    fontFamily: 'sans-serif',
     fontWeight: 600,
   },
   label: {
-    fontFamily: '"Noto Sans CJK SC", "PingFang SC", Inter, sans-serif',
+    fontFamily: 'sans-serif',
     fontWeight: 500,
   },
   body: {
-    fontFamily: '"Noto Sans CJK SC", "PingFang SC", Inter, sans-serif',
+    fontFamily: 'sans-serif',
     fontWeight: 400,
   },
   subtitle: {
-    fontFamily: '"Noto Sans CJK SC", "PingFang SC", Inter, sans-serif',
+    fontFamily: 'sans-serif',
     fontWeight: 400,
     color: '#FFFFFF',
   },
