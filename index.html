@@ -90,6 +90,9 @@
       var boundaries = [27.6, 64.7, 98.8, 151.9, 228];
       var colors = ["#2F6F8F", "#2C9A9A", "#EF7B85", "#233B5E", "#2C9A9A"];
 
+      tl.set(".root-watermark", { scale: 2, transformOrigin: "right top" }, 0);
+      tl.set(".root-watermark", { scale: 1, transformOrigin: "right top" }, 27.8);
+
       boundaries.forEach(function (time, index) {
         tl.set("#chapter-wipe", { backgroundColor: colors[index], transformOrigin: "left center" }, time);
         tl.fromTo("#chapter-wipe", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power2.in", overwrite: "auto" }, time);
