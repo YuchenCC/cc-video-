@@ -17,6 +17,8 @@ const required = [
   'docs/ACCEPTANCE_CHECKLIST.md',
   'assets/characters/CHARACTER_CATALOG.md',
   'src/components/README.md',
+  'src/components/CheckBadge/README.md',
+  'src/components/CheckBadge/styles.css',
   'src/components/StackFrame/README.md',
   'src/components/StackFrame/styles.css',
   'src/components/StackLabel/README.md',

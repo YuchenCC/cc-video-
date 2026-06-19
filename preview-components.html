@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Components Preview</title>
+    <link rel="stylesheet" href="src/components/StackFrame/styles.css">
+    <link rel="stylesheet" href="src/components/StackLabel/styles.css">
+    <link rel="stylesheet" href="src/components/CheckBadge/styles.css">
+    <style>
+      :root {
+        color: #333333;
+        font-family: "Noto Sans CJK SC", "PingFang SC", Inter, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f7f8fa;
+      }
+
+      .preview-page {
+        box-sizing: border-box;
+        display: grid;
+        gap: 36px;
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 48px;
+      }
+
+      .preview-header {
+        align-items: center;
+        display: flex;
+        gap: 18px;
+        justify-content: space-between;
+      }
+
+      .preview-title {
+        color: #233b5e;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      .preview-actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .preview-button {
+        background: #233b5e;
+        border: 0;
+        border-radius: 8px;
+        color: #ffffff;
+        cursor: pointer;
+        font: inherit;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 10px 16px;
+      }
+
+      .preview-grid {
+        align-items: start;
+        display: grid;
+        gap: 42px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .preview-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .preview-panel-title {
+        color: #233b5e;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .preview-check-row {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+      }
+
+      .preview-note {
+        color: #aab4be;
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      @media (max-width: 900px) {
+        .preview-page {
+          padding: 28px;
+        }
+
+        .preview-header {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-page">
+      <header class="preview-header">
+        <div>
+          <h1 class="preview-title">Components Preview</h1>
+          <p class="preview-note">StackFrame / StackLabel / CheckBadge</p>
+        </div>
+        <div class="preview-actions">
+          <button class="preview-button" type="button" id="replay-check">Replay Check</button>
+        </div>
+      </header>
+
+      <section class="preview-grid" aria-label="component previews">
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">StackFrame + StackLabel</h2>
+          <figure class="cc-stack-frame cc-stack-frame--blue">
+            <figcaption class="cc-stack-frame__title">A机器</figcaption>
+            <div class="cc-stack-frame__body">
+              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--lg cc-stack-label--block">代码应用</div>
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--lg cc-stack-label--block">依赖+配置</div>
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--lg cc-stack-label--block">ubuntu</div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">Color Variants</h2>
+          <figure class="cc-stack-frame cc-stack-frame--teal">
+            <figcaption class="cc-stack-frame__title">B机器</figcaption>
+            <div class="cc-stack-frame__body">
+              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--lg cc-stack-label--block">代码应用</div>
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--lg cc-stack-label--block">依赖+配置</div>
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--lg cc-stack-label--block">centos</div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">CheckBadge Animation</h2>
+          <div class="preview-check-row" id="check-demo">
+            <span class="cc-check-badge cc-check-badge--teal cc-check-badge--lg cc-check-badge--animated">
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="完成">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+            <span
+              class="cc-check-badge cc-check-badge--green cc-check-badge--md cc-check-badge--animated"
+              style="--cc-check-badge-animation-duration: 800ms;"
+            >
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="校验通过">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+            <span class="cc-check-badge cc-check-badge--blue cc-check-badge--sm cc-check-badge--animated">
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="已完成">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+          </div>
+          <p class="preview-note">The check mark is drawn with a 500ms default CSS animation. The middle badge overrides it to 800ms.</p>
+        </div>
+
+        <div class="preview-panel">
+          <h2 class="preview-panel-title">Custom Frame Color</h2>
+          <figure
+            class="cc-stack-frame"
+            style="--cc-stack-frame-border-color: #ef7b85; --cc-stack-frame-title-color: #ef7b85;"
+          >
+            <figcaption class="cc-stack-frame__title">自定义</figcaption>
+            <div class="cc-stack-frame__body">
+              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md cc-stack-label--block">任意标签</div>
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md cc-stack-label--block">颜色独立</div>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      var replayButton = document.getElementById("replay-check");
+      var demo = document.getElementById("check-demo");
+
+      replayButton.addEventListener("click", function () {
+        var badges = demo.querySelectorAll(".cc-check-badge");
+        badges.forEach(function (badge) {
+          badge.classList.remove("cc-check-badge--animated");
+          void badge.offsetWidth;
+          badge.classList.add("cc-check-badge--animated");
+        });
+      });
+    </script>
+  </body>
+</html>

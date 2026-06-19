@@ -27,6 +27,8 @@ export type FlowDirection = 'horizontal' | 'vertical'
 export type StackLabelColorScheme = 'coral-dark' | 'blue-light' | 'teal-light'
 export type StackLabelSize = 'md' | 'lg'
 export type StackFrameColorScheme = 'blue' | 'teal' | 'coral' | 'gray'
+export type CheckBadgeColorScheme = 'teal' | 'green' | 'blue'
+export type CheckBadgeSize = 'sm' | 'md' | 'lg'
 
 export interface BaseComponentProps {
   id?: string
@@ -121,6 +123,14 @@ export interface StackFrameProps extends BaseComponentProps {
   title?: string
   children?: HtmlChild
   colorScheme?: StackFrameColorScheme
+}
+
+export interface CheckBadgeProps extends BaseComponentProps {
+  label?: string
+  colorScheme?: CheckBadgeColorScheme
+  size?: CheckBadgeSize
+  animated?: boolean
+  animationDurationMs?: number
 }
 
 const baseTextStyle = {
@@ -306,6 +316,41 @@ export const StackFrame = ({
         )
       : '',
     html('div', { className: 'cc-stack-frame__body' }, children ?? ''),
+  )
+
+export const CheckBadge = ({
+  label = '完成',
+  colorScheme = 'teal',
+  size = 'md',
+  animated = true,
+  animationDurationMs,
+  ...props
+}: CheckBadgeProps = {}): string =>
+  html(
+    'span',
+    cssRootAttrs(
+      cx(
+        'cc-check-badge',
+        `cc-check-badge--${colorScheme}`,
+        `cc-check-badge--${size}`,
+        animated ? 'cc-check-badge--animated' : 'cc-check-badge--static',
+      ),
+      {
+        ...props,
+        style:
+          animationDurationMs === undefined
+            ? props.style
+            : {
+                ...props.style,
+                '--cc-check-badge-animation-duration': `${animationDurationMs}ms`,
+              },
+      },
+    ),
+    `<svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="${escapeHtml(
+      label,
+    )}">
+      <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
+    </svg>`,
   )
 
 export const MachineBox = ({

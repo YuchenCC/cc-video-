@@ -1,0 +1,77 @@
+:root {
+  --cc-check-badge-teal-bg: #2c9a9a;
+  --cc-check-badge-green-bg: #3caea3;
+  --cc-check-badge-blue-bg: #2f6f8f;
+  --cc-check-badge-mark-color: #ffffff;
+  --cc-check-badge-animation-duration: 500ms;
+}
+
+.cc-check-badge {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--cc-check-badge-teal-bg);
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cc-check-badge--sm {
+  width: 48px;
+}
+
+.cc-check-badge--md {
+  width: 72px;
+}
+
+.cc-check-badge--lg {
+  width: 96px;
+}
+
+.cc-check-badge--teal {
+  background: var(--cc-check-badge-teal-bg);
+}
+
+.cc-check-badge--green {
+  background: var(--cc-check-badge-green-bg);
+}
+
+.cc-check-badge--blue {
+  background: var(--cc-check-badge-blue-bg);
+}
+
+.cc-check-badge__icon {
+  display: block;
+  height: 68%;
+  overflow: visible;
+  width: 68%;
+}
+
+.cc-check-badge__mark {
+  fill: none;
+  stroke: var(--cc-check-badge-mark-color);
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 7;
+}
+
+.cc-check-badge--animated .cc-check-badge__mark {
+  animation: cc-check-badge-draw var(--cc-check-badge-animation-duration) ease-out forwards;
+}
+
+.cc-check-badge--static .cc-check-badge__mark {
+  stroke-dashoffset: 0;
+}
+
+@keyframes cc-check-badge-draw {
+  from {
+    stroke-dashoffset: 48;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

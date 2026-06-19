@@ -101,6 +101,7 @@
 | 表示技术栈中的单层标签 | `StackLabel` |
 | 表示技术分层 | `LayerStack` |
 | 表示方向和数据流 | `FlowArrow` |
+| 表示完成、成功或校验通过 | `CheckBadge` |
 | 表示两种方案差异 | `CompareLayout` |
 | 表示操作步骤 | `StepList` |
 | 展示口播摘要 | `SubtitleBar` |
