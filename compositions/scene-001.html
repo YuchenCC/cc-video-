@@ -76,6 +76,10 @@
         <img src="../assets/icons/plug.png" alt="">
       </section>
 
+      <section id="s1-java-badge" class="stack-java-badge" aria-label="Java 脱敏组件已接入">
+        <img src="../assets/icons/java_logo.png" alt="">
+      </section>
+
       <section id="s1-dependency-demo" class="dependency-demo" aria-label="Maven 依赖接入示例" data-layout-ignore>
         <div id="s1-dependency-terminal" class="dependency-terminal">
           <div class="dependency-terminal__bar" aria-hidden="true">
@@ -83,11 +87,11 @@
             <span></span>
             <span></span>
           </div>
-          <pre id="s1-dependency-code" class="dependency-terminal__code">&lt;dependency&gt;
-  &lt;groupId&gt;com.safeoutput&lt;/groupId&gt;
-  &lt;artifactId&gt;safe-output-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.1.0-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;</pre>
+          <pre id="s1-dependency-code" class="dependency-terminal__code"><span class="dependency-code-token dependency-code-token--tag">&lt;dependency&gt;</span>
+  <span class="dependency-code-token dependency-code-token--tag">&lt;groupId&gt;</span><span class="dependency-code-token dependency-code-token--value">com.safeoutput</span><span class="dependency-code-token dependency-code-token--tag">&lt;/groupId&gt;</span>
+  <span class="dependency-code-token dependency-code-token--tag">&lt;artifactId&gt;</span><span class="dependency-code-token dependency-code-token--value">safe-output-spring-boot-starter</span><span class="dependency-code-token dependency-code-token--tag">&lt;/artifactId&gt;</span>
+  <span class="dependency-code-token dependency-code-token--tag">&lt;version&gt;</span><span class="dependency-code-token dependency-code-token--value">0.1.0-SNAPSHOT</span><span class="dependency-code-token dependency-code-token--tag">&lt;/version&gt;</span>
+<span class="dependency-code-token dependency-code-token--tag">&lt;/dependency&gt;</span></pre>
         </div>
         <img id="s1-keyboard" class="dependency-keyboard" src="../assets/icons/keyboard.png" alt="">
       </section>
@@ -294,19 +298,43 @@
         filter: drop-shadow(0 24px 34px rgba(47, 111, 143, 0.18));
       }
 
+      #scene-001 .stack-java-badge {
+        position: absolute;
+        z-index: 4;
+        top: 188px;
+        left: 1188px;
+        display: grid;
+        place-items: center;
+        width: 112px;
+        height: 112px;
+        padding: 16px;
+        border-radius: 26px;
+        background: #ffffff;
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.16);
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-001 .stack-java-badge img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
       #scene-001 .dependency-demo {
         position: absolute;
         z-index: 5;
-        top: 128px;
-        left: 40px;
-        width: 650px;
+        top: 118px;
+        left: 26px;
+        width: 782px;
         height: 594px;
         pointer-events: none;
       }
 
       #scene-001 .dependency-terminal {
         width: 100%;
-        height: 348px;
+        height: 368px;
         overflow: hidden;
         border: 2px solid rgba(31, 41, 51, 0.2);
         border-radius: 16px;
@@ -344,16 +372,24 @@
 
       #scene-001 .dependency-terminal__code {
         margin: 0;
-        padding: 28px 26px 30px;
+        padding: 28px 28px 30px;
         color: #e5e7eb;
         font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 14.5px;
+        font-size: 20px;
         font-weight: 400;
-        line-height: 1.62;
+        line-height: 1.54;
         letter-spacing: 0;
         white-space: pre;
         tab-size: 2;
         box-sizing: border-box;
+      }
+
+      #scene-001 .dependency-code-token--tag {
+        color: #ffe08a;
+      }
+
+      #scene-001 .dependency-code-token--value {
+        color: #3caea3;
       }
 
       #scene-001 .dependency-code-char {
@@ -400,14 +436,26 @@
       var checks = ["#s1-check-api", "#s1-check-log", "#s1-check-cross"];
       var dependencyCode = document.querySelector("#s1-dependency-code");
       var dependencyText = dependencyCode.textContent;
+      var dependencyChars = [];
 
-      dependencyCode.textContent = "";
-      dependencyText.split("").forEach(function (char) {
-        var span = document.createElement("span");
-        span.className = "dependency-code-char";
-        span.textContent = char;
-        dependencyCode.appendChild(span);
-      });
+      function wrapDependencyCodeChars(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          var fragment = document.createDocumentFragment();
+          node.textContent.split("").forEach(function (char) {
+            var span = document.createElement("span");
+            span.className = "dependency-code-char";
+            span.textContent = char;
+            dependencyChars.push(span);
+            fragment.appendChild(span);
+          });
+          node.parentNode.replaceChild(fragment, node);
+          return;
+        }
+
+        Array.prototype.slice.call(node.childNodes).forEach(wrapDependencyCodeChars);
+      }
+
+      wrapDependencyCodeChars(dependencyCode);
 
       tl.fromTo(
         "#s1-nested-concept",
@@ -466,7 +514,7 @@
         13.12
       );
       tl.to(
-        "#s1-dependency-code .dependency-code-char",
+        dependencyChars,
         { opacity: 1, duration: 0.01, stagger: { each: 10 / Math.max(dependencyText.length - 1, 1) }, ease: "none" },
         13.25
       );
@@ -478,12 +526,12 @@
       );
       tl.fromTo(
         "#s1-plug-concept",
-        { opacity: 0, x: 310, y: -210, scale: 0.46, rotation: 8 },
+        { opacity: 0, x: 310, y: -210, scale: 0.9, rotation: 8 },
         {
           opacity: 1,
           x: 0,
           y: 0,
-          scale: 1,
+          scale: 2,
           rotation: 0,
           duration: 0.85,
           ease: "expo.out",
@@ -495,6 +543,17 @@
         "#s1-stack-frame .cc-stack-frame__body",
         { borderColor: "#2C9A9A", duration: 0.45, ease: "power1.inOut" },
         15.55
+      );
+      tl.to(
+        "#s1-plug-concept",
+        { opacity: 0, scale: 1.55, duration: 0.28, ease: "power2.in", overwrite: "auto" },
+        16.08
+      );
+      tl.fromTo(
+        "#s1-java-badge",
+        { opacity: 0, scale: 0.74 },
+        { opacity: 1, scale: 1, duration: 0.38, ease: "back.out(1.18)", immediateRender: false },
+        16.12
       );
 
       oldLabels.forEach(function (oldSelector, index) {
