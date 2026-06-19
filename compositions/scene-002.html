@@ -91,7 +91,7 @@
             </span>
           </div>
           <div id="s2-source-export" class="left-stack-row">
-            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">导出场景</div>
+            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">导出场景主动调用</div>
             <span id="s2-check-export" class="cc-check-badge cc-check-badge--green cc-check-badge--md left-stack-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="导出场景已接入">
                 <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
@@ -99,7 +99,7 @@
             </span>
           </div>
           <div id="s2-source-message" class="left-stack-row">
-            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">消息发送</div>
+            <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md left-stack-label">消息发送主动调用</div>
             <span id="s2-check-message" class="cc-check-badge cc-check-badge--green cc-check-badge--md left-stack-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="消息发送已接入">
                 <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
@@ -568,7 +568,7 @@
       tl.to("#s2-project", { x: -42, scale: 0.96, duration: 2, ease: "power3.inOut", overwrite: "auto" }, 30.4);
       tl.fromTo("#s2-unified-box", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out", immediateRender: false }, 32.42);
       tl.fromTo("#s2-config-art", { opacity: 0, x: 0, y: 0, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, 32.45);
-      tl.to("#s2-config-art", { x: -565, y: 30, scale: 0.34, opacity: 0, duration: 3, ease: "power3.inOut" }, 34.4);
+      tl.to("#s2-config-art", { x: -865, y: 30, scale: 0.34, opacity: 0, duration: 3, ease: "power3.inOut" }, 34.4);
       tl.to("#s2-unified-box", { borderColor: "rgba(60, 174, 163, 0.95)", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 32.7);
 
       [[0, 2.7, 6.7], [1, 7, 15.2], [2, 15.5, 22.2], [3, 22.5, 29.7], [4, 30, 37.1]].forEach(function (item) {
