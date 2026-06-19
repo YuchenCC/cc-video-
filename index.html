@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>CC Video - Scene 001 Cover</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f7f8fa;
+      }
+
+      #main {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f7f8fa;
+      }
+
+      .cover-scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #f7f8fa;
+      }
+
+      .cover-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .fade-to-next {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: #f7f8fa;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="4">
+      <section id="scene-001" class="cover-scene" aria-label="Cover image">
+        <img id="scene-001-cover" class="cover-image" src="assets/ppt/01-cover-pptmob-v3-cib-fintech-ai.png" alt="">
+      </section>
+      <div id="fade-to-next" class="fade-to-next"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      var tl = gsap.timeline({ paused: true });
+      tl.from(
+        "#scene-001-cover",
+        {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        0.1,
+      );
+      tl.to(
+        "#fade-to-next",
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        3.5,
+      );
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
