@@ -564,10 +564,11 @@
       tl.to("#s2-source-message", { scale: 1, duration: 0.3, ease: "power1.inOut", overwrite: "auto" }, 28.25);
       tl.to("#s2-left-stack .cc-stack-frame__body", { borderColor: "#233b5e", backgroundColor: "#ffffff", boxShadow: "0 20px 42px rgba(47, 111, 143, 0.12)", duration: 0.5, ease: "power2.out" }, 28.85);
 
-      tl.to("#s2-left-stack", { x: 237, duration: 0.72, ease: "power3.inOut" }, 30.4);
-      tl.fromTo("#s2-unified-box", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out", immediateRender: false }, 30.55);
+      tl.to("#s2-left-stack", { x: 237, duration: 2, ease: "power3.inOut" }, 30.4);
+      tl.to("#s2-project", { x: -42, scale: 0.96, duration: 2, ease: "power3.inOut", overwrite: "auto" }, 30.4);
+      tl.fromTo("#s2-unified-box", { opacity: 0, x: -92, scaleX: 0.83, scaleY: 0.94 }, { opacity: 1, x: 0, scaleX: 1, scaleY: 1, duration: 2, ease: "power3.inOut", immediateRender: false }, 30.4);
       tl.fromTo("#s2-config-art", { opacity: 1, x: 0, y: 0, scale: 1 }, { x: -565, y: 30, scale: 0.34, opacity: 0, duration: 3, ease: "power3.inOut", immediateRender: false }, 34.4);
-      tl.to("#s2-unified-box", { borderColor: "rgba(60, 174, 163, 0.95)", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 33.1);
+      tl.to("#s2-unified-box", { borderColor: "rgba(60, 174, 163, 0.95)", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 32.7);
 
       [[0, 2.7, 6.7], [1, 7, 15.2], [2, 15.5, 22.2], [3, 22.5, 29.7], [4, 30, 37.1]].forEach(function (item) {
         tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto", immediateRender: false }, item[1]);
