@@ -163,7 +163,7 @@
         position: absolute;
         display: grid;
         place-items: center;
-        opacity: 0;
+        opacity: 1;
       }
 
       #scene-001 .nested-icon img {
@@ -293,27 +293,9 @@
 
       tl.fromTo(
         "#s1-nested-concept",
-        { opacity: 0, scale: 0.9 },
-        { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out", immediateRender: false },
-        0.2
-      );
-      tl.fromTo(
-        "#s1-computer-shell",
         { opacity: 0, scale: 0.82 },
-        { opacity: 1, scale: 1, duration: 0.62, ease: "back.out(1.25)", immediateRender: false },
-        0.35
-      );
-      tl.fromTo(
-        "#s1-file-shell",
-        { opacity: 0, scale: 0.62 },
-        { opacity: 1, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false },
-        1.15
-      );
-      tl.fromTo(
-        "#s1-java-shell",
-        { opacity: 0, scale: 0.45 },
-        { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.35)", immediateRender: false },
-        2.05
+        { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.25)", immediateRender: false },
+        0.2
       );
       tl.to(
         "#s1-nested-concept",
