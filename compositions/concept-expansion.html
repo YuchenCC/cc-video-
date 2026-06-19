@@ -193,14 +193,15 @@
        */
       #concept-expansion .concept-stack {
         --concept-stack-label-width: 520px;
-        width: calc(var(--concept-stack-label-width) + 76px);
+        --concept-stack-frame-extra-width: 76px;
+        width: calc(var(--concept-stack-label-width) + var(--concept-stack-frame-extra-width));
         min-width: 0;
         max-width: 100%;
       }
 
       #concept-expansion .concept-stack .cc-stack-frame__body {
         display: grid;
-        width: var(--concept-stack-label-width);
+        width: calc(var(--concept-stack-label-width) + var(--concept-stack-frame-extra-width));
         max-width: 100%;
         justify-items: stretch;
       }

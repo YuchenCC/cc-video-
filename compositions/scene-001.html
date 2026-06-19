@@ -193,11 +193,12 @@
 
       #scene-001 .entry-frame {
         --s1-stack-label-width: 460px;
+        --s1-stack-frame-extra-width: 86px;
         position: absolute;
         z-index: 3;
         top: 230px;
         left: 50%;
-        width: calc(var(--s1-stack-label-width) + 86px);
+        width: calc(var(--s1-stack-label-width) + var(--s1-stack-frame-extra-width));
         min-width: 0;
         max-width: 960px;
         translate: -50% 0;
@@ -207,7 +208,7 @@
 
       #scene-001 .entry-frame .cc-stack-frame__body {
         display: grid;
-        width: var(--s1-stack-label-width);
+        width: calc(var(--s1-stack-label-width) + var(--s1-stack-frame-extra-width));
         max-width: 960px;
         justify-items: stretch;
         gap: 22px;

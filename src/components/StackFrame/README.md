@@ -8,7 +8,7 @@
 - 方框为粗描边圆角矩形。
 - 内部使用纵向布局，适合放置多个 `StackLabel`。
 - 高度不固定，由内部内容、间距和 padding 自然撑开。
-- 与 `StackLabel` 组合时，场景层必须先确定当前 Frame 内容宽度，再让每个 Label 固定使用同一宽度。这个宽度可以由最长 Label、状态图标预留区和 padding 推导，但进入 Beat 后不再随文案或 CheckBadge 变化。
+- 与 `StackLabel` 组合时，场景层必须先确定当前 Frame 内容区宽度，再让每个 Label 固定使用同一宽度。Frame 外框/body 宽度应等于 Label 内容区宽度加左右 padding 与 border，避免 Label 顶破边框。这个宽度进入 Beat 后不再随文案或 CheckBadge 变化。
 - CheckBadge 等状态组件应锚定在行内右侧，不让某一行额外撑宽。
 - 颜色由 `colorScheme` 或 CSS 变量决定，与标题和内部内容无关。
 

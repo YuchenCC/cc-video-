@@ -66,9 +66,10 @@
 
 当概念使用 `StackFrame` 包含多个 `StackLabel` 时：
 
-- Frame 必须先确定一个当前内容宽度，例如 `--concept-stack-label-width: 520px`；内部 body、每一行、Label 槽和 Label 本体都使用这个固定宽度。
-- Label 宽度等于当前 StackFrame 的内容宽度，不随单条文案、旧新状态或 CheckBadge 出现而变化。
-- 内容宽度可以按最长 Label、可选 CheckBadge 预留区和 padding 估算，但该宽度必须作为场景 Token 固定下来，禁止动画过程中自适应跳变。
+- Frame 必须先确定一个当前内容区宽度，例如 `--concept-stack-label-width: 520px`；每一行、Label 槽和 Label 本体都使用这个固定宽度。
+- StackFrame 外框/body 宽度必须等于 Label 内容区宽度加左右 padding 与 border，例如 `calc(var(--concept-stack-label-width) + var(--concept-stack-frame-extra-width))`，避免 Label 顶破边框。
+- Label 宽度等于当前 StackFrame 的内容区宽度，不随单条文案、旧新状态或 CheckBadge 出现而变化。
+- 内容区宽度可以按最长 Label 和可选 CheckBadge 预留区估算，但该宽度必须作为场景 Token 固定下来，禁止动画过程中自适应跳变。
 - 同一位置的新旧 Label 使用 CSS Grid 重叠，共享同一个固定宽度；不要用绝对定位脱离尺寸计算。
 - CheckBadge 等状态图标使用行内右侧固定锚点或覆盖层，不能额外撑宽某一行。
 - 如果口播依次介绍各项，Label 可以按口播语义点逐个进入，推荐间隔 0.8–1.4 秒。
