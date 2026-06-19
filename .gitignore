@@ -3,5 +3,8 @@ dist/
 .cache/
 .DS_Store
 *.log
+.env
+.env.*
+!.env.example
 exports/*
 !exports/README.md
