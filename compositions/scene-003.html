@@ -1,88 +1,635 @@
 <template id="scene-003-template">
-  <div class="scene-root" data-composition-id="scene-003" data-width="1920" data-height="1080" data-start="0" data-duration="34.5">
-    <div class="orb orb--one" data-layout-allow-overflow></div>
-    <div class="orb orb--two" data-layout-allow-overflow></div>
-    <div class="ghost-word" data-layout-ignore>CONFIG</div>
+  <div id="scene-003" class="scene-root scene-003" data-composition-id="scene-003" data-width="1920" data-height="1080" data-start="0" data-duration="34.5">
+    <main id="s3-stage" class="concept-stage" data-layout-ignore="">
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore="">
+        <div class="concept-zone concept-zone--left"></div>
+        <div class="concept-zone concept-zone--center"></div>
+        <div class="concept-zone concept-zone--right"></div>
+      </div>
 
-    <section id="s3-title" class="cc-title-transition cc-title-transition--coral cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
-      <h1 class="cc-title-transition__text">配置篇</h1>
-      <div class="chapter-rule"></div>
-    </section>
-
-    <main id="s3-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow>
-      <div class="scene-meta">SCENE 03 · CONFIGURATION</div>
-      <h1 class="scene-heading">四层配置，从常见字段走向业务扩展</h1>
-      <p class="scene-kicker">基础能力直接可用，增强与例外处理复杂边界，自定义能力仍复用统一统计。</p>
-
-      <section class="stage stage--split">
-        <div id="s3-stack" class="layer-stack">
-          <div class="layer"><span class="layer-index">01</span><strong>基础能力 · 常见字段规则</strong></div>
-          <div class="layer"><span class="layer-index">02</span><strong>增强能力 · 注解、字段、路径</strong></div>
-          <div class="layer"><span class="layer-index">03</span><strong>例外能力 · 保留原值并记录</strong></div>
-          <div class="layer"><span class="layer-index">04</span><strong>自定义能力 · 特殊数据策略</strong></div>
-        </div>
-
-        <div class="stage">
-          <article id="s3-basic" class="panel panel--focus">
-            <span class="panel-label">BUILT-IN</span>
-            <h2 class="panel-title">常见敏感字段开箱即用</h2>
-            <div class="chip-row">
-              <span class="chip">手机号</span>
-              <span class="chip">证件号</span>
-              <span class="chip">银行卡号</span>
-              <span class="chip">邮箱</span>
-              <span class="chip">密码</span>
+      <section id="s3-entry" class="entry-concept" aria-label="配置规则四层清单">
+        <div id="s3-entry-label" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--lg entry-label">配置规则</div>
+        <figure id="s3-entry-stack" class="cc-stack-frame cc-stack-frame--blue entry-stack" data-layout-ignore="">
+          <div class="cc-stack-frame__body">
+            <div id="s3-list-basic" class="entry-stack-row">
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label">基础能力</div>
             </div>
-          </article>
-          <div class="stage stage--three">
-            <article id="s3-enhance" class="panel"><span class="panel-label">ENHANCE</span><h2 class="panel-title">复杂命名与层级</h2></article>
-            <article id="s3-exception" class="panel panel--risk"><span class="panel-label">EXCEPTION</span><h2 class="panel-title">明确保留原值</h2></article>
-            <article id="s3-custom" class="panel panel--success"><span class="panel-label">PLUGIN</span><h2 class="panel-title">业务自定义策略</h2></article>
+            <div id="s3-list-enhance" class="entry-stack-row">
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label">增强能力</div>
+            </div>
+            <div id="s3-list-exception" class="entry-stack-row">
+              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md entry-stack-label">例外能力</div>
+            </div>
+            <div id="s3-list-custom" class="entry-stack-row">
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md entry-stack-label">自定义能力</div>
+            </div>
           </div>
-          <article id="s3-stats" class="panel panel--success">
-            <span class="panel-label">SHARED STATISTICS</span>
-            <h2 class="panel-title">所有扩展继续复用统一规则与统计能力</h2>
-          </article>
+        </figure>
+      </section>
+
+      <section id="s3-card-basic" class="ability-card ability-card--basic" aria-label="基础能力">
+        <div class="ability-card__head">
+          <span class="ability-card__index">01</span>
+          <span class="ability-card__title">基础能力</span>
+        </div>
+        <div class="ability-card__summary">常见规则开箱即用</div>
+        <div class="field-grid">
+          <span class="field-chip">手机号</span>
+          <span class="field-chip">证件号</span>
+          <span class="field-chip">银行卡号</span>
+          <span class="field-chip">邮箱</span>
+          <span class="field-chip">密码</span>
         </div>
       </section>
-    </main>
 
-    <div class="caption" data-layout-allow-overlap>配置分为四个层次</div>
-    <div class="caption" data-layout-allow-overlap>基础规则直接覆盖五类常见敏感字段</div>
-    <div class="caption" data-layout-allow-overlap>增强规则处理命名不统一和复杂层级</div>
-    <div class="caption" data-layout-allow-overlap>例外配置允许保留原值并留下记录</div>
-    <div class="caption" data-layout-allow-overlap>自定义策略仍复用统一规则和统计</div>
+      <section id="s3-card-enhance" class="ability-card ability-card--enhance" aria-label="增强能力">
+        <div class="ability-card__head">
+          <span class="ability-card__index">02</span>
+          <span class="ability-card__title">增强能力</span>
+        </div>
+        <div class="ability-card__summary">处理复杂命名与层级</div>
+        <div class="feature-grid">
+          <span class="feature-chip">自定义配置</span>
+          <span class="feature-chip">字段注解</span>
+          <span class="feature-chip">路径规则</span>
+          <span class="feature-chip">复杂命名与层级</span>
+        </div>
+      </section>
+
+      <section id="s3-card-exception" class="ability-card ability-card--exception" aria-label="例外能力">
+        <div class="ability-card__head">
+          <span class="ability-card__index">03</span>
+          <span class="ability-card__title">例外能力</span>
+        </div>
+        <div class="exception-pair">
+          <span>保留原值</span>
+          <span class="pair-plus">+</span>
+          <span>记录例外</span>
+        </div>
+      </section>
+
+      <section id="s3-card-custom" class="ability-card ability-card--custom" aria-label="自定义能力">
+        <div class="ability-card__head">
+          <span class="ability-card__index">04</span>
+          <span class="ability-card__title">自定义能力</span>
+        </div>
+        <div class="custom-stack">
+          <div id="s3-custom-field" class="custom-row">
+            <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏字段</div>
+            <span id="s3-check-field" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏字段">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+          </div>
+          <div id="s3-custom-method" class="custom-row">
+            <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏方法</div>
+            <span id="s3-check-method" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏方法">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+          </div>
+          <div id="s3-custom-ignore" class="custom-row">
+            <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏忽略</div>
+            <span id="s3-check-ignore" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
+              <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏忽略">
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section id="s3-code-basic" class="code-panel code-panel--basic" aria-label="基础规则代码">
+        <div class="code-panel__bar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>DefaultMaskRules.java</strong>
+        </div>
+        <pre class="code-panel__code"><code><span class="code-line">public final class DefaultMaskRules {</span>
+<span class="code-line">  rules.add(MaskRule.defaults("default.mobile")</span>
+<span class="code-line code-highlight">      .keys(Arrays.asList("mobile", "phone", "telephone", "tel", "userMobile"))</span>
+<span class="code-line">      .type(MaskTypes.MOBILE)</span>
+<span class="code-line">      .build());</span>
+<span class="code-line">  rules.add(MaskRule.defaults("default.bank-card")</span>
+<span class="code-line code-highlight">      .keys(Arrays.asList("bankCard", "cardNo", "bankNo"))</span>
+<span class="code-line">      .type(MaskTypes.BANK_CARD)</span>
+<span class="code-line">      .build());</span>
+<span class="code-line">}</span></code></pre>
+      </section>
+
+      <section id="s3-code-enhance" class="code-panel code-panel--enhance" aria-label="增强规则代码">
+        <div class="code-panel__bar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>application.yml</strong>
+        </div>
+        <pre class="code-panel__code"><code><span class="code-line">safe-output:</span>
+<span class="code-line">  rules:</span>
+<span class="code-line">    - name: demoAddress</span>
+<span class="code-line">      keys:</span>
+<span class="code-line">        - <span id="s3-mark-shipping" class="code-boxmark">shippingAddress</span></span>
+<span class="code-line">      type: ADDRESS</span>
+<span class="code-line">    - name: demoDefault</span>
+<span class="code-line">      keys:</span>
+<span class="code-line">        - <span id="s3-mark-answer" class="code-boxmark">securityAnswer</span></span>
+<span class="code-line">      type: DEFAULT</span></code></pre>
+      </section>
+
+      <section id="s3-code-exception" class="code-panel code-panel--exception" aria-label="例外规则代码">
+        <div class="code-panel__bar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>safe-output-ignore.yml</strong>
+        </div>
+        <pre class="code-panel__code"><code><span class="code-line">safe-output:</span>
+<span class="code-line">  <span id="s3-mark-ignore" class="code-boxmark">ignore</span>:</span>
+<span class="code-line">    apis:</span>
+<span class="code-line">      - method: GET</span>
+<span class="code-line">        pattern: /demo/business/customers<span id="s3-mark-raw-a" class="code-boxmark">/*/</span>raw</span>
+<span class="code-line">        reason: business console reveal customer sensitive fields</span>
+<span class="code-line">      - method: GET</span>
+<span class="code-line">        pattern: /demo/business/payments<span id="s3-mark-raw-b" class="code-boxmark">/*/</span>raw</span>
+<span class="code-line">        reason: business console reveal payment sensitive fields</span></code></pre>
+      </section>
+
+      <figure id="s3-client-shot" class="context-shot context-shot--client" aria-label="客户端展示截图">
+        <img src="../assets/images/kehudangan.png" alt="客户端档案截图">
+      </figure>
+
+      <figure id="s3-eye-before" class="context-shot context-shot--eye" aria-label="例外配置前">
+        <img src="../assets/images/xiaoyanjing.png" alt="例外配置前截图">
+      </figure>
+
+      <figure id="s3-eye-after" class="context-shot context-shot--eye" aria-label="例外配置后">
+        <img src="../assets/images/xiaoyanjinghou.png" alt="例外配置后截图">
+      </figure>
+    </main>
 
     <style>
       @import url("../src/styles/runtime.css");
-      @import url("../src/components/TitleTransition/styles.css");
+      @import url("../src/components/StackFrame/styles.css");
+      @import url("../src/components/StackLabel/styles.css");
+      @import url("../src/components/CheckBadge/styles.css");
+
+      #scene-003 {
+        background: #f7f8fa;
+      }
+
+      #scene-003::before {
+        opacity: 0.48;
+      }
+
+      #scene-003 * {
+        box-sizing: border-box;
+      }
+
+      #scene-003 .concept-stage {
+        --concept-left-width: 25%;
+        --concept-center-width: 50%;
+        --concept-right-width: 25%;
+        --concept-top-padding: 238px;
+        --concept-bottom-padding: 238px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #scene-003 .concept-zones {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        display: grid;
+        grid-template-columns:
+          var(--concept-left-width)
+          var(--concept-center-width)
+          var(--concept-right-width);
+        padding-top: var(--concept-top-padding);
+        padding-bottom: var(--concept-bottom-padding);
+        pointer-events: none;
+      }
+
+      #scene-003 .concept-zone {
+        min-width: 0;
+        min-height: 0;
+      }
+
+      #scene-003 .concept-stage::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 206px;
+        left: 50%;
+        width: 980px;
+        height: 710px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(47, 111, 143, 0.12), rgba(44, 154, 154, 0.07) 42%, rgba(44, 154, 154, 0) 70%);
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      #scene-003 .entry-concept {
+        position: absolute;
+        z-index: 4;
+        top: 252px;
+        left: 50%;
+        display: grid;
+        width: 620px;
+        justify-items: center;
+        gap: 24px;
+        translate: -50% 0;
+        opacity: 0;
+        transform-origin: center top;
+      }
+
+      #scene-003 .entry-label {
+        width: 440px;
+        min-height: 88px;
+        border-radius: 28px;
+        font-size: 42px;
+        font-weight: 600;
+      }
+
+      #scene-003 .entry-stack {
+        --s3-stack-label-width: 460px;
+        --s3-stack-frame-extra-width: 84px;
+        width: calc(var(--s3-stack-label-width) + var(--s3-stack-frame-extra-width));
+        min-width: 0;
+        opacity: 0;
+        transform-origin: center top;
+      }
+
+      #scene-003 .entry-stack .cc-stack-frame__body {
+        display: grid;
+        width: calc(var(--s3-stack-label-width) + var(--s3-stack-frame-extra-width));
+        gap: 16px;
+        padding: 34px 38px;
+        border-width: 5px;
+        border-radius: 32px;
+      }
+
+      #scene-003 .entry-stack-row {
+        width: var(--s3-stack-label-width);
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .entry-stack-label {
+        width: var(--s3-stack-label-width);
+        min-height: 78px;
+        font-size: 34px;
+        text-align: center;
+      }
+
+      #scene-003 .ability-card {
+        position: absolute;
+        z-index: 4;
+        top: 238px;
+        left: 560px;
+        display: grid;
+        width: 800px;
+        min-height: 320px;
+        align-content: start;
+        gap: 22px;
+        padding: 34px 38px;
+        border: 5px solid #2f6f8f;
+        border-radius: 34px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 24px 54px rgba(47, 111, 143, 0.14);
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .ability-card--exception {
+        border-color: #ef7b85;
+      }
+
+      #scene-003 .ability-card--custom {
+        border-color: #2c9a9a;
+      }
+
+      #scene-003 .ability-card__head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: #233b5e;
+        font-weight: 600;
+      }
+
+      #scene-003 .ability-card__index {
+        display: grid;
+        place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        background: rgba(47, 111, 143, 0.12);
+        color: #2f6f8f;
+        font-size: 26px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      #scene-003 .ability-card--exception .ability-card__index {
+        background: rgba(239, 123, 133, 0.14);
+        color: #ef7b85;
+      }
+
+      #scene-003 .ability-card--custom .ability-card__index {
+        background: rgba(44, 154, 154, 0.14);
+        color: #2c9a9a;
+      }
+
+      #scene-003 .ability-card__title {
+        font-size: 44px;
+        line-height: 1.08;
+      }
+
+      #scene-003 .ability-card__summary {
+        color: #333333;
+        font-size: 34px;
+        font-weight: 500;
+      }
+
+      #scene-003 .field-grid,
+      #scene-003 .feature-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      #scene-003 .field-chip,
+      #scene-003 .feature-chip {
+        display: grid;
+        place-items: center;
+        min-height: 62px;
+        padding: 0 24px;
+        border-radius: 18px;
+        background: rgba(44, 154, 154, 0.12);
+        color: #233b5e;
+        font-size: 30px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      #scene-003 .feature-chip {
+        background: rgba(47, 111, 143, 0.11);
+      }
+
+      #scene-003 .exception-pair {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        min-height: 162px;
+        color: #233b5e;
+        font-size: 44px;
+        font-weight: 600;
+      }
+
+      #scene-003 .pair-plus {
+        display: grid;
+        place-items: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(239, 123, 133, 0.14);
+        color: #ef7b85;
+        font-size: 48px;
+      }
+
+      #scene-003 .custom-stack {
+        display: grid;
+        gap: 18px;
+        width: 560px;
+        justify-self: center;
+      }
+
+      #scene-003 .custom-row {
+        position: relative;
+        width: 560px;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .custom-label {
+        width: 560px;
+        min-height: 78px;
+        padding-right: 86px;
+        font-size: 32px;
+      }
+
+      #scene-003 .custom-check {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        width: 58px;
+        translate: 0 -50%;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .custom-check .cc-check-badge__mark {
+        stroke-dashoffset: 48;
+      }
+
+      #scene-003 .code-panel {
+        position: absolute;
+        z-index: 5;
+        top: 578px;
+        left: 560px;
+        width: 800px;
+        height: 260px;
+        overflow: hidden;
+        border: 2px solid rgba(31, 41, 51, 0.2);
+        border-radius: 18px;
+        background: #1f2933;
+        box-shadow: 0 24px 44px rgba(35, 59, 94, 0.16);
+        opacity: 0;
+        transform-origin: center top;
+      }
+
+      #scene-003 .code-panel__bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 44px;
+        padding: 0 18px;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.1);
+        background: rgba(15, 23, 31, 0.42);
+        color: #aab4be;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 16px;
+      }
+
+      #scene-003 .code-panel__bar span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ef7b85;
+      }
+
+      #scene-003 .code-panel__bar span:nth-child(2) {
+        background: #ffe08a;
+      }
+
+      #scene-003 .code-panel__bar span:nth-child(3) {
+        background: #3caea3;
+      }
+
+      #scene-003 .code-panel__bar strong {
+        margin-left: 8px;
+        font-weight: 500;
+      }
+
+      #scene-003 .code-panel__code {
+        margin: 0;
+        padding: 18px 22px 22px;
+        color: #e5e7eb;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.38;
+        white-space: pre;
+        font-variant-ligatures: none;
+      }
+
+      #scene-003 .code-panel--basic .code-panel__code {
+        font-size: 15px;
+        line-height: 1.34;
+      }
+
+      #scene-003 .code-line {
+        display: block;
+        min-height: 1.28em;
+      }
+
+      #scene-003 .code-highlight {
+        background: rgba(255, 224, 138, 0.18);
+        color: #ffe08a;
+      }
+
+      #scene-003 .code-boxmark {
+        display: inline-block;
+        padding: 0 3px;
+        border: 2px solid #ef7b85;
+        border-radius: 6px;
+        color: #ffe08a;
+        line-height: 1.25;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .context-shot {
+        position: absolute;
+        z-index: 4;
+        right: 76px;
+        width: 390px;
+        border-radius: 24px;
+        background: #ffffff;
+        box-shadow: 0 24px 48px rgba(35, 59, 94, 0.16);
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-003 .context-shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        object-fit: contain;
+      }
+
+      #scene-003 .context-shot--client {
+        top: 292px;
+        padding: 12px;
+      }
+
+      #scene-003 .context-shot--eye {
+        top: 332px;
+        padding: 14px;
+      }
     </style>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script>
       window.__timelines = window.__timelines || {};
+
       var tl = gsap.timeline({ paused: true });
-      var captions = document.querySelectorAll('[data-composition-id="scene-003"] .caption');
-      var layers = document.querySelectorAll('[data-composition-id="scene-003"] .layer');
-
-      tl.fromTo("#s3-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out" }, 0.2);
-      tl.fromTo("#s3-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.46);
-      tl.to("#s3-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
-      tl.fromTo("#s3-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.3);
-      tl.fromTo(".scene-meta", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.45);
-      tl.fromTo(".scene-heading", { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.66, ease: "expo.out" }, 2.65);
-      tl.fromTo(".scene-kicker", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "sine.out" }, 3.05);
-      tl.fromTo(layers, { opacity: 0, x: -42 }, { opacity: 1, x: 0, duration: 0.55, stagger: 0.11, ease: "power3.out" }, 4.5);
-      tl.fromTo("#s3-basic", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.15)" }, 8.5);
-      tl.fromTo("#s3-enhance", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.45, ease: "circ.out" }, 15.2);
-      tl.fromTo("#s3-exception", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 20.5);
-      tl.fromTo("#s3-custom", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.55, ease: "expo.out" }, 25.2);
-      tl.fromTo("#s3-stats", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.58, ease: "power3.out" }, 29);
-      tl.to("#s3-stats", { boxShadow: "0 24px 48px rgba(60,174,163,0.22)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 31.7);
-
-      [[0, 2.7, 7], [1, 7.3, 14.2], [2, 14.5, 20.2], [3, 20.5, 26.7], [4, 27, 34.1]].forEach(function (item) {
-        tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" }, item[1]);
-        tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);
+      var listRows = ["#s3-list-basic", "#s3-list-enhance", "#s3-list-exception", "#s3-list-custom"];
+      var customRows = ["#s3-custom-field", "#s3-custom-method", "#s3-custom-ignore"];
+      var customChecks = ["#s3-check-field", "#s3-check-method", "#s3-check-ignore"];
+      var customMarks = customChecks.map(function (selector) {
+        return selector + " .cc-check-badge__mark";
       });
+
+      function focusListLabel(selector, time) {
+        tl.to(selector, { scale: 1.12, duration: 0.26, ease: "power2.out", overwrite: "auto" }, time);
+        tl.to(selector, { opacity: 0, scale: 1.28, duration: 0.34, ease: "power2.in", overwrite: "auto" }, time + 0.28);
+      }
+
+      function hidePanel(selector, time) {
+        tl.to(selector, { opacity: 0, y: 18, scale: 0.96, duration: 0.24, ease: "power2.in", overwrite: "auto" }, time);
+      }
+
+      tl.fromTo("#s3-entry", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 2.5);
+      tl.fromTo("#s3-entry-label", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.48, ease: "expo.out", immediateRender: false }, 2.62);
+      tl.fromTo("#s3-entry-stack", { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, 3.35);
+      listRows.forEach(function (selector, index) {
+        tl.fromTo(selector, { opacity: 0, x: -28 }, { opacity: 1, x: 0, duration: 0.42, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : index === 2 ? "back.out(1.12)" : "expo.out", immediateRender: false }, 3.9 + index * 0.48);
+      });
+
+      focusListLabel("#s3-list-basic .entry-stack-label", 7);
+      tl.to("#s3-entry-label", { opacity: 0.18, scale: 0.9, duration: 0.35, ease: "power2.inOut" }, 7.05);
+      tl.fromTo("#s3-card-basic", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 7.38);
+      tl.fromTo("#s3-card-basic .field-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.08, ease: "power2.out", immediateRender: false }, 8.1);
+      tl.fromTo("#s3-code-basic", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "power3.out", immediateRender: false }, 8.65);
+      tl.fromTo("#s3-code-basic .code-highlight", { backgroundColor: "rgba(255, 224, 138, 0)", color: "#e5e7eb" }, { backgroundColor: "rgba(255, 224, 138, 0.18)", color: "#ffe08a", duration: 0.42, stagger: 0.3, ease: "power1.inOut", immediateRender: false }, 9.5);
+      tl.fromTo("#s3-client-shot", { opacity: 0, x: 44, y: 16, scale: 0.94 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "power3.out", immediateRender: false }, 10.35);
+      tl.to("#s3-client-shot img", { scale: 1.025, duration: 3.2, ease: "sine.inOut" }, 10.7);
+
+      hidePanel("#s3-code-basic", 14.15);
+      tl.to("#s3-client-shot", { opacity: 0, x: 28, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 14.18);
+      tl.to("#s3-card-basic", { x: -522, y: -18, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 14.5);
+      focusListLabel("#s3-list-enhance .entry-stack-label", 14.5);
+      tl.fromTo("#s3-card-enhance", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 14.86);
+      tl.fromTo("#s3-card-enhance .feature-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, stagger: 0.08, ease: "circ.out", immediateRender: false }, 15.45);
+      tl.fromTo("#s3-code-enhance", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "power3.out", immediateRender: false }, 16.2);
+      tl.fromTo("#s3-mark-shipping", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.25)", immediateRender: false }, 17.28);
+      tl.fromTo("#s3-mark-answer", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.25)", immediateRender: false }, 18.16);
+      tl.to("#s3-mark-shipping, #s3-mark-answer", { boxShadow: "0 0 0 5px rgba(239, 123, 133, 0.16)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 19.25);
+
+      hidePanel("#s3-code-enhance", 20.15);
+      tl.to("#s3-card-enhance", { x: -522, y: 266, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 20.5);
+      focusListLabel("#s3-list-exception .entry-stack-label", 20.5);
+      tl.fromTo("#s3-card-exception", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 20.86);
+      tl.fromTo("#s3-card-exception .exception-pair span", { opacity: 0, y: 16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.12, ease: "power3.out", immediateRender: false }, 21.55);
+      tl.fromTo("#s3-code-exception", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "power3.out", immediateRender: false }, 22.05);
+      tl.fromTo("#s3-mark-ignore", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 22.72);
+      tl.fromTo("#s3-mark-raw-a", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.2);
+      tl.fromTo("#s3-mark-raw-b", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.65);
+      tl.fromTo("#s3-eye-before", { opacity: 0, x: 42, y: 12, scale: 0.94 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "power3.out", immediateRender: false }, 22.9);
+      tl.to("#s3-eye-before", { opacity: 0, duration: 0.32, ease: "power2.inOut", overwrite: "auto" }, 24);
+      tl.fromTo("#s3-eye-after", { opacity: 0, scale: 0.98 }, { opacity: 1, scale: 1, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 24);
+      tl.to("#s3-eye-after img", { scale: 1.025, duration: 2.2, ease: "sine.inOut" }, 24.25);
+
+      hidePanel("#s3-code-exception", 26.68);
+      tl.to("#s3-eye-after", { opacity: 0, x: 30, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 26.7);
+      tl.to("#s3-card-exception", { x: 490, y: -18, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 27);
+      focusListLabel("#s3-list-custom .entry-stack-label", 27);
+      tl.fromTo("#s3-card-custom", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 27.36);
+      customRows.forEach(function (selector, index) {
+        var start = 28.05 + index * 0.72;
+        tl.fromTo(selector, { opacity: 0, y: 22, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, start);
+        tl.fromTo(customChecks[index], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.35)", immediateRender: false }, start + 0.22);
+        tl.to(customMarks[index], { strokeDashoffset: 0, duration: 0.46, ease: "power2.out", overwrite: "auto" }, start + 0.32);
+      });
+      tl.to("#s3-card-custom", { x: 490, y: 266, scale: 0.68, duration: 0.72, ease: "power3.inOut", overwrite: "auto" }, 31.45);
+      tl.to("#s3-card-basic, #s3-card-enhance, #s3-card-exception, #s3-card-custom", { opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.48, ease: "power2.out", overwrite: "auto" }, 32.18);
+      tl.to("#s3-card-basic, #s3-card-enhance, #s3-card-exception, #s3-card-custom", { scale: 0.72, duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut", overwrite: "auto" }, 32.75);
 
       window.__timelines["scene-003"] = tl;
     </script>
