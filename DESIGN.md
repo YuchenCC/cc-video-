@@ -121,7 +121,8 @@ compositionPatterns:
   conceptExpansion:
     origin: center
     horizontalZones: [25, 50, 25]
-    verticalPaddingPercent: 20
+    topPaddingPercent: 18
+    bottomPaddingPercent: 30
     expansionDepthPerBeat: 1
     preserveAncestors: true
     ancestorPosition: left
@@ -250,7 +251,7 @@ avoid:
 
 - 屏幕中央只保留当前正在讲解的概念。
 - 画布固定分为左、中、右三个区域，宽度比例为 25% / 50% / 25%；中区是主视图。
-- 主视图上下各保留约 20% 画布高度作为安全留白，可用高度约为画布的 60%。
+- 主视图顶部保留约 18%、底部保留约 30% 画布高度；底部安全区优先供字幕使用，主概念不得进入。
 - 不显示场景主标题、副标题、章节标签、说明段落或底部字幕。
 - 右上角只固定展示 Logo；`concept-expansion` 模板使用约 56px 高度，确保在 1920×1080 画面中清晰可辨。
 - 子概念从父概念的形态和位置中衍生，再移动到中央主视区。

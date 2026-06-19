@@ -104,7 +104,8 @@
         --concept-left-width: 25%;
         --concept-center-width: 50%;
         --concept-right-width: 25%;
-        --concept-vertical-padding: 216px;
+        --concept-top-padding: 194px;
+        --concept-bottom-padding: 324px;
         position: relative;
         width: 100%;
         height: 100%;
@@ -120,7 +121,8 @@
           var(--concept-left-width)
           var(--concept-center-width)
           var(--concept-right-width);
-        padding-block: var(--concept-vertical-padding);
+        padding-top: var(--concept-top-padding);
+        padding-bottom: var(--concept-bottom-padding);
         pointer-events: none;
       }
 
@@ -147,10 +149,10 @@
       #scene-001 .plug-concept {
         position: absolute;
         z-index: 3;
-        top: 216px;
-        left: 480px;
-        width: 960px;
-        height: 648px;
+        top: 194px;
+        left: 560px;
+        width: 800px;
+        height: 440px;
       }
 
       #scene-001 .nested-concept {
@@ -176,23 +178,23 @@
       }
 
       #scene-001 .nested-icon--file {
-        top: 154px;
-        left: 310px;
-        width: 340px;
-        height: 340px;
+        top: 102px;
+        left: 280px;
+        width: 240px;
+        height: 240px;
       }
 
       #scene-001 .nested-icon--java {
-        top: 244px;
-        left: 400px;
-        width: 160px;
-        height: 160px;
+        top: 165px;
+        left: 345px;
+        width: 110px;
+        height: 110px;
       }
 
       #scene-001 .entry-frame {
         position: absolute;
         z-index: 3;
-        top: 274px;
+        top: 230px;
         left: 530px;
         width: 860px;
         min-width: 0;
@@ -257,16 +259,17 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+        object-position: center top;
         filter: drop-shadow(0 24px 34px rgba(47, 111, 143, 0.18));
       }
 
       #scene-001 .scene-character {
         position: absolute;
         z-index: 4;
-        top: 250px;
+        top: 210px;
         right: 50px;
         width: 380px;
-        height: 560px;
+        height: 520px;
         object-fit: contain;
         object-position: bottom center;
         opacity: 0;
