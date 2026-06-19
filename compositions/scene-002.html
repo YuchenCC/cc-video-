@@ -322,7 +322,7 @@
         position: absolute;
         z-index: 5;
         top: 438px;
-        right: 78px;
+        right: 158px;
         display: grid;
         width: 360px;
         gap: 18px;
@@ -520,11 +520,11 @@
       tl.fromTo("#s2-project", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.25)", immediateRender: false }, 2.7);
       tl.to("#s2-project", { scale: 1.025, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1 }, 5.7);
 
-      tl.fromTo("#s2-plug", { opacity: 0, x: 38, y: -18, scale: 0.8 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.2)", immediateRender: false }, 7);
-      tl.fromTo("#s2-terminal", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 7.35);
+      tl.fromTo("#s2-plug", { opacity: 0, x: 38, y: -18, scale: 0.8 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 1.45, ease: "back.out(1.2)", immediateRender: false }, 7);
+      tl.fromTo("#s2-terminal", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 1.5, ease: "power3.out", immediateRender: false }, 7.35);
       tl.to(configChars, { opacity: 1, duration: 0.01, stagger: { each: 3 / Math.max(configChars.length - 1, 1) }, ease: "none" }, 8.05);
-      tl.to("#s2-plug", { x: -526, y: 154, scale: 0.42, opacity: 0, duration: 0.82, ease: "expo.inOut" }, 11.35);
-      tl.to("#s2-terminal", { x: -650, y: -34, scale: 0.16, opacity: 0, duration: 0.82, ease: "expo.inOut" }, 11.35);
+      tl.to("#s2-plug", { x: -526, y: 154, scale: 0.42, opacity: 0, duration: 2.82, ease: "expo.inOut" }, 11.35);
+      tl.to("#s2-terminal", { x: -650, y: -34, scale: 0.16, opacity: 0, duration: 2.82, ease: "expo.inOut" }, 11.35);
       tl.to("#s2-project", { scale: 1.04, duration: 0.28, ease: "sine.inOut", yoyo: true, repeat: 1 }, 11.78);
       tl.fromTo("#s2-entry-actions", { opacity: 0, x: 36, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 0.48, ease: "power3.out", immediateRender: false }, 12.35);
       tl.to("#s2-entry-arrow", { opacity: 1, strokeDashoffset: 0, duration: 0.55, ease: "power2.out" }, 12.68);
