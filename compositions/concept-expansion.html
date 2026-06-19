@@ -197,16 +197,18 @@
       }
 
       #concept-expansion .concept-stack .cc-stack-frame__body {
+        display: grid;
         width: max-content;
         max-width: 100%;
+        justify-items: stretch;
       }
 
       #concept-expansion .concept-stack-row {
         display: grid;
-        grid-template-columns: max-content auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
         gap: 18px;
-        width: max-content;
+        width: 100%;
       }
 
       #concept-expansion .concept-stack--sequential .concept-stack-row {
@@ -215,12 +217,13 @@
 
       #concept-expansion .concept-stack-label-stage {
         display: grid;
-        width: max-content;
+        width: 100%;
+        min-width: max-content;
       }
 
       #concept-expansion .concept-stack-label-stage > .cc-stack-label {
         grid-area: 1 / 1;
-        width: max-content;
+        width: 100%;
         min-width: 0;
         white-space: nowrap;
       }

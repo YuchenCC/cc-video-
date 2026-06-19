@@ -67,7 +67,8 @@
 当概念使用 `StackFrame` 包含多个 `StackLabel` 时：
 
 - Frame 使用 `width: fit-content`，内部 body 使用 `width: max-content`。
-- Label 使用单行 `max-content` 宽度，Frame 的最终宽度由最长 Label、可选 CheckBadge 和内边距共同决定。
+- Frame 的最终宽度由最长 Label、可选 CheckBadge 和内边距共同决定。
+- Label 槽使用 `min-width: max-content` 提供最长文案的固有宽度；Frame 宽度确定后，所有行、Label 槽和 Label 本体使用 `width: 100%`，让较短 Label 与最长 Label 等宽。
 - 同一位置的新旧 Label 应使用 CSS Grid 重叠，容器同时参与两者的固有尺寸计算；禁止绝对定位后再手写固定宽度。
 - 如果口播依次介绍各项，Label 可以按口播语义点逐个进入，推荐间隔 0.8–1.4 秒。
 - 风险/问题使用 `coral-dark`，技术中性使用 `blue-light`，流程或覆盖完成使用 `teal-light`。

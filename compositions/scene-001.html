@@ -205,8 +205,10 @@
       }
 
       #scene-001 .entry-frame .cc-stack-frame__body {
+        display: grid;
         width: max-content;
         max-width: 960px;
+        justify-items: stretch;
         gap: 22px;
         padding: 38px;
         border-width: 5px;
@@ -215,23 +217,24 @@
 
       #scene-001 .coverage-row {
         display: grid;
-        grid-template-columns: max-content 72px;
+        grid-template-columns: minmax(0, 1fr) 72px;
         align-items: center;
         gap: 18px;
-        width: max-content;
+        width: 100%;
         opacity: 0;
         transform-origin: center center;
       }
 
       #scene-001 .coverage-label-stage {
         display: grid;
-        width: max-content;
+        width: 100%;
+        min-width: max-content;
         height: 104px;
       }
 
       #scene-001 .coverage-label {
         grid-area: 1 / 1;
-        width: max-content;
+        width: 100%;
         min-width: 0;
         min-height: 104px;
         font-size: 42px;
