@@ -102,7 +102,7 @@
         </div>
       </section>
 
-      <section id="s3-code-basic" class="code-panel code-panel--basic" aria-label="基础规则代码" data-layout-allow-overflow="">
+      <section id="s3-code-basic" class="code-panel code-panel--basic" aria-label="基础规则代码" data-layout-ignore="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -121,7 +121,7 @@
 <span class="code-line">}</span></code></pre>
       </section>
 
-      <section id="s3-code-enhance" class="code-panel code-panel--enhance" aria-label="增强规则代码" data-layout-allow-overflow="">
+      <section id="s3-code-enhance" class="code-panel code-panel--enhance" aria-label="增强规则代码" data-layout-ignore="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -140,7 +140,7 @@
 <span class="code-line">      type: DEFAULT</span></code></pre>
       </section>
 
-      <section id="s3-code-exception" class="code-panel code-panel--exception" aria-label="例外规则代码" data-layout-allow-overflow="">
+      <section id="s3-code-exception" class="code-panel code-panel--exception" aria-label="例外规则代码" data-layout-ignore="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -541,7 +541,8 @@
         font-size: 24px;
         font-weight: 400;
         line-height: 1;
-        white-space: pre;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
         font-variant-ligatures: none;
       }
 
@@ -557,7 +558,8 @@
         min-height: 1.28em;
         overflow: hidden;
         text-overflow: clip;
-        white-space: pre;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
         font-size: 24px;
       }
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T04:52:13.873Z",
+  "generatedAt": "2026-06-20T00:52:28.317Z",
   "source": {
     "durations": "docs/init.md",
     "voiceover": "scripts/voiceover.md"
@@ -10,90 +10,90 @@
       "chapter": "综述",
       "file": "assets/audio/voiceover/scene-001.mp3",
       "targetDuration": 28,
-      "rawDuration": 29.412,
-      "actualDuration": 27.645,
+      "rawDuration": 26.82,
+      "actualDuration": 27.614,
       "speed": 1.1,
-      "postProcessTempo": 1.063146,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.969982,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "27de46d619f1d06917d03c72d82c79d1230a8214e4b264a5f43186edda3f4267",
       "usageCharacters": 265,
-      "traceId": "0683fda5848bb86750091b51f000ec76"
+      "traceId": "0685171d3ae2a24a7f35621996c43ae0"
     },
     {
       "scene": "scene-002",
       "chapter": "接入篇",
       "file": "assets/audio/voiceover/scene-002.mp3",
       "targetDuration": 35,
-      "rawDuration": 38.484,
-      "actualDuration": 34.65,
+      "rawDuration": 32.724,
+      "actualDuration": 34.613,
       "speed": 1.1,
-      "postProcessTempo": 1.110309,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.944416,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "de2e5929060c7efa0bca18d94e0c45590c4240d48b4153f5945aaa18c1cfa872",
       "usageCharacters": 348,
-      "traceId": "0683fdb30f7c1b16715799584912752d"
+      "traceId": "0685172b1800150d783078484852f053"
     },
     {
       "scene": "scene-003",
       "chapter": "配置篇",
       "file": "assets/audio/voiceover/scene-003.mp3",
       "targetDuration": 32,
-      "rawDuration": 39.312,
-      "actualDuration": 31.65,
+      "rawDuration": 31.608,
+      "actualDuration": 31.616,
       "speed": 1.1,
-      "postProcessTempo": 1.240784,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.998673,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "e77715894c3ab789e6600a40ecb33c5d454fc86bd55a5f4e16983a06c72146d9",
       "usageCharacters": 292,
-      "traceId": "0683fdc278836e7670acf775b88b9c49"
+      "traceId": "06851739b4f4025761b1ff43605eb9ef"
     },
     {
       "scene": "scene-004",
       "chapter": "日志篇",
       "file": "assets/audio/voiceover/scene-004.mp3",
       "targetDuration": 51,
-      "rawDuration": 53.604,
-      "actualDuration": 50.628,
+      "rawDuration": 50.22,
+      "actualDuration": 50.615,
       "speed": 1.1,
-      "postProcessTempo": 1.057697,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.99151,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "74c1406b525b1d11635f407b025c569e43a035fd582c8ae83e5f68186027ba12",
       "usageCharacters": 478,
-      "traceId": "0683fdcfa45390cd3bb159e64bf37848"
+      "traceId": "068517473507f0cd4346a02739ef8dde"
     },
     {
       "scene": "scene-005",
       "chapter": "治理篇",
       "file": "assets/audio/voiceover/scene-005.mp3",
       "targetDuration": 74,
-      "rawDuration": 84.744,
-      "actualDuration": 73.649,
+      "rawDuration": 67.068,
+      "actualDuration": 73.611,
       "speed": 1.1,
-      "postProcessTempo": 1.150096,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.910631,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "27876d1d8826d9c948808a85762224a6d326bc7698eb9e5ac9d1054b3ddb7671",
       "usageCharacters": 694,
-      "traceId": "0683fdde1c74dfff71e61148038c88c7"
+      "traceId": "068517558239e6dc8bca3c5830932ec2"
     },
     {
       "scene": "scene-006",
       "chapter": "AI 工程化",
       "file": "assets/audio/voiceover/scene-006.mp3",
       "targetDuration": 57,
-      "rawDuration": 64.8,
-      "actualDuration": 56.664,
+      "rawDuration": 56.124,
+      "actualDuration": 56.624,
       "speed": 1.1,
-      "postProcessTempo": 1.14316,
-      "voiceId": "Chinese (Mandarin)_Cute_Spirit",
+      "postProcessTempo": 0.990715,
+      "voiceId": "moss_audio_ce44fc67-7ce3-11f0-8de5-96e35d26fb85",
       "model": "speech-2.8-hd",
       "textSha256": "81a3bc2b7a2db9d2d0301a4d2ad604e6f5c552585074ce7faf081b8645a22aac",
       "usageCharacters": 536,
-      "traceId": "0683fded94a00a6e013b39743368f654"
+      "traceId": "06851764da73e7a5ac006a42a1dbbc23"
     }
   ]
 }
