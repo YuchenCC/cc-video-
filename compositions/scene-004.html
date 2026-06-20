@@ -13,13 +13,9 @@
       </div>
 
       <section id="s4-intro" class="beat beat--intro" aria-label="日志治理最容易遗漏">
-        <div id="s4-intro-title" class="screen-title screen-title--left">日志治理：最容易遗漏的地方</div>
         <div id="s4-intro-terminal" class="log-terminal log-terminal--large">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>application.log</strong></div>
-          <pre class="log-terminal__body log-terminal__body--scroll"><span class="log-line">INFO request traceId=82f7 path=/order/query</span><span class="log-line">DEBUG payload userName=LiMing address=Shanghai</span><span id="s4-leak-line" class="log-line log-line--risk">WARN plain text mobile=<strong id="s4-leak-phone">13812345678</strong></span><span class="log-line">INFO downstream response elapsed=36ms</span><span class="log-line">DEBUG write safe-output checkpoint</span></pre>
-          <svg id="s4-phone-ring" class="phone-ring" viewBox="0 0 270 88" aria-hidden="true">
-            <ellipse cx="135" cy="44" rx="120" ry="34"></ellipse>
-          </svg>
+          <div class="log-terminal__head" data-layout-allow-overlap><span></span><span></span><span></span><strong>application.log</strong></div>
+          <pre class="log-terminal__body log-terminal__body--scroll"><span class="log-line">2026-06-20 10:15:01.238  INFO  [http-nio-8080-exec-1] c.e.user.UserController - 查询用户信息成功, requestId=REQ202606200001, 姓名=张**, 手机号=138****5621, 身份证=110101********1234, userId=U10001</span><span class="log-line">2026-06-20 10:15:03.491  INFO  [http-nio-8080-exec-2] c.e.order.OrderService - 创建订单成功, orderNo=ORD202606200001, 姓名=李**, 手机号=139****7788, 身份证=320102********4512, amount=299.00</span><span class="log-line">2026-06-20 10:15:05.872  WARN  [http-nio-8080-exec-3] c.e.auth.LoginService - 用户登录失败, reason=password_error, 姓名=王*, 手机号=137****8899, 身份证=440301********0987</span><span class="log-line">2026-06-20 10:15:08.104  INFO  [http-nio-8080-exec-4] c.e.payment.PayService - 支付回调处理完成, tradeNo=PAY202606200089, 姓名=赵**, 手机号=136****1122, 身份证=510104********3345</span><span class="log-line log-line--leak">2026-06-20 10:15:10.366  INFO  [http-nio-8080-exec-5] c.e.user.ProfileService - 修改用户资料成功, 姓名=刘雨晨, 手机号=13524881234, 身份证=350102199208041236, updateFields=[address,email]</span><span class="log-line">2026-06-20 10:15:13.775  INFO  [http-nio-8080-exec-6] c.e.account.AccountService - 账户信息查询完成, 姓名=陈**, 手机号=158****6677, 身份证=210105********7731, accountNo=ACCT20260620001</span><span class="log-line">2026-06-20 10:15:16.018  ERROR [http-nio-8080-exec-7] c.e.card.CardBindService - 银行卡绑定失败, errorCode=CARD_VERIFY_FAIL, 姓名=杨**, 手机号=159****3344, 身份证=330106********8520</span><span class="log-line">2026-06-20 10:15:18.421  INFO  [http-nio-8080-exec-8] c.e.member.MemberService - 会员等级更新成功, level=VIP2, 姓名=黄*, 手机号=151****9087, 身份证=420111********6248</span><span class="log-line">2026-06-20 10:15:21.669  INFO  [http-nio-8080-exec-9] c.e.invoice.InvoiceService - 发票申请提交成功, invoiceType=PERSONAL, 姓名=周**, 手机号=188****1024, 身份证=610102********7780</span><span class="log-line log-line--leak">2026-06-20 10:15:24.004  WARN  [http-nio-8080-exec-10] c.e.risk.RiskControlService - 命中风险规则, ruleCode=ID_CARD_FREQUENCY, 姓名=吴晓峰, 手机号=18657341290, 身份证=370203198706159876</span><span class="log-line log-line--gap" aria-hidden="true">&nbsp;</span><span class="log-line">2026-06-20 10:16:01.214  INFO  [task-1] c.e.sync.UserSyncJob - 同步用户数据成功, batchNo=BATCH20260620001, 姓名=郑**, 手机号=177****4567, 身份证=220103********3456</span><span class="log-line">2026-06-20 10:16:04.537  INFO  [task-2] c.e.notice.SmsNoticeService - 短信发送成功, templateCode=LOGIN_NOTICE, 姓名=孙**, 手机号=180****7789, 身份证=130102********9001</span><span class="log-line">2026-06-20 10:16:07.889  WARN  [task-3] c.e.notice.SmsNoticeService - 短信发送失败, provider=mock-sms, 姓名=马*, 手机号=182****3355, 身份证=450103********2198</span><span class="log-line">2026-06-20 10:16:10.330  INFO  [task-4] c.e.crm.CustomerService - 客户标签更新完成, tags=[active,high_value], 姓名=朱**, 手机号=183****4400, 身份证=500106********7521</span><span id="s4-leak-line" class="log-line log-line--risk log-line--leak">2026-06-20 10:16:13.782  ERROR [task-5] c.e.loan.LoanApplyService - 授信申请异常, exception=RemoteTimeoutException, 姓名=胡建国, 手机号=<span class="leak-phone-wrap"><strong id="s4-leak-phone">15288993456</strong><svg id="s4-phone-ring" class="phone-ring" viewBox="0 0 190 58" aria-hidden="true"><ellipse cx="95" cy="29" rx="84" ry="22"></ellipse></svg></span>, 身份证=430102197912302345</span><span class="log-line">2026-06-20 10:16:17.101  INFO  [http-nio-8080-exec-11] c.e.address.AddressService - 新增收货地址成功, city=São Paulo, 姓名=郭**, 手机号=185****2233, 身份证=140105********6678</span><span class="log-line">2026-06-20 10:16:20.456  INFO  [http-nio-8080-exec-12] c.e.coupon.CouponService - 优惠券领取成功, couponId=CP20260620001, 姓名=何*, 手机号=187****9988, 身份证=230104********1120</span><span class="log-line">2026-06-20 10:16:23.908  WARN  [http-nio-8080-exec-13] c.e.verify.RealNameService - 实名认证结果不一致, 姓名=高**, 手机号=150****3210, 身份证=360102********9088</span><span class="log-line">2026-06-20 10:16:27.314  INFO  [http-nio-8080-exec-14] c.e.session.SessionService - 用户会话刷新成功, sessionId=S20260620101627, 姓名=林**, 手机号=132****7654, 身份证=460105********2341</span><span class="log-line log-line--leak">2026-06-20 10:16:30.746  ERROR [http-nio-8080-exec-15] c.e.export.ExportService - 导出用户明细失败, fileName=user-detail.xlsx, 姓名=罗志强, 手机号=19966223344, 身份证=120101198811226789。</span></pre>
         </div>
         <img id="s4-keyboard" class="keyboard-art" src="../assets/icons/keyboard.png" alt="键盘">
         <img id="s4-alert-character" class="character-art character-art--alert" src="../assets/characters/8.png" alt="发现漏脱敏日志">
@@ -237,13 +233,15 @@
       }
 
       #scene-004 .log-terminal__head {
+        position: relative;
+        z-index: 5;
         display: flex;
         align-items: center;
         gap: 10px;
         height: 48px;
         padding: 0 22px;
         border-bottom: 1px solid rgba(229, 231, 235, 0.12);
-        background: rgba(15, 23, 31, 0.42);
+        background: #17212B;
         font-family: "JetBrains Mono", Menlo, monospace;
         font-size: 18px;
       }
@@ -342,29 +340,59 @@
       }
 
       #scene-004 .log-terminal--large {
-        top: 224px;
-        left: 146px;
-        width: 1040px;
-        height: 410px;
+        top: 154px;
+        left: 86px;
+        width: 1360px;
+        height: 560px;
       }
 
       #scene-004 .log-terminal__body--scroll {
-        transform: translateY(94px);
+        padding: 20px 24px 28px;
+        font-size: 16px;
+        line-height: 1.55;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+        transform: translateY(450px);
+        will-change: transform;
+      }
+
+      #scene-004 .log-terminal__body--scroll .log-line {
+        min-height: 25px;
+        padding: 0 8px;
+        border-left: 3px solid transparent;
+      }
+
+      #scene-004 .log-terminal__body--scroll .log-line--leak {
+        color: #FFE08A;
+        border-left-color: rgba(239, 123, 133, 0.72);
+      }
+
+      #scene-004 .log-terminal__body--scroll .log-line--gap {
+        min-height: 13px;
       }
 
       #scene-004 #s4-leak-phone {
         display: inline-block;
-        font-size: 38px;
+        position: relative;
+        z-index: 2;
+        font-size: 24px;
         line-height: 1;
         transform-origin: center;
       }
 
+      #scene-004 .leak-phone-wrap {
+        position: relative;
+        display: inline-block;
+      }
+
       #scene-004 .phone-ring {
         position: absolute;
-        right: 44px;
-        bottom: 86px;
-        width: 270px;
-        height: 88px;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        width: 190px;
+        height: 58px;
+        transform: translate(-50%, -50%);
         overflow: visible;
         pointer-events: none;
       }
@@ -380,10 +408,10 @@
 
       #scene-004 .keyboard-art {
         position: absolute;
-        top: 644px;
-        left: 430px;
-        width: 470px;
-        height: 188px;
+        top: 704px;
+        left: 422px;
+        width: 430px;
+        height: 172px;
         object-fit: contain;
         filter: drop-shadow(0 18px 26px rgba(35, 59, 94, 0.14));
         opacity: 0;
@@ -398,10 +426,10 @@
       }
 
       #scene-004 .character-art--alert {
-        top: 250px;
-        right: 108px;
-        width: 350px;
-        height: 470px;
+        top: 236px;
+        right: 48px;
+        width: 330px;
+        height: 450px;
       }
 
       #scene-004 .log-terminal--source {
@@ -841,11 +869,11 @@
       tl.to("#s4-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
 
       show("#s4-intro", 0.12, 0.3);
-      visual.fromTo("#s4-intro-title", { opacity: 0, x: -44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 0.2);
       visual.fromTo("#s4-intro-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 0.32);
       visual.fromTo("#s4-keyboard", { opacity: 0, y: 32, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 0.58);
-      visual.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -34, duration: 2.2, ease: "sine.inOut" }, 0.95);
+      visual.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -205, duration: 2.2, ease: "none" }, 0.95);
       visual.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.42, ease: "power1.inOut", immediateRender: false }, 2.35);
+      visual.to("#s4-leak-line", { x: -260, duration: 0.48, ease: "power2.out" }, 2.35);
       visual.to("#s4-leak-phone", { scale: 1.18, duration: 0.35, ease: "back.out(1.2)" }, 2.48);
       draw("#s4-phone-ring ellipse", 2.58, 0.5);
       visual.fromTo("#s4-alert-character", { opacity: 0, x: 50, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 2.72);
