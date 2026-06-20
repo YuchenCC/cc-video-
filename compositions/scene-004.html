@@ -1,5 +1,10 @@
 <template id="scene-004-template">
   <div id="scene-004" class="scene-root scene-004" data-composition-id="scene-004" data-width="1920" data-height="1080" data-start="0" data-duration="53.5">
+    <section id="s4-title" class="cc-title-transition cc-title-transition--dark cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
+      <h1 class="cc-title-transition__text">日志篇</h1>
+      <div class="chapter-rule"></div>
+    </section>
+
     <main class="log-concept-stage" data-layout-allow-overflow>
       <div class="concept-zones" aria-hidden="true" data-layout-ignore>
         <div class="concept-zone concept-zone--left"></div>
@@ -146,6 +151,7 @@
 
     <style>
       @import url("../src/styles/runtime.css");
+      @import url("../src/components/TitleTransition/styles.css");
 
       #scene-004 {
         --s4-bg: #F7F8FA;
@@ -166,6 +172,12 @@
 
       #scene-004::before {
         opacity: 0.5;
+      }
+
+      #scene-004 .chapter-beat {
+        z-index: 20;
+        background: var(--s4-bg);
+        opacity: 0;
       }
 
       #scene-004 .log-concept-stage {
@@ -808,109 +820,118 @@
       window.__timelines = window.__timelines || {};
 
       var tl = gsap.timeline({ paused: true });
+      var visual = gsap.timeline();
       var captions = document.querySelectorAll("#scene-004 .caption");
 
       function show(selector, start, duration) {
-        tl.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: duration || 0.25, ease: "power2.out", immediateRender: false }, start);
+        visual.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: duration || 0.25, ease: "power2.out", immediateRender: false }, start);
       }
 
       function hide(selector, start, duration) {
-        tl.to(selector, { opacity: 0, duration: duration || 0.22, ease: "power2.in", overwrite: "auto" }, start);
+        visual.to(selector, { opacity: 0, duration: duration || 0.22, ease: "power2.in", overwrite: "auto" }, start);
       }
 
       function draw(selector, start, duration) {
-        tl.to(selector, { strokeDashoffset: 0, duration: duration || 0.55, ease: "power2.out" }, start);
+        visual.to(selector, { strokeDashoffset: 0, duration: duration || 0.55, ease: "power2.out" }, start);
       }
 
+      tl.fromTo("#s4-title", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none", immediateRender: false }, 0.05);
+      tl.fromTo("#s4-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 0.2);
+      tl.fromTo("#s4-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
+      tl.to("#s4-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
+
       show("#s4-intro", 0.12, 0.3);
-      tl.fromTo("#s4-intro-title", { opacity: 0, x: -44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 0.2);
-      tl.fromTo("#s4-intro-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 0.32);
-      tl.fromTo("#s4-keyboard", { opacity: 0, y: 32, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 0.58);
-      tl.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -34, duration: 2.2, ease: "sine.inOut" }, 0.95);
-      tl.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.42, ease: "power1.inOut", immediateRender: false }, 2.35);
-      tl.to("#s4-leak-phone", { scale: 1.18, duration: 0.35, ease: "back.out(1.2)" }, 2.48);
+      visual.fromTo("#s4-intro-title", { opacity: 0, x: -44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 0.2);
+      visual.fromTo("#s4-intro-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 0.32);
+      visual.fromTo("#s4-keyboard", { opacity: 0, y: 32, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 0.58);
+      visual.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -34, duration: 2.2, ease: "sine.inOut" }, 0.95);
+      visual.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.42, ease: "power1.inOut", immediateRender: false }, 2.35);
+      visual.to("#s4-leak-phone", { scale: 1.18, duration: 0.35, ease: "back.out(1.2)" }, 2.48);
       draw("#s4-phone-ring ellipse", 2.58, 0.5);
-      tl.fromTo("#s4-alert-character", { opacity: 0, x: 50, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 2.72);
-      tl.to("#s4-alert-character", { x: 8, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, 3.38);
+      visual.fromTo("#s4-alert-character", { opacity: 0, x: 50, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 2.72);
+      visual.to("#s4-alert-character", { x: 8, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, 3.38);
       hide("#s4-intro", 4.25, 0.25);
 
       show("#s4-sources", 4.5, 0.25);
-      tl.fromTo("#s4-source-terminal", { opacity: 0, x: 140, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, 4.65);
-      tl.fromTo("#s4-source-text", { opacity: 0, x: 46 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, 5.0);
+      visual.fromTo("#s4-source-terminal", { opacity: 0, x: 140, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, 4.65);
+      visual.fromTo("#s4-source-text", { opacity: 0, x: 46 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, 5.0);
       ["#s4-source-up", "#s4-source-local", "#s4-source-down"].forEach(function (selector, index) {
         var t = 5.2 + index * 0.78;
-        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 94, scale: 1, duration: 1.65, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
+        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 94, scale: 1, duration: 1.65, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
       });
       draw("#s4-source-arrow-up", 5.72, 0.65);
       draw("#s4-source-arrow-local", 6.46, 0.65);
       draw("#s4-source-arrow-down", 7.22, 0.65);
-      tl.to("#s4-source-terminal", { x: -74, duration: 1.8, ease: "power1.inOut" }, 7.45);
+      visual.to("#s4-source-terminal", { x: -74, duration: 1.8, ease: "power1.inOut" }, 7.45);
       hide("#s4-sources", 11.2, 0.25);
 
       show("#s4-manual", 11.5, 0.25);
-      tl.fromTo("#s4-manual-text", { opacity: 0, x: 44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 11.72);
-      tl.fromTo("#s4-scan-bar", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.34, ease: "power2.out", immediateRender: false }, 11.84);
+      visual.fromTo("#s4-manual-text", { opacity: 0, x: 44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 11.72);
+      visual.fromTo("#s4-scan-bar", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.34, ease: "power2.out", immediateRender: false }, 11.84);
       ["#s4-card-1", "#s4-card-2", "#s4-card-3", "#s4-card-4", "#s4-card-5", "#s4-card-6"].forEach(function (selector, index) {
         var t = 11.9 + index * 0.78;
-        tl.fromTo(selector, { opacity: 0, x: 62, rotationY: -24, scale: 0.96 }, { opacity: 1, x: index * 10, rotationY: 0, scale: 1 - index * 0.018, duration: 0.46, ease: index % 2 === 0 ? "expo.out" : "power3.out", immediateRender: false }, t);
+        visual.fromTo(selector, { opacity: 0, x: 62, rotationY: -24, scale: 0.96 }, { opacity: 1, x: index * 10, rotationY: 0, scale: 1 - index * 0.018, duration: 0.46, ease: index % 2 === 0 ? "expo.out" : "power3.out", immediateRender: false }, t);
         if (index > 0) {
-          tl.to(selector, { y: index * -12, duration: 0.42, ease: "sine.out" }, t + 0.2);
+          visual.to(selector, { y: index * -12, duration: 0.42, ease: "sine.out" }, t + 0.2);
         }
       });
-      tl.to("#s4-scan-bar", { x: 650, duration: 3.75, ease: "sine.inOut" }, 12.22);
-      tl.to("#s4-card-2, #s4-card-5", { scale: 1.035, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 15.1);
+      visual.to("#s4-scan-bar", { x: 650, duration: 3.75, ease: "sine.inOut" }, 12.22);
+      visual.to("#s4-card-2, #s4-card-5", { scale: 1.035, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 15.1);
       hide("#s4-manual", 16.75, 0.25);
 
       show("#s4-rules", 17.0, 0.25);
-      tl.fromTo("#s4-rule-card", { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 17.22);
-      tl.fromTo("#s4-api-terminal", { opacity: 0, x: -44, y: -8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.46, ease: "power3.out", immediateRender: false }, 17.62);
-      tl.fromTo("#s4-log-terminal", { opacity: 0, x: -44, y: 8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 18.02);
+      visual.fromTo("#s4-rule-card", { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 17.22);
+      visual.fromTo("#s4-api-terminal", { opacity: 0, x: -44, y: -8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.46, ease: "power3.out", immediateRender: false }, 17.62);
+      visual.fromTo("#s4-log-terminal", { opacity: 0, x: -44, y: 8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 18.02);
       draw("#s4-api-to-rule", 18.5, 0.55);
       draw("#s4-log-to-rule", 18.88, 0.55);
-      tl.fromTo("#s4-rule-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 19.2);
-      tl.to("#s4-rule-card", { boxShadow: "0 28px 72px rgba(44,154,154,0.24)", duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.2);
+      visual.fromTo("#s4-rule-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 19.2);
+      visual.to("#s4-rule-card", { boxShadow: "0 28px 72px rgba(44,154,154,0.24)", duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.2);
       hide("#s4-rules", 24.75, 0.25);
 
       show("#s4-result", 25.0, 0.2);
-      tl.fromTo("#s4-result-rule", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.18)", immediateRender: false }, 25.12);
-      tl.fromTo("#s4-result-api", { opacity: 0, x: 0, y: -118, scale: 0.98 }, { opacity: 1, x: 1110, y: -118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.38);
-      tl.fromTo("#s4-result-log", { opacity: 0, x: 0, y: 118, scale: 0.98 }, { opacity: 1, x: 1110, y: 118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.48);
-      tl.to("#s4-result-rule", { scale: 1.06, duration: 0.36, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.42);
-      tl.fromTo("#s4-result-text", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 27.95);
+      visual.fromTo("#s4-result-rule", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.18)", immediateRender: false }, 25.12);
+      visual.fromTo("#s4-result-api", { opacity: 0, x: 0, y: -118, scale: 0.98 }, { opacity: 1, x: 1110, y: -118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.38);
+      visual.fromTo("#s4-result-log", { opacity: 0, x: 0, y: 118, scale: 0.98 }, { opacity: 1, x: 1110, y: 118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.48);
+      visual.to("#s4-result-rule", { scale: 1.06, duration: 0.36, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.42);
+      visual.fromTo("#s4-result-text", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 27.95);
       hide("#s4-result", 31.25, 0.25);
 
       show("#s4-fallback", 31.5, 0.24);
-      tl.fromTo("#s4-fallback-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "expo.out", immediateRender: false }, 31.72);
-      tl.fromTo("#s4-engine", { opacity: 0, x: 80, y: -16, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.12)", immediateRender: false }, 32.42);
-      tl.fromTo("#s4-fallback-text", { opacity: 0, x: 42 }, { opacity: 1, x: 0, duration: 0.42, ease: "power3.out", immediateRender: false }, 32.82);
-      tl.to("#s4-engine", { x: -430, y: 28, scale: 1.18, duration: 0.78, ease: "expo.inOut" }, 33.28);
-      tl.to("#s4-fallback-terminal", { boxShadow: "0 26px 68px rgba(44,154,154,0.24)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 34.0);
+      visual.fromTo("#s4-fallback-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "expo.out", immediateRender: false }, 31.72);
+      visual.fromTo("#s4-engine", { opacity: 0, x: 80, y: -16, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.12)", immediateRender: false }, 32.42);
+      visual.fromTo("#s4-fallback-text", { opacity: 0, x: 42 }, { opacity: 1, x: 0, duration: 0.42, ease: "power3.out", immediateRender: false }, 32.82);
+      visual.to("#s4-engine", { x: -430, y: 28, scale: 1.18, duration: 0.78, ease: "expo.inOut" }, 33.28);
+      visual.to("#s4-fallback-terminal", { boxShadow: "0 26px 68px rgba(44,154,154,0.24)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 34.0);
       ["#s4-mark-mobile", "#s4-mark-email", "#s4-mark-id"].forEach(function (selector, index) {
-        tl.fromTo(selector, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.2)", immediateRender: false }, 34.8 + index * 0.42);
+        visual.fromTo(selector, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.2)", immediateRender: false }, 34.8 + index * 0.42);
       });
       ["#s4-type-mobile", "#s4-type-id", "#s4-type-email"].forEach(function (selector, index) {
         var t = 39.0 + index * 0.75;
-        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
-        tl.to(selector, { x: 560, scale: 0.72, opacity: 0.15, duration: 0.85, ease: "power2.inOut", overwrite: "auto" }, t + 0.55);
+        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
+        visual.to(selector, { x: 560, scale: 0.72, opacity: 0.15, duration: 0.85, ease: "power2.inOut", overwrite: "auto" }, t + 0.55);
       });
-      tl.to("#s4-fb-mobile", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.2);
-      tl.to("#s4-fb-mobile", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.2);
-      tl.to("#s4-fb-email", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.92);
-      tl.to("#s4-fb-email", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.92);
-      tl.to("#s4-fb-id", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 41.64);
-      tl.to("#s4-fb-id", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 41.64);
+      visual.to("#s4-fb-mobile", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.2);
+      visual.to("#s4-fb-mobile", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.2);
+      visual.to("#s4-fb-email", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.92);
+      visual.to("#s4-fb-email", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.92);
+      visual.to("#s4-fb-id", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 41.64);
+      visual.to("#s4-fb-id", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 41.64);
       hide("#s4-fallback", 46.25, 0.25);
 
       show("#s4-performance", 46.5, 0.25);
-      tl.fromTo("#s4-performance-terminal", { opacity: 0, x: 46, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 46.72);
+      visual.fromTo("#s4-performance-terminal", { opacity: 0, x: 46, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 46.72);
       ["#s4-boundary-1", "#s4-boundary-2", "#s4-boundary-3"].forEach(function (selector, index) {
-        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "expo.out" : index === 1 ? "power3.out" : "circ.out", immediateRender: false }, 47.0 + index * 0.48);
+        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "expo.out" : index === 1 ? "power3.out" : "circ.out", immediateRender: false }, 47.0 + index * 0.48);
       });
       draw("#s4-boundary-arrow-1", 47.42, 0.46);
       draw("#s4-boundary-arrow-2", 47.88, 0.46);
       draw("#s4-boundary-arrow-3", 48.34, 0.46);
-      tl.to("#s4-performance-terminal", { borderColor: "#3CAEA3", duration: 0.5, ease: "power1.inOut" }, 49.4);
-      tl.fromTo("#s4-teacher", { opacity: 0, x: 54, y: 18, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 51.0);
+      visual.to("#s4-performance-terminal", { borderColor: "#3CAEA3", duration: 0.5, ease: "power1.inOut" }, 49.4);
+      visual.fromTo("#s4-teacher", { opacity: 0, x: 54, y: 18, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 51.0);
+
+      visual.timeScale(1.052);
+      tl.add(visual, 2.5);
 
       [[0, 2.7, 8.4], [1, 8.7, 16.7], [2, 17, 23.2], [3, 23.5, 33], [4, 33.3, 44.5], [5, 44.8, 53.1]].forEach(function (item) {
         tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto", immediateRender: false }, item[1]);
