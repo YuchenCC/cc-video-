@@ -13,16 +13,16 @@
         <figure id="s3-entry-stack" class="cc-stack-frame cc-stack-frame--blue entry-stack" data-layout-ignore="">
           <div class="cc-stack-frame__body">
             <div id="s3-list-basic" class="entry-stack-row">
-              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label">基础能力</div>
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label entry-stack-label--basic">基础能力</div>
             </div>
             <div id="s3-list-enhance" class="entry-stack-row">
-              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label">增强能力</div>
+              <div class="cc-stack-label cc-stack-label--blue-light cc-stack-label--md entry-stack-label entry-stack-label--enhance">增强能力</div>
             </div>
             <div id="s3-list-exception" class="entry-stack-row">
-              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md entry-stack-label">例外能力</div>
+              <div class="cc-stack-label cc-stack-label--coral-dark cc-stack-label--md entry-stack-label entry-stack-label--exception">例外能力</div>
             </div>
             <div id="s3-list-custom" class="entry-stack-row">
-              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md entry-stack-label">自定义能力</div>
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md entry-stack-label entry-stack-label--custom">自定义能力</div>
             </div>
           </div>
         </figure>
@@ -102,7 +102,7 @@
         </div>
       </section>
 
-      <section id="s3-code-basic" class="code-panel code-panel--basic" aria-label="基础规则代码">
+      <section id="s3-code-basic" class="code-panel code-panel--basic" aria-label="基础规则代码" data-layout-allow-overflow="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -121,7 +121,7 @@
 <span class="code-line">}</span></code></pre>
       </section>
 
-      <section id="s3-code-enhance" class="code-panel code-panel--enhance" aria-label="增强规则代码">
+      <section id="s3-code-enhance" class="code-panel code-panel--enhance" aria-label="增强规则代码" data-layout-allow-overflow="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -140,7 +140,7 @@
 <span class="code-line">      type: DEFAULT</span></code></pre>
       </section>
 
-      <section id="s3-code-exception" class="code-panel code-panel--exception" aria-label="例外规则代码">
+      <section id="s3-code-exception" class="code-panel code-panel--exception" aria-label="例外规则代码" data-layout-allow-overflow="">
         <div class="code-panel__bar">
           <span></span>
           <span></span>
@@ -302,6 +302,26 @@
         min-height: 78px;
         font-size: 34px;
         text-align: center;
+      }
+
+      #scene-003 .entry-stack-label--basic {
+        background: #233b5e;
+        color: #ffffff;
+      }
+
+      #scene-003 .entry-stack-label--enhance {
+        background: #2c9a9a;
+        color: #ffffff;
+      }
+
+      #scene-003 .entry-stack-label--exception {
+        background: #ef7b85;
+        color: #111111;
+      }
+
+      #scene-003 .entry-stack-label--custom {
+        background: #3caea3;
+        color: #111111;
       }
 
       #scene-003 .ability-card {
@@ -513,6 +533,7 @@
       #scene-003 .code-panel__code {
         margin: 0;
         padding: 16px 18px 20px;
+        width: 100%;
         max-height: calc(var(--s3-detail-max-height) - 44px);
         overflow: hidden;
         color: #e5e7eb;
@@ -524,14 +545,18 @@
         font-variant-ligatures: none;
       }
 
-      #scene-003 .code-panel--basic .code-panel__code {
-        font-size: 18px;
-        line-height: 1;
+      #scene-003 .code-panel__code code {
+        display: block;
+        width: 100%;
+        overflow: hidden;
       }
 
       #scene-003 .code-line {
         display: block;
+        width: 100%;
         min-height: 1.28em;
+        overflow: hidden;
+        text-overflow: clip;
         white-space: pre;
         font-size: 24px;
       }
@@ -610,6 +635,16 @@
         tl.to(selector, { opacity: 0, y: 18, scale: 0.96, duration: 0.24, ease: "power2.in", overwrite: "auto" }, time);
       }
 
+      function showEntryStack(time) {
+        tl.to("#s3-entry-stack", { opacity: 1, y: 0, scale: 1, duration: 0.26, ease: "power2.out", overwrite: "auto" }, time);
+        tl.to("#s3-entry-label", { opacity: 0.28, scale: 0.9, duration: 0.26, ease: "power2.out", overwrite: "auto" }, time);
+      }
+
+      function dimEntryStack(time) {
+        tl.to("#s3-entry-stack", { opacity: 0.18, y: 10, scale: 0.96, duration: 0.28, ease: "power2.inOut", overwrite: "auto" }, time);
+        tl.to("#s3-entry-label", { opacity: 0.12, scale: 0.86, duration: 0.28, ease: "power2.inOut", overwrite: "auto" }, time);
+      }
+
       tl.fromTo("#s3-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 0.2);
       tl.fromTo("#s3-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
       tl.to("#s3-title", { opacity: 0, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 2.18);
@@ -624,6 +659,7 @@
       focusListLabel("#s3-list-basic .entry-stack-label", 7);
       tl.to("#s3-entry-label", { opacity: 0.18, scale: 0.9, duration: 0.35, ease: "power2.inOut" }, 7.05);
       tl.fromTo("#s3-card-basic", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 7.38);
+      dimEntryStack(7.76);
       tl.fromTo("#s3-card-basic .field-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.08, ease: "power2.out", immediateRender: false }, 8.1);
       tl.fromTo("#s3-code-basic", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "power3.out", immediateRender: false }, 8.65);
       tl.fromTo("#s3-code-basic .code-highlight", { backgroundColor: "rgba(255, 224, 138, 0)", color: "#e5e7eb" }, { backgroundColor: "rgba(255, 224, 138, 0.18)", color: "#ffe08a", duration: 0.42, stagger: 0.3, ease: "power1.inOut", immediateRender: false }, 9.5);
@@ -632,9 +668,11 @@
       tl.to("#s3-client-shot img", { scale: 1.025, duration: 3.0, ease: "sine.inOut" }, 10.9);
 
       tl.to("#s3-client-shot", { opacity: 0, x: 28, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 14.18);
-      tl.to("#s3-card-basic", { x: -700, y: -18, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 14.5);
+      tl.to("#s3-card-basic", { x: -160, y: -100, scale: 0.5, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 14.5);
+      showEntryStack(14.24);
       focusListLabel("#s3-list-enhance .entry-stack-label", 14.5);
       tl.fromTo("#s3-card-enhance", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 14.86);
+      dimEntryStack(15.24);
       tl.fromTo("#s3-card-enhance .feature-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, stagger: 0.08, ease: "circ.out", immediateRender: false }, 15.45);
       tl.fromTo("#s3-code-enhance", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "power3.out", immediateRender: false }, 16.2);
       tl.fromTo("#s3-mark-shipping", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.25)", immediateRender: false }, 17.28);
@@ -642,16 +680,23 @@
       tl.to("#s3-mark-shipping, #s3-mark-answer", { boxShadow: "0 0 0 5px rgba(239, 123, 133, 0.16)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 19.25);
 
       hidePanel("#s3-code-enhance", 20.15);
-      tl.to("#s3-card-enhance", { x: -700, y: 266, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 20.5);
+      tl.to("#s3-card-enhance", { x: -160, y: 245, scale: 0.5, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 20.5);
+      showEntryStack(20.24);
       focusListLabel("#s3-list-exception .entry-stack-label", 20.5);
       tl.fromTo("#s3-card-exception", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 20.86);
+      dimEntryStack(21.24);
       tl.fromTo("#s3-card-exception .exception-pair span", { opacity: 0, y: 16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.12, ease: "power3.out", immediateRender: false }, 21.55);
       tl.fromTo("#s3-code-exception", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "power3.out", immediateRender: false }, 22.05);
       tl.fromTo("#s3-mark-ignore", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 22.72);
       tl.fromTo("#s3-mark-raw-a", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.2);
       tl.fromTo("#s3-mark-raw-b", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.65);
       hidePanel("#s3-code-exception", 23.88);
-      tl.to("#s3-card-exception", { x: 950, y: -70, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 27);
+      tl.to("#s3-card-exception", { x: 820, y: -100, scale: 0.5, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 27);
+      tl.fromTo("#s3-eye-after", { opacity: 0, scale: 0.98 }, { opacity: 1, scale: 1, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 24.34);
+      tl.to("#s3-eye-after img", { scale: 1.025, duration: 1.9, ease: "sine.inOut" }, 24.7);
+
+      tl.to("#s3-eye-after", { opacity: 0, x: 30, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 26.7);
+      showEntryStack(26.78);
       focusListLabel("#s3-list-custom .entry-stack-label", 27);
       tl.to("#s3-entry-stack", { opacity: 0, scale: 0.92, y: 16, duration: 0.32, ease: "power2.in", overwrite: "auto" }, 27.45);
       tl.to("#s3-entry-label", { opacity: 0, scale: 0.82, duration: 0.24, ease: "power2.in", overwrite: "auto" }, 27.45);
@@ -662,12 +707,11 @@
         tl.fromTo(customChecks[index], { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.35)", immediateRender: false }, start + 0.22);
         tl.to(customMarks[index], { strokeDashoffset: 0, duration: 0.46, ease: "power2.out", overwrite: "auto" }, start + 0.32);
       });
-      tl.to("#s3-card-custom", { x: 410, y: 257, scale: 0.68, opacity: 0.35, duration: 0.72, ease: "power3.inOut", overwrite: "auto" }, 31.45);
-      tl.to("#s3-card-basic", { x: 125, y: -30, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-exception", { x: 707, y: -30, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-enhance", { x: 125, y: 287, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-custom", { x: 347, y: 221, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-basic, #s3-card-enhance, #s3-card-exception, #s3-card-custom", { scale: 0.82, duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut", overwrite: "auto" }, 32.9);
+      tl.to("#s3-card-basic", { x: 67, y: -144, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.7, ease: "power3.inOut", overwrite: "auto" }, 31.3);
+      tl.to("#s3-card-exception", { x: 653, y: -144, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.7, ease: "power3.inOut", overwrite: "auto" }, 31.3);
+      tl.to("#s3-card-enhance", { x: 67, y: 173, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.7, ease: "power3.inOut", overwrite: "auto" }, 31.3);
+      tl.to("#s3-card-custom", { width: "700px", height: "360px", minHeight: "360px", x: 158, y: 92, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.7, ease: "power3.inOut", overwrite: "auto" }, 31.3);
+      tl.to("#s3-card-basic, #s3-card-enhance, #s3-card-exception, #s3-card-custom", { scale: 0.82, duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut", overwrite: "auto" }, 32.05);
 
       [
         [0, 2.7, 7],
