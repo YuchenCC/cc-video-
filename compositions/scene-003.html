@@ -6,11 +6,7 @@
     </section>
 
     <main id="s3-stage" class="concept-stage" data-layout-ignore="">
-      <div class="concept-zones" aria-hidden="true" data-layout-ignore="">
-        <div class="concept-zone concept-zone--left"></div>
-        <div class="concept-zone concept-zone--center"></div>
-        <div class="concept-zone concept-zone--right"></div>
-      </div>
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore=""><div data-hf-id="hf-ys1e" class="concept-zone concept-zone--left" data-hf-text-key="child:0:div"> </div><div data-hf-id="hf-8g5m" class="concept-zone concept-zone--center" data-hf-text-key="child:1:div"></div><div data-hf-id="hf-12f7" class="concept-zone concept-zone--right" data-hf-text-key="child:2:div"></div></div>
 
       <section id="s3-entry" class="entry-concept" aria-label="配置规则四层清单">
         <div id="s3-entry-label" class="cc-stack-label cc-stack-label--blue-light cc-stack-label--lg entry-label">配置规则</div>
@@ -83,7 +79,7 @@
             <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏字段</div>
             <span id="s3-check-field" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏字段">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
@@ -91,7 +87,7 @@
             <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏方法</div>
             <span id="s3-check-method" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏方法">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
@@ -99,7 +95,7 @@
             <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md custom-label">自定义脱敏忽略</div>
             <span id="s3-check-ignore" class="cc-check-badge cc-check-badge--green cc-check-badge--md custom-check">
               <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="自定义脱敏忽略">
-                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
               </svg>
             </span>
           </div>
@@ -166,10 +162,6 @@
         <img src="../assets/images/kehudangan.png" alt="客户端档案截图">
       </figure>
 
-      <figure id="s3-eye-before" class="context-shot context-shot--eye" aria-label="例外配置前">
-        <img src="../assets/images/xiaoyanjing.png" alt="例外配置前截图">
-      </figure>
-
       <figure id="s3-eye-after" class="context-shot context-shot--eye" aria-label="例外配置后">
         <img src="../assets/images/xiaoyanjinghou.png" alt="例外配置后截图">
       </figure>
@@ -210,6 +202,16 @@
         --concept-right-width: 25%;
         --concept-top-padding: 238px;
         --concept-bottom-padding: 238px;
+        --s3-detail-panel-width: 700px;
+        --s3-detail-panel-height: 360px;
+        --s3-detail-left-x: 250px;
+        --s3-detail-right-x: 970px;
+        --s3-detail-top: 254px;
+        --s3-detail-max-height: 610px;
+        --s3-custom-panel-width: 430px;
+        --s3-custom-label-width: 330px;
+        --s3-custom-left-x: calc(50% - (var(--s3-custom-panel-width) / 2));
+        --s3-custom-top: 335px;
         position: relative;
         width: 100%;
         height: 100%;
@@ -305,14 +307,14 @@
       #scene-003 .ability-card {
         position: absolute;
         z-index: 4;
-        top: 254px;
-        left: 500px;
+        top: var(--s3-detail-top);
+        left: var(--s3-detail-left-x);
         display: grid;
-        width: 350px;
-        height: 360px;
+        width: var(--s3-detail-panel-width);
+        height: var(--s3-detail-panel-height);
         align-content: start;
         gap: 18px;
-        padding: 26px 28px;
+        padding: 26px 30px;
         border: 5px solid #2f6f8f;
         border-radius: 30px;
         background: rgba(255, 255, 255, 0.9);
@@ -326,6 +328,11 @@
       }
 
       #scene-003 .ability-card--custom {
+        top: var(--s3-custom-top);
+        left: var(--s3-custom-left-x);
+        width: var(--s3-custom-panel-width);
+        height: auto;
+        min-height: 330px;
         border-color: #2c9a9a;
       }
 
@@ -421,22 +428,22 @@
       #scene-003 .custom-stack {
         display: grid;
         gap: 12px;
-        width: 288px;
+        width: var(--s3-custom-label-width);
         justify-self: center;
       }
 
       #scene-003 .custom-row {
         position: relative;
-        width: 288px;
+        width: var(--s3-custom-label-width);
         opacity: 0;
         transform-origin: center center;
       }
 
       #scene-003 .custom-label {
-        width: 288px;
+        width: var(--s3-custom-label-width);
         min-height: 60px;
         padding-right: 58px;
-        font-size: 21px;
+        font-size: 23px;
       }
 
       #scene-003 .custom-check {
@@ -456,10 +463,11 @@
       #scene-003 .code-panel {
         position: absolute;
         z-index: 5;
-        top: 238px;
-        left: 884px;
-        width: 536px;
-        height: 298px;
+        top: var(--s3-detail-top);
+        left: var(--s3-detail-right-x);
+        width: var(--s3-detail-panel-width);
+        height: auto;
+        max-height: var(--s3-detail-max-height);
         overflow: hidden;
         border: 2px solid rgba(31, 41, 51, 0.2);
         border-radius: 18px;
@@ -479,7 +487,7 @@
         background: rgba(15, 23, 31, 0.42);
         color: #aab4be;
         font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 15px;
+        font-size: 22px;
       }
 
       #scene-003 .code-panel__bar span {
@@ -505,23 +513,27 @@
       #scene-003 .code-panel__code {
         margin: 0;
         padding: 16px 18px 20px;
+        max-height: calc(var(--s3-detail-max-height) - 44px);
+        overflow: hidden;
         color: #e5e7eb;
         font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 13px;
+        font-size: 24px;
         font-weight: 400;
-        line-height: 1.38;
+        line-height: 1;
         white-space: pre;
         font-variant-ligatures: none;
       }
 
       #scene-003 .code-panel--basic .code-panel__code {
-        font-size: 11.8px;
-        line-height: 1.34;
+        font-size: 18px;
+        line-height: 1;
       }
 
       #scene-003 .code-line {
         display: block;
         min-height: 1.28em;
+        white-space: pre;
+        font-size: 24px;
       }
 
       #scene-003 .code-highlight {
@@ -543,8 +555,14 @@
       #scene-003 .context-shot {
         position: absolute;
         z-index: 4;
-        left: 942px;
-        width: 420px;
+        top: var(--s3-detail-top);
+        left: var(--s3-detail-right-x);
+        display: grid;
+        place-items: center;
+        width: var(--s3-detail-panel-width);
+        height: auto;
+        max-height: var(--s3-detail-max-height);
+        overflow: hidden;
         border-radius: 24px;
         background: #ffffff;
         box-shadow: 0 24px 48px rgba(35, 59, 94, 0.16);
@@ -556,17 +574,16 @@
         display: block;
         width: 100%;
         height: auto;
+        max-height: calc(var(--s3-detail-max-height) - 28px);
         border-radius: 20px;
         object-fit: contain;
       }
 
       #scene-003 .context-shot--client {
-        top: 556px;
         padding: 12px;
       }
 
       #scene-003 .context-shot--eye {
-        top: 556px;
         padding: 14px;
       }
     </style>
@@ -610,12 +627,12 @@
       tl.fromTo("#s3-card-basic .field-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.08, ease: "power2.out", immediateRender: false }, 8.1);
       tl.fromTo("#s3-code-basic", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "power3.out", immediateRender: false }, 8.65);
       tl.fromTo("#s3-code-basic .code-highlight", { backgroundColor: "rgba(255, 224, 138, 0)", color: "#e5e7eb" }, { backgroundColor: "rgba(255, 224, 138, 0.18)", color: "#ffe08a", duration: 0.42, stagger: 0.3, ease: "power1.inOut", immediateRender: false }, 9.5);
-      tl.fromTo("#s3-client-shot", { opacity: 0, x: 44, y: 16, scale: 0.94 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "power3.out", immediateRender: false }, 10.35);
-      tl.to("#s3-client-shot img", { scale: 1.025, duration: 3.2, ease: "sine.inOut" }, 10.7);
+      hidePanel("#s3-code-basic", 10.22);
+      tl.fromTo("#s3-client-shot", { opacity: 0, x: 44, y: 16, scale: 0.94 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "power3.out", immediateRender: false }, 10.55);
+      tl.to("#s3-client-shot img", { scale: 1.025, duration: 3.0, ease: "sine.inOut" }, 10.9);
 
-      hidePanel("#s3-code-basic", 14.15);
       tl.to("#s3-client-shot", { opacity: 0, x: 28, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 14.18);
-      tl.to("#s3-card-basic", { x: -522, y: -18, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 14.5);
+      tl.to("#s3-card-basic", { x: -700, y: -18, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 14.5);
       focusListLabel("#s3-list-enhance .entry-stack-label", 14.5);
       tl.fromTo("#s3-card-enhance", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 14.86);
       tl.fromTo("#s3-card-enhance .feature-chip", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, stagger: 0.08, ease: "circ.out", immediateRender: false }, 15.45);
@@ -625,7 +642,7 @@
       tl.to("#s3-mark-shipping, #s3-mark-answer", { boxShadow: "0 0 0 5px rgba(239, 123, 133, 0.16)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 19.25);
 
       hidePanel("#s3-code-enhance", 20.15);
-      tl.to("#s3-card-enhance", { x: -522, y: 266, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 20.5);
+      tl.to("#s3-card-enhance", { x: -700, y: 266, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 20.5);
       focusListLabel("#s3-list-exception .entry-stack-label", 20.5);
       tl.fromTo("#s3-card-exception", { opacity: 0, scale: 0.72, y: 150 }, { opacity: 1, scale: 1, y: 0, duration: 0.72, ease: "expo.out", immediateRender: false }, 20.86);
       tl.fromTo("#s3-card-exception .exception-pair span", { opacity: 0, y: 16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.12, ease: "power3.out", immediateRender: false }, 21.55);
@@ -633,14 +650,8 @@
       tl.fromTo("#s3-mark-ignore", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 22.72);
       tl.fromTo("#s3-mark-raw-a", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.2);
       tl.fromTo("#s3-mark-raw-b", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.25)", immediateRender: false }, 23.65);
-      tl.fromTo("#s3-eye-before", { opacity: 0, x: 42, y: 12, scale: 0.94 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "power3.out", immediateRender: false }, 22.9);
-      tl.to("#s3-eye-before", { opacity: 0, duration: 0.32, ease: "power2.inOut", overwrite: "auto" }, 24);
-      tl.fromTo("#s3-eye-after", { opacity: 0, scale: 0.98 }, { opacity: 1, scale: 1, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 24);
-      tl.to("#s3-eye-after img", { scale: 1.025, duration: 2.2, ease: "sine.inOut" }, 24.25);
-
-      hidePanel("#s3-code-exception", 26.68);
-      tl.to("#s3-eye-after", { opacity: 0, x: 30, scale: 0.96, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 26.7);
-      tl.to("#s3-card-exception", { x: 490, y: -18, scale: 0.68, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 27);
+      hidePanel("#s3-code-exception", 23.88);
+      tl.to("#s3-card-exception", { x: 950, y: -70, scale: 0.55, opacity: 0.35, duration: 0.58, ease: "power3.inOut", overwrite: "auto" }, 27);
       focusListLabel("#s3-list-custom .entry-stack-label", 27);
       tl.to("#s3-entry-stack", { opacity: 0, scale: 0.92, y: 16, duration: 0.32, ease: "power2.in", overwrite: "auto" }, 27.45);
       tl.to("#s3-entry-label", { opacity: 0, scale: 0.82, duration: 0.24, ease: "power2.in", overwrite: "auto" }, 27.45);
@@ -652,10 +663,10 @@
         tl.to(customMarks[index], { strokeDashoffset: 0, duration: 0.46, ease: "power2.out", overwrite: "auto" }, start + 0.32);
       });
       tl.to("#s3-card-custom", { x: 410, y: 257, scale: 0.68, opacity: 0.35, duration: 0.72, ease: "power3.inOut", overwrite: "auto" }, 31.45);
-      tl.to("#s3-card-basic", { x: 106, y: -56, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-exception", { x: 410, y: -56, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-enhance", { x: 106, y: 257, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
-      tl.to("#s3-card-custom", { x: 410, y: 257, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
+      tl.to("#s3-card-basic", { x: 125, y: -30, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
+      tl.to("#s3-card-exception", { x: 707, y: -30, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
+      tl.to("#s3-card-enhance", { x: 125, y: 287, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
+      tl.to("#s3-card-custom", { x: 347, y: 221, scale: 0.78, opacity: 1, borderColor: "#2c9a9a", boxShadow: "0 24px 58px rgba(44, 154, 154, 0.18)", duration: 0.64, ease: "power3.inOut", overwrite: "auto" }, 32.18);
       tl.to("#s3-card-basic, #s3-card-enhance, #s3-card-exception, #s3-card-custom", { scale: 0.82, duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut", overwrite: "auto" }, 32.9);
 
       [
