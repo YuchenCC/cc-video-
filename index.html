@@ -81,7 +81,7 @@
     </style>
   </head>
   <body>
-    <div data-hf-id="hf-izc3" id="main" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="287.5">
+    <div data-hf-id="hf-izc3" id="main" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="228">
       <div data-hf-id="hf-x704" id="scene-host-001" class="scene-host" data-composition-id="scene-001" data-composition-src="compositions/scene-001.html" data-start="0" data-duration="28" data-track-index="0"></div>
       <div data-hf-id="hf-9wvy" id="scene-host-002" class="scene-host" data-composition-id="scene-002" data-composition-src="compositions/scene-002.html" data-start="27.6" data-duration="37.5" data-track-index="1"></div>
       <div data-hf-id="hf-uuml" id="scene-host-003" class="scene-host" data-composition-id="scene-003" data-composition-src="compositions/scene-003.html" data-start="64.7" data-duration="34.5" data-track-index="0"></div>
@@ -120,7 +120,6 @@
 
       tl.set(".root-watermark", { scale: 2, transformOrigin: "right top" }, 0);
       tl.set(".root-watermark", { scale: 2, transformOrigin: "right top" }, 27.8);
-      tl.fromTo("#scene-005-demo-video", { opacity: 0 }, { opacity: 1, duration: 0.48, ease: "power2.out" }, 154.58);
 
       boundaries.forEach(function (time, index) {
         tl.set("#chapter-wipe", { backgroundColor: colors[index], transformOrigin: "left center" }, time);

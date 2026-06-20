@@ -16,6 +16,7 @@
       data-duration="57.3015"
       data-track-index="1"
       data-layout-allow-overflow
+      data-layout-allow-occlusion
     >
       <div class="s5-concept-zones" aria-hidden="true" data-layout-ignore>
         <div></div>
@@ -23,6 +24,22 @@
         <div></div>
       </div>
       <div class="s5-video-shell" aria-hidden="true"></div>
+      <aside class="s5-demo-board" aria-label="脱敏能力提示白板">
+        <div class="s5-demo-board__head">
+          <span class="s5-demo-board__icon">💡</span>
+          <span class="s5-demo-board__title">组件线上演示</span>
+        </div>
+        <div class="s5-demo-board__copy">
+          <p class="s5-board-text s5-board-text--one">演示脱敏实验室用于汇总当前配置规则和测试</p>
+          <p class="s5-board-text s5-board-text--two">演示单字段规则下脱敏能力</p>
+          <p class="s5-board-text s5-board-text--three">演示 Java 对象在规则下脱敏能力</p>
+          <p class="s5-board-text s5-board-text--four">演示无规则文本兜底脱敏能力</p>
+          <p class="s5-board-text s5-board-text--five">可生成脱敏报告，包含：脱敏次数、覆盖接口、平均耗时、失败次数等</p>
+          <p class="s5-board-text s5-board-text--six">以 API 统计各维度的脱敏类型、脱敏次数，提供风险建议</p>
+          <p class="s5-board-text s5-board-text--seven">脱敏规则建议会抓取兜底脱敏的信息，提供脱敏配置补充建议</p>
+          <p class="s5-board-text s5-board-text--eight">额外收集性能数据，观测脱敏实际工作情况</p>
+        </div>
+      </aside>
     </div>
 
     <img
@@ -36,74 +53,52 @@
       data-layout-ignore
     >
 
-    <main id="s5-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow data-layout-allow-occlusion>
-      <div class="scene-meta">SCENE 05 · GOVERNANCE</div>
-      <h1 class="scene-heading">难点不是写规则，而是持续发现遗漏字段</h1>
-      <p class="scene-kicker">运行时线索替代一次性人工清单，报告负责提出建议，程序员负责确认并进入下一轮观察。</p>
-
-      <section class="stage">
-        <div class="stage stage--split">
-          <article id="s5-manual" class="panel panel--risk">
-            <span class="panel-label">MANUAL INVENTORY</span>
-            <h2 class="panel-title">翻接口、查对象、搜日志、追上下游</h2>
-            <div class="chip-row">
-              <span class="chip chip--risk">清单难整理</span>
-              <span class="chip chip--risk">新增后重查</span>
-              <span class="chip chip--risk">容易漏项</span>
-            </div>
-          </article>
-          <article id="s5-signals" class="panel panel--focus">
-            <span class="panel-label">RUNTIME SIGNALS</span>
-            <h2 class="panel-title">系统运行时持续收集治理线索</h2>
-            <div class="chip-row">
-              <span class="chip">兜底命中字段</span>
-              <span class="chip">敏感接口</span>
-              <span class="chip">主动忽略字段</span>
-            </div>
-          </article>
-        </div>
-
-        <div id="s5-cycle" class="cycle">
-          <div class="cycle-step">系统运行</div>
-          <div class="cycle-step">发现漏项</div>
-          <div class="cycle-step">人工确认</div>
-          <div class="cycle-step">补充配置</div>
-          <div class="cycle-step">继续观察</div>
-        </div>
-
-        <div class="stage stage--split">
-          <article id="s5-report" class="panel panel--success">
-            <span class="panel-label">SUGGESTION REPORT</span>
-            <h2 class="panel-title">报告给出字段、方式与配置建议</h2>
-          </article>
-          <div id="s5-privacy" class="privacy-note">
-            <span class="shield">隐私</span>
-            只记录字段、接口和命中次数，不保存敏感原文
-          </div>
-        </div>
+    <main id="s5-body" class="scene-content s5-loop-layout" style="opacity: 0;" data-layout-allow-overflow data-layout-allow-occlusion>
+      <section id="s5-loop-screen" class="s5-loop-screen" aria-label="持续治理闭环大屏">
+        <img id="s5-summary-art" class="s5-summary-art" src="../assets/images/summary.png" alt="持续治理闭环大屏">
       </section>
+
+      <img id="s5-loop-character" class="s5-loop-character" src="../assets/characters/17.png" alt="" data-layout-ignore>
     </main>
 
-    <img id="s5-character" class="character" style="opacity: 0;" src="../assets/characters/9.png" alt="" data-layout-ignore>
-
-    <div class="caption" data-layout-allow-overlap>可配置的脱敏工具并不少</div>
-    <div class="caption" data-layout-allow-overlap>真正困难的是这些敏感字段要靠谁来找</div>
-    <div class="caption" data-layout-allow-overlap>存量系统的人工排查清单很难长期维护</div>
-    <div class="caption" data-layout-allow-overlap>组件会根据实际运行情况持续记录线索</div>
-    <div class="caption" data-layout-allow-overlap>报告给出漏项、脱敏方式和配置建议</div>
-    <div class="caption" data-layout-allow-overlap>确认后补入正式配置，并继续观察</div>
-    <div class="caption" data-layout-allow-overlap>治理报告不会保存任何敏感原文</div>
+    <div class="caption" data-layout-allow-overlap>可配置脱敏工具本身并不少</div>
+    <div class="caption" data-layout-allow-overlap>难点是字段到底靠谁来找</div>
+    <div class="caption" data-layout-allow-overlap>多年系统清单很难一次理清</div>
+    <div class="caption" data-layout-allow-overlap>新增接口字段还要重新排查</div>
+    <div class="caption" data-layout-allow-overlap>组件运行后持续记录治理线索</div>
+    <div class="caption" data-layout-allow-overlap>报告提示漏项、方式和配置写法</div>
+    <div class="caption" data-layout-allow-overlap>确认无误后补进正式配置</div>
+    <div class="caption" data-layout-allow-overlap>这就形成一个持续治理循环</div>
+    <div class="caption" data-layout-allow-overlap>系统运行后组件帮忙找漏项</div>
+    <div class="caption" data-layout-allow-overlap>程序员确认并补充配置</div>
+    <div class="caption" data-layout-allow-overlap>继续观察且不保存敏感原文</div>
 
     <style>
       @import url("../src/styles/runtime.css");
       @import url("../src/components/TitleTransition/styles.css");
+
+      #scene-005 {
+        --s5-bg: #FFFFFF;
+        --cc-mono: "JetBrains Mono", Menlo, monospace;
+        background: var(--s5-bg);
+      }
+
+      #scene-005 .orb,
+      #scene-005 .ghost-word {
+        display: none;
+      }
+
+      #scene-005 .chapter-beat {
+        z-index: 20;
+        background: var(--s5-bg);
+      }
 
       #scene-005 .s5-concept-frame {
         position: absolute;
         z-index: 4;
         inset: 0;
         overflow: hidden;
-        background: #F7F8FA;
+        background: var(--s5-bg);
       }
 
       #scene-005 .s5-concept-frame::before {
@@ -131,7 +126,7 @@
         top: 142px;
         left: 112px;
         width: 1320px;
-        height: 668px;
+        height: 743px;
         border: 3px solid #AAB4BE;
         border-radius: 16px;
         background: #FFFFFF;
@@ -147,12 +142,691 @@
         pointer-events: none;
       }
 
+      #scene-005 .s5-demo-board {
+        position: absolute;
+        z-index: 7;
+        top: 142px;
+        right: 58px;
+        width: 394px;
+        min-height: 352px;
+        box-sizing: border-box;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        font-family: inherit;
+        overflow: visible;
+      }
+
+      #scene-005 .s5-demo-board::after {
+        content: none;
+      }
+
+      #scene-005 .s5-demo-board__head {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-height: 98px;
+        box-sizing: border-box;
+        padding: 22px 28px;
+        border: 3px solid rgba(174, 207, 244, 0.82);
+        border-radius: 28px;
+        background:
+          radial-gradient(circle at 24% 4%, rgba(255, 255, 255, 0.96) 0, rgba(255, 255, 255, 0) 42%),
+          linear-gradient(180deg, rgba(234, 243, 255, 0.94), rgba(255, 255, 255, 0.9));
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.12);
+      }
+
+      #scene-005 .s5-demo-board__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: #2F6F8F;
+        color: #FFFFFF;
+        font-size: 25px;
+        box-shadow: 0 10px 22px rgba(47, 111, 143, 0.22);
+      }
+
+      #scene-005 .s5-demo-board__title {
+        color: #256DD7;
+        font-size: 31px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+      }
+
+      #scene-005 .s5-demo-board__copy {
+        position: relative;
+        z-index: 1;
+        min-height: 210px;
+        margin: 18px 0 0;
+        border: 3px solid rgba(174, 207, 244, 0.72);
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 45%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 253, 0.94));
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.12), inset 0 -16px 24px rgba(35, 59, 94, 0.035);
+        color: #57616C;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.43;
+        letter-spacing: -0.02em;
+        perspective: 680px;
+        overflow: hidden;
+      }
+
+      #scene-005 .s5-demo-board__copy::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(47, 111, 143, 0), rgba(47, 111, 143, 0.12), rgba(47, 111, 143, 0));
+        opacity: 0.75;
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-demo-board__copy::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 36px;
+        background: linear-gradient(180deg, rgba(47, 111, 143, 0.1), rgba(47, 111, 143, 0));
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-board-text {
+        position: absolute;
+        inset: 24px 24px;
+        display: grid;
+        align-items: center;
+        margin: 0;
+        opacity: 0;
+        transform-origin: center center;
+        backface-visibility: hidden;
+      }
+
       #scene-005 .s5-thinking-character {
         position: absolute;
         z-index: 6;
-        top: 345px;
-        right: 80px;
-        width: 330px;
+        top: 552px;
+        right: 92px;
+        width: 286px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 24px rgba(35, 59, 94, 0.14));
+      }
+
+      #scene-005 .s5-loop-layout {
+        padding: 72px 72px 132px 84px;
+        gap: 0;
+      }
+
+      #scene-005 .s5-loop-screen {
+        position: relative;
+        width: 1458px;
+        height: 880px;
+        border: 3px solid rgba(170, 180, 190, 0.58);
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0 28px 64px rgba(35, 59, 94, 0.14);
+        overflow: hidden;
+      }
+
+      #scene-005 .s5-loop-screen::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px solid rgba(217, 225, 232, 0.82);
+        border-radius: 18px;
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-summary-art {
+        position: absolute;
+        top: -158px;
+        left: 18px;
+        width: calc(100% - 36px);
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+        border-radius: 14px;
+      }
+
+      #scene-005 .s5-loop-header {
+        position: absolute;
+        top: 36px;
+        left: 430px;
+        right: 430px;
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr) 110px;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+      }
+
+      #scene-005 .s5-loop-header h1 {
+        margin: 0;
+        color: #233B5E;
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 1.08;
+      }
+
+      #scene-005 .s5-loop-header p {
+        margin: 14px 0 0;
+        color: #4E6178;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.35;
+        white-space: nowrap;
+      }
+
+      #scene-005 .s5-title-rail {
+        position: relative;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(47, 111, 143, 0), rgba(47, 111, 143, 0.32));
+      }
+
+      #scene-005 .s5-title-rail span {
+        position: absolute;
+        top: -5px;
+        right: -6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #2F6F8F;
+      }
+
+      #scene-005 .s5-title-rail--right {
+        transform: scaleX(-1);
+      }
+
+      #scene-005 .s5-side-card {
+        position: absolute;
+        z-index: 3;
+        width: 240px;
+        padding: 22px 20px;
+        border: 2px solid rgba(217, 225, 232, 0.92);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 16px 34px rgba(35, 59, 94, 0.12);
+      }
+
+      #scene-005 .s5-side-card--left {
+        top: 352px;
+        left: 42px;
+      }
+
+      #scene-005 .s5-side-card--right {
+        top: 358px;
+        right: 78px;
+        width: 260px;
+      }
+
+      #scene-005 .s5-side-card h2 {
+        margin: 0 0 18px;
+        color: #233B5E;
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      #scene-005 .s5-metric-row {
+        display: grid;
+        grid-template-columns: 30px 1fr auto;
+        align-items: center;
+        min-height: 52px;
+        gap: 10px;
+        border-top: 1px solid rgba(217, 225, 232, 0.76);
+        color: #4E6178;
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      #scene-005 .s5-metric-row strong {
+        color: #162B49;
+        font-size: 17px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+
+      #scene-005 .s5-metric-icon {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      #scene-005 .s5-metric-icon--blue {
+        background: #2F6F8F;
+      }
+
+      #scene-005 .s5-metric-icon--green {
+        background: #3CAEA3;
+      }
+
+      #scene-005 .s5-metric-icon--yellow {
+        background: #F3B649;
+      }
+
+      #scene-005 .s5-alert-line {
+        margin-bottom: 12px;
+        padding: 11px 12px;
+        border-radius: 8px;
+        background: rgba(239, 123, 133, 0.12);
+        color: #D85F68;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      #scene-005 .s5-leak-card ul,
+      #scene-005 .s5-side-card ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0 0 0 18px;
+        color: #4E6178;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      #scene-005 .s5-leak-card li::marker,
+      #scene-005 .s5-side-card li::marker {
+        color: #F3B649;
+      }
+
+      #scene-005 .s5-loop-map {
+        position: absolute;
+        top: 148px;
+        left: 318px;
+        width: 786px;
+        height: 608px;
+      }
+
+      #scene-005 .s5-orbit {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: 2px dashed rgba(47, 111, 143, 0.16);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-orbit--outer {
+        width: 374px;
+        height: 374px;
+      }
+
+      #scene-005 .s5-orbit--inner {
+        width: 258px;
+        height: 258px;
+      }
+
+      #scene-005 .s5-loop-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: grid;
+        place-items: center;
+        width: 168px;
+        height: 168px;
+        border: 2px solid rgba(217, 225, 232, 0.92);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: #233B5E;
+        box-shadow: 0 16px 36px rgba(35, 59, 94, 0.1);
+        transform: translate(-50%, -50%);
+      }
+
+      #scene-005 .s5-loop-core strong {
+        margin-top: 4px;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      #scene-005 .s5-loop-core span {
+        margin-top: -12px;
+        color: #4E6178;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      #scene-005 .s5-core-cube {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #2F6F8F, #4B8FEF);
+        transform: rotate(45deg);
+      }
+
+      #scene-005 .s5-core-cube::before,
+      #scene-005 .s5-core-cube::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      #scene-005 .s5-core-cube::before {
+        left: 22px;
+        top: 10px;
+        width: 5px;
+        height: 30px;
+      }
+
+      #scene-005 .s5-core-cube::after {
+        left: 10px;
+        top: 22px;
+        width: 30px;
+        height: 5px;
+      }
+
+      #scene-005 .s5-loop-step {
+        position: absolute;
+        z-index: 2;
+        width: 262px;
+        min-height: 154px;
+        padding: 22px 24px 18px 72px;
+        border: 2px solid rgba(174, 207, 244, 0.92);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 16px 34px rgba(47, 111, 143, 0.12);
+      }
+
+      #scene-005 .s5-loop-step span {
+        position: absolute;
+        left: 26px;
+        top: 24px;
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #2F6F8F;
+        color: #FFFFFF;
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      #scene-005 .s5-loop-step h2 {
+        margin: 0;
+        color: #162B49;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 1.15;
+      }
+
+      #scene-005 .s5-loop-step p {
+        margin: 12px 0 0;
+        color: #4E6178;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      #scene-005 .s5-loop-step--run {
+        top: 0;
+        left: 262px;
+      }
+
+      #scene-005 .s5-loop-step--find {
+        top: 204px;
+        right: 0;
+      }
+
+      #scene-005 .s5-loop-step--confirm {
+        left: 248px;
+        bottom: 0;
+        width: 306px;
+      }
+
+      #scene-005 .s5-loop-step--watch {
+        top: 208px;
+        left: 0;
+      }
+
+      #scene-005 .s5-server-stack {
+        display: grid;
+        gap: 5px;
+        width: 86px;
+        margin-top: 16px;
+      }
+
+      #scene-005 .s5-server-stack i {
+        height: 18px;
+        border-radius: 5px;
+        background: #3B70C9;
+        box-shadow: inset 8px 0 0 rgba(255, 255, 255, 0.12);
+      }
+
+      #scene-005 .s5-server-stack i::after {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 5px 8px 0 auto;
+        border-radius: 50%;
+        background: #74C8B8;
+        box-shadow: -18px 0 0 rgba(255, 255, 255, 0.72);
+      }
+
+      #scene-005 .s5-doc-search {
+        position: relative;
+        width: 72px;
+        height: 68px;
+        margin-top: 18px;
+        border-radius: 7px;
+        background: linear-gradient(180deg, #E8F2FF, #C7DBF5);
+      }
+
+      #scene-005 .s5-doc-search::before {
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        width: 34px;
+        height: 34px;
+        border: 7px solid #3B70C9;
+        border-radius: 50%;
+      }
+
+      #scene-005 .s5-doc-search::after {
+        content: "";
+        position: absolute;
+        left: 48px;
+        top: 48px;
+        width: 30px;
+        height: 7px;
+        border-radius: 999px;
+        background: #3B70C9;
+        transform: rotate(45deg);
+      }
+
+      #scene-005 .s5-confirm-flow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      #scene-005 .s5-confirm-flow b {
+        display: block;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: #E8F2FF;
+      }
+
+      #scene-005 .s5-confirm-flow b:first-child::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 28px;
+        margin: 10px;
+        border-radius: 50%;
+        background: #2F6F8F;
+      }
+
+      #scene-005 .s5-confirm-flow b:last-child::before {
+        content: "{}";
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        color: #3B70C9;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      #scene-005 .s5-confirm-flow em {
+        position: relative;
+        display: block;
+        width: 42px;
+        height: 5px;
+        border-radius: 999px;
+        background: #AFC5E6;
+      }
+
+      #scene-005 .s5-confirm-flow em::after {
+        content: "";
+        position: absolute;
+        right: -1px;
+        top: -7px;
+        width: 17px;
+        height: 17px;
+        border-top: 5px solid #AFC5E6;
+        border-right: 5px solid #AFC5E6;
+        transform: rotate(45deg);
+      }
+
+      #scene-005 .s5-eye {
+        position: relative;
+        width: 78px;
+        height: 48px;
+        margin-top: 22px;
+        border-radius: 50%;
+        background: #4B8FEF;
+      }
+
+      #scene-005 .s5-eye::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 8px;
+        width: 38px;
+        height: 32px;
+        border-radius: 50%;
+        background: #FFFFFF;
+      }
+
+      #scene-005 .s5-eye::after {
+        content: "";
+        position: absolute;
+        left: 32px;
+        top: 17px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #2F6F8F;
+      }
+
+      #scene-005 .s5-loop-arrows {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      #scene-005 #s5-arrow-head path {
+        fill: #4B8FEF;
+      }
+
+      #scene-005 .s5-arrow {
+        fill: none;
+        stroke: #4B8FEF;
+        stroke-width: 7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        marker-end: url(#s5-arrow-head);
+        opacity: 0.9;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      #scene-005 .s5-arrow--top,
+      #scene-005 .s5-arrow--right,
+      #scene-005 .s5-arrow--bottom,
+      #scene-005 .s5-arrow--left {
+        vector-effect: non-scaling-stroke;
+      }
+
+      #scene-005 .s5-config-card {
+        position: absolute;
+        left: 334px;
+        bottom: 22px;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 16px;
+        width: 780px;
+        padding: 16px 22px;
+        border: 2px solid rgba(217, 225, 232, 0.94);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 14px 30px rgba(35, 59, 94, 0.1);
+      }
+
+      #scene-005 .s5-config-card strong {
+        color: #233B5E;
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      #scene-005 .s5-config-card code {
+        overflow: hidden;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: #F4F6F8;
+        color: #233B5E;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      #scene-005 .s5-config-card span {
+        color: #3CAEA3;
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      #scene-005 .s5-loop-character {
+        position: absolute;
+        z-index: 3;
+        right: 24px;
+        top: 364px;
+        width: 316px;
         height: auto;
         object-fit: contain;
         filter: drop-shadow(0 18px 24px rgba(35, 59, 94, 0.14));
@@ -163,35 +837,37 @@
       window.__timelines = window.__timelines || {};
       var tl = gsap.timeline({ paused: true });
       var captions = document.querySelectorAll('[data-composition-id="scene-005"] .caption');
-      var cycleSteps = document.querySelectorAll('[data-composition-id="scene-005"] .cycle-step');
 
-      tl.fromTo("#s5-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out" }, 0.2);
-      tl.fromTo("#s5-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.46);
+      tl.fromTo("#s5-title", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none", immediateRender: false }, 0.05);
+      tl.fromTo("#s5-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 0.2);
+      tl.fromTo("#s5-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
       tl.to("#s5-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
       tl.set("#s5-title", { opacity: 0 }, 2.5);
       tl.fromTo("#s5-concept-frame", { opacity: 0 }, { opacity: 1, duration: 0.42, ease: "sine.out" }, 2.5);
       tl.fromTo("#s5-concept-frame .s5-video-shell", { opacity: 0, scale: 0.975 }, { opacity: 1, scale: 1, duration: 0.62, ease: "power3.out" }, 2.58);
+      tl.fromTo("#s5-concept-frame .s5-demo-board", { opacity: 0, x: 28, y: -12, scale: 0.98 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.56, ease: "power3.out" }, 2.66);
       tl.fromTo("#s5-thinking-character", { opacity: 0, x: 44, y: 18 }, { opacity: 1, x: 0, y: 0, duration: 0.72, ease: "circ.out" }, 2.82);
-      tl.fromTo("#s5-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 29);
-      tl.fromTo(".scene-meta", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.45);
-      tl.fromTo(".scene-heading", { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.66, ease: "expo.out" }, 2.65);
-      tl.fromTo(".scene-kicker", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "sine.out" }, 3.05);
-      tl.fromTo("#s5-manual", { opacity: 0, x: -48 }, { opacity: 1, x: 0, duration: 0.58, ease: "power3.out" }, 5);
-      tl.fromTo("#s5-character", { opacity: 0, y: 38 }, { opacity: 1, y: 0, duration: 0.52, ease: "circ.out" }, 15);
-      tl.to("#s5-manual", { boxShadow: "0 24px 48px rgba(239,123,133,0.2)", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 20);
-      tl.to("#s5-character", { opacity: 0, duration: 0.28, ease: "power2.in" }, 27);
-      tl.fromTo("#s5-signals", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.62, ease: "expo.out" }, 29);
-      tl.fromTo(cycleSteps, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power4.out" }, 40);
-      tl.to(cycleSteps[0], { borderColor: "#2C9A9A", scale: 1.025, duration: 0.35, ease: "power2.inOut" }, 46);
-      tl.to(cycleSteps[1], { borderColor: "#2C9A9A", scale: 1.025, duration: 0.35, ease: "power2.inOut" }, 48);
-      tl.to(cycleSteps[2], { borderColor: "#2C9A9A", scale: 1.025, duration: 0.35, ease: "power2.inOut" }, 50);
-      tl.to(cycleSteps[3], { borderColor: "#2C9A9A", scale: 1.025, duration: 0.35, ease: "power2.inOut" }, 52);
-      tl.to(cycleSteps[4], { borderColor: "#2C9A9A", scale: 1.025, duration: 0.35, ease: "power2.inOut" }, 54);
-      tl.fromTo("#s5-report", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.58, ease: "back.out(1.12)" }, 57);
-      tl.fromTo("#s5-privacy", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.62, ease: "power3.out" }, 68);
-      tl.to("#s5-privacy", { boxShadow: "0 22px 46px rgba(60,174,163,0.18)", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 72);
+      [
+        [".s5-board-text--one", 2.78, 6.5],
+        [".s5-board-text--two", 6.5, 12.5],
+        [".s5-board-text--three", 12.5, 17.5],
+        [".s5-board-text--four", 17.5, 23.0084],
+        [".s5-board-text--five", 23.0084, 29.0084],
+        [".s5-board-text--six", 29.0084, 41.0084],
+        [".s5-board-text--seven", 41.0084, 51.0084],
+        [".s5-board-text--eight", 51.0084, 59.8015]
+      ].forEach(function (item) {
+        tl.fromTo(item[0], { opacity: 0, x: 26, y: 22, scale: 0.985, rotationX: -70 }, { opacity: 1, x: 0, y: 0, scale: 1, rotationX: 0, duration: 0.36, ease: "power3.out", overwrite: "auto", immediateRender: false }, item[1]);
+        tl.fromTo("#s5-concept-frame .s5-demo-board__copy", { scale: 0.985, boxShadow: "0 18px 34px rgba(35,59,94,0.12), inset 0 -26px 36px rgba(35,59,94,0.08)" }, { scale: 1, boxShadow: "0 18px 34px rgba(35,59,94,0.12), inset 0 -16px 24px rgba(35,59,94,0.035)", duration: 0.36, ease: "power3.out", overwrite: "auto" }, item[1]);
+        tl.to(item[0], { opacity: 0, x: -48, y: 0, scale: 0.96, duration: 0.24, ease: "power2.in", overwrite: "auto" }, item[2] - 0.24);
+        tl.set(item[0], { opacity: 0, x: 0, y: 0, scale: 1, rotationX: 0 }, item[2]);
+      });
+      tl.fromTo("#s5-body", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 59.86);
+      tl.fromTo("#s5-loop-screen", { opacity: 0, scale: 0.985 }, { opacity: 1, scale: 1, duration: 0.58, ease: "power3.out" }, 59.9);
+      tl.fromTo("#s5-summary-art", { opacity: 0, scale: 0.99 }, { opacity: 1, scale: 1, duration: 0.54, ease: "power3.out" }, 60.04);
+      tl.fromTo("#s5-loop-character", { opacity: 0, x: 38, y: 18 }, { opacity: 1, x: 0, y: 0, duration: 0.64, ease: "circ.out" }, 60.08);
 
-      [[0, 2.7, 10.5], [1, 10.8, 18.8], [2, 19.1, 29], [3, 29.3, 42], [4, 42.3, 56.2], [5, 56.5, 68], [6, 68.3, 76.1]].forEach(function (item) {
+      [[0, 2.7, 10.3], [1, 10.6, 15.5], [2, 15.8, 25.8], [3, 26.1, 32.8], [4, 33.1, 46.2], [5, 46.5, 55.5], [6, 55.8, 59.6], [7, 59.9, 63.4], [8, 63.7, 67.2], [9, 67.5, 71.3], [10, 71.6, 76.1]].forEach(function (item) {
         tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" }, item[1]);
         tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);
       });
