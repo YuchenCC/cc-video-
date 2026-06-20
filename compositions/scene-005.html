@@ -1,5 +1,5 @@
 <template id="scene-005-template">
-  <div class="scene-root" data-composition-id="scene-005" data-width="1920" data-height="1080" data-start="0" data-duration="76.5">
+  <div id="scene-005" class="scene-root" data-composition-id="scene-005" data-width="1920" data-height="1080" data-start="0" data-duration="76.5">
     <div class="orb orb--one" data-layout-allow-overflow></div>
     <div class="orb orb--two" data-layout-allow-overflow></div>
     <div class="ghost-word" data-layout-ignore>GOVERN</div>
@@ -9,7 +9,34 @@
       <div class="chapter-rule"></div>
     </section>
 
-    <main id="s5-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow>
+    <div
+      id="s5-concept-frame"
+      class="clip s5-concept-frame"
+      data-start="2.5"
+      data-duration="27.5"
+      data-track-index="1"
+      data-layout-allow-overflow
+    >
+      <div class="s5-concept-zones" aria-hidden="true" data-layout-ignore>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="s5-video-shell" aria-hidden="true"></div>
+    </div>
+
+    <img
+      id="s5-thinking-character"
+      class="clip s5-thinking-character"
+      src="../assets/characters/18.png"
+      alt=""
+      data-start="2.5"
+      data-duration="27.5"
+      data-track-index="3"
+      data-layout-ignore
+    >
+
+    <main id="s5-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow data-layout-allow-occlusion>
       <div class="scene-meta">SCENE 05 · GOVERNANCE</div>
       <h1 class="scene-heading">难点不是写规则，而是持续发现遗漏字段</h1>
       <p class="scene-kicker">运行时线索替代一次性人工清单，报告负责提出建议，程序员负责确认并进入下一轮观察。</p>
@@ -70,6 +97,66 @@
     <style>
       @import url("../src/styles/runtime.css");
       @import url("../src/components/TitleTransition/styles.css");
+
+      #scene-005 .s5-concept-frame {
+        position: absolute;
+        z-index: 4;
+        inset: 0;
+        overflow: hidden;
+        background: #F7F8FA;
+      }
+
+      #scene-005 .s5-concept-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px),
+          linear-gradient(90deg, rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px);
+        background-size: 64px 64px;
+        opacity: 0.55;
+      }
+
+      #scene-005 .s5-concept-zones {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        padding: 238px 0;
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-video-shell {
+        position: absolute;
+        top: 142px;
+        left: 112px;
+        width: 1320px;
+        height: 668px;
+        border: 3px solid #AAB4BE;
+        border-radius: 16px;
+        background: #FFFFFF;
+        box-shadow: 0 24px 54px rgba(35, 59, 94, 0.16);
+      }
+
+      #scene-005 .s5-video-shell::after {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 2px solid #D9E1E8;
+        border-radius: 10px;
+        pointer-events: none;
+      }
+
+      #scene-005 .s5-thinking-character {
+        position: absolute;
+        z-index: 6;
+        top: 345px;
+        right: 80px;
+        width: 330px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 24px rgba(35, 59, 94, 0.14));
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script>
@@ -81,7 +168,11 @@
       tl.fromTo("#s5-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out" }, 0.2);
       tl.fromTo("#s5-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.46);
       tl.to("#s5-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
-      tl.fromTo("#s5-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.3);
+      tl.set("#s5-title", { opacity: 0 }, 2.5);
+      tl.fromTo("#s5-concept-frame", { opacity: 0 }, { opacity: 1, duration: 0.42, ease: "sine.out" }, 2.5);
+      tl.fromTo("#s5-concept-frame .s5-video-shell", { opacity: 0, scale: 0.975 }, { opacity: 1, scale: 1, duration: 0.62, ease: "power3.out" }, 2.58);
+      tl.fromTo("#s5-thinking-character", { opacity: 0, x: 44, y: 18 }, { opacity: 1, x: 0, y: 0, duration: 0.72, ease: "circ.out" }, 2.82);
+      tl.fromTo("#s5-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 29);
       tl.fromTo(".scene-meta", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.45);
       tl.fromTo(".scene-heading", { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.66, ease: "expo.out" }, 2.65);
       tl.fromTo(".scene-kicker", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "sine.out" }, 3.05);
