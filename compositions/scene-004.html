@@ -1,58 +1,139 @@
 <template id="scene-004-template">
-  <div class="scene-root" data-composition-id="scene-004" data-width="1920" data-height="1080" data-start="0" data-duration="53.5">
-    <div class="orb orb--one" data-layout-allow-overflow></div>
-    <div class="orb orb--two" data-layout-allow-overflow></div>
-    <div class="ghost-word" data-layout-ignore>LOG SAFETY</div>
+  <div id="scene-004" class="scene-root scene-004" data-composition-id="scene-004" data-width="1920" data-height="1080" data-start="0" data-duration="53.5">
+    <main class="log-concept-stage" data-layout-allow-overflow>
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore>
+        <div class="concept-zone concept-zone--left"></div>
+        <div class="concept-zone concept-zone--center"></div>
+        <div class="concept-zone concept-zone--right"></div>
+      </div>
 
-    <section id="s4-title" class="cc-title-transition cc-title-transition--dark cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
-      <h1 class="cc-title-transition__text">日志篇</h1>
-      <div class="chapter-rule"></div>
-    </section>
-
-    <main id="s4-body" class="scene-content" style="opacity: 0;" data-layout-allow-overflow>
-      <div class="scene-meta">SCENE 04 · LOGGING</div>
-      <h1 class="scene-heading">日志来源复杂，但处理路径可以很清楚</h1>
-      <p class="scene-kicker">有字段名时复用接口规则；没有字段名时，只对边界明确的数据做兜底识别。</p>
-
-      <section class="stage stage--split">
-        <div class="stage">
-          <div class="stage stage--three">
-            <article id="s4-up" class="panel"><span class="panel-label">UPSTREAM</span><h2 class="panel-title">上游参数</h2></article>
-            <article id="s4-self" class="panel panel--focus"><span class="panel-label">LOCAL</span><h2 class="panel-title">本系统数据</h2></article>
-            <article id="s4-down" class="panel"><span class="panel-label">DOWNSTREAM</span><h2 class="panel-title">下游返回</h2></article>
-          </div>
-          <div id="s4-terminal" class="terminal">
-            <div class="terminal-head">
-              <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-            </div>
-            <pre class="terminal-body"><span class="terminal-line">INFO request user.mobile=138****0000</span><span class="terminal-line">DEBUG downstream response payload=...</span><span class="terminal-line terminal-line--hot">WARN raw text contains 110***********1234</span></pre>
-          </div>
+      <section id="s4-intro" class="beat beat--intro" aria-label="日志治理最容易遗漏">
+        <div id="s4-intro-title" class="screen-title screen-title--left">日志治理：最容易遗漏的地方</div>
+        <div id="s4-intro-terminal" class="log-terminal log-terminal--large">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>application.log</strong></div>
+          <pre class="log-terminal__body log-terminal__body--scroll"><span class="log-line">INFO request traceId=82f7 path=/order/query</span><span class="log-line">DEBUG payload userName=LiMing address=Shanghai</span><span id="s4-leak-line" class="log-line log-line--risk">WARN plain text mobile=<strong id="s4-leak-phone">13812345678</strong></span><span class="log-line">INFO downstream response elapsed=36ms</span><span class="log-line">DEBUG write safe-output checkpoint</span></pre>
+          <svg id="s4-phone-ring" class="phone-ring" viewBox="0 0 270 88" aria-hidden="true">
+            <ellipse cx="135" cy="44" rx="120" ry="34"></ellipse>
+          </svg>
         </div>
+        <img id="s4-keyboard" class="keyboard-art" src="../assets/icons/keyboard.png" alt="键盘">
+        <img id="s4-alert-character" class="character-art character-art--alert" src="../assets/characters/8.png" alt="发现漏脱敏日志">
+      </section>
 
-        <div class="stage">
-          <article id="s4-fields" class="panel panel--success">
-            <span class="panel-label">STRUCTURED LOG</span>
-            <h2 class="panel-title">有字段名：复用接口配置</h2>
-            <div class="chip-row">
-              <span class="chip chip--success">user.mobile</span>
-              <span class="chip chip--success">customer.email</span>
-            </div>
+      <section id="s4-sources" class="beat beat--sources" aria-label="日志来源不只本系统">
+        <div id="s4-source-text" class="side-statement">日志来源 ≠ 只有本系统</div>
+        <div id="s4-source-terminal" class="log-terminal log-terminal--source">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>unified log</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">mobile=13812345678</span><span class="log-line">idNo=110101199003071234</span><span class="log-line">email=test@qq.com</span></pre>
+        </div>
+        <div class="source-cards">
+          <article id="s4-source-up" class="source-card">
+            <div class="source-card__icon">UP</div>
+            <strong>上游系统</strong>
+            <span>传入参数包</span>
           </article>
-          <article id="s4-fallback" class="panel panel--risk">
-            <span class="panel-label">PLAIN TEXT</span>
-            <h2 class="panel-title">无字段名：进入兜底检测器</h2>
-            <div class="chip-row">
-              <span class="chip chip--risk">手机号</span>
-              <span class="chip chip--risk">证件号</span>
-              <span class="chip chip--risk">邮箱</span>
-            </div>
+          <article id="s4-source-local" class="source-card">
+            <div class="source-card__icon">APP</div>
+            <strong>当前系统</strong>
+            <span>对象数据</span>
           </article>
-          <article id="s4-performance" class="panel">
-            <span class="panel-label">PERFORMANCE BOUNDARY</span>
-            <div class="metric"><strong>3</strong><span>类边界明确的数据</span></div>
-            <p class="panel-copy">不是全量扫描，尽量控制对日志性能的影响。</p>
+          <article id="s4-source-down" class="source-card">
+            <div class="source-card__icon">API</div>
+            <strong>下游系统</strong>
+            <span>返回内容</span>
           </article>
         </div>
+        <svg class="flow-svg flow-svg--sources" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+          <path id="s4-source-arrow-up" d="M 330 270 C 560 278, 700 330, 842 412"></path>
+          <path id="s4-source-arrow-local" d="M 330 442 C 560 446, 700 450, 842 458"></path>
+          <path id="s4-source-arrow-down" d="M 330 614 C 560 606, 700 548, 842 504"></path>
+        </svg>
+      </section>
+
+      <section id="s4-manual" class="beat beat--manual" aria-label="人工梳理很难全部覆盖">
+        <div id="s4-manual-text" class="side-statement">人工梳理：很难 100% 覆盖</div>
+        <div id="s4-field-deck" class="field-deck">
+          <article id="s4-card-1" class="field-card"><span>01</span><strong>userName</strong><em>普通字段</em></article>
+          <article id="s4-card-2" class="field-card field-card--miss"><span>02</span><strong>mobile</strong><em>漏掉字段</em></article>
+          <article id="s4-card-3" class="field-card"><span>03</span><strong>plainText</strong><em>整段文本</em></article>
+          <article id="s4-card-4" class="field-card"><span>04</span><strong>respBody</strong><em>下游返回</em></article>
+          <article id="s4-card-5" class="field-card field-card--miss"><span>05</span><strong>idNo</strong><em>漏掉字段</em></article>
+          <article id="s4-card-6" class="field-card"><span>06</span><strong>address</strong><em>普通字段</em></article>
+        </div>
+        <div id="s4-scan-bar" class="scan-bar"></div>
+      </section>
+
+      <section id="s4-rules" class="beat beat--rules" aria-label="有字段名复用接口脱敏规则">
+        <div id="s4-rule-title" class="bottom-statement">有字段名：复用接口脱敏规则</div>
+        <div id="s4-rule-card" class="rule-card">
+          <div class="rule-card__head">脱敏规则配置</div>
+          <div class="rule-row"><strong>customerMobile</strong><span>MOBILE</span></div>
+          <div class="rule-row"><strong>idNo</strong><span>ID_CARD</span></div>
+          <div class="rule-row"><strong>email</strong><span>EMAIL</span></div>
+          <div class="rule-row"><strong>bankCard</strong><span>BANK_CARD</span></div>
+          <div class="rule-row"><strong>password</strong><span>PASSWORD</span></div>
+        </div>
+        <div id="s4-api-terminal" class="log-terminal log-terminal--small log-terminal--api">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>接口输出</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">customerMobile: 13812345678</span><span class="log-line">idNo: 110101199003071234</span><span class="log-line">email: test@qq.com</span></pre>
+        </div>
+        <div id="s4-log-terminal" class="log-terminal log-terminal--small log-terminal--log">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>日志输出</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">customerMobile=13812345678</span><span class="log-line">idNo=110101199003071234</span><span class="log-line">event=downstream debug</span></pre>
+        </div>
+        <svg class="flow-svg flow-svg--rules" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+          <path id="s4-api-to-rule" d="M 588 288 C 704 314, 778 356, 838 420"></path>
+          <path id="s4-log-to-rule" d="M 588 610 C 704 584, 778 544, 838 486"></path>
+        </svg>
+      </section>
+
+      <section id="s4-result" class="beat beat--result" aria-label="同字段同规则同结果">
+        <div id="s4-result-text" class="side-statement side-statement--result">同字段，同规则，同结果</div>
+        <div id="s4-result-rule" class="rule-chip">MOBILE / ID_CARD 规则</div>
+        <div id="s4-result-api" class="log-terminal log-terminal--small log-terminal--result-a">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>接口输出</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">customerMobile: <strong class="masked">138****5678</strong></span><span class="log-line">idNo: <strong class="masked">110***********1234</strong></span></pre>
+        </div>
+        <div id="s4-result-log" class="log-terminal log-terminal--small log-terminal--result-b">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>日志输出</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">customerMobile=<strong class="masked">138****5678</strong></span><span class="log-line">idNo=<strong class="masked">110***********1234</strong></span></pre>
+        </div>
+      </section>
+
+      <section id="s4-fallback" class="beat beat--fallback" aria-label="无字段名启动兜底脱敏">
+        <div id="s4-fallback-text" class="side-statement side-statement--fallback">无字段名：启动兜底脱敏</div>
+        <div id="s4-fallback-terminal" class="log-terminal log-terminal--fallback">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>plain text log</strong></div>
+          <pre class="log-terminal__body fallback-copy">用户反馈手机号 <span id="s4-fb-mobile">13812345678</span>，邮箱 <span id="s4-fb-email">test@qq.com</span>，证件号 <span id="s4-fb-id">110101199003071234</span>，需要排查下游响应。</pre>
+          <span id="s4-mark-mobile" class="text-mark text-mark--mobile"></span>
+          <span id="s4-mark-email" class="text-mark text-mark--email"></span>
+          <span id="s4-mark-id" class="text-mark text-mark--id"></span>
+        </div>
+        <div id="s4-engine" class="engine-badge">
+          <div class="engine-badge__icon">PII</div>
+          <strong>兜底识别器引擎</strong>
+        </div>
+        <div id="s4-type-mobile" class="type-token type-token--mobile" data-layout-allow-overlap>手机号</div>
+        <div id="s4-type-id" class="type-token type-token--id" data-layout-allow-overlap>证件号</div>
+        <div id="s4-type-email" class="type-token type-token--email" data-layout-allow-overlap>邮箱</div>
+      </section>
+
+      <section id="s4-performance" class="beat beat--performance" aria-label="性能边界和结尾提示">
+        <div id="s4-performance-terminal" class="log-terminal log-terminal--performance">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>safe log output</strong></div>
+          <pre class="log-terminal__body"><span class="log-line">mobile=<strong class="masked">138****5678</strong></span><span class="log-line">email=<strong class="masked">t***@qq.com</strong></span><span class="log-line">idNo=<strong class="masked">110***********1234</strong></span><span class="log-line terminal-ok">safe log output</span></pre>
+        </div>
+        <div class="boundary-cards">
+          <article id="s4-boundary-1" class="boundary-card">非全量扫描</article>
+          <article id="s4-boundary-2" class="boundary-card">只处理明确类型</article>
+          <article id="s4-boundary-3" class="boundary-card">考虑性能影响</article>
+        </div>
+        <svg class="flow-svg flow-svg--boundary" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+          <path id="s4-boundary-arrow-1" d="M 490 302 C 600 330, 700 370, 810 430"></path>
+          <path id="s4-boundary-arrow-2" d="M 490 448 C 600 452, 700 458, 810 466"></path>
+          <path id="s4-boundary-arrow-3" d="M 490 594 C 600 570, 700 530, 810 500"></path>
+        </svg>
+        <img id="s4-teacher" class="character-art character-art--teacher" src="../assets/characters/39.png" alt="讲解日志脱敏边界">
       </section>
     </main>
 
@@ -65,35 +146,774 @@
 
     <style>
       @import url("../src/styles/runtime.css");
-      @import url("../src/components/TitleTransition/styles.css");
+
+      #scene-004 {
+        --s4-bg: #F7F8FA;
+        --s4-bg-soft: #F4F6F8;
+        --s4-surface: #FFFFFF;
+        --s4-blue: #2F6F8F;
+        --s4-deep: #233B5E;
+        --s4-teal: #2C9A9A;
+        --s4-green: #3CAEA3;
+        --s4-coral: #EF7B85;
+        --s4-line: #D9E1E8;
+        --s4-muted: #6F7C88;
+        --s4-yellow: #FFE08A;
+        --s4-terminal: #1F2933;
+        --s4-mono: "JetBrains Mono", Menlo, monospace;
+        background: var(--s4-bg);
+      }
+
+      #scene-004::before {
+        opacity: 0.5;
+      }
+
+      #scene-004 .log-concept-stage {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #scene-004 .log-concept-stage::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 190px;
+        left: 50%;
+        width: 940px;
+        height: 650px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(44, 154, 154, 0.12), rgba(44, 154, 154, 0) 68%);
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      #scene-004 .concept-zones {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        padding-top: 238px;
+        padding-bottom: 238px;
+        pointer-events: none;
+      }
+
+      #scene-004 .concept-zone {
+        min-width: 0;
+        min-height: 0;
+      }
+
+      #scene-004 .beat {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #scene-004 .log-terminal {
+        position: absolute;
+        overflow: hidden;
+        border: 2px solid rgba(31, 41, 51, 0.18);
+        border-radius: 18px;
+        background: var(--s4-terminal);
+        box-shadow: 0 24px 44px rgba(35, 59, 94, 0.18);
+        color: #E5E7EB;
+      }
+
+      #scene-004 .log-terminal__head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 48px;
+        padding: 0 22px;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.12);
+        background: rgba(15, 23, 31, 0.42);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 18px;
+      }
+
+      #scene-004 .log-terminal__head span {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--s4-coral);
+      }
+
+      #scene-004 .log-terminal__head span:nth-child(2) {
+        background: var(--s4-yellow);
+      }
+
+      #scene-004 .log-terminal__head span:nth-child(3) {
+        background: var(--s4-green);
+      }
+
+      #scene-004 .log-terminal__head strong {
+        margin-left: 8px;
+        color: rgba(229, 231, 235, 0.82);
+        font-weight: 700;
+      }
+
+      #scene-004 .log-terminal__body {
+        margin: 0;
+        padding: 26px 30px;
+        color: #E5E7EB;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 22px;
+        line-height: 1.55;
+        white-space: pre-wrap;
+        font-variant-ligatures: none;
+      }
+
+      #scene-004 .log-line {
+        display: block;
+      }
+
+      #scene-004 .log-line--risk,
+      #scene-004 .log-line--risk strong {
+        color: var(--s4-yellow);
+      }
+
+      #scene-004 .masked,
+      #scene-004 .terminal-ok {
+        color: #A7F3D0;
+        font-weight: 800;
+      }
+
+      #scene-004 .screen-title,
+      #scene-004 .side-statement,
+      #scene-004 .bottom-statement {
+        position: absolute;
+        color: var(--s4-deep);
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      #scene-004 .screen-title--left {
+        top: 122px;
+        left: 136px;
+      }
+
+      #scene-004 .side-statement {
+        top: 304px;
+        right: 112px;
+        width: 370px;
+      }
+
+      #scene-004 .side-statement::after,
+      #scene-004 .bottom-statement::after,
+      #scene-004 .screen-title::after {
+        content: "";
+        display: block;
+        width: 150px;
+        height: 5px;
+        margin-top: 20px;
+        border-radius: 999px;
+        background: var(--s4-teal);
+      }
+
+      #scene-004 .bottom-statement {
+        left: 50%;
+        bottom: 176px;
+        width: 760px;
+        text-align: center;
+        transform: translateX(-50%);
+      }
+
+      #scene-004 .bottom-statement::after {
+        margin: 18px auto 0;
+      }
+
+      #scene-004 .log-terminal--large {
+        top: 224px;
+        left: 146px;
+        width: 1040px;
+        height: 410px;
+      }
+
+      #scene-004 .log-terminal__body--scroll {
+        transform: translateY(94px);
+      }
+
+      #scene-004 #s4-leak-phone {
+        display: inline-block;
+        font-size: 38px;
+        line-height: 1;
+        transform-origin: center;
+      }
+
+      #scene-004 .phone-ring {
+        position: absolute;
+        right: 44px;
+        bottom: 86px;
+        width: 270px;
+        height: 88px;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      #scene-004 .phone-ring ellipse {
+        fill: none;
+        stroke: var(--s4-coral);
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-dasharray: 760;
+        stroke-dashoffset: 760;
+      }
+
+      #scene-004 .keyboard-art {
+        position: absolute;
+        top: 644px;
+        left: 430px;
+        width: 470px;
+        height: 188px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 26px rgba(35, 59, 94, 0.14));
+        opacity: 0;
+      }
+
+      #scene-004 .character-art {
+        position: absolute;
+        object-fit: contain;
+        object-position: bottom center;
+        filter: drop-shadow(0 20px 28px rgba(35, 59, 94, 0.12));
+        opacity: 0;
+      }
+
+      #scene-004 .character-art--alert {
+        top: 250px;
+        right: 108px;
+        width: 350px;
+        height: 470px;
+      }
+
+      #scene-004 .log-terminal--source {
+        top: 326px;
+        left: 784px;
+        width: 610px;
+        height: 274px;
+      }
+
+      #scene-004 .source-cards {
+        position: absolute;
+        top: 202px;
+        left: 112px;
+        display: grid;
+        gap: 22px;
+        width: 310px;
+      }
+
+      #scene-004 .source-card {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 18px;
+        align-items: center;
+        min-height: 130px;
+        padding: 20px 22px;
+        border: 2px solid var(--s4-line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
+        opacity: 0;
+      }
+
+      #scene-004 .source-card__icon {
+        grid-row: 1 / 3;
+        display: grid;
+        place-items: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 18px;
+        background: rgba(47, 111, 143, 0.12);
+        color: var(--s4-blue);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      #scene-004 .source-card strong {
+        color: var(--s4-deep);
+        font-size: 28px;
+      }
+
+      #scene-004 .source-card span {
+        color: var(--s4-muted);
+        font-size: 21px;
+      }
+
+      #scene-004 .flow-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      #scene-004 .flow-svg path {
+        fill: none;
+        stroke: var(--s4-teal);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 820;
+        stroke-dashoffset: 820;
+      }
+
+      #scene-004 .field-deck {
+        position: absolute;
+        top: 220px;
+        left: 620px;
+        width: 680px;
+        height: 430px;
+        perspective: 1200px;
+      }
+
+      #scene-004 .field-card {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-content: center;
+        gap: 22px;
+        padding: 58px 70px;
+        border: 4px solid var(--s4-blue);
+        border-radius: 28px;
+        background: #FFFFFF;
+        box-shadow: 0 24px 58px rgba(47, 111, 143, 0.16);
+        color: var(--s4-deep);
+        text-align: center;
+        transform-origin: left center;
+        opacity: 0;
+      }
+
+      #scene-004 .field-card span {
+        color: var(--s4-blue);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 32px;
+        font-weight: 800;
+      }
+
+      #scene-004 .field-card strong {
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 66px;
+        line-height: 1.1;
+      }
+
+      #scene-004 .field-card em {
+        color: var(--s4-muted);
+        font-size: 30px;
+        font-style: normal;
+      }
+
+      #scene-004 .field-card--miss {
+        border-color: var(--s4-coral);
+        border-style: dashed;
+        background: rgba(239, 123, 133, 0.08);
+      }
+
+      #scene-004 .field-card--miss span,
+      #scene-004 .field-card--miss strong {
+        color: var(--s4-coral);
+      }
+
+      #scene-004 .scan-bar {
+        position: absolute;
+        top: 196px;
+        left: 600px;
+        width: 26px;
+        height: 490px;
+        border-radius: 999px;
+        background: rgba(255, 224, 138, 0.72);
+        box-shadow: 0 0 28px rgba(255, 224, 138, 0.5);
+        opacity: 0;
+      }
+
+      #scene-004 .rule-card {
+        position: absolute;
+        top: 216px;
+        left: 830px;
+        width: 430px;
+        padding: 28px;
+        border: 3px solid var(--s4-blue);
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0 24px 52px rgba(47, 111, 143, 0.18);
+        opacity: 0;
+      }
+
+      #scene-004 .rule-card__head {
+        margin-bottom: 18px;
+        color: var(--s4-deep);
+        font-size: 32px;
+        font-weight: 800;
+      }
+
+      #scene-004 .rule-row {
+        display: grid;
+        grid-template-columns: 1fr 128px;
+        align-items: center;
+        gap: 16px;
+        min-height: 54px;
+        margin-top: 12px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: var(--s4-bg-soft);
+        font-family: "JetBrains Mono", Menlo, monospace;
+      }
+
+      #scene-004 .rule-row strong {
+        color: var(--s4-deep);
+        font-size: 19px;
+      }
+
+      #scene-004 .rule-row span {
+        display: grid;
+        place-items: center;
+        height: 34px;
+        border-radius: 999px;
+        background: rgba(44, 154, 154, 0.16);
+        color: var(--s4-teal);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      #scene-004 .log-terminal--small {
+        width: 500px;
+        height: 216px;
+      }
+
+      #scene-004 .log-terminal--small .log-terminal__body {
+        font-size: 18px;
+        line-height: 1.55;
+        padding: 20px 24px;
+      }
+
+      #scene-004 .log-terminal--api {
+        top: 212px;
+        left: 94px;
+      }
+
+      #scene-004 .log-terminal--log {
+        top: 534px;
+        left: 94px;
+      }
+
+      #scene-004 .rule-chip {
+        position: absolute;
+        top: 408px;
+        left: 780px;
+        display: grid;
+        place-items: center;
+        width: 360px;
+        height: 104px;
+        border: 3px solid var(--s4-teal);
+        border-radius: 22px;
+        background: #FFFFFF;
+        box-shadow: 0 24px 44px rgba(44, 154, 154, 0.18);
+        color: var(--s4-deep);
+        font-size: 31px;
+        font-weight: 800;
+      }
+
+      #scene-004 .log-terminal--result-a,
+      #scene-004 .log-terminal--result-b {
+        top: 292px;
+      }
+
+      #scene-004 .log-terminal--result-a {
+        left: 114px;
+      }
+
+      #scene-004 .log-terminal--result-b {
+        left: 114px;
+      }
+
+      #scene-004 .side-statement--result {
+        top: 118px;
+        right: 132px;
+        font-size: 40px;
+      }
+
+      #scene-004 .log-terminal--fallback {
+        top: 270px;
+        left: 486px;
+        width: 920px;
+        height: 278px;
+      }
+
+      #scene-004 .fallback-copy {
+        position: relative;
+        font-size: 25px;
+        line-height: 1.9;
+      }
+
+      #scene-004 .fallback-copy span {
+        color: var(--s4-yellow);
+        font-weight: 800;
+      }
+
+      #scene-004 .text-mark {
+        position: absolute;
+        display: block;
+        border: 4px solid var(--s4-coral);
+        border-radius: 12px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #scene-004 .text-mark--mobile {
+        top: 116px;
+        left: 238px;
+        width: 186px;
+        height: 48px;
+      }
+
+      #scene-004 .text-mark--email {
+        top: 116px;
+        left: 528px;
+        width: 162px;
+        height: 48px;
+        border-color: var(--s4-teal);
+      }
+
+      #scene-004 .text-mark--id {
+        top: 168px;
+        left: 184px;
+        width: 314px;
+        height: 48px;
+        border-color: var(--s4-yellow);
+      }
+
+      #scene-004 .engine-badge {
+        position: absolute;
+        top: 270px;
+        right: 126px;
+        display: grid;
+        justify-items: center;
+        gap: 16px;
+        width: 250px;
+        padding: 24px 20px;
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0 20px 40px rgba(35, 59, 94, 0.16);
+        color: var(--s4-deep);
+        opacity: 0;
+      }
+
+      #scene-004 .engine-badge__icon {
+        display: grid;
+        place-items: center;
+        width: 96px;
+        height: 96px;
+        border-radius: 24px;
+        background: rgba(44, 154, 154, 0.15);
+        color: var(--s4-teal);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 34px;
+        font-weight: 900;
+      }
+
+      #scene-004 .engine-badge strong {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      #scene-004 .side-statement--fallback {
+        top: 594px;
+        right: 120px;
+        width: 390px;
+        font-size: 40px;
+      }
+
+      #scene-004 .type-token {
+        position: absolute;
+        left: 112px;
+        display: grid;
+        place-items: center;
+        width: 260px;
+        height: 92px;
+        border: 3px solid var(--s4-line);
+        border-radius: 20px;
+        background: #FFFFFF;
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
+        color: var(--s4-deep);
+        font-size: 32px;
+        font-weight: 800;
+        opacity: 0;
+      }
+
+      #scene-004 .type-token--mobile {
+        top: 236px;
+      }
+
+      #scene-004 .type-token--id {
+        top: 374px;
+      }
+
+      #scene-004 .type-token--email {
+        top: 512px;
+      }
+
+      #scene-004 .log-terminal--performance {
+        top: 262px;
+        left: 780px;
+        width: 650px;
+        height: 326px;
+      }
+
+      #scene-004 .boundary-cards {
+        position: absolute;
+        top: 218px;
+        left: 118px;
+        display: grid;
+        gap: 26px;
+        width: 360px;
+      }
+
+      #scene-004 .boundary-card {
+        display: grid;
+        place-items: center;
+        min-height: 112px;
+        padding: 18px 22px;
+        border: 3px solid var(--s4-teal);
+        border-radius: 20px;
+        background: #FFFFFF;
+        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
+        color: var(--s4-deep);
+        font-size: 30px;
+        font-weight: 800;
+        text-align: center;
+        opacity: 0;
+      }
+
+      #scene-004 .character-art--teacher {
+        top: 258px;
+        right: 114px;
+        width: 330px;
+        height: 450px;
+      }
+
+      #scene-004 .caption {
+        z-index: 10;
+      }
     </style>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <script>
       window.__timelines = window.__timelines || {};
-      var tl = gsap.timeline({ paused: true });
-      var captions = document.querySelectorAll('[data-composition-id="scene-004"] .caption');
 
-      tl.fromTo("#s4-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out" }, 0.2);
-      tl.fromTo("#s4-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.46);
-      tl.to("#s4-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
-      tl.fromTo("#s4-body", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 2.3);
-      tl.fromTo(".scene-meta", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.45);
-      tl.fromTo(".scene-heading", { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.66, ease: "expo.out" }, 2.65);
-      tl.fromTo(".scene-kicker", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "sine.out" }, 3.05);
-      tl.fromTo("#s4-up", { opacity: 0, x: -38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out" }, 5);
-      tl.fromTo("#s4-self", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.5, ease: "circ.out" }, 6.2);
-      tl.fromTo("#s4-down", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power4.out" }, 7.4);
-      tl.fromTo("#s4-terminal", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.12)" }, 10.5);
-      tl.to("#s4-up, #s4-self, #s4-down", { opacity: 0.42, duration: 0.35, ease: "power1.inOut" }, 16);
-      tl.fromTo("#s4-fields", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.56, ease: "expo.out" }, 21.5);
-      tl.to("#s4-fields", { scale: 1.025, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 27);
-      tl.fromTo("#s4-fallback", { opacity: 0, x: 48 }, { opacity: 1, x: 0, duration: 0.58, ease: "power3.out" }, 33.5);
-      tl.to("#s4-fallback", { boxShadow: "0 22px 46px rgba(239,123,133,0.2)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 40);
-      tl.fromTo("#s4-performance", { opacity: 0, y: 38 }, { opacity: 1, y: 0, duration: 0.6, ease: "circ.out" }, 45.8);
-      tl.to("#s4-performance", { borderColor: "#3CAEA3", duration: 0.55, ease: "power2.inOut" }, 50);
+      var tl = gsap.timeline({ paused: true });
+      var captions = document.querySelectorAll("#scene-004 .caption");
+
+      function show(selector, start, duration) {
+        tl.fromTo(selector, { opacity: 0 }, { opacity: 1, duration: duration || 0.25, ease: "power2.out", immediateRender: false }, start);
+      }
+
+      function hide(selector, start, duration) {
+        tl.to(selector, { opacity: 0, duration: duration || 0.22, ease: "power2.in", overwrite: "auto" }, start);
+      }
+
+      function draw(selector, start, duration) {
+        tl.to(selector, { strokeDashoffset: 0, duration: duration || 0.55, ease: "power2.out" }, start);
+      }
+
+      show("#s4-intro", 0.12, 0.3);
+      tl.fromTo("#s4-intro-title", { opacity: 0, x: -44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 0.2);
+      tl.fromTo("#s4-intro-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 0.32);
+      tl.fromTo("#s4-keyboard", { opacity: 0, y: 32, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 0.58);
+      tl.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -34, duration: 2.2, ease: "sine.inOut" }, 0.95);
+      tl.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.42, ease: "power1.inOut", immediateRender: false }, 2.35);
+      tl.to("#s4-leak-phone", { scale: 1.18, duration: 0.35, ease: "back.out(1.2)" }, 2.48);
+      draw("#s4-phone-ring ellipse", 2.58, 0.5);
+      tl.fromTo("#s4-alert-character", { opacity: 0, x: 50, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 2.72);
+      tl.to("#s4-alert-character", { x: 8, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, 3.38);
+      hide("#s4-intro", 4.25, 0.25);
+
+      show("#s4-sources", 4.5, 0.25);
+      tl.fromTo("#s4-source-terminal", { opacity: 0, x: 140, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, 4.65);
+      tl.fromTo("#s4-source-text", { opacity: 0, x: 46 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, 5.0);
+      ["#s4-source-up", "#s4-source-local", "#s4-source-down"].forEach(function (selector, index) {
+        var t = 5.2 + index * 0.78;
+        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 94, scale: 1, duration: 1.65, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
+      });
+      draw("#s4-source-arrow-up", 5.72, 0.65);
+      draw("#s4-source-arrow-local", 6.46, 0.65);
+      draw("#s4-source-arrow-down", 7.22, 0.65);
+      tl.to("#s4-source-terminal", { x: -74, duration: 1.8, ease: "power1.inOut" }, 7.45);
+      hide("#s4-sources", 11.2, 0.25);
+
+      show("#s4-manual", 11.5, 0.25);
+      tl.fromTo("#s4-manual-text", { opacity: 0, x: 44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 11.72);
+      tl.fromTo("#s4-scan-bar", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.34, ease: "power2.out", immediateRender: false }, 11.84);
+      ["#s4-card-1", "#s4-card-2", "#s4-card-3", "#s4-card-4", "#s4-card-5", "#s4-card-6"].forEach(function (selector, index) {
+        var t = 11.9 + index * 0.78;
+        tl.fromTo(selector, { opacity: 0, x: 62, rotationY: -24, scale: 0.96 }, { opacity: 1, x: index * 10, rotationY: 0, scale: 1 - index * 0.018, duration: 0.46, ease: index % 2 === 0 ? "expo.out" : "power3.out", immediateRender: false }, t);
+        if (index > 0) {
+          tl.to(selector, { y: index * -12, duration: 0.42, ease: "sine.out" }, t + 0.2);
+        }
+      });
+      tl.to("#s4-scan-bar", { x: 650, duration: 3.75, ease: "sine.inOut" }, 12.22);
+      tl.to("#s4-card-2, #s4-card-5", { scale: 1.035, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 15.1);
+      hide("#s4-manual", 16.75, 0.25);
+
+      show("#s4-rules", 17.0, 0.25);
+      tl.fromTo("#s4-rule-card", { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 17.22);
+      tl.fromTo("#s4-api-terminal", { opacity: 0, x: -44, y: -8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.46, ease: "power3.out", immediateRender: false }, 17.62);
+      tl.fromTo("#s4-log-terminal", { opacity: 0, x: -44, y: 8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 18.02);
+      draw("#s4-api-to-rule", 18.5, 0.55);
+      draw("#s4-log-to-rule", 18.88, 0.55);
+      tl.fromTo("#s4-rule-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 19.2);
+      tl.to("#s4-rule-card", { boxShadow: "0 28px 72px rgba(44,154,154,0.24)", duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.2);
+      hide("#s4-rules", 24.75, 0.25);
+
+      show("#s4-result", 25.0, 0.2);
+      tl.fromTo("#s4-result-rule", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.18)", immediateRender: false }, 25.12);
+      tl.fromTo("#s4-result-api", { opacity: 0, x: 0, y: -118, scale: 0.98 }, { opacity: 1, x: 1110, y: -118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.38);
+      tl.fromTo("#s4-result-log", { opacity: 0, x: 0, y: 118, scale: 0.98 }, { opacity: 1, x: 1110, y: 118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.48);
+      tl.to("#s4-result-rule", { scale: 1.06, duration: 0.36, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.42);
+      tl.fromTo("#s4-result-text", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 27.95);
+      hide("#s4-result", 31.25, 0.25);
+
+      show("#s4-fallback", 31.5, 0.24);
+      tl.fromTo("#s4-fallback-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "expo.out", immediateRender: false }, 31.72);
+      tl.fromTo("#s4-engine", { opacity: 0, x: 80, y: -16, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.12)", immediateRender: false }, 32.42);
+      tl.fromTo("#s4-fallback-text", { opacity: 0, x: 42 }, { opacity: 1, x: 0, duration: 0.42, ease: "power3.out", immediateRender: false }, 32.82);
+      tl.to("#s4-engine", { x: -430, y: 28, scale: 1.18, duration: 0.78, ease: "expo.inOut" }, 33.28);
+      tl.to("#s4-fallback-terminal", { boxShadow: "0 26px 68px rgba(44,154,154,0.24)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 34.0);
+      ["#s4-mark-mobile", "#s4-mark-email", "#s4-mark-id"].forEach(function (selector, index) {
+        tl.fromTo(selector, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.2)", immediateRender: false }, 34.8 + index * 0.42);
+      });
+      ["#s4-type-mobile", "#s4-type-id", "#s4-type-email"].forEach(function (selector, index) {
+        var t = 39.0 + index * 0.75;
+        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
+        tl.to(selector, { x: 560, scale: 0.72, opacity: 0.15, duration: 0.85, ease: "power2.inOut", overwrite: "auto" }, t + 0.55);
+      });
+      tl.to("#s4-fb-mobile", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.2);
+      tl.to("#s4-fb-mobile", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.2);
+      tl.to("#s4-fb-email", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.92);
+      tl.to("#s4-fb-email", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.92);
+      tl.to("#s4-fb-id", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 41.64);
+      tl.to("#s4-fb-id", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 41.64);
+      hide("#s4-fallback", 46.25, 0.25);
+
+      show("#s4-performance", 46.5, 0.25);
+      tl.fromTo("#s4-performance-terminal", { opacity: 0, x: 46, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 46.72);
+      ["#s4-boundary-1", "#s4-boundary-2", "#s4-boundary-3"].forEach(function (selector, index) {
+        tl.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "expo.out" : index === 1 ? "power3.out" : "circ.out", immediateRender: false }, 47.0 + index * 0.48);
+      });
+      draw("#s4-boundary-arrow-1", 47.42, 0.46);
+      draw("#s4-boundary-arrow-2", 47.88, 0.46);
+      draw("#s4-boundary-arrow-3", 48.34, 0.46);
+      tl.to("#s4-performance-terminal", { borderColor: "#3CAEA3", duration: 0.5, ease: "power1.inOut" }, 49.4);
+      tl.fromTo("#s4-teacher", { opacity: 0, x: 54, y: 18, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 51.0);
 
       [[0, 2.7, 8.4], [1, 8.7, 16.7], [2, 17, 23.2], [3, 23.5, 33], [4, 33.3, 44.5], [5, 44.8, 53.1]].forEach(function (item) {
-        tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto" }, item[1]);
+        tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto", immediateRender: false }, item[1]);
         tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);
       });
 
