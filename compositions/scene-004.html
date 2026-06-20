@@ -1,12 +1,12 @@
 <template id="scene-004-template">
   <div id="scene-004" class="scene-root scene-004" data-composition-id="scene-004" data-width="1920" data-height="1080" data-start="0" data-duration="53.5">
-    <section id="s4-title" class="cc-title-transition cc-title-transition--dark cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
+    <section id="s4-title" class="cc-title-transition cc-title-transition--dark cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap="">
       <h1 class="cc-title-transition__text">日志篇</h1>
       <div class="chapter-rule"></div>
     </section>
 
-    <main class="log-concept-stage" data-layout-allow-overflow>
-      <div class="concept-zones" aria-hidden="true" data-layout-ignore>
+    <main class="log-concept-stage" data-layout-allow-overflow="">
+      <div class="concept-zones" aria-hidden="true" data-layout-ignore="">
         <div class="concept-zone concept-zone--left"></div>
         <div class="concept-zone concept-zone--center"></div>
         <div class="concept-zone concept-zone--right"></div>
@@ -14,47 +14,32 @@
 
       <section id="s4-intro" class="beat beat--intro" aria-label="日志治理最容易遗漏">
         <div id="s4-intro-terminal" class="log-terminal log-terminal--large">
-          <div class="log-terminal__head" data-layout-allow-overlap><span></span><span></span><span></span><strong>application.log</strong></div>
-          <pre class="log-terminal__body log-terminal__body--scroll"><span class="log-line">2026-06-20 10:15:01.238  INFO  [http-nio-8080-exec-1] c.e.user.UserController - 查询用户信息成功, requestId=REQ202606200001, 姓名=张**, 手机号=138****5621, 身份证=110101********1234, userId=U10001</span><span class="log-line">2026-06-20 10:15:03.491  INFO  [http-nio-8080-exec-2] c.e.order.OrderService - 创建订单成功, orderNo=ORD202606200001, 姓名=李**, 手机号=139****7788, 身份证=320102********4512, amount=299.00</span><span class="log-line">2026-06-20 10:15:05.872  WARN  [http-nio-8080-exec-3] c.e.auth.LoginService - 用户登录失败, reason=password_error, 姓名=王*, 手机号=137****8899, 身份证=440301********0987</span><span class="log-line">2026-06-20 10:15:08.104  INFO  [http-nio-8080-exec-4] c.e.payment.PayService - 支付回调处理完成, tradeNo=PAY202606200089, 姓名=赵**, 手机号=136****1122, 身份证=510104********3345</span><span class="log-line log-line--leak">2026-06-20 10:15:10.366  INFO  [http-nio-8080-exec-5] c.e.user.ProfileService - 修改用户资料成功, 姓名=刘雨晨, 手机号=13524881234, 身份证=350102199208041236, updateFields=[address,email]</span><span class="log-line">2026-06-20 10:15:13.775  INFO  [http-nio-8080-exec-6] c.e.account.AccountService - 账户信息查询完成, 姓名=陈**, 手机号=158****6677, 身份证=210105********7731, accountNo=ACCT20260620001</span><span class="log-line">2026-06-20 10:15:16.018  ERROR [http-nio-8080-exec-7] c.e.card.CardBindService - 银行卡绑定失败, errorCode=CARD_VERIFY_FAIL, 姓名=杨**, 手机号=159****3344, 身份证=330106********8520</span><span class="log-line">2026-06-20 10:15:18.421  INFO  [http-nio-8080-exec-8] c.e.member.MemberService - 会员等级更新成功, level=VIP2, 姓名=黄*, 手机号=151****9087, 身份证=420111********6248</span><span class="log-line">2026-06-20 10:15:21.669  INFO  [http-nio-8080-exec-9] c.e.invoice.InvoiceService - 发票申请提交成功, invoiceType=PERSONAL, 姓名=周**, 手机号=188****1024, 身份证=610102********7780</span><span class="log-line log-line--leak">2026-06-20 10:15:24.004  WARN  [http-nio-8080-exec-10] c.e.risk.RiskControlService - 命中风险规则, ruleCode=ID_CARD_FREQUENCY, 姓名=吴晓峰, 手机号=18657341290, 身份证=370203198706159876</span><span class="log-line log-line--gap" aria-hidden="true">&nbsp;</span><span class="log-line">2026-06-20 10:16:01.214  INFO  [task-1] c.e.sync.UserSyncJob - 同步用户数据成功, batchNo=BATCH20260620001, 姓名=郑**, 手机号=177****4567, 身份证=220103********3456</span><span class="log-line">2026-06-20 10:16:04.537  INFO  [task-2] c.e.notice.SmsNoticeService - 短信发送成功, templateCode=LOGIN_NOTICE, 姓名=孙**, 手机号=180****7789, 身份证=130102********9001</span><span class="log-line">2026-06-20 10:16:07.889  WARN  [task-3] c.e.notice.SmsNoticeService - 短信发送失败, provider=mock-sms, 姓名=马*, 手机号=182****3355, 身份证=450103********2198</span><span class="log-line">2026-06-20 10:16:10.330  INFO  [task-4] c.e.crm.CustomerService - 客户标签更新完成, tags=[active,high_value], 姓名=朱**, 手机号=183****4400, 身份证=500106********7521</span><span id="s4-leak-line" class="log-line log-line--risk log-line--leak">2026-06-20 10:16:13.782  ERROR [task-5] c.e.loan.LoanApplyService - 授信申请异常, exception=RemoteTimeoutException, 姓名=胡建国, 手机号=<span class="leak-phone-wrap"><strong id="s4-leak-phone">15288993456</strong><svg id="s4-phone-ring" class="phone-ring" viewBox="0 0 190 58" aria-hidden="true"><ellipse cx="95" cy="29" rx="84" ry="22"></ellipse></svg></span>, 身份证=430102197912302345</span><span class="log-line">2026-06-20 10:16:17.101  INFO  [http-nio-8080-exec-11] c.e.address.AddressService - 新增收货地址成功, city=São Paulo, 姓名=郭**, 手机号=185****2233, 身份证=140105********6678</span><span class="log-line">2026-06-20 10:16:20.456  INFO  [http-nio-8080-exec-12] c.e.coupon.CouponService - 优惠券领取成功, couponId=CP20260620001, 姓名=何*, 手机号=187****9988, 身份证=230104********1120</span><span class="log-line">2026-06-20 10:16:23.908  WARN  [http-nio-8080-exec-13] c.e.verify.RealNameService - 实名认证结果不一致, 姓名=高**, 手机号=150****3210, 身份证=360102********9088</span><span class="log-line">2026-06-20 10:16:27.314  INFO  [http-nio-8080-exec-14] c.e.session.SessionService - 用户会话刷新成功, sessionId=S20260620101627, 姓名=林**, 手机号=132****7654, 身份证=460105********2341</span><span class="log-line log-line--leak">2026-06-20 10:16:30.746  ERROR [http-nio-8080-exec-15] c.e.export.ExportService - 导出用户明细失败, fileName=user-detail.xlsx, 姓名=罗志强, 手机号=19966223344, 身份证=120101198811226789。</span></pre>
-          <svg id="s4-wu-ring" class="name-ring name-ring--wu" viewBox="0 0 112 48" aria-hidden="true">
-            <ellipse cx="56" cy="24" rx="49" ry="18"></ellipse>
-          </svg>
-          <svg id="s4-luo-ring" class="name-ring name-ring--luo" viewBox="0 0 112 48" aria-hidden="true">
-            <ellipse cx="56" cy="24" rx="49" ry="18"></ellipse>
-          </svg>
+          <div class="log-terminal__head" data-layout-allow-overlap=""><span></span><span></span><span></span><strong>application.log</strong></div>
+          <pre class="log-terminal__body log-terminal__body--scroll"><span class="log-line">2026-06-20 10:15:01.238  INFO  [http-nio-8080-exec-1] c.e.user.UserController - 查询用户信息成功, requestId=REQ202606200001, 姓名=张**, 手机号=138****5621, 身份证=110101********1234, userId=U10001</span><span class="log-line">2026-06-20 10:15:03.491  INFO  [http-nio-8080-exec-2] c.e.order.OrderService - 创建订单成功, orderNo=ORD202606200001, 姓名=李**, 手机号=139****7788, 身份证=320102********4512, amount=299.00</span><span class="log-line">2026-06-20 10:15:05.872  WARN  [http-nio-8080-exec-3] c.e.auth.LoginService - 用户登录失败, reason=password_error, 姓名=王*, 手机号=137****8899, 身份证=440301********0987</span><span class="log-line">2026-06-20 10:15:08.104  INFO  [http-nio-8080-exec-4] c.e.payment.PayService - 支付回调处理完成, tradeNo=PAY202606200089, 姓名=赵**, 手机号=136****1122, 身份证=510104********3345</span><span class="log-line log-line--leak">2026-06-20 10:15:10.366  INFO  [http-nio-8080-exec-5] c.e.user.ProfileService - 修改用户资料成功, 姓名=刘雨晨, 手机号=13524881234, 身份证=350102199208041236, updateFields=[address,email]</span><span class="log-line">2026-06-20 10:15:13.775  INFO  [http-nio-8080-exec-6] c.e.account.AccountService - 账户信息查询完成, 姓名=陈**, 手机号=158****6677, 身份证=210105********7731, accountNo=ACCT20260620001</span><span class="log-line">2026-06-20 10:15:16.018  ERROR [http-nio-8080-exec-7] c.e.card.CardBindService - 银行卡绑定失败, errorCode=CARD_VERIFY_FAIL, 姓名=杨**, 手机号=159****3344, 身份证=330106********8520</span><span class="log-line">2026-06-20 10:15:18.421  INFO  [http-nio-8080-exec-8] c.e.member.MemberService - 会员等级更新成功, level=VIP2, 姓名=黄*, 手机号=151****9087, 身份证=420111********6248</span><span class="log-line">2026-06-20 10:15:21.669  INFO  [http-nio-8080-exec-9] c.e.invoice.InvoiceService - 发票申请提交成功, invoiceType=PERSONAL, 姓名=周**, 手机号=188****1024, 身份证=610102********7780</span><span class="log-line log-line--leak">2026-06-20 10:15:24.004  WARN  [http-nio-8080-exec-10] c.e.risk.RiskControlService - 命中风险规则, ruleCode=ID_CARD_FREQUENCY, 姓名=<span class="name-mark">吴晓峰<svg id="s4-wu-ring" class="name-ring" viewBox="0 0 112 48" aria-hidden="true"><ellipse cx="56" cy="24" rx="49" ry="18" /></svg></span>, 手机号=18657341290, 身份证=370203198706159876</span><span class="log-line log-line--gap" aria-hidden="true">&#160;</span><span class="log-line">2026-06-20 10:16:01.214  INFO  [task-1] c.e.sync.UserSyncJob - 同步用户数据成功, batchNo=BATCH20260620001, 姓名=郑**, 手机号=177****4567, 身份证=220103********3456</span><span class="log-line">2026-06-20 10:16:04.537  INFO  [task-2] c.e.notice.SmsNoticeService - 短信发送成功, templateCode=LOGIN_NOTICE, 姓名=孙**, 手机号=180****7789, 身份证=130102********9001</span><span class="log-line">2026-06-20 10:16:07.889  WARN  [task-3] c.e.notice.SmsNoticeService - 短信发送失败, provider=mock-sms, 姓名=马*, 手机号=182****3355, 身份证=450103********2198</span><span class="log-line">2026-06-20 10:16:10.330  INFO  [task-4] c.e.crm.CustomerService - 客户标签更新完成, tags=[active,high_value], 姓名=朱**, 手机号=183****4400, 身份证=500106********7521</span><span id="s4-leak-line" class="log-line log-line--risk log-line--leak">2026-06-20 10:16:13.782  ERROR [task-5] c.e.loan.LoanApplyService - 授信申请异常, exception=RemoteTimeoutException, 姓名=胡建国, 手机号=<span class="leak-phone-wrap"><strong id="s4-leak-phone">15288993456</strong><svg id="s4-phone-ring" class="phone-ring" viewBox="0 0 190 58" aria-hidden="true"><ellipse cx="95" cy="29" rx="84" ry="22" /></svg></span>, 身份证=430102197912302345</span><span class="log-line">2026-06-20 10:16:17.101  INFO  [http-nio-8080-exec-11] c.e.address.AddressService - 新增收货地址成功, city=São Paulo, 姓名=郭**, 手机号=185****2233, 身份证=140105********6678</span><span class="log-line">2026-06-20 10:16:20.456  INFO  [http-nio-8080-exec-12] c.e.coupon.CouponService - 优惠券领取成功, couponId=CP20260620001, 姓名=何*, 手机号=187****9988, 身份证=230104********1120</span><span class="log-line">2026-06-20 10:16:23.908  WARN  [http-nio-8080-exec-13] c.e.verify.RealNameService - 实名认证结果不一致, 姓名=高**, 手机号=150****3210, 身份证=360102********9088</span><span class="log-line">2026-06-20 10:16:27.314  INFO  [http-nio-8080-exec-14] c.e.session.SessionService - 用户会话刷新成功, sessionId=S20260620101627, 姓名=林**, 手机号=132****7654, 身份证=460105********2341</span><span class="log-line log-line--leak">2026-06-20 10:16:30.746  ERROR [http-nio-8080-exec-15] c.e.export.ExportService - 导出用户明细失败, fileName=user-detail.xlsx, 姓名=<span class="name-mark">罗志强<svg id="s4-luo-ring" class="name-ring" viewBox="0 0 112 48" aria-hidden="true"><ellipse cx="56" cy="24" rx="49" ry="18" /></svg></span>, 手机号=19966223344, 身份证=120101198811226789。</span></pre>
         </div>
         <img id="s4-keyboard" class="keyboard-art" src="../assets/icons/keyboard.png" alt="键盘">
         <img id="s4-alert-character" class="character-art character-art--alert" src="../assets/characters/8.png" alt="发现漏脱敏日志">
       </section>
 
       <section id="s4-sources" class="beat beat--sources" aria-label="日志来源不只本系统">
-        <div id="s4-source-text" class="side-statement">日志来源 ≠ 只有本系统</div>
-        <div id="s4-source-terminal" class="log-terminal log-terminal--source">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>unified log</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">mobile=13812345678</span><span class="log-line">idNo=110101199003071234</span><span class="log-line">email=test@qq.com</span></pre>
+        <div id="s4-source-terminal" class="log-terminal log-terminal--source" data-layout-allow-overlap="">
+          <div class="log-terminal__head"><span></span><span></span><span></span><strong>application.log</strong></div>
+          <pre class="log-terminal__body source-log-body"><span class="source-log-group"><span class="source-log-comment"><span class="source-comment-mark">// 上游系统日志<svg id="s4-source-up-ring" class="source-comment-ring" viewBox="0 0 230 54" aria-hidden="true"><ellipse cx="115" cy="27" rx="106" ry="20" /></svg></span>：返回用户基础信息，敏感字段已脱敏</span><span class="source-log-data" data-layout-allow-overlap=""><span class="log-key">system</span><span class="code-punctuation">=</span><span class="log-value">USER-CENTER</span><span class="code-punctuation">,</span> <span class="log-key">traceId</span><span class="code-punctuation">=</span><span class="log-value">TRACE20260620103001001</span><span class="code-punctuation">,</span> <span class="log-key">姓名</span><span class="code-punctuation">=</span><strong class="masked">张**</strong><span class="code-punctuation">,</span> <span class="log-key">手机号</span><span class="code-punctuation">=</span><strong class="masked">138****5621</strong><span class="code-punctuation">,</span> <span class="log-key">身份证</span><span class="code-punctuation">=</span><strong class="masked">110101********1234</strong></span></span><span class="source-log-group"><span class="source-log-comment">// 当前系统日志：接入脱敏组件后，统一处理敏感字段</span><span class="source-log-data" data-layout-allow-overlap=""><span class="log-key">system</span><span class="code-punctuation">=</span><span class="log-value">MASK-SERVICE</span><span class="code-punctuation">,</span> <span class="log-key">traceId</span><span class="code-punctuation">=</span><span class="log-value">TRACE20260620103001001</span><span class="code-punctuation">,</span> <span class="log-key">姓名</span><span class="code-punctuation">=</span><strong class="masked">张**</strong><span class="code-punctuation">,</span> <span class="log-key">手机号</span><span class="code-punctuation">=</span><strong class="masked">138****5621</strong><span class="code-punctuation">,</span> <span class="log-key">身份证</span><span class="code-punctuation">=</span><strong class="masked">110101********1234</strong><span class="code-punctuation">,</span> <span class="log-key">maskFields</span><span class="code-punctuation">=</span><span class="log-value">[name,mobile,idCard]</span></span></span><span class="source-log-group source-log-group--risk"><span class="source-log-comment"><span class="source-comment-mark">// 下游系统日志<svg id="s4-source-down-ring" class="source-comment-ring" viewBox="0 0 230 54" aria-hidden="true"><ellipse cx="115" cy="27" rx="106" ry="20" /></svg></span>：模拟漏脱敏场景，用于测试风险识别</span><span class="source-log-data" data-layout-allow-overlap=""><span class="log-key">system</span><span class="code-punctuation">=</span><span class="log-value">REPORT-CENTER</span><span class="code-punctuation">,</span> <span class="log-key">traceId</span><span class="code-punctuation">=</span><span class="log-value">TRACE20260620103001001</span><span class="code-punctuation">,</span> <span class="log-key">姓名</span><span class="code-punctuation">=</span><span class="log-value log-value--risk">张三</span><span class="code-punctuation">,</span> <span class="log-key">手机号</span><span class="code-punctuation">=</span><span class="log-value log-value--risk">13812345621</span><span class="code-punctuation">,</span> <span class="log-key">身份证</span><span class="code-punctuation">=</span><span class="log-value log-value--risk">110101199003071234</span><span class="code-punctuation">,</span> <span class="log-key">risk</span><span class="code-punctuation">=</span><span class="log-value log-value--risk">UNMASKED_FIELD_DETECTED</span></span></span></pre>
         </div>
         <div class="source-cards">
           <article id="s4-source-up" class="source-card">
-            <div class="source-card__icon">UP</div>
+            <img class="source-card__image source-card__image--up" src="../assets/icons/shangyou.png" alt="">
             <strong>上游系统</strong>
-            <span>传入参数包</span>
           </article>
           <article id="s4-source-local" class="source-card">
-            <div class="source-card__icon">APP</div>
+            <img class="source-card__image source-card__image--local" src="../assets/icons/sys.png" alt="">
             <strong>当前系统</strong>
-            <span>对象数据</span>
           </article>
           <article id="s4-source-down" class="source-card">
-            <div class="source-card__icon">API</div>
+            <img class="source-card__image source-card__image--down" src="../assets/icons/xiayou.png" alt="">
             <strong>下游系统</strong>
-            <span>返回内容</span>
           </article>
         </div>
-        <svg class="flow-svg flow-svg--sources" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
-          <path id="s4-source-arrow-up" d="M 330 270 C 560 278, 700 330, 842 412"></path>
-          <path id="s4-source-arrow-local" d="M 330 442 C 560 446, 700 450, 842 458"></path>
-          <path id="s4-source-arrow-down" d="M 330 614 C 560 606, 700 548, 842 504"></path>
-        </svg>
       </section>
 
       <section id="s4-manual" class="beat beat--manual" aria-label="人工梳理很难全部覆盖">
@@ -70,90 +55,116 @@
         <div id="s4-scan-bar" class="scan-bar"></div>
       </section>
 
-      <section id="s4-rules" class="beat beat--rules" aria-label="有字段名复用接口脱敏规则">
-        <div id="s4-rule-title" class="bottom-statement">有字段名：复用接口脱敏规则</div>
+      <section id="s4-rules" class="beat beat--rules" aria-label="接口响应和日志经过统一脱敏规则">
         <div id="s4-rule-card" class="rule-card">
-          <div class="rule-card__head">脱敏规则配置</div>
-          <div class="rule-row"><strong>customerMobile</strong><span>MOBILE</span></div>
+          <div class="rule-card__head">脱敏规则保证一致</div>
+          <div class="rule-row"><strong>customMobile</strong><span>MOBILE</span></div>
           <div class="rule-row"><strong>idNo</strong><span>ID_CARD</span></div>
-          <div class="rule-row"><strong>email</strong><span>EMAIL</span></div>
-          <div class="rule-row"><strong>bankCard</strong><span>BANK_CARD</span></div>
-          <div class="rule-row"><strong>password</strong><span>PASSWORD</span></div>
+          <div class="rule-row"><strong>myName</strong><span>NAME</span></div>
+          <div class="rule-row"><strong>aaa</strong><span>EMAIL</span></div>
         </div>
-        <div id="s4-api-terminal" class="log-terminal log-terminal--small log-terminal--api">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>接口输出</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">customerMobile: 13812345678</span><span class="log-line">idNo: 110101199003071234</span><span class="log-line">email: test@qq.com</span></pre>
+        <div id="s4-response-terminal" class="log-terminal log-terminal--transform log-terminal--response">
+          <div class="log-terminal__head"><span data-hf-id="hf-173r" data-hf-text-key="child:0:span"> </span><span data-hf-id="hf-0ssq" data-hf-text-key="child:1:span"></span><span data-hf-id="hf-0ehp" data-hf-text-key="child:2:span"></span><strong data-hf-id="hf-d29f" data-hf-text-key="child:3:strong">response接口返回</strong></div>
+          <div class="log-terminal__body transform-terminal__body">
+            <pre class="terminal-copy terminal-copy--before" data-layout-allow-overlap=""><span class="code-punctuation">{</span>
+  <span class="code-key">"customMobile"</span><span class="code-punctuation">:</span> <span class="code-string">"13987654321"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"idNo"</span><span class="code-punctuation">:</span> <span class="code-string">"320102198812124512"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"myName"</span><span class="code-punctuation">:</span> <span class="code-string">"李明"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"aaa"</span><span class="code-punctuation">:</span> <span class="code-string">"liming@example.com"</span>
+}</pre>
+            <pre class="terminal-copy terminal-copy--after" data-layout-allow-overlap=""><span class="code-punctuation">{</span>
+  <span class="code-key">"customMobile"</span><span class="code-punctuation">:</span> <span class="code-string">"<strong class="masked">138****5621</strong>"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"idNo"</span><span class="code-punctuation">:</span> <span class="code-string">"<strong class="masked">110101********1234</strong>"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"myName"</span><span class="code-punctuation">:</span> <span class="code-string">"<strong class="masked">张**</strong>"</span><span class="code-punctuation">,</span>
+  <span class="code-key">"aaa"</span><span class="code-punctuation">:</span> <span class="code-string">"<strong class="masked">zh***@example.com</strong>"</span>
+}</pre>
+          </div>
         </div>
-        <div id="s4-log-terminal" class="log-terminal log-terminal--small log-terminal--log">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>日志输出</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">customerMobile=13812345678</span><span class="log-line">idNo=110101199003071234</span><span class="log-line">event=downstream debug</span></pre>
+        <div id="s4-log4j-terminal" class="log-terminal log-terminal--transform log-terminal--log4j">
+          <div class="log-terminal__head" data-layout-allow-overlap=""><span></span><span></span><span></span><strong>log4j 日志</strong></div>
+          <div class="log-terminal__body transform-terminal__body">
+            <pre class="terminal-copy terminal-copy--before" data-layout-allow-overlap=""><span class="log-time">2026-06-20 10:45:03.491</span> <span class="log-level log-level--warn">WARN</span>  <span class="log-logger">UserController</span>
+<span class="log-key">traceId</span><span class="code-punctuation">=</span><span class="log-value">TRACE20260620104501002</span>
+<span class="log-key">customMobile</span><span class="code-punctuation">=</span><span class="log-value">13987654321</span>
+<span class="log-key">idNo</span><span class="code-punctuation">=</span><span class="log-value">320102198812124512</span>
+<span class="log-key">myName</span><span class="code-punctuation">=</span><span class="log-value">李明</span>
+<span class="log-key">aaa</span><span class="code-punctuation">=</span><span class="log-value">liming@example.com</span></pre>
+            <pre class="terminal-copy terminal-copy--after" data-layout-allow-overlap=""><span class="log-time">2026-06-20 10:45:01.238</span> <span class="log-level log-level--info">INFO</span>  <span class="log-logger">UserController</span> <span class="log-message">- 查询用户信息成功</span>
+<span class="log-key">traceId</span><span class="code-punctuation">=</span><span class="log-value">TRACE20260620104501001</span>
+<span class="log-key">customMobile</span><span class="code-punctuation">=</span><strong class="masked">138****5621</strong>
+<span class="log-key">idNo</span><span class="code-punctuation">=</span><strong class="masked">110101********1234</strong>
+<span class="log-key">myName</span><span class="code-punctuation">=</span><strong class="masked">张**</strong>
+<span class="log-key">aaa</span><span class="code-punctuation">=</span><strong class="masked">zh***@example.com</strong></pre>
+            <pre id="s4-fallback-before" class="terminal-copy terminal-copy--fallback terminal-copy--fallback-before" data-layout-allow-overlap="">用户张三提交实名认证信息，手机号为13812345678，身份证号为110101199003071234，邮箱为zhangsan@example.com。</pre>
+            <pre id="s4-fallback-after" class="terminal-copy terminal-copy--fallback terminal-copy--fallback-after" data-layout-allow-overlap="">用户张三提交实名认证信息，手机号为<span class="masked masked-ring-wrap">138****5678<svg id="s4-fallback-phone-ring" class="fallback-ring" viewBox="0 0 210 64" aria-hidden="true"><ellipse cx="105" cy="32" rx="96" ry="23" /><ellipse cx="105" cy="31" rx="99" ry="25" /></svg></span>，身份证号为<span class="masked">110101********1234</span>，邮箱为<span class="masked masked-ring-wrap">zh***@example.com<svg id="s4-fallback-email-ring" class="fallback-ring fallback-ring--email" viewBox="0 0 250 64" aria-hidden="true"><ellipse cx="125" cy="32" rx="116" ry="23" /><ellipse cx="125" cy="31" rx="119" ry="25" /></svg></span>。</pre>
+          </div>
         </div>
-        <svg class="flow-svg flow-svg--rules" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
-          <path id="s4-api-to-rule" d="M 588 288 C 704 314, 778 356, 838 420"></path>
-          <path id="s4-log-to-rule" d="M 588 610 C 704 584, 778 544, 838 486"></path>
-        </svg>
       </section>
 
-      <section id="s4-result" class="beat beat--result" aria-label="同字段同规则同结果">
-        <div id="s4-result-text" class="side-statement side-statement--result">同字段，同规则，同结果</div>
-        <div id="s4-result-rule" class="rule-chip">MOBILE / ID_CARD 规则</div>
-        <div id="s4-result-api" class="log-terminal log-terminal--small log-terminal--result-a">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>接口输出</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">customerMobile: <strong class="masked">138****5678</strong></span><span class="log-line">idNo: <strong class="masked">110***********1234</strong></span></pre>
-        </div>
-        <div id="s4-result-log" class="log-terminal log-terminal--small log-terminal--result-b">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>日志输出</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">customerMobile=<strong class="masked">138****5678</strong></span><span class="log-line">idNo=<strong class="masked">110***********1234</strong></span></pre>
-        </div>
-      </section>
+      <section id="s4-beat6" class="beat beat--fallback-redesign" aria-label="整段文本兜底脱敏和性能边界">
+        <img id="s4-engine" class="fallback-engine" src="../assets/icons/engine.png" alt="兜底脱敏引擎">
 
-      <section id="s4-fallback" class="beat beat--fallback" aria-label="无字段名启动兜底脱敏">
-        <div id="s4-fallback-text" class="side-statement side-statement--fallback">无字段名：启动兜底脱敏</div>
-        <div id="s4-fallback-terminal" class="log-terminal log-terminal--fallback">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>plain text log</strong></div>
-          <pre class="log-terminal__body fallback-copy">用户反馈手机号 <span id="s4-fb-mobile">13812345678</span>，邮箱 <span id="s4-fb-email">test@qq.com</span>，证件号 <span id="s4-fb-id">110101199003071234</span>，需要排查下游响应。</pre>
-          <span id="s4-mark-mobile" class="text-mark text-mark--mobile"></span>
-          <span id="s4-mark-email" class="text-mark text-mark--email"></span>
-          <span id="s4-mark-id" class="text-mark text-mark--id"></span>
+        <div id="s4-type-icons" class="fallback-type-icons">
+          <figure id="s4-type-mobile" class="fallback-type-item">
+            <img src="../assets/icons/mobile.png" alt="">
+            <figcaption>手机号</figcaption>
+          </figure>
+          <figure id="s4-type-id" class="fallback-type-item">
+            <img src="../assets/icons/card.png" alt="">
+            <figcaption>证件号</figcaption>
+          </figure>
+          <figure id="s4-type-email" class="fallback-type-item">
+            <img src="../assets/icons/email.png" alt="">
+            <figcaption>邮箱</figcaption>
+          </figure>
         </div>
-        <div id="s4-engine" class="engine-badge">
-          <div class="engine-badge__icon">PII</div>
-          <strong>兜底识别器引擎</strong>
-        </div>
-        <div id="s4-type-mobile" class="type-token type-token--mobile" data-layout-allow-overlap>手机号</div>
-        <div id="s4-type-id" class="type-token type-token--id" data-layout-allow-overlap>证件号</div>
-        <div id="s4-type-email" class="type-token type-token--email" data-layout-allow-overlap>邮箱</div>
-      </section>
 
-      <section id="s4-performance" class="beat beat--performance" aria-label="性能边界和结尾提示">
-        <div id="s4-performance-terminal" class="log-terminal log-terminal--performance">
-          <div class="log-terminal__head"><span></span><span></span><span></span><strong>safe log output</strong></div>
-          <pre class="log-terminal__body"><span class="log-line">mobile=<strong class="masked">138****5678</strong></span><span class="log-line">email=<strong class="masked">t***@qq.com</strong></span><span class="log-line">idNo=<strong class="masked">110***********1234</strong></span><span class="log-line terminal-ok">safe log output</span></pre>
-        </div>
-        <div class="boundary-cards">
-          <article id="s4-boundary-1" class="boundary-card">非全量扫描</article>
-          <article id="s4-boundary-2" class="boundary-card">只处理明确类型</article>
-          <article id="s4-boundary-3" class="boundary-card">考虑性能影响</article>
-        </div>
-        <svg class="flow-svg flow-svg--boundary" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
-          <path id="s4-boundary-arrow-1" d="M 490 302 C 600 330, 700 370, 810 430"></path>
-          <path id="s4-boundary-arrow-2" d="M 490 448 C 600 452, 700 458, 810 466"></path>
-          <path id="s4-boundary-arrow-3" d="M 490 594 C 600 570, 700 530, 810 500"></path>
-        </svg>
+        <figure id="s4-boundary-stack" class="cc-stack-frame cc-stack-frame--blue fallback-boundary-stack" aria-label="兜底脱敏性能边界">
+          <div class="cc-stack-frame__body">
+            <div id="s4-boundary-row-1" class="fallback-boundary-row">
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md fallback-boundary-label">非全量扫描</div>
+              <span id="s4-boundary-check-1" class="cc-check-badge cc-check-badge--green cc-check-badge--md fallback-boundary-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="非全量扫描">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
+                </svg>
+              </span>
+            </div>
+            <div id="s4-boundary-row-2" class="fallback-boundary-row">
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md fallback-boundary-label">只处理明确类型</div>
+              <span id="s4-boundary-check-2" class="cc-check-badge cc-check-badge--green cc-check-badge--md fallback-boundary-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="只处理明确类型">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
+                </svg>
+              </span>
+            </div>
+            <div id="s4-boundary-row-3" class="fallback-boundary-row">
+              <div class="cc-stack-label cc-stack-label--teal-light cc-stack-label--md fallback-boundary-label">考虑性能影响</div>
+              <span id="s4-boundary-check-3" class="cc-check-badge cc-check-badge--green cc-check-badge--md fallback-boundary-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="考虑性能影响">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </figure>
+
         <img id="s4-teacher" class="character-art character-art--teacher" src="../assets/characters/39.png" alt="讲解日志脱敏边界">
       </section>
     </main>
 
-    <div class="caption" data-layout-allow-overlap>日志往往是最难治理的地方</div>
-    <div class="caption" data-layout-allow-overlap>上游、本系统和下游内容都可能被直接打印</div>
-    <div class="caption" data-layout-allow-overlap>只靠人工梳理，很难保证没有遗漏</div>
-    <div class="caption" data-layout-allow-overlap>有明确字段名时直接复用接口脱敏配置</div>
-    <div class="caption" data-layout-allow-overlap>整段文本没有字段名时使用兜底识别</div>
-    <div class="caption" data-layout-allow-overlap>兜底只处理边界明确的数据类型</div>
+    <div class="caption" data-layout-allow-overlap="">日志往往是最难治理的地方</div>
+    <div class="caption" data-layout-allow-overlap="">上游、本系统和下游内容都可能被直接打印</div>
+    <div class="caption" data-layout-allow-overlap="">只靠人工梳理，很难保证没有遗漏</div>
+    <div class="caption" data-layout-allow-overlap="">接口响应和日志统一经过脱敏规则</div>
+    <div class="caption" data-layout-allow-overlap="">整段文本没有字段名时使用兜底识别</div>
+    <div class="caption" data-layout-allow-overlap="">兜底只处理边界明确的数据类型</div>
 
     <style>
       @import url("../src/styles/runtime.css");
       @import url("../src/components/TitleTransition/styles.css");
+      @import url("../src/components/StackFrame/styles.css");
+      @import url("../src/components/StackLabel/styles.css");
+      @import url("../src/components/CheckBadge/styles.css");
 
       #scene-004 {
         --s4-bg: #F7F8FA;
@@ -226,6 +237,10 @@
         inset: 0;
         opacity: 0;
         pointer-events: none;
+      }
+
+      #scene-004 #s4-manual {
+        display: none;
       }
 
       #scene-004 .log-terminal {
@@ -354,7 +369,7 @@
 
       #scene-004 .log-terminal__body--scroll {
         padding: 20px 24px 28px;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 1.55;
         white-space: nowrap;
         font-variant-numeric: tabular-nums;
@@ -415,21 +430,20 @@
       #scene-004 .name-ring {
         position: absolute;
         z-index: 4;
+        top: 50%;
+        left: 50%;
         width: 112px;
         height: 48px;
+        transform: translate(-50%, -50%);
         overflow: visible;
         opacity: 0;
         pointer-events: none;
       }
 
-      #scene-004 .name-ring--wu {
-        top: 424px;
-        left: 854px;
-      }
-
-      #scene-004 .name-ring--luo {
-        top: 386px;
-        left: 910px;
+      #scene-004 .name-mark {
+        position: relative;
+        display: inline-block;
+        font-weight: 800;
       }
 
       #scene-004 .name-ring ellipse {
@@ -468,58 +482,132 @@
       }
 
       #scene-004 .log-terminal--source {
-        top: 326px;
-        left: 784px;
-        width: 610px;
-        height: 274px;
+        top: 154px;
+        left: 650px;
+        width: 1170px;
+        height: 630px;
       }
 
       #scene-004 .source-cards {
         position: absolute;
-        top: 202px;
-        left: 112px;
+        top: 102px;
+        left: 42px;
         display: grid;
-        gap: 22px;
-        width: 310px;
+        grid-template-rows: repeat(3, 218px);
+        gap: 0;
+        width: 570px;
       }
 
       #scene-004 .source-card {
         display: grid;
-        grid-template-columns: 76px 1fr;
-        grid-template-rows: auto auto;
-        column-gap: 18px;
+        grid-template-columns: 480px 90px;
         align-items: center;
-        min-height: 130px;
-        padding: 20px 22px;
-        border: 2px solid var(--s4-line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.96);
-        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
+        min-height: 218px;
         opacity: 0;
       }
 
-      #scene-004 .source-card__icon {
-        grid-row: 1 / 3;
-        display: grid;
-        place-items: center;
-        width: 70px;
-        height: 70px;
-        border-radius: 18px;
-        background: rgba(47, 111, 143, 0.12);
-        color: var(--s4-blue);
-        font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 22px;
-        font-weight: 800;
+      #scene-004 .source-card__image {
+        display: block;
+        width: 480px;
+        height: 480px;
+        object-fit: contain;
+        filter: drop-shadow(0 14px 18px rgba(35, 59, 94, 0.12));
+      }
+
+      #scene-004 .source-card__image--up,
+      #scene-004 .source-card__image--down {
+        transform: scale(1);
+      }
+
+      #scene-004 .source-card__image--local {
+        transform: scale(1);
       }
 
       #scene-004 .source-card strong {
+        align-self: center;
+        justify-self: center;
+        width: 180px;
         color: var(--s4-deep);
-        font-size: 28px;
+        font-size: 26px;
+        text-align: center;
+        white-space: nowrap;
+        transform: translate(-44px, -76px);
       }
 
-      #scene-004 .source-card span {
-        color: var(--s4-muted);
-        font-size: 21px;
+      #scene-004 .source-log-body {
+        padding: 26px 30px;
+        font-size: 20px;
+        line-height: 1.48;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      #scene-004 .source-log-group {
+        display: block;
+        margin-bottom: 24px;
+        padding-left: 16px;
+        border-left: 4px solid var(--s4-teal);
+        opacity: 0;
+      }
+
+      #scene-004 .source-log-group:last-child {
+        margin-bottom: 0;
+      }
+
+      #scene-004 .source-log-comment,
+      #scene-004 .source-log-data {
+        display: block;
+      }
+
+      #scene-004 .source-log-comment {
+        margin-bottom: 8px;
+        color: #A7F3D0;
+        font-weight: 800;
+      }
+
+      #scene-004 .source-log-group--risk {
+        border-left-color: var(--s4-coral);
+      }
+
+      #scene-004 .source-log-group--risk .source-log-comment,
+      #scene-004 .source-log-group--risk .source-log-data {
+        color: var(--s4-yellow);
+      }
+
+      #scene-004 .source-log-data .masked {
+        color: #A7F3D0;
+      }
+
+      #scene-004 .source-log-data .log-value--risk {
+        color: var(--s4-yellow);
+        font-weight: 800;
+      }
+
+      #scene-004 .source-comment-mark {
+        position: relative;
+        display: inline-block;
+      }
+
+      #scene-004 .source-comment-ring {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        width: 230px;
+        height: 54px;
+        transform: translate(-50%, -50%);
+        overflow: visible;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #scene-004 .source-comment-ring ellipse {
+        fill: none;
+        stroke: var(--s4-coral);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 720;
+        stroke-dashoffset: 720;
       }
 
       #scene-004 .flow-svg {
@@ -531,13 +619,36 @@
         pointer-events: none;
       }
 
-      #scene-004 .flow-svg path {
+      #scene-004 .flow-svg > path {
         fill: none;
         stroke: var(--s4-teal);
         stroke-width: 5;
         stroke-linecap: round;
         stroke-dasharray: 820;
         stroke-dashoffset: 820;
+      }
+
+      #scene-004 .flow-svg--sources .source-arrow-line {
+        stroke-width: 6;
+        stroke-dasharray: 13 15;
+        stroke-dashoffset: 0;
+      }
+
+      #scene-004 .flow-svg--sources .source-arrow-reveal {
+        fill: none;
+        stroke: #FFFFFF;
+        stroke-width: 18;
+        stroke-linecap: round;
+        stroke-dasharray: 420;
+        stroke-dashoffset: 420;
+      }
+
+      #scene-004 .flow-svg--sources .source-arrow-head {
+        fill: var(--s4-teal);
+        stroke: none;
+        opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
       }
 
       #scene-004 .field-deck {
@@ -610,10 +721,12 @@
 
       #scene-004 .rule-card {
         position: absolute;
-        top: 216px;
-        left: 830px;
+        z-index: 5;
+        top: 238px;
+        left: 745px;
         width: 430px;
         padding: 28px;
+        box-sizing: border-box;
         border: 3px solid var(--s4-blue);
         border-radius: 24px;
         background: #FFFFFF;
@@ -657,220 +770,261 @@
         font-weight: 800;
       }
 
-      #scene-004 .log-terminal--small {
-        width: 500px;
-        height: 216px;
-      }
-
-      #scene-004 .log-terminal--small .log-terminal__body {
-        font-size: 18px;
-        line-height: 1.55;
-        padding: 20px 24px;
-      }
-
-      #scene-004 .log-terminal--api {
-        top: 212px;
-        left: 94px;
-      }
-
-      #scene-004 .log-terminal--log {
-        top: 534px;
-        left: 94px;
-      }
-
-      #scene-004 .rule-chip {
-        position: absolute;
-        top: 408px;
-        left: 780px;
-        display: grid;
-        place-items: center;
-        width: 360px;
-        height: 104px;
-        border: 3px solid var(--s4-teal);
-        border-radius: 22px;
-        background: #FFFFFF;
-        box-shadow: 0 24px 44px rgba(44, 154, 154, 0.18);
-        color: var(--s4-deep);
-        font-size: 31px;
-        font-weight: 800;
-      }
-
-      #scene-004 .log-terminal--result-a,
-      #scene-004 .log-terminal--result-b {
-        top: 292px;
-      }
-
-      #scene-004 .log-terminal--result-a {
-        left: 114px;
-      }
-
-      #scene-004 .log-terminal--result-b {
-        left: 114px;
-      }
-
-      #scene-004 .side-statement--result {
-        top: 118px;
-        right: 132px;
-        font-size: 40px;
-      }
-
-      #scene-004 .log-terminal--fallback {
-        top: 270px;
-        left: 486px;
-        width: 920px;
-        height: 278px;
-      }
-
-      #scene-004 .fallback-copy {
-        position: relative;
-        font-size: 25px;
-        line-height: 1.9;
-      }
-
-      #scene-004 .fallback-copy span {
-        color: var(--s4-yellow);
-        font-weight: 800;
-      }
-
-      #scene-004 .text-mark {
-        position: absolute;
-        display: block;
-        border: 4px solid var(--s4-coral);
-        border-radius: 12px;
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      #scene-004 .text-mark--mobile {
-        top: 116px;
-        left: 238px;
-        width: 186px;
-        height: 48px;
-      }
-
-      #scene-004 .text-mark--email {
-        top: 116px;
-        left: 528px;
-        width: 162px;
-        height: 48px;
-        border-color: var(--s4-teal);
-      }
-
-      #scene-004 .text-mark--id {
-        top: 168px;
-        left: 184px;
-        width: 314px;
-        height: 48px;
-        border-color: var(--s4-yellow);
-      }
-
-      #scene-004 .engine-badge {
-        position: absolute;
-        top: 270px;
-        right: 126px;
-        display: grid;
-        justify-items: center;
-        gap: 16px;
-        width: 250px;
-        padding: 24px 20px;
-        border-radius: 24px;
-        background: #FFFFFF;
-        box-shadow: 0 20px 40px rgba(35, 59, 94, 0.16);
-        color: var(--s4-deep);
-        opacity: 0;
-      }
-
-      #scene-004 .engine-badge__icon {
-        display: grid;
-        place-items: center;
-        width: 96px;
-        height: 96px;
-        border-radius: 24px;
-        background: rgba(44, 154, 154, 0.15);
-        color: var(--s4-teal);
-        font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 34px;
-        font-weight: 900;
-      }
-
-      #scene-004 .engine-badge strong {
-        font-size: 24px;
-        text-align: center;
-      }
-
-      #scene-004 .side-statement--fallback {
-        top: 594px;
-        right: 120px;
-        width: 390px;
-        font-size: 40px;
-      }
-
-      #scene-004 .type-token {
-        position: absolute;
-        left: 112px;
-        display: grid;
-        place-items: center;
-        width: 260px;
-        height: 92px;
-        border: 3px solid var(--s4-line);
-        border-radius: 20px;
-        background: #FFFFFF;
-        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
-        color: var(--s4-deep);
-        font-size: 32px;
-        font-weight: 800;
-        opacity: 0;
-      }
-
-      #scene-004 .type-token--mobile {
-        top: 236px;
-      }
-
-      #scene-004 .type-token--id {
-        top: 374px;
-      }
-
-      #scene-004 .type-token--email {
-        top: 512px;
-      }
-
-      #scene-004 .log-terminal--performance {
-        top: 262px;
-        left: 780px;
+      #scene-004 .log-terminal--transform {
+        z-index: 4;
+        left: 70px;
         width: 650px;
-        height: 326px;
+        height: 270px;
+        transform-origin: center center;
+        opacity: 0;
       }
 
-      #scene-004 .boundary-cards {
+      #scene-004 .log-terminal--response {
+        top: 142px;
+      }
+
+      #scene-004 .log-terminal--log4j {
+        top: 506px;
+      }
+
+      #scene-004 .transform-terminal__body {
+        position: relative;
+        height: calc(100% - 48px);
+        padding: 0;
+      }
+
+      #scene-004 .terminal-copy {
         position: absolute;
-        top: 218px;
-        left: 118px;
-        display: grid;
-        gap: 26px;
-        width: 360px;
+        inset: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 16px 20px;
+        color: #E5E7EB;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 20px;
+        line-height: 1.36;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
       }
 
-      #scene-004 .boundary-card {
+      #scene-004 .terminal-copy--after {
+        opacity: 0;
+      }
+
+      #scene-004 .terminal-copy--fallback {
+        display: block;
+        padding: 48px 46px 30px;
+        font-size: 21px;
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+        opacity: 0;
+      }
+
+      #scene-004 .masked-ring-wrap {
+        position: relative;
+        display: inline-block;
+        color: #A7F3D0;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      #scene-004 .fallback-ring {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 205px;
+        height: 62px;
+        overflow: visible;
+        pointer-events: none;
+        transform: translate(-50%, -50%) rotate(-2deg);
+      }
+
+      #scene-004 .fallback-ring--email {
+        width: 238px;
+        transform: translate(-50%, -50%) rotate(1.5deg);
+      }
+
+      #scene-004 .fallback-ring ellipse {
+        fill: none;
+        stroke: var(--s4-coral);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-dasharray: 700;
+        stroke-dashoffset: 700;
+      }
+
+      #scene-004 .fallback-ring ellipse + ellipse {
+        opacity: 0.38;
+        stroke-width: 2.5;
+      }
+
+      #scene-004 .code-key,
+      #scene-004 .log-key {
+        color: #7DD3FC;
+        font-weight: 700;
+      }
+
+      #scene-004 .code-string {
+        color: #FDE68A;
+      }
+
+      #scene-004 .code-punctuation {
+        color: #94A3B8;
+      }
+
+      #scene-004 .log-time {
+        color: #A5B4FC;
+        font-variant-numeric: tabular-nums;
+      }
+
+      #scene-004 .log-level,
+      #scene-004 .log-logger {
+        font-weight: 800;
+      }
+
+      #scene-004 .log-level--warn {
+        color: var(--s4-yellow);
+      }
+
+      #scene-004 .log-level--info {
+        color: #A7F3D0;
+      }
+
+      #scene-004 .log-logger {
+        color: #F9A8D4;
+      }
+
+      #scene-004 .log-value {
+        color: #FDE68A;
+      }
+
+      #scene-004 .log-message {
+        color: #CBD5E1;
+      }
+
+      #scene-004 .terminal-copy .masked {
+        color: #A7F3D0;
+      }
+
+      #scene-004 .beat--rules .bottom-statement {
+        top: 92px;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 36px;
+        white-space: nowrap;
+      }
+
+      #scene-004 .beat--fallback-redesign {
+        z-index: 6;
+      }
+
+      #scene-004 .fallback-engine {
+        position: absolute;
+        z-index: 7;
+        top: 280px;
+        right: 62px;
+        width: 310px;
+        height: 310px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 28px rgba(35, 59, 94, 0.16));
+        opacity: 0;
+      }
+
+      #scene-004 .fallback-type-icons {
+        position: absolute;
+        z-index: 7;
+        top: 196px;
+        left: 154px;
         display: grid;
-        place-items: center;
-        min-height: 112px;
-        padding: 18px 22px;
-        border: 3px solid var(--s4-teal);
-        border-radius: 20px;
-        background: #FFFFFF;
-        box-shadow: 0 18px 34px rgba(35, 59, 94, 0.1);
+        gap: 12px;
+        width: 340px;
+      }
+
+      #scene-004 .fallback-type-item {
+        display: grid;
+        grid-template-columns: 156px 1fr;
+        align-items: center;
+        width: 340px;
+        min-height: 142px;
+        margin: 0;
         color: var(--s4-deep);
+        opacity: 0;
+      }
+
+      #scene-004 .fallback-type-item img {
+        width: 148px;
+        height: 148px;
+        object-fit: contain;
+        filter: drop-shadow(0 12px 20px rgba(35, 59, 94, 0.12));
+      }
+
+      #scene-004 .fallback-type-item figcaption {
         font-size: 30px;
         font-weight: 800;
-        text-align: center;
+        white-space: nowrap;
+      }
+
+      #scene-004 .fallback-boundary-stack {
+        --s4-boundary-label-width: 350px;
+        --s4-boundary-frame-extra-width: 68px;
+        position: absolute;
+        z-index: 8;
+        top: 344px;
+        left: 70px;
+        width: calc(var(--s4-boundary-label-width) + var(--s4-boundary-frame-extra-width));
+        min-width: 0;
         opacity: 0;
+      }
+
+      #scene-004 .fallback-boundary-stack .cc-stack-frame__body {
+        width: calc(var(--s4-boundary-label-width) + var(--s4-boundary-frame-extra-width));
+        padding: 28px 32px;
+        gap: 16px;
+        border-width: 5px;
+        border-radius: 30px;
+        box-shadow: 0 20px 42px rgba(47, 111, 143, 0.12);
+      }
+
+      #scene-004 .fallback-boundary-row {
+        position: relative;
+        display: grid;
+        width: var(--s4-boundary-label-width);
+        opacity: 0;
+      }
+
+      #scene-004 .fallback-boundary-label {
+        display: grid;
+        place-items: center;
+        width: var(--s4-boundary-label-width);
+        min-width: 0;
+        min-height: 82px;
+        padding-right: 70px;
+        font-size: 28px;
+      }
+
+      #scene-004 .fallback-boundary-check {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 56px;
+        opacity: 0;
+        transform: translateY(-50%);
+        transform-origin: center center;
+      }
+
+      #scene-004 .fallback-boundary-check .cc-check-badge__mark {
+        stroke-dashoffset: 48;
       }
 
       #scene-004 .character-art--teacher {
-        top: 258px;
-        right: 114px;
-        width: 330px;
-        height: 450px;
+        z-index: 8;
+        top: 300px;
+        right: 120px;
+        width: 300px;
+        height: 390px;
+        opacity: 0;
       }
 
       #scene-004 .caption {
@@ -906,34 +1060,40 @@
       show("#s4-intro", 0.12, 0.3);
       visual.fromTo("#s4-intro-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 0.32);
       visual.fromTo("#s4-keyboard", { opacity: 0, y: 32, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 0.58);
-      visual.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -205, duration: 2.2, ease: "none" }, 0.95);
-      visual.to("#s4-intro-terminal .log-line:nth-child(10)", { x: -260, duration: 0.42, ease: "power2.out" }, 1.62);
-      visual.fromTo("#s4-wu-ring", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.15)", immediateRender: false }, 1.78);
-      draw("#s4-wu-ring ellipse", 1.82, 0.42);
-      visual.to("#s4-wu-ring", { opacity: 0, duration: 0.18, ease: "power1.in" }, 2.34);
-      visual.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.42, ease: "power1.inOut", immediateRender: false }, 2.35);
-      visual.to("#s4-leak-line", { x: -260, duration: 0.48, ease: "power2.out" }, 2.35);
-      visual.to("#s4-leak-phone", { scale: 1.18, duration: 0.35, ease: "back.out(1.2)" }, 2.48);
-      draw("#s4-phone-ring ellipse", 2.58, 0.5);
+      visual.to("#s4-intro-terminal .log-terminal__body--scroll", { y: -205, duration: 1.2, ease: "none" }, 0.95);
+      visual.to("#s4-intro-terminal .log-line:nth-child(10)", { x: -260, duration: 0.32, ease: "power2.out" }, 2.18);
+      visual.fromTo("#s4-wu-ring", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 2.32);
+      draw("#s4-wu-ring ellipse", 2.36, 0.36);
+      visual.fromTo("#s4-leak-line", { backgroundColor: "rgba(239,123,133,0)" }, { backgroundColor: "rgba(239,123,133,0.24)", duration: 0.32, ease: "power1.inOut", immediateRender: false }, 2.66);
+      visual.to("#s4-leak-line", { x: -260, duration: 0.34, ease: "power2.out" }, 2.66);
+      visual.to("#s4-leak-phone", { scale: 1.18, duration: 0.3, ease: "back.out(1.2)" }, 2.8);
+      draw("#s4-phone-ring ellipse", 2.84, 0.38);
       visual.fromTo("#s4-alert-character", { opacity: 0, x: 50, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 2.72);
-      visual.to("#s4-intro-terminal .log-line:nth-child(21)", { x: -300, duration: 0.4, ease: "power2.out" }, 2.72);
-      visual.fromTo("#s4-luo-ring", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.15)", immediateRender: false }, 2.9);
-      draw("#s4-luo-ring ellipse", 2.94, 0.42);
+      visual.to("#s4-intro-terminal .log-line:nth-child(21)", { x: -300, duration: 0.32, ease: "power2.out" }, 3.18);
+      visual.fromTo("#s4-luo-ring", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out", immediateRender: false }, 3.32);
+      draw("#s4-luo-ring ellipse", 3.36, 0.36);
       visual.to("#s4-alert-character", { x: 8, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, 3.38);
-      hide("#s4-intro", 4.25, 0.25);
+      hide("#s4-intro", 5.75, 0.25);
 
-      show("#s4-sources", 4.5, 0.25);
-      visual.fromTo("#s4-source-terminal", { opacity: 0, x: 140, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, 4.65);
-      visual.fromTo("#s4-source-text", { opacity: 0, x: 46 }, { opacity: 1, x: 0, duration: 0.5, ease: "expo.out", immediateRender: false }, 5.0);
-      ["#s4-source-up", "#s4-source-local", "#s4-source-down"].forEach(function (selector, index) {
-        var t = 5.2 + index * 0.78;
-        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 94, scale: 1, duration: 1.65, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
-      });
-      draw("#s4-source-arrow-up", 5.72, 0.65);
-      draw("#s4-source-arrow-local", 6.46, 0.65);
-      draw("#s4-source-arrow-down", 7.22, 0.65);
-      visual.to("#s4-source-terminal", { x: -74, duration: 1.8, ease: "power1.inOut" }, 7.45);
-      hide("#s4-sources", 11.2, 0.25);
+      show("#s4-sources", 5.98, 0.18);
+      visual.fromTo("#s4-source-terminal", { opacity: 1, x: -469, scaleX: 1.162, scaleY: 0.889 }, { opacity: 1, x: 0, scaleX: 1, scaleY: 1, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 6.0);
+      visual.fromTo("#s4-source-up", { opacity: 1, x: -42, scale: 0.95 }, { opacity: 1, x: 570, scale: 0.82, duration: 2.104, ease: "power2.inOut", immediateRender: false }, 7.048);
+      visual.to("#s4-source-up", { opacity: 0.08, duration: 0.28, ease: "power1.out" }, 9.152);
+      visual.fromTo("#s4-source-terminal .source-log-group:nth-child(1)", { opacity: 0, x: -18, y: 10 }, { opacity: 1, x: 0, y: 0, duration: 0.48, ease: "power3.out", immediateRender: false }, 9.152);
+
+      visual.fromTo("#s4-source-local", { opacity: 1, x: -42, scale: 0.95 }, { opacity: 1, x: 570, scale: 0.82, duration: 2.104, ease: "power2.inOut", immediateRender: false }, 10.204);
+      visual.to("#s4-source-local", { opacity: 0.08, duration: 0.28, ease: "power1.out" }, 12.308);
+      visual.fromTo("#s4-source-terminal .source-log-group:nth-child(2)", { opacity: 0, x: -18, y: 10 }, { opacity: 1, x: 0, y: 0, duration: 0.48, ease: "circ.out", immediateRender: false }, 12.308);
+
+      visual.fromTo("#s4-source-down", { opacity: 1, x: -42, scale: 0.95 }, { opacity: 1, x: 570, scale: 0.82, duration: 2.104, ease: "power2.inOut", immediateRender: false }, 13.36);
+      visual.to("#s4-source-down", { opacity: 0.08, duration: 0.28, ease: "power1.out" }, 15.464);
+      visual.fromTo("#s4-source-terminal .source-log-group:nth-child(3)", { opacity: 0, x: -18, y: 10 }, { opacity: 1, x: 0, y: 0, duration: 0.48, ease: "expo.out", immediateRender: false }, 15.464);
+
+      visual.fromTo("#s4-source-up-ring", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out", immediateRender: false }, 16.55);
+      draw("#s4-source-up-ring ellipse", 16.63, 0.6);
+      visual.fromTo("#s4-source-down-ring", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out", immediateRender: false }, 17.5);
+      draw("#s4-source-down-ring ellipse", 17.58, 0.6);
+      hide("#s4-sources", 19.42, 0.25);
 
       show("#s4-manual", 11.5, 0.25);
       visual.fromTo("#s4-manual-text", { opacity: 0, x: 44 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 11.72);
@@ -949,61 +1109,120 @@
       visual.to("#s4-card-2, #s4-card-5", { scale: 1.035, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 15.1);
       hide("#s4-manual", 16.75, 0.25);
 
-      show("#s4-rules", 17.0, 0.25);
-      visual.fromTo("#s4-rule-card", { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out", immediateRender: false }, 17.22);
-      visual.fromTo("#s4-api-terminal", { opacity: 0, x: -44, y: -8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.46, ease: "power3.out", immediateRender: false }, 17.62);
-      visual.fromTo("#s4-log-terminal", { opacity: 0, x: -44, y: 8, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 18.02);
-      draw("#s4-api-to-rule", 18.5, 0.55);
-      draw("#s4-log-to-rule", 18.88, 0.55);
-      visual.fromTo("#s4-rule-title", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, 19.2);
-      visual.to("#s4-rule-card", { boxShadow: "0 28px 72px rgba(44,154,154,0.24)", duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.2);
-      hide("#s4-rules", 24.75, 0.25);
+      show("#s4-rules", 19.67, 0.2);
+      visual.fromTo("#s4-rule-card", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.48, ease: "back.out(1.08)", immediateRender: false }, 19.67);
+      visual.fromTo("#s4-rule-title", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, 19.82);
+      visual.fromTo("#s4-response-terminal", { opacity: 0, x: -46, y: 0, scale: 0.97 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 20.45);
+      visual.fromTo("#s4-log4j-terminal", { opacity: 0, x: -46, y: 0, scale: 0.97 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ.out", immediateRender: false }, 20.78);
+      visual.to("#s4-response-terminal", { x: 565, y: 160, scale: 0.12, opacity: 0.35, duration: 1.0, ease: "power2.in" }, 24.932);
+      visual.to("#s4-log4j-terminal", { x: 565, y: -203, scale: 0.12, opacity: 0.35, duration: 1.0, ease: "power2.in" }, 25.002);
+      visual.to("#s4-rules .terminal-copy--before", { opacity: 0, duration: 0.12, ease: "none" }, 25.762);
+      visual.to("#s4-rules .terminal-copy--after", { opacity: 1, duration: 0.12, ease: "none" }, 25.762);
+      visual.to("#s4-rule-card", { scale: 1.06, boxShadow: "0 30px 76px rgba(44,154,154,0.3)", duration: 0.34, yoyo: true, repeat: 1, ease: "sine.inOut" }, 25.702);
+      visual.to("#s4-response-terminal", { x: 1130, y: 0, scale: 1, opacity: 1, duration: 1.65, ease: "expo.out" }, 25.932);
+      visual.to("#s4-log4j-terminal", { x: 1130, y: 0, scale: 1, opacity: 1, duration: 1.65, ease: "expo.out" }, 26.002);
+      visual.to("#s4-response-terminal, #s4-log4j-terminal", { borderColor: "#3CAEA3", duration: 0.42, ease: "power1.inOut" }, 27.482);
 
-      show("#s4-result", 25.0, 0.2);
-      visual.fromTo("#s4-result-rule", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.18)", immediateRender: false }, 25.12);
-      visual.fromTo("#s4-result-api", { opacity: 0, x: 0, y: -118, scale: 0.98 }, { opacity: 1, x: 1110, y: -118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.38);
-      visual.fromTo("#s4-result-log", { opacity: 0, x: 0, y: 118, scale: 0.98 }, { opacity: 1, x: 1110, y: 118, scale: 1, duration: 2.25, ease: "power2.inOut", immediateRender: false }, 25.48);
-      visual.to("#s4-result-rule", { scale: 1.06, duration: 0.36, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.42);
-      visual.fromTo("#s4-result-text", { opacity: 0, x: 38 }, { opacity: 1, x: 0, duration: 0.46, ease: "power3.out", immediateRender: false }, 27.95);
-      hide("#s4-result", 31.25, 0.25);
+      show("#s4-beat6", 30.192, 0.18);
+      visual.to("#s4-rule-card, #s4-response-terminal", { opacity: 0, duration: 0.28, ease: "power2.in", overwrite: "auto" }, 30.192);
+      visual.to("#s4-log4j-terminal .terminal-copy--after", { opacity: 0, duration: 0.12, ease: "none" }, 30.192);
+      visual.to("#s4-fallback-before", { opacity: 1, duration: 0.16, ease: "power1.out" }, 30.25);
+      visual.to("#s4-log4j-terminal", {
+        x: 565,
+        y: -190,
+        scaleX: 1.203,
+        scaleY: 1.25,
+        borderColor: "#2C9A9A",
+        boxShadow: "0 28px 70px rgba(44,154,154,0.24)",
+        duration: 0.92,
+        ease: "power2.inOut"
+      }, 30.192);
 
-      show("#s4-fallback", 31.5, 0.24);
-      visual.fromTo("#s4-fallback-terminal", { opacity: 0, y: 28, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "expo.out", immediateRender: false }, 31.72);
-      visual.fromTo("#s4-engine", { opacity: 0, x: 80, y: -16, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.12)", immediateRender: false }, 32.42);
-      visual.fromTo("#s4-fallback-text", { opacity: 0, x: 42 }, { opacity: 1, x: 0, duration: 0.42, ease: "power3.out", immediateRender: false }, 32.82);
-      visual.to("#s4-engine", { x: -430, y: 28, scale: 1.18, duration: 0.78, ease: "expo.inOut" }, 33.28);
-      visual.to("#s4-fallback-terminal", { boxShadow: "0 26px 68px rgba(44,154,154,0.24)", duration: 0.45, yoyo: true, repeat: 1, ease: "sine.inOut" }, 34.0);
-      ["#s4-mark-mobile", "#s4-mark-email", "#s4-mark-id"].forEach(function (selector, index) {
-        visual.fromTo(selector, { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.2)", immediateRender: false }, 34.8 + index * 0.42);
-      });
+      visual.fromTo("#s4-engine", { opacity: 0, x: 110, scale: 0.92 }, {
+        opacity: 1,
+        x: -230,
+        scale: 1,
+        duration: 2.104,
+        ease: "power1.inOut",
+        immediateRender: false
+      }, 35.452);
+      visual.to("#s4-log4j-terminal", { x: 555, duration: 0.08, yoyo: true, repeat: 5, ease: "sine.inOut" }, 39.66);
+      visual.to("#s4-log4j-terminal", { scaleX: 1.228, scaleY: 1.275, duration: 0.22, ease: "sine.out" }, 39.66);
+      visual.to("#s4-log4j-terminal", { scaleX: 1.203, scaleY: 1.25, duration: 0.26, ease: "sine.inOut" }, 39.88);
+      visual.to("#s4-fallback-before", { opacity: 0, duration: 0.12, ease: "none" }, 39.74);
+      visual.to("#s4-fallback-after", { opacity: 1, duration: 0.16, ease: "power1.out" }, 39.8);
+      draw("#s4-fallback-phone-ring ellipse", 40.34, 0.5);
+      draw("#s4-fallback-email-ring ellipse", 40.82, 0.5);
+      visual.to("#s4-engine", { opacity: 0.16, scale: 0.86, duration: 0.45, ease: "power2.out" }, 41.52);
+
       ["#s4-type-mobile", "#s4-type-id", "#s4-type-email"].forEach(function (selector, index) {
-        var t = 39.0 + index * 0.75;
-        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "power3.out" : index === 1 ? "circ.out" : "expo.out", immediateRender: false }, t);
-        visual.to(selector, { x: 560, scale: 0.72, opacity: 0.15, duration: 0.85, ease: "power2.inOut", overwrite: "auto" }, t + 0.55);
+        visual.fromTo(selector, { opacity: 0, x: -48, y: 12, scale: 0.94 }, {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: index === 0 ? "expo.out" : index === 1 ? "circ.out" : "power3.out",
+          immediateRender: false
+        }, 38.608 + index * 0.78);
       });
-      visual.to("#s4-fb-mobile", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.2);
-      visual.to("#s4-fb-mobile", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.2);
-      visual.to("#s4-fb-email", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 40.92);
-      visual.to("#s4-fb-email", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 40.92);
-      visual.to("#s4-fb-id", { color: "#A7F3D0", duration: 0.2, ease: "none" }, 41.64);
-      visual.to("#s4-fb-id", { textShadow: "0 0 12px rgba(60,174,163,0.75)", duration: 0.25, ease: "sine.out" }, 41.64);
-      hide("#s4-fallback", 46.25, 0.25);
+      [
+        { selector: "#s4-type-mobile", y: 210, rotation: 300 },
+        { selector: "#s4-type-id", y: 60, rotation: -320 },
+        { selector: "#s4-type-email", y: -90, rotation: 360 }
+      ].forEach(function (item, index) {
+        visual.to(item.selector, {
+          x: 690,
+          y: item.y,
+          rotation: item.rotation,
+          scale: 0.18,
+          opacity: 0,
+          duration: 0.75,
+          ease: "power2.inOut"
+        }, 42.816 + index * 0.18);
+      });
 
-      show("#s4-performance", 46.5, 0.25);
-      visual.fromTo("#s4-performance-terminal", { opacity: 0, x: 46, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 46.72);
-      ["#s4-boundary-1", "#s4-boundary-2", "#s4-boundary-3"].forEach(function (selector, index) {
-        visual.fromTo(selector, { opacity: 0, x: -42, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: index === 0 ? "expo.out" : index === 1 ? "power3.out" : "circ.out", immediateRender: false }, 47.0 + index * 0.48);
+      visual.to("#s4-type-icons", { opacity: 0, x: -42, duration: 0.36, ease: "power2.in" }, 44.408);
+      visual.fromTo("#s4-boundary-stack", { opacity: 0, x: -38, scale: 0.96 }, {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        duration: 0.42,
+        ease: "power3.out",
+        immediateRender: false
+      }, 44.92);
+      visual.fromTo("#s4-teacher", { opacity: 0, x: 50, y: 16, scale: 0.94 }, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.12)",
+        immediateRender: false
+      }, 44.92);
+      ["#s4-boundary-row-1", "#s4-boundary-row-2", "#s4-boundary-row-3"].forEach(function (selector, index) {
+        var t = 45.148 + index * 0.48;
+        visual.fromTo(selector, { opacity: 0, x: -28 }, {
+          opacity: 1,
+          x: 0,
+          duration: 0.32,
+          ease: index === 0 ? "expo.out" : index === 1 ? "power3.out" : "circ.out",
+          immediateRender: false
+        }, t);
+        visual.fromTo(selector + " .fallback-boundary-check", { opacity: 0, scale: 0.78 }, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.24,
+          ease: "back.out(1.16)",
+          immediateRender: false
+        }, t + 0.18);
+        visual.to(selector + " .cc-check-badge__mark", { strokeDashoffset: 0, duration: 0.34, ease: "power2.out" }, t + 0.24);
       });
-      draw("#s4-boundary-arrow-1", 47.42, 0.46);
-      draw("#s4-boundary-arrow-2", 47.88, 0.46);
-      draw("#s4-boundary-arrow-3", 48.34, 0.46);
-      visual.to("#s4-performance-terminal", { borderColor: "#3CAEA3", duration: 0.5, ease: "power1.inOut" }, 49.4);
-      visual.fromTo("#s4-teacher", { opacity: 0, x: 54, y: 18, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.18)", immediateRender: false }, 51.0);
 
       visual.timeScale(1.052);
       tl.add(visual, 2.5);
 
-      [[0, 2.7, 8.4], [1, 8.7, 16.7], [2, 17, 23.2], [3, 23.5, 33], [4, 33.3, 44.5], [5, 44.8, 53.1]].forEach(function (item) {
+      [[0, 2.7, 8.4], [1, 8.7, 16.7], [2, 17, 20.9], [3, 21.2, 33], [4, 33.3, 44.5], [5, 44.8, 53.1]].forEach(function (item) {
         tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto", immediateRender: false }, item[1]);
         tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);
       });
