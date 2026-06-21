@@ -163,48 +163,50 @@
       </section>
 
       <section id="s6-beat-breakdown" class="s6-beat s6-beat--breakdown" aria-label="需求拆解流程">
-        <div class="s6-origin-caption">MVP 需求</div>
-        <div class="s6-step-flow">
-          <article id="s6-step-clarify" class="s6-step-card">
-            <span class="s6-step-index">01</span>
-            <div class="s6-step-icon"><svg><use href="#s6-icon-target"></use></svg></div>
+        <div class="s6-breakdown-tree">
+          <svg class="s6-tree-lines" viewBox="0 0 1720 650" aria-hidden="true">
+            <path id="s6-line-requirement" d="M330 292H430V180H520M430 292H820M430 292V404H1120"></path>
+            <path id="s6-line-issue-1" d="M650 180V500H600M650 500H700"></path>
+            <path id="s6-line-issue-2" d="M950 292V500H900M950 500H1000"></path>
+            <path id="s6-line-issue-3" d="M1250 404V500H1200M1250 500H1300"></path>
+          </svg>
+
+          <article id="s6-requirement-doc" class="s6-requirement-doc">
+            <span class="s6-doc-fold"></span>
+            <div class="s6-requirement-icon"><svg><use href="#s6-icon-doc"></use></svg></div>
             <h2>需求澄清</h2>
-            <p>定义验收方式</p>
+            <p>明确目标与边界</p>
           </article>
-          <div class="s6-step-arrow"><span></span></div>
-          <article id="s6-step-split" class="s6-step-card">
-            <span class="s6-step-index">02</span>
-            <div class="s6-step-icon"><svg><use href="#s6-icon-doc"></use></svg></div>
-            <h2>任务拆解</h2>
-            <p>形成可检查清单</p>
+
+          <article id="s6-issue-1" class="s6-issue-card s6-issue-card--one">
+            <span>ISSUE 01</span>
+            <strong>接入能力</strong>
           </article>
-          <div class="s6-step-arrow"><span></span></div>
-          <article id="s6-step-code" class="s6-step-card">
-            <span class="s6-step-index">03</span>
-            <div class="s6-step-icon"><svg><use href="#s6-icon-code"></use></svg></div>
-            <h2>代码实现</h2>
-            <p>对应具体任务</p>
+          <article id="s6-issue-2" class="s6-issue-card s6-issue-card--two">
+            <span>ISSUE 02</span>
+            <strong>治理规则</strong>
           </article>
-          <div class="s6-step-arrow"><span></span></div>
-          <article id="s6-step-test" class="s6-step-card s6-step-card--test">
-            <span class="s6-step-index">04</span>
-            <div class="s6-step-icon"><svg><use href="#s6-icon-test"></use></svg></div>
-            <h2>测试验证</h2>
-            <p>自动化与实际接入</p>
+          <article id="s6-issue-3" class="s6-issue-card s6-issue-card--three">
+            <span>ISSUE 03</span>
+            <strong>结果展示</strong>
           </article>
-          <div class="s6-step-arrow"><span></span></div>
-          <article id="s6-step-deliver" class="s6-step-card s6-step-card--success">
-            <span class="s6-step-index">05</span>
-            <div class="s6-step-icon"><svg><use href="#s6-icon-demo"></use></svg></div>
-            <h2>交付沉淀</h2>
-            <p>文档与 Demo</p>
+
+          <article class="s6-task-card s6-task-card--1a"><span>TASK</span><strong>接口接入</strong></article>
+          <article class="s6-task-card s6-task-card--1b"><span>TASK</span><strong>日志采集</strong></article>
+          <article class="s6-task-card s6-task-card--2a"><span>TASK</span><strong>规则配置</strong></article>
+          <article class="s6-task-card s6-task-card--2b"><span>TASK</span><strong>异常兜底</strong></article>
+          <article class="s6-task-card s6-task-card--3a"><span>TASK</span><strong>报告生成</strong></article>
+          <article class="s6-task-card s6-task-card--3b"><span>TASK</span><strong>Demo 验证</strong></article>
+
+          <article id="s6-delivery-acceptance" class="s6-delivery-acceptance">
+            <div class="s6-delivery-icon"><svg><use href="#s6-icon-check"></use></svg></div>
+            <div>
+              <span>DELIVERY</span>
+              <h2>交付验收</h2>
+              <p>任务逐项进入验收闭环</p>
+            </div>
+            <div class="s6-delivery-meter"><i></i><i></i><i></i><i></i><i></i><i></i></div>
           </article>
-        </div>
-        <div class="s6-artifact-row">
-          <span>代码</span>
-          <span>测试</span>
-          <span>文档</span>
-          <span>Demo</span>
         </div>
       </section>
 
@@ -687,43 +689,228 @@
         transform: translateY(-50%) rotate(45deg);
       }
 
-      #scene-006 .s6-origin-caption {
-        position: absolute;
-        top: 154px;
-        left: 50%;
-        padding: 12px 28px;
-        border: 3px solid var(--s6-blue);
-        border-radius: 999px;
-        background: #FFFFFF;
-        color: var(--s6-blue);
-        font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 25px;
-        font-weight: 800;
-        translate: -50% 0;
-      }
-
-      #scene-006 .s6-step-flow {
-        display: grid;
-        grid-template-columns: 292px 68px 292px 68px 292px 68px 292px 68px 292px;
-        align-items: center;
-        justify-content: center;
-        margin-top: 265px;
-      }
-
-      #scene-006 .s6-step-card {
+      #scene-006 .s6-breakdown-tree {
         position: relative;
+        width: 1720px;
+        height: 650px;
+        margin: 70px auto 0;
+      }
+
+      #scene-006 .s6-tree-lines {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        color: var(--s6-teal);
+      }
+
+      #scene-006 .s6-tree-lines path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-requirement-doc {
+        position: absolute;
+        top: 172px;
+        left: 40px;
         display: grid;
-        min-height: 310px;
-        align-content: start;
+        width: 290px;
+        min-height: 240px;
+        align-content: center;
         justify-items: center;
-        gap: 13px;
-        padding: 42px 18px 24px;
+        gap: 12px;
+        padding: 34px 24px 28px;
         border: 3px solid var(--s6-blue);
-        border-radius: 26px;
-        background: rgba(255, 255, 255, 0.96);
-        box-shadow: 0 18px 38px rgba(35, 59, 94, 0.1);
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0 20px 44px rgba(35, 59, 94, 0.12);
         text-align: center;
         transform-origin: center center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-doc-fold {
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        width: 56px;
+        height: 56px;
+        border-bottom: 3px solid var(--s6-blue);
+        border-left: 3px solid var(--s6-blue);
+        border-radius: 0 21px 0 16px;
+        background: #F4F6F8;
+      }
+
+      #scene-006 .s6-requirement-icon {
+        width: 72px;
+        height: 72px;
+        color: var(--s6-blue);
+      }
+
+      #scene-006 .s6-requirement-icon svg {
+        width: 72px;
+        height: 72px;
+      }
+
+      #scene-006 .s6-requirement-doc h2,
+      #scene-006 .s6-delivery-acceptance h2 {
+        margin: 0;
+        color: var(--s6-deep);
+        font-size: 32px;
+        line-height: 1.15;
+      }
+
+      #scene-006 .s6-requirement-doc p,
+      #scene-006 .s6-delivery-acceptance p {
+        margin: 0;
+        color: var(--s6-muted);
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      #scene-006 .s6-issue-card {
+        position: absolute;
+        display: grid;
+        width: 260px;
+        min-height: 112px;
+        align-content: center;
+        gap: 8px;
+        padding: 20px 24px;
+        border: 3px solid var(--s6-teal);
+        border-radius: 20px;
+        background: #FFFFFF;
+        box-shadow: 0 16px 34px rgba(44, 154, 154, 0.12);
+        transform-origin: center center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-issue-card--one {
+        top: 124px;
+        left: 520px;
+      }
+
+      #scene-006 .s6-issue-card--two {
+        top: 236px;
+        left: 820px;
+      }
+
+      #scene-006 .s6-issue-card--three {
+        top: 348px;
+        left: 1120px;
+      }
+
+      #scene-006 .s6-issue-card span,
+      #scene-006 .s6-task-card span,
+      #scene-006 .s6-delivery-acceptance > div > span {
+        color: var(--s6-teal);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      #scene-006 .s6-issue-card strong {
+        color: var(--s6-deep);
+        font-size: 25px;
+      }
+
+      #scene-006 .s6-task-card {
+        position: absolute;
+        display: grid;
+        width: 132px;
+        min-height: 92px;
+        align-content: center;
+        justify-items: center;
+        gap: 5px;
+        padding: 12px 10px;
+        border: 2px solid var(--s6-line);
+        border-radius: 16px;
+        background: #FFFFFF;
+        box-shadow: 0 12px 26px rgba(35, 59, 94, 0.09);
+        text-align: center;
+        transform-origin: center center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-task-card span {
+        color: var(--s6-blue);
+        font-size: 15px;
+      }
+
+      #scene-006 .s6-task-card strong {
+        color: var(--s6-deep);
+        font-size: 19px;
+        line-height: 1.2;
+      }
+
+      #scene-006 .s6-task-card--1a { top: 454px; left: 534px; }
+      #scene-006 .s6-task-card--1b { top: 454px; left: 674px; }
+      #scene-006 .s6-task-card--2a { top: 454px; left: 834px; }
+      #scene-006 .s6-task-card--2b { top: 454px; left: 974px; }
+      #scene-006 .s6-task-card--3a { top: 454px; left: 1134px; }
+      #scene-006 .s6-task-card--3b { top: 454px; left: 1274px; }
+
+      #scene-006 .s6-delivery-acceptance {
+        position: absolute;
+        top: 220px;
+        right: 0;
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        width: 286px;
+        min-height: 210px;
+        align-items: center;
+        gap: 18px;
+        padding: 28px 24px;
+        border: 3px solid var(--s6-green);
+        border-radius: 26px;
+        background: #FFFFFF;
+        box-shadow: 0 22px 48px rgba(60, 174, 163, 0.16);
+        transform-origin: center center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-delivery-icon {
+        display: grid;
+        place-items: center;
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: var(--s6-green);
+        color: #FFFFFF;
+      }
+
+      #scene-006 .s6-delivery-icon svg {
+        width: 48px;
+        height: 48px;
+      }
+
+      #scene-006 .s6-delivery-acceptance > div > span {
+        color: var(--s6-green);
+        font-size: 16px;
+      }
+
+      #scene-006 .s6-delivery-acceptance p {
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      #scene-006 .s6-delivery-meter {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 7px;
+      }
+
+      #scene-006 .s6-delivery-meter i {
+        height: 8px;
+        border-radius: 999px;
+        background: var(--s6-line);
       }
 
       #scene-006 .s6-step-index,
@@ -744,18 +931,6 @@
         translate: -50% 0;
       }
 
-      #scene-006 .s6-step-icon {
-        width: 94px;
-        height: 94px;
-        color: var(--s6-blue);
-      }
-
-      #scene-006 .s6-step-icon svg {
-        width: 72px;
-        height: 72px;
-      }
-
-      #scene-006 .s6-step-card h2,
       #scene-006 .s6-loop-node h2 {
         margin: 0;
         color: var(--s6-deep);
@@ -763,7 +938,6 @@
         line-height: 1.18;
       }
 
-      #scene-006 .s6-step-card p,
       #scene-006 .s6-loop-node p {
         margin: 0;
         color: var(--s6-muted);
@@ -772,39 +946,6 @@
         line-height: 1.35;
       }
 
-      #scene-006 .s6-step-card--test {
-        border-color: var(--s6-teal);
-      }
-
-      #scene-006 .s6-step-card--test .s6-step-index,
-      #scene-006 .s6-step-card--test .s6-step-icon {
-        background: var(--s6-teal);
-        color: #FFFFFF;
-      }
-
-      #scene-006 .s6-step-card--test .s6-step-icon {
-        border-radius: 50%;
-      }
-
-      #scene-006 .s6-step-card--success {
-        border-color: var(--s6-green);
-      }
-
-      #scene-006 .s6-step-card--success .s6-step-index {
-        background: var(--s6-green);
-      }
-
-      #scene-006 .s6-step-card--success .s6-step-icon {
-        color: var(--s6-green);
-      }
-
-      #scene-006 .s6-step-arrow {
-        display: grid;
-        place-items: center;
-        color: var(--s6-teal);
-      }
-
-      #scene-006 .s6-step-arrow span,
       #scene-006 .s6-loop-arrow span {
         position: relative;
         width: 50px;
@@ -812,23 +953,6 @@
         border-radius: 999px;
         background: currentColor;
         transform-origin: left center;
-      }
-
-      #scene-006 .s6-artifact-row {
-        display: flex;
-        justify-content: center;
-        gap: 22px;
-        margin-top: 42px;
-      }
-
-      #scene-006 .s6-artifact-row span {
-        padding: 13px 28px;
-        border: 2px solid var(--s6-line);
-        border-radius: 999px;
-        background: #FFFFFF;
-        color: var(--s6-deep);
-        font-size: 22px;
-        font-weight: 800;
       }
 
       #scene-006 .s6-quality-layout {
@@ -1133,9 +1257,9 @@
       var captions = document.querySelectorAll("#scene-006 .caption");
       var roadmapNodes = document.querySelectorAll("#scene-006 .s6-roadmap-node");
       var iterationItems = document.querySelectorAll("#scene-006 .s6-iteration-strip > *");
-      var stepCards = document.querySelectorAll("#scene-006 .s6-step-card");
-      var stepArrows = document.querySelectorAll("#scene-006 .s6-step-arrow span");
-      var artifacts = document.querySelectorAll("#scene-006 .s6-artifact-row span");
+      var issueCards = document.querySelectorAll("#scene-006 .s6-issue-card");
+      var taskCards = document.querySelectorAll("#scene-006 .s6-task-card");
+      var deliveryMeter = document.querySelectorAll("#scene-006 .s6-delivery-meter i");
       var pyramidLevels = ["#s6-pyramid-bottom", "#s6-pyramid-middle", "#s6-pyramid-top"];
       var resultRows = document.querySelectorAll("#scene-006 .s6-result-row");
       var loopNodes = document.querySelectorAll("#scene-006 .s6-loop-node");
@@ -1175,20 +1299,36 @@
       tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp), #s6-beat-roadmap .s6-iteration-strip", { opacity: 0.05, duration: 0.46, ease: "sine.inOut" }, 12.34);
 
       tl.fromTo("#s6-beat-breakdown", { opacity: 0 }, { opacity: 1, duration: 0.46, ease: "sine.out", immediateRender: false }, 13.15);
-      tl.fromTo(".s6-origin-caption", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.22)", immediateRender: false }, 13.42);
-      tl.to("#s6-roadmap-mvp", { opacity: 0.16, scale: 0.62, duration: 0.36, ease: "power2.inOut" }, 13.7);
-      tl.fromTo(stepCards, { opacity: 0, y: 54, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, stagger: 0.72, ease: "expo.out", immediateRender: false }, 14.0);
-      tl.fromTo(stepArrows, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.44, stagger: 0.72, ease: "power2.out", immediateRender: false }, 14.55);
-      tl.fromTo(artifacts, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.14, ease: "circ.out", immediateRender: false }, 18.35);
-      tl.to("#s6-step-clarify", { scale: 1.06, borderColor: "#2C9A9A", duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, 20.1);
-      tl.to("#s6-step-split", { scale: 1.06, borderColor: "#2C9A9A", duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, 22.2);
-      tl.to("#s6-step-code", { scale: 1.06, borderColor: "#2C9A9A", duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, 24.2);
-      tl.to("#s6-step-test", { scale: 1.08, boxShadow: "0 26px 58px rgba(44,154,154,0.22)", duration: 0.38, ease: "power3.out" }, 27.0);
-      tl.to("#s6-step-flow .s6-step-card:not(#s6-step-test), #s6-beat-breakdown .s6-step-arrow, #s6-beat-breakdown .s6-artifact-row, #s6-beat-breakdown .s6-origin-caption", { opacity: 0.15, duration: 0.45, ease: "power1.inOut" }, 29.25);
-      tl.to("#s6-step-test", { x: -350, y: -230, scale: 0.86, duration: 0.82, ease: "power3.inOut" }, 29.45);
+      tl.fromTo("#s6-requirement-doc", { opacity: 0, x: 730, y: -38, scale: 0.72 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.82, ease: "power3.inOut", immediateRender: false }, 13.28);
+      tl.to("#s6-roadmap-mvp", { opacity: 0, scale: 0.54, duration: 0.36, ease: "power2.in" }, 13.62);
+      tl.to("#s6-requirement-doc h2", { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, 14.18);
+      tl.set("#s6-requirement-doc h2", { textContent: "需求说明书", y: 10 }, 14.38);
+      tl.to("#s6-requirement-doc h2", { opacity: 1, y: 0, duration: 0.34, ease: "circ.out" }, 14.4);
+      tl.to("#s6-requirement-doc", { borderColor: "#2C9A9A", scale: 1.035, duration: 0.34, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.55);
+
+      tl.fromTo("#s6-line-requirement", { strokeDasharray: 1600, strokeDashoffset: 1600, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.76, ease: "power2.out", immediateRender: false }, 15.1);
+      tl.fromTo(issueCards, { opacity: 0, x: -500, y: 70, scale: 0.3 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, stagger: 0.42, ease: "expo.out", immediateRender: false }, 15.35);
+      tl.fromTo("#s6-line-issue-1, #s6-line-issue-2, #s6-line-issue-3", { strokeDasharray: 700, strokeDashoffset: 700, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.58, stagger: 0.4, ease: "power2.out", immediateRender: false }, 17.0);
+      tl.fromTo(taskCards, { opacity: 0, y: -180, scale: 0.35 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, stagger: 0.28, ease: "back.out(1.12)", immediateRender: false }, 17.28);
+
+      tl.fromTo("#s6-delivery-acceptance", { opacity: 0, x: 90, scale: 0.88 }, { opacity: 1, x: 0, scale: 1, duration: 0.62, ease: "circ.out", immediateRender: false }, 20.0);
+      tl.fromTo(deliveryMeter, { opacity: 0.25, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.28, stagger: 0.08, ease: "power3.out", immediateRender: false }, 20.36);
+
+      taskCards.forEach(function (card, index) {
+        var cardRect = card.getBoundingClientRect();
+        var deliveryRect = document.querySelector("#s6-delivery-acceptance").getBoundingClientRect();
+        var targetX = deliveryRect.left + deliveryRect.width / 2 - (cardRect.left + cardRect.width / 2);
+        var targetY = deliveryRect.top + deliveryRect.height / 2 - (cardRect.top + cardRect.height / 2);
+        tl.to(card, { x: targetX, y: targetY, scale: 0.18, opacity: 0, duration: 0.5, ease: "power3.in" }, 21.25 + index * 0.58);
+        tl.to(deliveryMeter[index], { backgroundColor: "#3CAEA3", scaleY: 1.65, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.7 + index * 0.58);
+      });
+
+      tl.to("#s6-requirement-doc, #s6-beat-breakdown .s6-issue-card, #s6-beat-breakdown .s6-tree-lines", { opacity: 0, duration: 0.42, ease: "power2.in" }, 25.05);
+      tl.to("#s6-delivery-acceptance", { x: -717, y: 14, scale: 1.24, duration: 0.86, ease: "power3.inOut" }, 25.32);
+      tl.to("#s6-delivery-acceptance", { boxShadow: "0 30px 68px rgba(60,174,163,0.24)", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.3);
 
       tl.fromTo("#s6-beat-quality", { opacity: 0 }, { opacity: 1, duration: 0.48, ease: "sine.out", immediateRender: false }, 30.15);
-      tl.to("#s6-step-test", { opacity: 0, scale: 0.64, duration: 0.34, ease: "power2.in" }, 30.65);
+      tl.to("#s6-delivery-acceptance", { opacity: 0, scale: 0.88, duration: 0.34, ease: "power2.in" }, 30.65);
       tl.to("#s6-beat-breakdown", { opacity: 0.035, duration: 0.42, ease: "sine.inOut" }, 30.65);
       tl.to("#s6-beat-roadmap", { opacity: 0.02, duration: 0.42, ease: "sine.inOut" }, 30.65);
       pyramidLevels.forEach(function (selector, index) {
