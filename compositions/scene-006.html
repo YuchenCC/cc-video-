@@ -174,8 +174,8 @@
           <article id="s6-requirement-doc" class="s6-requirement-doc">
             <span class="s6-doc-fold"></span>
             <div class="s6-requirement-icon"><svg><use href="#s6-icon-doc"></use></svg></div>
-            <h2>需求澄清</h2>
-            <p>明确目标与边界</p>
+            <h2>需求说明书</h2>
+            <p>MVP版本</p>
           </article>
 
           <article id="s6-issue-1" class="s6-issue-card s6-issue-card--one">
@@ -1295,16 +1295,14 @@
       tl.to("#s6-roadmap-r26", { opacity: 0.8, duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-r3", { opacity: 1, boxShadow: "0 28px 62px rgba(60,174,163,0.2)", duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-mvp", { opacity: 1, scale: 1.06, borderColor: "#2C9A9A", boxShadow: "0 28px 62px rgba(44,154,154,0.2)", duration: 0.44, ease: "power3.out" }, 11.52);
-      tl.to("#s6-roadmap-mvp", { x: 740, y: 94, scale: 0.72, duration: 0.78, ease: "power3.inOut" }, 12.22);
+      tl.to("#s6-roadmap-mvp", { x: 65, y: 44, scale: 0.72, duration: 0.78, ease: "power3.inOut" }, 12.22);
       tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp), #s6-beat-roadmap .s6-iteration-strip", { opacity: 0.05, duration: 0.46, ease: "sine.inOut" }, 12.34);
 
       tl.fromTo("#s6-beat-breakdown", { opacity: 0 }, { opacity: 1, duration: 0.46, ease: "sine.out", immediateRender: false }, 13.15);
-      tl.fromTo("#s6-requirement-doc", { opacity: 0, x: 730, y: -38, scale: 0.72 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.82, ease: "power3.inOut", immediateRender: false }, 13.28);
-      tl.to("#s6-roadmap-mvp", { opacity: 0, scale: 0.54, duration: 0.36, ease: "power2.in" }, 13.62);
-      tl.to("#s6-requirement-doc h2", { opacity: 0, y: -10, duration: 0.2, ease: "power2.in" }, 14.18);
-      tl.set("#s6-requirement-doc h2", { textContent: "需求说明书", y: 10 }, 14.38);
-      tl.to("#s6-requirement-doc h2", { opacity: 1, y: 0, duration: 0.34, ease: "circ.out" }, 14.4);
-      tl.to("#s6-requirement-doc", { borderColor: "#2C9A9A", scale: 1.035, duration: 0.34, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.55);
+      tl.fromTo("#s6-requirement-doc", { opacity: 0, scale: 0.72, borderRadius: 28 }, { opacity: 1, scale: 1, borderRadius: 24, duration: 0.62, ease: "power3.inOut", immediateRender: false }, 13.28);
+      tl.to("#s6-roadmap-mvp", { opacity: 0, scale: 0.72, duration: 0.3, ease: "power2.in" }, 13.32);
+      tl.set("#s6-roadmap-mvp", { opacity: 0 }, 13.62);
+      tl.to("#s6-requirement-doc", { borderColor: "#2C9A9A", scale: 1.035, duration: 0.34, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.05);
 
       tl.fromTo("#s6-line-requirement", { strokeDasharray: 1600, strokeDashoffset: 1600, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.76, ease: "power2.out", immediateRender: false }, 15.1);
       tl.fromTo(issueCards, { opacity: 0, x: -500, y: 70, scale: 0.3 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, stagger: 0.42, ease: "expo.out", immediateRender: false }, 15.35);
