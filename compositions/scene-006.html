@@ -43,6 +43,26 @@
       <symbol id="s6-icon-box" viewBox="0 0 64 64">
         <path d="M32 6l24 13v27L32 58 8 46V19zM8 19l24 14 24-14M32 33v25"></path>
       </symbol>
+      <symbol id="s6-icon-rocket" viewBox="0 0 64 64">
+        <path d="M37 9c8-3 14-2 18-1 1 4 2 10-1 18L36 44 20 28z"></path>
+        <circle cx="42" cy="20" r="5"></circle>
+        <path d="M20 28l-9 3-5 10 14 3M36 44l-3 9-10 5-3-14M18 46l-7 7"></path>
+      </symbol>
+      <symbol id="s6-icon-shield" viewBox="0 0 64 64">
+        <path d="M32 7c8 6 16 8 23 9v14c0 14-9 23-23 28C18 53 9 44 9 30V16c7-1 15-3 23-9z"></path>
+        <path d="M32 19v26M20 32h24"></path>
+      </symbol>
+      <symbol id="s6-icon-hierarchy" viewBox="0 0 64 64">
+        <rect x="25" y="7" width="14" height="12" rx="2"></rect>
+        <rect x="5" y="45" width="14" height="12" rx="2"></rect>
+        <rect x="25" y="45" width="14" height="12" rx="2"></rect>
+        <rect x="45" y="45" width="14" height="12" rx="2"></rect>
+        <path d="M32 19v13M12 45V32h40v13M32 32v13"></path>
+      </symbol>
+      <symbol id="s6-icon-flag" viewBox="0 0 64 64">
+        <path d="M15 57V8M16 10h31l-5 9 5 9H16"></path>
+        <path d="M6 57h22"></path>
+      </symbol>
     </svg>
 
     <main class="s6-world" data-layout-ignore>
@@ -56,72 +76,95 @@
       <div class="s6-ghost" data-layout-ignore>DELIVER</div>
 
       <section id="s6-beat-roadmap" class="s6-beat s6-beat--roadmap" aria-label="交付版本路线图">
-        <div class="s6-roadmap-rail" aria-hidden="true">
-          <span class="s6-roadmap-line"></span>
-          <span class="s6-roadmap-dot"></span>
-          <span class="s6-roadmap-dot"></span>
-          <span class="s6-roadmap-dot"></span>
-          <span class="s6-roadmap-dot"></span>
-          <span class="s6-roadmap-dot"></span>
-        </div>
-
-        <div class="s6-roadmap-grid">
+        <div class="s6-roadmap-viewport">
+          <div class="s6-roadmap-track">
           <article id="s6-roadmap-mvp" class="s6-roadmap-node s6-roadmap-node--blue">
             <div class="s6-version">MVP</div>
             <div class="s6-node-icon">
-              <svg><use href="#s6-icon-target"></use></svg>
+              <svg><use href="#s6-icon-rocket"></use></svg>
             </div>
-            <h2>需求与验收</h2>
-            <p>先定义完成标准</p>
+            <h2>接入可行性</h2>
+            <div class="s6-roadmap-divider"></div>
+            <p class="s6-roadmap-copy"><span>starter + Response</span><span>+ Log4j2</span><span>+ 基础报告</span></p>
           </article>
 
-          <article class="s6-roadmap-node s6-roadmap-node--blue">
+          <span id="s6-roadmap-link-r2" class="s6-roadmap-link s6-roadmap-link--one"></span>
+
+          <article id="s6-roadmap-r2" class="s6-roadmap-node s6-roadmap-node--blue">
             <div class="s6-version">R2</div>
             <div class="s6-node-icon">
-              <svg><use href="#s6-icon-code"></use></svg>
+              <svg><use href="#s6-icon-shield"></use></svg>
             </div>
-            <h2>代码与文档</h2>
-            <p>任务对应交付物</p>
+            <h2>扩展与治理能力</h2>
+            <div class="s6-roadmap-divider"></div>
+            <ul>
+              <li>String type</li>
+              <li>自定义策略</li>
+              <li>主动脱敏</li>
+              <li>风险画像</li>
+              <li>日志建议</li>
+            </ul>
           </article>
 
-          <article class="s6-roadmap-node s6-roadmap-node--teal">
+          <span id="s6-roadmap-link-r25" class="s6-roadmap-link s6-roadmap-link--two"></span>
+
+          <article id="s6-roadmap-r25" class="s6-roadmap-node s6-roadmap-node--teal">
             <div class="s6-version">R2.5</div>
             <div class="s6-node-icon">
-              <svg><use href="#s6-icon-test"></use></svg>
+              <svg><use href="#s6-icon-hierarchy"></use></svg>
             </div>
-            <h2>自动化测试</h2>
-            <p>结果可以重复验证</p>
+            <h2>模拟系统接入组件</h2>
+            <div class="s6-roadmap-divider"></div>
+            <p class="s6-roadmap-copy"><span>客户 / 订单 / 支付 /</span><span>工单 / 账户场景</span></p>
           </article>
 
-          <article class="s6-roadmap-node s6-roadmap-node--green">
+          <span id="s6-roadmap-link-r26" class="s6-roadmap-link s6-roadmap-link--three"></span>
+
+          <article id="s6-roadmap-r26" class="s6-roadmap-node s6-roadmap-node--green">
             <div class="s6-version">R2.6</div>
             <div class="s6-node-icon">
               <svg><use href="#s6-icon-demo"></use></svg>
             </div>
-            <h2>Demo 验证</h2>
-            <p>接入真实使用场景</p>
+            <h2>Dashboard 工作台</h2>
+            <div class="s6-roadmap-divider"></div>
+            <ul>
+              <li>独立包</li>
+              <li>可视化报告</li>
+              <li>可开关</li>
+            </ul>
           </article>
 
-          <article class="s6-roadmap-node s6-roadmap-node--future">
-            <div class="s6-version">持续迭代</div>
+          <span id="s6-roadmap-link-r3" class="s6-roadmap-link s6-roadmap-link--four"></span>
+
+          <article id="s6-roadmap-r3" class="s6-roadmap-node s6-roadmap-node--future">
+            <div class="s6-version">R3</div>
             <div class="s6-node-icon">
-              <svg><use href="#s6-icon-memory"></use></svg>
+              <svg><use href="#s6-icon-flag"></use></svg>
             </div>
-            <h2>长期约束</h2>
-            <p>每轮修改重新检查</p>
+            <h2>未来版本 / 规划方向</h2>
+            <div class="s6-roadmap-divider"></div>
+            <ul>
+              <li>日志边界</li>
+              <li>展示增强</li>
+              <li>性能优化继续收敛</li>
+            </ul>
           </article>
+          </div>
         </div>
 
         <div class="s6-iteration-strip">
-          <span>反馈</span>
+          <strong>迭代机制</strong>
+          <span>反馈 / 问题</span>
           <i></i>
-          <span>需求</span>
+          <span>PRD</span>
+          <i></i>
+          <span>Issue</span>
           <i></i>
           <span>实现</span>
           <i></i>
           <span>测试</span>
           <i></i>
-          <span>文档</span>
+          <span>文档记忆</span>
           <i></i>
           <span>下一轮</span>
         </div>
@@ -387,80 +430,119 @@
         opacity: 0;
       }
 
-      #scene-006 .s6-roadmap-rail {
+      #scene-006 .s6-roadmap-viewport {
         position: absolute;
-        top: 190px;
-        left: 180px;
-        right: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        top: 220px;
+        left: 0;
+        width: 100%;
+        height: 470px;
+        overflow: visible;
       }
 
-      #scene-006 .s6-roadmap-line {
+      #scene-006 .s6-roadmap-track {
         position: absolute;
+        top: 0;
         left: 0;
-        right: 0;
-        height: 6px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #2F6F8F 0 45%, #2C9A9A 65%, #3CAEA3 84%, #AAB4BE 100%);
+        width: 1920px;
+        height: 440px;
         transform-origin: left center;
       }
 
-      #scene-006 .s6-roadmap-dot {
-        z-index: 1;
-        width: 25px;
-        height: 25px;
-        border: 6px solid #F7F8FA;
-        border-radius: 50%;
-        background: #2F6F8F;
-        box-shadow: 0 0 0 3px #2F6F8F;
-      }
-
-      #scene-006 .s6-roadmap-dot:nth-of-type(4) {
-        background: #2C9A9A;
-        box-shadow: 0 0 0 3px #2C9A9A;
-      }
-
-      #scene-006 .s6-roadmap-dot:nth-of-type(5) {
-        background: #3CAEA3;
-        box-shadow: 0 0 0 3px #3CAEA3;
-      }
-
-      #scene-006 .s6-roadmap-dot:nth-of-type(6) {
-        background: #AAB4BE;
-        box-shadow: 0 0 0 3px #AAB4BE;
-      }
-
-      #scene-006 .s6-roadmap-grid {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 24px;
-        margin-top: 112px;
-      }
-
       #scene-006 .s6-roadmap-node {
-        position: relative;
+        position: absolute;
+        top: 0;
         display: grid;
-        min-width: 0;
+        width: 310px;
         min-height: 420px;
         align-content: start;
         justify-items: center;
-        gap: 18px;
-        padding: 54px 22px 28px;
+        gap: 12px;
+        padding: 48px 22px 24px;
         border: 3px solid var(--s6-blue);
         border-radius: 28px;
         background: rgba(255, 255, 255, 0.95);
         box-shadow: 0 20px 42px rgba(35, 59, 94, 0.11);
         text-align: center;
         transform-origin: center center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-roadmap-node::before {
+        content: "";
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        z-index: 2;
+        width: 22px;
+        height: 22px;
+        border: 6px solid #F7F8FA;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 0 3px currentColor;
+        translate: -50% 0;
+      }
+
+      #scene-006 #s6-roadmap-mvp {
+        left: 80px;
+        color: var(--s6-blue);
+      }
+
+      #scene-006 #s6-roadmap-r2 {
+        left: 450px;
+        color: var(--s6-blue);
+      }
+
+      #scene-006 #s6-roadmap-r25 {
+        left: 820px;
+        color: var(--s6-teal);
+      }
+
+      #scene-006 #s6-roadmap-r26 {
+        left: 1190px;
+        color: var(--s6-green);
+      }
+
+      #scene-006 #s6-roadmap-r3 {
+        left: 1560px;
+        color: #6F7C88;
+      }
+
+      #scene-006 .s6-roadmap-link {
+        position: absolute;
+        top: -13px;
+        z-index: 1;
+        width: 60px;
+        height: 6px;
+        border-radius: 999px;
+        background: currentColor;
+        transform-origin: left center;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-roadmap-link--one {
+        left: 390px;
+        color: var(--s6-blue);
+      }
+
+      #scene-006 .s6-roadmap-link--two {
+        left: 760px;
+        color: var(--s6-teal);
+      }
+
+      #scene-006 .s6-roadmap-link--three {
+        left: 1130px;
+        color: var(--s6-green);
+      }
+
+      #scene-006 .s6-roadmap-link--four {
+        left: 1500px;
+        color: #AAB4BE;
+        background: repeating-linear-gradient(90deg, #AAB4BE 0 12px, rgba(170, 180, 190, 0) 12px 22px);
       }
 
       #scene-006 .s6-version {
         position: absolute;
-        top: -35px;
+        top: -54px;
         left: 50%;
         min-width: 120px;
         padding: 12px 22px;
@@ -484,30 +566,59 @@
       }
 
       #scene-006 .s6-node-icon {
-        width: 112px;
-        height: 112px;
+        width: 92px;
+        height: 92px;
         border-radius: 50%;
         background: rgba(47, 111, 143, 0.1);
       }
 
       #scene-006 .s6-node-icon svg {
-        width: 68px;
-        height: 68px;
+        width: 58px;
+        height: 58px;
       }
 
       #scene-006 .s6-roadmap-node h2 {
         margin: 0;
         color: var(--s6-deep);
-        font-size: 34px;
+        font-size: 27px;
         line-height: 1.16;
       }
 
-      #scene-006 .s6-roadmap-node p {
+      #scene-006 .s6-roadmap-divider {
+        width: 100%;
+        height: 2px;
+        margin: 2px 0 4px;
+        background: var(--s6-line);
+      }
+
+      #scene-006 .s6-roadmap-node p,
+      #scene-006 .s6-roadmap-node ul {
         margin: 0;
         color: var(--s6-muted);
-        font-size: 23px;
+        font-size: 19px;
         font-weight: 600;
-        line-height: 1.38;
+        line-height: 1.45;
+      }
+
+      #scene-006 .s6-roadmap-copy {
+        display: grid;
+        gap: 2px;
+      }
+
+      #scene-006 .s6-roadmap-copy span {
+        display: block;
+      }
+
+      #scene-006 .s6-roadmap-node ul {
+        display: grid;
+        width: 100%;
+        gap: 2px;
+        padding-left: 34px;
+        text-align: left;
+      }
+
+      #scene-006 .s6-roadmap-node li::marker {
+        color: currentColor;
       }
 
       #scene-006 .s6-roadmap-node--teal {
@@ -543,7 +654,7 @@
 
       #scene-006 .s6-roadmap-node--future .s6-version {
         background: #6F7C88;
-        font-size: 22px;
+        font-size: 27px;
       }
 
       #scene-006 .s6-roadmap-node--future .s6-node-icon {
@@ -552,25 +663,37 @@
       }
 
       #scene-006 .s6-iteration-strip {
+        position: absolute;
+        left: 50%;
+        bottom: 170px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 24px;
-        margin: 30px auto 0;
-        width: 1450px;
+        gap: 13px;
+        width: 1680px;
         min-height: 80px;
-        padding: 18px 34px;
+        padding: 16px 28px;
         border: 2px solid var(--s6-line);
         border-radius: 24px;
         background: rgba(255, 255, 255, 0.9);
         color: var(--s6-deep);
-        font-size: 23px;
+        font-size: 20px;
         font-weight: 700;
+        translate: -50% 0;
+      }
+
+      #scene-006 .s6-iteration-strip strong {
+        color: var(--s6-blue);
+        font-size: 22px;
+      }
+
+      #scene-006 .s6-iteration-strip > * {
+        opacity: 0;
       }
 
       #scene-006 .s6-iteration-strip i {
         position: relative;
-        width: 78px;
+        width: 38px;
         height: 4px;
         border-radius: 999px;
         background: var(--s6-blue);
@@ -1036,7 +1159,7 @@
       var tl = gsap.timeline({ paused: true });
       var captions = document.querySelectorAll("#scene-006 .caption");
       var roadmapNodes = document.querySelectorAll("#scene-006 .s6-roadmap-node");
-      var roadmapDots = document.querySelectorAll("#scene-006 .s6-roadmap-dot");
+      var roadmapLinks = document.querySelectorAll("#scene-006 .s6-roadmap-link");
       var iterationItems = document.querySelectorAll("#scene-006 .s6-iteration-strip > *");
       var stepCards = document.querySelectorAll("#scene-006 .s6-step-card");
       var stepArrows = document.querySelectorAll("#scene-006 .s6-step-arrow span");
@@ -1052,15 +1175,33 @@
       tl.fromTo("#s6-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
       tl.to("#s6-title", { opacity: 0, duration: 0.28, ease: "power2.in" }, 2.18);
 
-      tl.fromTo("#s6-beat-roadmap", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "sine.out", immediateRender: false }, 2.5);
-      tl.fromTo(".s6-roadmap-line", { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: "power3.out", immediateRender: false }, 2.72);
-      tl.fromTo(roadmapDots, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.36, stagger: 0.17, ease: "back.out(1.25)", immediateRender: false }, 3.02);
-      tl.fromTo(roadmapNodes, { opacity: 0, y: 48, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, stagger: 0.28, ease: "expo.out", immediateRender: false }, 3.25);
-      tl.fromTo(iterationItems, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.36, stagger: 0.09, ease: "circ.out", immediateRender: false }, 5.1);
-      tl.to(roadmapNodes, { opacity: 0.35, duration: 0.42, ease: "power1.inOut" }, 10.35);
-      tl.to("#s6-roadmap-mvp", { opacity: 1, scale: 1.08, borderColor: "#2C9A9A", boxShadow: "0 28px 62px rgba(44,154,154,0.2)", duration: 0.5, ease: "power3.out" }, 10.42);
-      tl.to("#s6-roadmap-mvp", { x: 708, y: 94, scale: 0.72, duration: 0.82, ease: "power3.inOut" }, 12.48);
-      tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp), #s6-beat-roadmap .s6-roadmap-rail, #s6-beat-roadmap .s6-iteration-strip", { opacity: 0.08, duration: 0.48, ease: "sine.inOut" }, 12.5);
+      tl.set("#s6-beat-roadmap .s6-roadmap-track", { x: 725 }, 2.48);
+      tl.fromTo("#s6-beat-roadmap", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.46, ease: "sine.out", immediateRender: false }, 2.5);
+      tl.fromTo("#s6-roadmap-mvp", { opacity: 0, scale: 0.82, y: 34 }, { opacity: 1, scale: 1, y: 0, duration: 0.62, ease: "back.out(1.22)", immediateRender: false }, 2.68);
+
+      tl.fromTo("#s6-roadmap-link-r2", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out", immediateRender: false }, 3.42);
+      tl.fromTo("#s6-roadmap-r2", { opacity: 0, x: -110, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 3.55);
+      tl.to("#s6-beat-roadmap .s6-roadmap-track", { x: 355, duration: 0.76, ease: "power3.inOut" }, 4.75);
+      tl.to("#s6-roadmap-mvp", { opacity: 0.42, duration: 0.38, ease: "power1.inOut" }, 4.86);
+      tl.to("#s6-roadmap-r2", { scale: 1.045, boxShadow: "0 26px 58px rgba(47,111,143,0.2)", duration: 0.36, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.0);
+
+      tl.fromTo("#s6-roadmap-link-r25", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out", immediateRender: false }, 5.48);
+      tl.fromTo("#s6-roadmap-r25", { opacity: 0, x: -110, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "circ.out", immediateRender: false }, 5.62);
+      tl.to("#s6-beat-roadmap .s6-roadmap-track", { x: -15, duration: 0.78, ease: "power3.inOut" }, 6.82);
+      tl.to("#s6-roadmap-r2", { opacity: 0.42, duration: 0.38, ease: "power1.inOut" }, 6.92);
+      tl.to("#s6-roadmap-r25", { scale: 1.05, boxShadow: "0 28px 62px rgba(44,154,154,0.22)", duration: 0.38, yoyo: true, repeat: 1, ease: "sine.inOut" }, 7.04);
+
+      tl.fromTo("#s6-roadmap-link-r26", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out", immediateRender: false }, 7.52);
+      tl.fromTo("#s6-roadmap-r26", { opacity: 0, x: -110, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "expo.out", immediateRender: false }, 7.68);
+      tl.fromTo("#s6-roadmap-link-r3", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out", immediateRender: false }, 8.82);
+      tl.fromTo("#s6-roadmap-r3", { opacity: 0, x: -110, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "circ.out", immediateRender: false }, 8.98);
+
+      tl.fromTo(iterationItems, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.32, stagger: 0.065, ease: "power3.out", immediateRender: false }, 9.68);
+      tl.to(roadmapNodes, { opacity: 0.25, duration: 0.42, ease: "power1.inOut" }, 11.05);
+      tl.to(roadmapLinks, { opacity: 0.12, duration: 0.36, ease: "sine.inOut" }, 11.05);
+      tl.to("#s6-roadmap-mvp", { opacity: 1, scale: 1.06, borderColor: "#2C9A9A", boxShadow: "0 28px 62px rgba(44,154,154,0.2)", duration: 0.44, ease: "power3.out" }, 11.52);
+      tl.to("#s6-roadmap-mvp", { x: 740, y: 94, scale: 0.72, duration: 0.78, ease: "power3.inOut" }, 12.22);
+      tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp), #s6-beat-roadmap .s6-roadmap-link, #s6-beat-roadmap .s6-iteration-strip", { opacity: 0.05, duration: 0.46, ease: "sine.inOut" }, 12.34);
 
       tl.fromTo("#s6-beat-breakdown", { opacity: 0 }, { opacity: 1, duration: 0.46, ease: "sine.out", immediateRender: false }, 13.15);
       tl.fromTo(".s6-origin-caption", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.22)", immediateRender: false }, 13.42);
