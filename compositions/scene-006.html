@@ -143,23 +143,6 @@
           </article>
           </div>
         </div>
-
-        <div class="s6-iteration-strip">
-          <strong>迭代机制</strong>
-          <span>反馈 / 问题</span>
-          <i></i>
-          <span>PRD</span>
-          <i></i>
-          <span>Issue</span>
-          <i></i>
-          <span>实现</span>
-          <i></i>
-          <span>测试</span>
-          <i></i>
-          <span>文档记忆</span>
-          <i></i>
-          <span>下一轮</span>
-        </div>
       </section>
 
       <section id="s6-beat-breakdown" class="s6-beat s6-beat--breakdown" aria-label="需求拆解流程">
@@ -426,10 +409,10 @@
 
       #scene-006 .s6-roadmap-viewport {
         position: absolute;
-        top: 220px;
+        top: 285px;
         left: 0;
         width: 100%;
-        height: 470px;
+        height: 520px;
         overflow: visible;
       }
 
@@ -637,45 +620,6 @@
         background: rgba(170, 180, 190, 0.14);
       }
 
-      #scene-006 .s6-iteration-strip {
-        position: absolute;
-        left: 50%;
-        bottom: 170px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 13px;
-        width: 1680px;
-        min-height: 80px;
-        padding: 16px 28px;
-        border: 2px solid var(--s6-line);
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--s6-deep);
-        font-size: 20px;
-        font-weight: 700;
-        translate: -50% 0;
-      }
-
-      #scene-006 .s6-iteration-strip strong {
-        color: var(--s6-blue);
-        font-size: 22px;
-      }
-
-      #scene-006 .s6-iteration-strip > * {
-        opacity: 0;
-      }
-
-      #scene-006 .s6-iteration-strip i {
-        position: relative;
-        width: 38px;
-        height: 4px;
-        border-radius: 999px;
-        background: var(--s6-blue);
-        transform-origin: left center;
-      }
-
-      #scene-006 .s6-iteration-strip i::after,
       #scene-006 .s6-step-arrow span::after,
       #scene-006 .s6-loop-arrow span::after {
         content: "";
@@ -1256,7 +1200,6 @@
       var tl = gsap.timeline({ paused: true });
       var captions = document.querySelectorAll("#scene-006 .caption");
       var roadmapNodes = document.querySelectorAll("#scene-006 .s6-roadmap-node");
-      var iterationItems = document.querySelectorAll("#scene-006 .s6-iteration-strip > *");
       var issueCards = document.querySelectorAll("#scene-006 .s6-issue-card");
       var taskCards = document.querySelectorAll("#scene-006 .s6-task-card");
       var deliveryMeter = document.querySelectorAll("#scene-006 .s6-delivery-meter i");
@@ -1288,15 +1231,14 @@
       tl.fromTo("#s6-roadmap-r26", { opacity: 0, x: -110, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "expo.out", immediateRender: false }, 7.68);
       tl.fromTo("#s6-roadmap-r3", { opacity: 0, x: -110, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "circ.out", immediateRender: false }, 8.98);
 
-      tl.fromTo(iterationItems, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.32, stagger: 0.065, ease: "power3.out", immediateRender: false }, 9.68);
       tl.to("#s6-roadmap-mvp", { opacity: 0.24, duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-r2", { opacity: 0.42, duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-r25", { opacity: 0.6, duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-r26", { opacity: 0.8, duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-r3", { opacity: 1, boxShadow: "0 28px 62px rgba(60,174,163,0.2)", duration: 0.42, ease: "power1.inOut" }, 10.35);
       tl.to("#s6-roadmap-mvp", { opacity: 1, scale: 1.06, borderColor: "#2C9A9A", boxShadow: "0 28px 62px rgba(44,154,154,0.2)", duration: 0.44, ease: "power3.out" }, 11.52);
-      tl.to("#s6-roadmap-mvp", { x: 65, y: 44, scale: 0.72, duration: 0.78, ease: "power3.inOut" }, 12.22);
-      tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp), #s6-beat-roadmap .s6-iteration-strip", { opacity: 0.05, duration: 0.46, ease: "sine.inOut" }, 12.34);
+      tl.to("#s6-roadmap-mvp", { x: 65, y: -21, scale: 0.72, duration: 0.78, ease: "power3.inOut" }, 12.22);
+      tl.to("#s6-beat-roadmap .s6-roadmap-node:not(#s6-roadmap-mvp)", { opacity: 0.05, duration: 0.46, ease: "sine.inOut" }, 12.34);
 
       tl.fromTo("#s6-beat-breakdown", { opacity: 0 }, { opacity: 1, duration: 0.46, ease: "sine.out", immediateRender: false }, 13.15);
       tl.fromTo("#s6-requirement-doc", { opacity: 0, scale: 0.72, borderRadius: 28 }, { opacity: 1, scale: 1, borderRadius: 24, duration: 0.62, ease: "power3.inOut", immediateRender: false }, 13.28);
