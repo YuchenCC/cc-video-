@@ -95,7 +95,7 @@
             </div>
             <h2>扩展与治理能力</h2>
             <div class="s6-roadmap-divider"></div>
-            <ul>
+            <ul class="s6-roadmap-list s6-roadmap-list--governance">
               <li>String type</li>
               <li>自定义策略</li>
               <li>主动脱敏</li>
@@ -578,6 +578,20 @@
 
       #scene-006 .s6-roadmap-node li::marker {
         color: currentColor;
+      }
+
+      #scene-006 .s6-roadmap-list--governance {
+        gap: 4px;
+        padding-left: 38px;
+        color: var(--s6-deep);
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 1.34;
+      }
+
+      #scene-006 .s6-roadmap-list--governance li::marker {
+        color: var(--s6-blue);
+        font-size: 1.08em;
       }
 
       #scene-006 .s6-roadmap-node--teal {
