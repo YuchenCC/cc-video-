@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T04:52:13.873Z",
+  "generatedAt": "2026-06-21T07:31:03.718Z",
   "source": {
     "durations": "docs/init.md",
     "voiceover": "scripts/voiceover.md"
@@ -84,16 +84,16 @@
       "scene": "scene-006",
       "chapter": "AI 工程化",
       "file": "assets/audio/voiceover/scene-006.mp3",
-      "targetDuration": 57,
-      "rawDuration": 64.8,
-      "actualDuration": 56.664,
+      "targetDuration": 67,
+      "rawDuration": 69.624,
+      "actualDuration": 66.624,
       "speed": 1.1,
-      "postProcessTempo": 1.14316,
+      "postProcessTempo": 1.044621,
       "voiceId": "Chinese (Mandarin)_Cute_Spirit",
       "model": "speech-2.8-hd",
-      "textSha256": "81a3bc2b7a2db9d2d0301a4d2ad604e6f5c552585074ce7faf081b8645a22aac",
-      "usageCharacters": 536,
-      "traceId": "0683fded94a00a6e013b39743368f654"
+      "textSha256": "b436983e5451df7c16870561c682a0b7dcb37e24b1ad910da84d7cacc15b329b",
+      "usageCharacters": 599,
+      "traceId": "0686c64f475672589223d26c737c9e4b"
     }
   ]
 }

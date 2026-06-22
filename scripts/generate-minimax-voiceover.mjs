@@ -230,9 +230,20 @@ const durations = parseDurations(readFileSync(INIT_PATH, "utf8"));
 const voiceovers = parseVoiceover(readFileSync(VOICEOVER_PATH, "utf8"));
 const manifest = [];
 const normalizeExisting = process.argv.includes("--normalize-existing");
-const previousManifest = normalizeExisting && existsSync(MANIFEST_PATH)
+const sceneArgIndex = process.argv.indexOf("--scene");
+const requestedScene = sceneArgIndex >= 0 ? process.argv[sceneArgIndex + 1] : null;
+if (sceneArgIndex >= 0 && !requestedScene) {
+  throw new Error("--scene requires a scene id, for example: --scene scene-006");
+}
+if (requestedScene && !SCENES.some((scene) => scene.id === requestedScene)) {
+  throw new Error(`Unknown scene: ${requestedScene}`);
+}
+const previousManifest = (normalizeExisting || requestedScene) && existsSync(MANIFEST_PATH)
   ? JSON.parse(readFileSync(MANIFEST_PATH, "utf8"))
   : null;
+if (requestedScene && !previousManifest) {
+  throw new Error("A previous manifest is required when generating a single scene.");
+}
 
 function normalizeExistingScene(scene, text, targetDuration) {
   const finalPath = join(OUTPUT_DIR, `${scene.id}.mp3`);
@@ -292,18 +303,32 @@ function normalizeExistingScene(scene, text, targetDuration) {
   };
 }
 
-for (let index = 0; index < SCENES.length; index += 1) {
-  const scene = SCENES[index];
+const scenesToGenerate = requestedScene
+  ? SCENES.filter((scene) => scene.id === requestedScene)
+  : SCENES;
+const generatedScenes = new Map();
+
+for (let index = 0; index < scenesToGenerate.length; index += 1) {
+  const scene = scenesToGenerate[index];
   const targetDuration = durations.get(scene.id);
   const text = voiceovers.get(scene.chapter);
   if (!targetDuration) throw new Error(`Duration missing for ${scene.id}.`);
   if (!text) throw new Error(`Voiceover missing for ${scene.chapter}.`);
-  manifest.push(
+  generatedScenes.set(
+    scene.id,
     normalizeExisting
       ? normalizeExistingScene(scene, text, targetDuration)
       : await generateScene(scene, text, targetDuration),
   );
-  if (!normalizeExisting && index < SCENES.length - 1) await sleep(12_000);
+  if (!normalizeExisting && index < scenesToGenerate.length - 1) await sleep(12_000);
+}
+
+for (const scene of SCENES) {
+  const generated = generatedScenes.get(scene.id);
+  const previous = previousManifest?.scenes?.find((item) => item.scene === scene.id);
+  if (generated) manifest.push(generated);
+  else if (previous) manifest.push(previous);
+  else throw new Error(`Manifest entry missing for ${scene.id}.`);
 }
 
 writeFileSync(

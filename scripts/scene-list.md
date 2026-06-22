@@ -7,8 +7,8 @@
 | scene-003 | 配置篇 | 34.5s | 四层配置覆盖通用规则和业务扩展 | 0–2.5s | wipeSoft | Placeholder |
 | scene-004 | 日志篇 | 53.5s | 按日志结构选择字段规则或文本兜底 | 0–2.5s | wipeSoft | Placeholder |
 | scene-005 | 治理篇 | 76.5s | 运行时发现遗漏并形成治理闭环 | 0–2.5s | wipeSoft | Placeholder |
-| scene-006 | AI 工程化 | 59.5s | 用验收、测试和长期约束保障 AI 研发 | 0–2.5s | final fade | Placeholder |
+| scene-006 | AI 工程化 | 69.5s | 用验收、测试和长期约束保障 AI 研发 | 0–2.5s | final fade | Placeholder |
 
-根构图总时长为 287.5 秒，包含五次约 0.4 秒的相邻 Scene 重叠。
+根构图总时长为 299.5 秒；开头包含 2 秒全屏封面，正文六幕整体后移 2 秒，并保留五次约 0.4 秒的相邻 Scene 重叠。
 
 长 Scene 视为篇章容器，内部 Beat 仍遵守单一信息点和 2–4 秒视觉变化原则。

@@ -1,5 +1,5 @@
 <template id="scene-006-template">
-  <div id="scene-006" class="scene-root scene-006" data-composition-id="scene-006" data-width="1920" data-height="1080" data-start="0" data-duration="59.5" data-layout-allow-overflow>
+  <div id="scene-006" class="scene-root scene-006" data-composition-id="scene-006" data-width="1920" data-height="1080" data-start="0" data-duration="69.5" data-layout-allow-overflow>
     <section id="s6-title" class="cc-title-transition cc-title-transition--teal cc-title-transition--static chapter-beat" data-component="TitleTransition" data-layout-allow-overlap>
       <h1 class="cc-title-transition__text">AI 工程化</h1>
       <div class="chapter-rule"></div>
@@ -185,7 +185,10 @@
             <div class="s6-delivery-icon"><svg><use href="#s6-icon-check"></use></svg></div>
             <div>
               <span>DELIVERY</span>
-              <h2>交付验收</h2>
+              <h2>
+                <span class="s6-delivery-title-main">可交付验收</span>
+                <span class="s6-delivery-title-test">模块级测试</span>
+              </h2>
               <p>任务逐项进入验收闭环</p>
             </div>
             <div class="s6-delivery-meter"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -199,17 +202,19 @@
             <div id="s6-pyramid-top" class="s6-pyramid-level s6-pyramid-level--top">
               <svg><use href="#s6-icon-box"></use></svg>
               <strong>模块级测试</strong>
-              <span>规则与核心逻辑</span>
+              <span>覆盖 core、log4j2、report</span>
+              <p>验证策略、规则匹配、日志脱敏、报告模型。</p>
             </div>
             <div id="s6-pyramid-middle" class="s6-pyramid-level s6-pyramid-level--middle">
               <svg><use href="#s6-icon-plug"></use></svg>
               <strong>集成级测试</strong>
-              <span>Starter、接口与日志链路</span>
+              <span>覆盖 starter、dashboard starter、demo</span>
+              <p>验证自动装配、ResponseBodyAdvice、Log4j2 bridge、HTTP 接口。</p>
             </div>
             <div id="s6-pyramid-bottom" class="s6-pyramid-level s6-pyramid-level--bottom">
               <svg><use href="#s6-icon-demo"></use></svg>
-              <strong>Demo 黑盒验收</strong>
-              <span>接口、日志与报告实际运行</span>
+              <strong>黑盒验收</strong>
+              <span>从浏览器和接口视角验证 Demo 工作台、Dashboard、风险画像、日志建议、报告中心。</span>
             </div>
           </div>
 
@@ -219,43 +224,65 @@
               <h2>关键结果</h2>
             </div>
             <div class="s6-result-row">
-              <span class="s6-result-check"><svg><use href="#s6-icon-check"></use></svg></span>
-              <div><strong>自动化测试</strong><small>构建与核心用例可重复执行</small></div>
+              <span class="cc-check-badge cc-check-badge--green cc-check-badge--md s6-result-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="mvn test 通过">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                </svg>
+              </span>
+              <div class="s6-result-copy"><strong>mvn test</strong><small>通过</small></div>
             </div>
             <div class="s6-result-row">
-              <span class="s6-result-check"><svg><use href="#s6-icon-check"></use></svg></span>
-              <div><strong>接口 / 日志 / 报告验证</strong><small>指定模块接入 Demo 后实际运行</small></div>
+              <span class="cc-check-badge cc-check-badge--green cc-check-badge--md s6-result-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="指定模块测试通过">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                </svg>
+              </span>
+              <div class="s6-result-copy"><strong>demo / starter / dashboard</strong><small>指定模块测试通过</small></div>
             </div>
-            <div class="s6-result-row s6-result-row--manual">
-              <span class="s6-result-check"><svg><use href="#s6-icon-check"></use></svg></span>
-              <div><strong>人工边界复核</strong><small>兼容、容错与隐私要求持续检查</small></div>
+            <div class="s6-result-row s6-result-row--priority">
+              <span class="cc-check-badge cc-check-badge--green cc-check-badge--md s6-result-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="P0 通过">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                </svg>
+              </span>
+              <div class="s6-result-copy"><strong><span class="s6-priority-pill s6-priority-pill--green">P0</span>22/22</strong><small>通过</small></div>
+            </div>
+            <div class="s6-result-row s6-result-row--priority">
+              <span class="cc-check-badge cc-check-badge--green cc-check-badge--md s6-result-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="P1 通过">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                </svg>
+              </span>
+              <div class="s6-result-copy"><strong><span class="s6-priority-pill s6-priority-pill--green">P1</span>20/20</strong><small>通过</small></div>
+            </div>
+            <div class="s6-result-row s6-result-row--priority s6-result-row--risk">
+              <span class="cc-check-badge cc-check-badge--green cc-check-badge--md s6-result-check">
+                <svg class="cc-check-badge__icon" viewBox="0 0 64 64" fill="none" role="img" aria-label="P2 需人工介入验证">
+                  <path class="cc-check-badge__mark" d="M18 33.5L28.5 44L47 21"></path>
+                </svg>
+              </span>
+              <div class="s6-result-copy"><strong><span class="s6-priority-pill s6-priority-pill--red">P2</span>10/16</strong><small>通过，1 项失败，5 项需人工介入验证</small></div>
             </div>
           </aside>
         </div>
       </section>
 
       <section id="s6-beat-loop" class="s6-beat s6-beat--loop" aria-label="约束驱动的交付闭环">
-        <div class="s6-loop-rail" aria-hidden="true"></div>
-        <div class="s6-loop-grid">
-          <article class="s6-loop-node s6-loop-node--system">
-            <div class="s6-loop-icon"><svg><use href="#s6-icon-system"></use></svg></div>
-            <h2>存量项目</h2>
-            <p>边界复杂，不能粗暴改造</p>
-          </article>
-
-          <div class="s6-loop-arrow"><span></span></div>
-
-          <article class="s6-loop-node s6-loop-node--plug">
-            <span class="s6-loop-number">01</span>
-            <div class="s6-loop-icon"><svg><use href="#s6-icon-plug"></use></svg></div>
-            <h2>低侵入接入</h2>
-            <p>优先沉淀通用组件</p>
-          </article>
-
-          <div class="s6-loop-arrow"><span></span></div>
+        <div class="s6-loop-stage">
+          <svg class="s6-loop-ring" viewBox="0 0 1600 730" aria-hidden="true" data-layout-ignore>
+            <defs>
+              <marker id="s6-loop-arrowhead" viewBox="0 0 18 18" refX="15" refY="9" markerWidth="12" markerHeight="12" orient="auto">
+                <path d="M3 3L15 9L3 15" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </marker>
+            </defs>
+            <path class="s6-loop-ring-bg" d="M800 155 C1120 155 1360 300 1325 490 C1300 690 300 690 275 490 C240 300 480 155 800 155"></path>
+            <path class="s6-loop-arrow-path s6-loop-arrow-path--memory" d="M748 280 C600 330 470 430 365 575" marker-end="url(#s6-loop-arrowhead)"></path>
+            <path class="s6-loop-arrow-path s6-loop-arrow-path--verify" d="M540 600 C740 695 1060 695 1260 600" marker-end="url(#s6-loop-arrowhead)"></path>
+            <path class="s6-loop-arrow-path s6-loop-arrow-path--delivery" d="M1235 575 C1130 430 1000 330 852 280" marker-end="url(#s6-loop-arrowhead)"></path>
+          </svg>
 
           <article class="s6-loop-node s6-loop-node--memory">
-            <span class="s6-loop-number">02</span>
+            <span class="s6-loop-number">01</span>
             <div class="s6-loop-icon"><svg><use href="#s6-icon-memory"></use></svg></div>
             <h2>持续记忆</h2>
             <div class="s6-memory-list">
@@ -265,18 +292,15 @@
             </div>
           </article>
 
-          <div class="s6-loop-arrow"><span></span></div>
-
           <article class="s6-loop-node s6-loop-node--verify">
-            <span class="s6-loop-number">03</span>
+            <span class="s6-loop-number">02</span>
             <div class="s6-loop-icon"><svg><use href="#s6-icon-test"></use></svg></div>
             <h2>验收闭环</h2>
             <p>每项能力都有运行结果</p>
           </article>
 
-          <div class="s6-loop-arrow"><span></span></div>
-
           <article class="s6-loop-node s6-loop-node--delivery">
+            <span class="s6-loop-number">03</span>
             <div class="s6-loop-icon"><svg><use href="#s6-icon-box"></use></svg></div>
             <h2>可验证交付</h2>
             <div class="s6-final-badges">
@@ -288,21 +312,33 @@
         </div>
       </section>
 
+      <section id="s6-beat-summary" class="s6-beat s6-beat--summary" aria-label="项目总结截图">
+        <div class="s6-summary-screen">
+          <img id="s6-project-summary" class="s6-project-summary" src="../assets/images/project-summary.png" alt="项目总结页截图">
+        </div>
+        <img id="s6-summary-character" class="s6-summary-character" src="../assets/characters/39.png" alt="" data-layout-ignore>
+      </section>
+
       <div id="s6-soft-wipe" class="s6-soft-wipe" aria-hidden="true" data-layout-ignore></div>
     </main>
 
-    <div class="caption" data-layout-allow-overlap>项目研发先确定每项需求如何验收</div>
-    <div class="caption" data-layout-allow-overlap>每个任务都要对应代码、测试和文档</div>
-    <div class="caption" data-layout-allow-overlap>代码完成后还要运行自动化测试</div>
-    <div class="caption" data-layout-allow-overlap>组件必须接入演示项目进行实际验证</div>
-    <div class="caption" data-layout-allow-overlap>兼容、容错和隐私约束需要反复检查</div>
-    <div class="caption" data-layout-allow-overlap>最终交付必须可追踪、可运行、可验证</div>
+    <div class="caption" data-layout-allow-overlap>最后，介绍项目如何借助 AI 完成研发</div>
+    <div class="caption" data-layout-allow-overlap>每个版本都必须按预期形成可验证的交付</div>
+    <div class="caption" data-layout-allow-overlap>开发前，先把需求拆分为具体任务</div>
+    <div class="caption" data-layout-allow-overlap>每项任务都对应代码、测试和文档</div>
+    <div class="caption" data-layout-allow-overlap>自动化测试后，再接入演示项目实际验证</div>
+    <div class="caption" data-layout-allow-overlap>长期约束持续记录，每轮迭代重新检查</div>
+    <div class="caption" data-layout-allow-overlap>过程可追踪、成果可运行、质量可验证</div>
+    <div class="caption" data-layout-allow-overlap>源于真实痛点，流程可复制，交付可复用</div>
+    <div class="caption" data-layout-allow-overlap>汇报完毕，谢谢</div>
 
     <style>
       @import url("../src/styles/runtime.css");
       @import url("../src/components/TitleTransition/styles.css");
+      @import url("../src/components/CheckBadge/styles.css");
 
       #scene-006 {
+        --s6-bg: #FFFFFF;
         --s6-blue: #2F6F8F;
         --s6-deep: #233B5E;
         --s6-teal: #2C9A9A;
@@ -310,14 +346,11 @@
         --s6-coral: #EF7B85;
         --s6-line: #D9E1E8;
         --s6-muted: #6F7C88;
-        background: #F7F8FA;
+        background: var(--s6-bg);
       }
 
       #scene-006::before {
-        background-image:
-          linear-gradient(rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px),
-          linear-gradient(90deg, rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px);
-        opacity: 0.6;
+        opacity: 0;
       }
 
       #scene-006 .s6-symbols {
@@ -340,7 +373,7 @@
       }
 
       #scene-006 .chapter-beat {
-        background: #F7F8FA;
+        background: var(--s6-bg);
       }
 
       #scene-006 .s6-world {
@@ -349,6 +382,19 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        background: var(--s6-bg);
+      }
+
+      #scene-006 .s6-world::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px),
+          linear-gradient(90deg, rgba(47, 111, 143, 0.045) 2px, rgba(47, 111, 143, 0) 2px);
+        background-size: 64px 64px;
+        opacity: 0.55;
+        pointer-events: none;
       }
 
       #scene-006 .s6-zones {
@@ -361,9 +407,7 @@
       }
 
       #scene-006 .s6-glow {
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
+        display: none;
       }
 
       #scene-006 .s6-glow--blue {
@@ -383,14 +427,7 @@
       }
 
       #scene-006 .s6-ghost {
-        position: absolute;
-        right: 70px;
-        bottom: 118px;
-        color: rgba(35, 59, 94, 0.07);
-        font-family: "JetBrains Mono", Menlo, monospace;
-        font-size: 106px;
-        font-weight: 800;
-        letter-spacing: -0.05em;
+        display: none;
       }
 
       #scene-006 .s6-beat {
@@ -805,7 +842,7 @@
         right: 0;
         display: grid;
         grid-template-columns: 76px 1fr;
-        width: 286px;
+        width: 302px;
         min-height: 210px;
         align-items: center;
         gap: 18px;
@@ -842,6 +879,23 @@
         margin-top: 8px;
         font-size: 18px;
         line-height: 1.35;
+      }
+
+      #scene-006 .s6-delivery-acceptance h2 {
+        position: relative;
+        min-height: 38px;
+        margin: 0;
+      }
+
+      #scene-006 .s6-delivery-title-main,
+      #scene-006 .s6-delivery-title-test {
+        position: absolute;
+        inset: 0 auto auto 0;
+        white-space: nowrap;
+      }
+
+      #scene-006 .s6-delivery-title-test {
+        opacity: 0;
       }
 
       #scene-006 .s6-delivery-meter {
@@ -901,93 +955,104 @@
 
       #scene-006 .s6-quality-layout {
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-columns: 1.02fr 0.98fr;
         align-items: center;
-        gap: 72px;
-        width: 1660px;
-        height: 710px;
-        margin: 54px auto 0;
+        gap: 64px;
+        width: 1680px;
+        height: 720px;
+        margin: 48px auto 0;
       }
 
       #scene-006 .s6-pyramid-stage {
         display: flex;
-        height: 670px;
+        height: 690px;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        gap: 14px;
+        gap: 12px;
       }
 
       #scene-006 .s6-pyramid-level {
         display: grid;
-        grid-template-columns: 80px 1fr;
-        grid-template-rows: auto auto;
+        grid-template-columns: 86px 1fr;
+        grid-template-rows: auto auto auto;
         align-items: center;
-        column-gap: 24px;
-        padding: 20px 40px;
+        column-gap: 26px;
+        padding: 22px 38px;
         border: 3px solid var(--s6-blue);
-        border-radius: 26px;
+        border-radius: 18px;
         background: rgba(255, 255, 255, 0.96);
         box-shadow: 0 18px 36px rgba(35, 59, 94, 0.1);
         color: var(--s6-blue);
         transform-origin: center bottom;
+        opacity: 0;
       }
 
       #scene-006 .s6-pyramid-level svg {
-        grid-row: 1 / 3;
-        width: 68px;
-        height: 68px;
+        grid-row: 1 / 4;
+        width: 72px;
+        height: 72px;
       }
 
       #scene-006 .s6-pyramid-level strong {
         color: var(--s6-deep);
-        font-size: 34px;
+        font-size: 35px;
+        line-height: 1.15;
       }
 
       #scene-006 .s6-pyramid-level span {
-        color: var(--s6-muted);
-        font-size: 22px;
+        color: var(--s6-teal);
+        font-size: 24px;
         font-weight: 600;
+        line-height: 1.25;
+      }
+
+      #scene-006 .s6-pyramid-level p {
+        margin: 8px 0 0;
+        color: var(--s6-deep);
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.35;
       }
 
       #scene-006 .s6-pyramid-level--top {
-        width: 430px;
-        min-height: 154px;
+        width: 650px;
+        min-height: 164px;
       }
 
       #scene-006 .s6-pyramid-level--middle {
-        width: 610px;
-        min-height: 176px;
+        width: 740px;
+        min-height: 190px;
         border-color: var(--s6-teal);
         color: var(--s6-teal);
       }
 
       #scene-006 .s6-pyramid-level--bottom {
-        width: 790px;
-        min-height: 198px;
+        width: 830px;
+        min-height: 204px;
         border-color: var(--s6-green);
         color: var(--s6-green);
       }
 
       #scene-006 .s6-result-panel {
-        min-height: 590px;
-        padding: 34px 42px;
+        min-height: 628px;
+        padding: 28px 38px;
         border: 3px solid var(--s6-blue);
-        border-radius: 28px;
+        border-radius: 22px;
         background: rgba(255, 255, 255, 0.96);
         box-shadow: 0 22px 48px rgba(35, 59, 94, 0.13);
+        opacity: 0;
       }
 
       #scene-006 .s6-result-head {
         display: flex;
         align-items: center;
         gap: 18px;
-        padding-bottom: 22px;
+        padding-bottom: 18px;
         border-bottom: 2px dashed var(--s6-line);
       }
 
-      #scene-006 .s6-result-mark,
-      #scene-006 .s6-result-check {
+      #scene-006 .s6-result-mark {
         display: grid;
         place-items: center;
         border-radius: 50%;
@@ -1008,15 +1073,15 @@
       #scene-006 .s6-result-head h2 {
         margin: 0;
         color: var(--s6-blue);
-        font-size: 43px;
+        font-size: 40px;
       }
 
       #scene-006 .s6-result-row {
         display: grid;
-        grid-template-columns: 68px 1fr;
+        grid-template-columns: 58px 1fr;
         align-items: center;
-        gap: 22px;
-        min-height: 142px;
+        gap: 20px;
+        min-height: 104px;
         border-bottom: 2px solid var(--s6-line);
       }
 
@@ -1025,93 +1090,142 @@
       }
 
       #scene-006 .s6-result-check {
-        width: 58px;
-        height: 58px;
-        background: var(--s6-green);
-        color: #FFFFFF;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        transform-origin: center center;
       }
 
-      #scene-006 .s6-result-check svg {
-        width: 36px;
-        height: 36px;
+      #scene-006 .s6-result-check .cc-check-badge__mark {
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+      }
+
+      #scene-006 .s6-result-copy {
+        opacity: 0;
+        transform: translateX(18px);
       }
 
       #scene-006 .s6-result-row strong {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 16px;
         color: var(--s6-deep);
         font-size: 28px;
+        line-height: 1.15;
       }
 
       #scene-006 .s6-result-row small {
         display: block;
-        margin-top: 8px;
+        margin-top: 5px;
         color: var(--s6-muted);
         font-size: 20px;
         font-weight: 600;
         line-height: 1.35;
       }
 
-      #scene-006 .s6-result-row--manual .s6-result-check {
-        background: var(--s6-coral);
+      #scene-006 .s6-priority-pill {
+        display: inline-grid;
+        place-items: center;
+        min-width: 58px;
+        height: 48px;
+        padding: 0 10px;
+        border-radius: 999px;
+        color: #FFFFFF;
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-size: 24px;
+        font-weight: 800;
+      }
+
+      #scene-006 .s6-priority-pill--green {
+        background: #15AA62;
+      }
+
+      #scene-006 .s6-priority-pill--red {
+        background: #E03131;
+      }
+
+      #scene-006 .s6-result-row--risk strong,
+      #scene-006 .s6-result-row--risk small {
+        color: #C92A2A;
       }
 
       #scene-006 .s6-beat--loop {
-        padding: 146px 50px 170px;
+        padding: 94px 120px 150px;
       }
 
-      #scene-006 .s6-loop-rail {
-        position: absolute;
-        top: 420px;
-        left: 130px;
-        right: 130px;
-        height: 90px;
-        border-radius: 999px;
-        background: rgba(217, 225, 232, 0.55);
-      }
-
-      #scene-006 .s6-loop-grid {
+      #scene-006 .s6-loop-stage {
         position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 278px 52px 292px 52px 352px 52px 292px 52px 278px;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 680px;
+        width: 1600px;
+        height: 730px;
+        margin: 0 auto;
+      }
+
+      #scene-006 .s6-loop-ring {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: visible;
+        color: var(--s6-teal);
+      }
+
+      #scene-006 .s6-loop-ring-bg,
+      #scene-006 .s6-loop-arrow-path {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      #scene-006 .s6-loop-ring-bg {
+        stroke: rgba(217, 225, 232, 0.72);
+        stroke-width: 56;
+        opacity: 0;
+      }
+
+      #scene-006 .s6-loop-arrow-path {
+        stroke: currentColor;
+        stroke-width: 8;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        opacity: 0;
       }
 
       #scene-006 .s6-loop-node {
-        position: relative;
+        position: absolute;
+        z-index: 2;
         display: grid;
-        min-height: 330px;
+        width: 390px;
+        min-height: 258px;
         align-content: start;
         justify-items: center;
         gap: 15px;
-        padding: 38px 20px 24px;
+        padding: 34px 24px 26px;
         border: 3px solid var(--s6-line);
-        border-radius: 28px;
+        border-radius: 24px;
         background: rgba(255, 255, 255, 0.97);
         box-shadow: 0 20px 42px rgba(35, 59, 94, 0.11);
+        opacity: 0;
         text-align: center;
         transform-origin: center center;
       }
 
-      #scene-006 .s6-loop-node--system,
-      #scene-006 .s6-loop-node--delivery {
-        border-radius: 50%;
-      }
-
-      #scene-006 .s6-loop-node--plug {
-        border-color: var(--s6-blue);
-      }
-
       #scene-006 .s6-loop-node--memory {
-        min-height: 470px;
+        top: 0;
+        left: 585px;
+        width: 430px;
+        min-height: 318px;
         border-color: var(--s6-teal);
       }
 
-      #scene-006 .s6-loop-node--verify,
+      #scene-006 .s6-loop-node--verify {
+        top: 470px;
+        left: 130px;
+        border-color: var(--s6-blue);
+      }
+
       #scene-006 .s6-loop-node--delivery {
+        top: 470px;
+        right: 130px;
         border-color: var(--s6-green);
       }
 
@@ -1133,16 +1247,14 @@
         color: var(--s6-teal);
       }
 
-      #scene-006 .s6-loop-node--verify .s6-loop-icon,
+      #scene-006 .s6-loop-node--verify .s6-loop-icon {
+        background: rgba(47, 111, 143, 0.1);
+        color: var(--s6-blue);
+      }
+
       #scene-006 .s6-loop-node--delivery .s6-loop-icon {
         background: rgba(60, 174, 163, 0.12);
         color: var(--s6-green);
-      }
-
-      #scene-006 .s6-loop-arrow {
-        display: grid;
-        place-items: center;
-        color: var(--s6-teal);
       }
 
       #scene-006 .s6-memory-list {
@@ -1160,6 +1272,7 @@
         color: var(--s6-deep);
         font-size: 20px;
         font-weight: 800;
+        opacity: 0;
       }
 
       #scene-006 .s6-final-badges {
@@ -1171,11 +1284,65 @@
         color: var(--s6-green);
         font-size: 21px;
         font-weight: 900;
+        opacity: 0;
       }
 
       #scene-006 .s6-final-badges span::before {
         content: "✓";
         margin-right: 8px;
+      }
+
+      #scene-006 .s6-beat--summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 44px;
+        padding: 86px 120px 142px;
+      }
+
+      #scene-006 .s6-summary-screen {
+        position: relative;
+        width: 1320px;
+        height: 800px;
+        border: 3px solid rgba(170, 180, 190, 0.58);
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0 28px 64px rgba(35, 59, 94, 0.14);
+        overflow: hidden;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-006 .s6-summary-screen::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        z-index: 2;
+        border: 1px solid rgba(217, 225, 232, 0.82);
+        border-radius: 18px;
+        pointer-events: none;
+      }
+
+      #scene-006 .s6-project-summary {
+        position: absolute;
+        inset: 24px;
+        width: calc(100% - 48px);
+        height: calc(100% - 48px);
+        object-fit: contain;
+        object-position: center center;
+        border-radius: 14px;
+        opacity: 0;
+        transform-origin: center center;
+      }
+
+      #scene-006 .s6-summary-character {
+        width: 268px;
+        height: auto;
+        align-self: flex-end;
+        margin-bottom: 18px;
+        opacity: 0;
+        filter: drop-shadow(0 18px 28px rgba(35, 59, 94, 0.13));
+        transform-origin: center bottom;
       }
 
       #scene-006 .s6-soft-wipe {
@@ -1203,12 +1370,18 @@
       var issueCards = document.querySelectorAll("#scene-006 .s6-issue-card");
       var taskCards = document.querySelectorAll("#scene-006 .s6-task-card");
       var deliveryMeter = document.querySelectorAll("#scene-006 .s6-delivery-meter i");
-      var pyramidLevels = ["#s6-pyramid-bottom", "#s6-pyramid-middle", "#s6-pyramid-top"];
+      var pyramidLevels = ["#s6-pyramid-middle", "#s6-pyramid-bottom"];
       var resultRows = document.querySelectorAll("#scene-006 .s6-result-row");
+      var resultBadges = document.querySelectorAll("#scene-006 .s6-result-check");
+      var resultChecks = document.querySelectorAll("#scene-006 .s6-result-check .cc-check-badge__mark");
+      var resultCopies = document.querySelectorAll("#scene-006 .s6-result-copy");
       var loopNodes = document.querySelectorAll("#scene-006 .s6-loop-node");
-      var loopArrows = document.querySelectorAll("#scene-006 .s6-loop-arrow span");
+      var loopArrows = document.querySelectorAll("#scene-006 .s6-loop-arrow-path");
       var memoryItems = document.querySelectorAll("#scene-006 .s6-memory-list span");
       var finalBadges = document.querySelectorAll("#scene-006 .s6-final-badges span");
+      var summaryScreen = document.querySelector("#scene-006 .s6-summary-screen");
+      var projectSummary = document.querySelector("#scene-006 .s6-project-summary");
+      var summaryCharacter = document.querySelector("#scene-006 .s6-summary-character");
 
       tl.fromTo("#s6-title .cc-title-transition__text", { opacity: 0, x: -150, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.68, ease: "expo.out", immediateRender: false }, 0.2);
       tl.fromTo("#s6-title .chapter-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out", immediateRender: false }, 0.46);
@@ -1264,49 +1437,77 @@
       });
 
       tl.to("#s6-requirement-doc, #s6-beat-breakdown .s6-issue-card, #s6-beat-breakdown .s6-tree-lines", { opacity: 0, duration: 0.42, ease: "power2.in" }, 25.05);
-      tl.to("#s6-delivery-acceptance", { x: -717, y: 14, scale: 1.24, duration: 0.86, ease: "power3.inOut" }, 25.32);
-      tl.to("#s6-delivery-acceptance", { boxShadow: "0 30px 68px rgba(60,174,163,0.24)", duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.3);
-
-      tl.fromTo("#s6-beat-quality", { opacity: 0 }, { opacity: 1, duration: 0.48, ease: "sine.out", immediateRender: false }, 30.15);
-      tl.to("#s6-delivery-acceptance", { opacity: 0, scale: 0.88, duration: 0.34, ease: "power2.in" }, 30.65);
-      tl.to("#s6-beat-breakdown", { opacity: 0.035, duration: 0.42, ease: "sine.inOut" }, 30.65);
-      tl.to("#s6-beat-roadmap", { opacity: 0.02, duration: 0.42, ease: "sine.inOut" }, 30.65);
+      tl.to("#s6-delivery-acceptance", { x: -960, y: -119, duration: 0.8, ease: "power3.inOut" }, 26.2);
+      tl.fromTo("#s6-beat-quality", { opacity: 0 }, { opacity: 1, duration: 0.34, ease: "sine.out", immediateRender: false }, 27.04);
+      tl.to("#s6-delivery-acceptance", { width: 650, minHeight: 164, padding: "22px 38px", columnGap: 26, gridTemplateColumns: "86px 1fr", borderRadius: 18, borderColor: "#2F6F8F", color: "#2F6F8F", boxShadow: "0 24px 52px rgba(47,111,143,0.18)", duration: 0.42, ease: "power2.inOut" }, 27.08);
+      tl.to("#s6-delivery-acceptance .s6-delivery-icon", { backgroundColor: "#2F6F8F", duration: 0.28, ease: "power1.inOut" }, 27.08);
+      tl.to("#s6-delivery-acceptance .s6-delivery-title-main, #s6-delivery-acceptance p, #s6-delivery-acceptance .s6-delivery-meter, #s6-delivery-acceptance > div > span", { opacity: 0, duration: 0.22, ease: "power1.inOut" }, 27.12);
+      tl.to("#s6-delivery-acceptance .s6-delivery-title-test", { opacity: 1, duration: 0.28, ease: "power1.inOut" }, 27.18);
+      tl.to("#s6-delivery-acceptance", { opacity: 0, scale: 1, duration: 0.26, ease: "power2.in" }, 27.78);
+      tl.fromTo("#s6-pyramid-top", { opacity: 0, scale: 1, y: 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "sine.out", immediateRender: false }, 27.84);
+      tl.to("#s6-beat-breakdown", { opacity: 0.035, duration: 0.42, ease: "sine.inOut" }, 27.78);
+      tl.to("#s6-beat-roadmap", { opacity: 0.02, duration: 0.42, ease: "sine.inOut" }, 27.78);
       pyramidLevels.forEach(function (selector, index) {
-        tl.fromTo(selector, { opacity: 0, scale: 0.72, y: 70 }, { opacity: 1, scale: 1, y: 0, duration: 0.62, ease: index === 0 ? "expo.out" : index === 1 ? "circ.out" : "back.out(1.16)", immediateRender: false }, 30.75 + index * 1.3);
+        tl.fromTo(selector, { opacity: 0, scale: 0.76, y: 54 }, { opacity: 1, scale: 1, y: 0, duration: 0.58, ease: index === 0 ? "circ.out" : "back.out(1.16)", immediateRender: false }, 28.76 + index * 1.25);
       });
-      tl.fromTo("#s6-result-panel", { opacity: 0, x: 56, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.66, ease: "power3.out", immediateRender: false }, 33.0);
-      tl.fromTo(".s6-result-head", { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.42, ease: "circ.out", immediateRender: false }, 33.35);
-      tl.fromTo(resultRows, { opacity: 0, x: 34 }, { opacity: 1, x: 0, duration: 0.46, stagger: 1.18, ease: "expo.out", immediateRender: false }, 34.0);
-      tl.to("#s6-pyramid-bottom", { scale: 1.035, boxShadow: "0 24px 52px rgba(60,174,163,0.2)", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 37.0);
-      tl.to("#s6-pyramid-middle", { scale: 1.035, boxShadow: "0 24px 52px rgba(44,154,154,0.2)", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 38.65);
-      tl.to("#s6-pyramid-top", { scale: 1.045, boxShadow: "0 24px 52px rgba(47,111,143,0.2)", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 40.1);
-      tl.to(".s6-pyramid-level", { borderColor: "#3CAEA3", duration: 0.55, ease: "power1.inOut" }, 42.15);
-      tl.to(".s6-result-check", { scale: 1.12, duration: 0.3, stagger: 0.12, yoyo: true, repeat: 1, ease: "back.out(1.18)" }, 42.25);
+      tl.fromTo("#s6-result-panel", { opacity: 0, x: 56, scale: 0.97 }, { opacity: 1, x: 0, scale: 1, duration: 0.62, ease: "power3.out", immediateRender: false }, 31.1);
+      tl.fromTo(".s6-result-head", { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.4, ease: "circ.out", immediateRender: false }, 31.46);
+      tl.fromTo(resultRows, { opacity: 0, x: 34 }, { opacity: 1, x: 0, duration: 0.34, stagger: 0.18, ease: "expo.out", immediateRender: false }, 31.92);
+      Array.prototype.forEach.call(resultChecks, function (mark, index) {
+        var at = 32.28 + index * 0.82;
+        tl.fromTo(resultBadges[index], { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.2)", immediateRender: false }, at);
+        tl.to(mark, { strokeDashoffset: 0, duration: 0.36, ease: "power2.out" }, at + 0.06);
+        tl.fromTo(resultCopies[index], { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.36, ease: "power3.out", immediateRender: false }, at + 0.06);
+      });
+      tl.to("#s6-pyramid-top", { scale: 1.045, boxShadow: "0 24px 52px rgba(47,111,143,0.2)", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 36.8);
+      tl.to("#s6-pyramid-middle", { scale: 1.035, boxShadow: "0 24px 52px rgba(44,154,154,0.2)", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 38.3);
 
-      tl.fromTo("#s6-soft-wipe", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.34, ease: "power2.in", immediateRender: false }, 44.12);
-      tl.set("#s6-beat-roadmap, #s6-beat-breakdown, #s6-beat-quality", { opacity: 0 }, 44.46);
-      tl.set("#s6-beat-loop", { opacity: 1 }, 44.46);
-      tl.set("#s6-soft-wipe", { transformOrigin: "right center" }, 44.46);
-      tl.to("#s6-soft-wipe", { scaleX: 0, duration: 0.4, ease: "power2.out" }, 44.46);
+      tl.fromTo("#s6-soft-wipe", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.26, ease: "power2.in", immediateRender: false }, 38.74);
+      tl.set("#s6-beat-roadmap, #s6-beat-breakdown, #s6-beat-quality", { opacity: 0 }, 39.0);
+      tl.set("#s6-beat-loop", { opacity: 1 }, 39.0);
+      tl.set("#s6-soft-wipe", { transformOrigin: "right center" }, 39.0);
+      tl.to("#s6-soft-wipe", { scaleX: 0, duration: 0.34, ease: "power2.out" }, 39.0);
 
-      tl.fromTo(".s6-loop-rail", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.66, ease: "power3.out", immediateRender: false }, 44.58);
-      tl.fromTo(loopNodes, { opacity: 0, y: 48, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, stagger: 0.68, ease: "expo.out", immediateRender: false }, 44.72);
-      tl.fromTo(loopArrows, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.4, stagger: 0.68, ease: "power2.out", immediateRender: false }, 45.18);
-      tl.fromTo(memoryItems, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.38, stagger: 1.15, ease: "circ.out", immediateRender: false }, 49.0);
-      tl.to(".s6-loop-node--memory", { scale: 1.035, borderColor: "#2C9A9A", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 52.55);
-      tl.to(".s6-loop-node--verify", { scale: 1.045, boxShadow: "0 28px 58px rgba(60,174,163,0.22)", duration: 0.44, yoyo: true, repeat: 1, ease: "sine.inOut" }, 54.0);
-      tl.fromTo(finalBadges, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.34, stagger: 0.22, ease: "back.out(1.18)", immediateRender: false }, 55.15);
-      tl.to(".s6-loop-node--delivery", { scale: 1.065, borderColor: "#3CAEA3", boxShadow: "0 30px 68px rgba(60,174,163,0.24)", duration: 0.52, ease: "power3.out" }, 56.1);
-      tl.to(".s6-loop-node:not(.s6-loop-node--delivery), .s6-loop-arrow", { opacity: 0.35, duration: 0.45, ease: "power1.inOut" }, 57.1);
-      tl.to(".s6-loop-node--delivery", { scale: 1.02, duration: 0.42, ease: "sine.inOut" }, 58.1);
+      tl.fromTo(".s6-loop-node--memory", { opacity: 0, y: 186, scale: 0.9 }, { opacity: 1, y: 186, scale: 1, duration: 0.62, ease: "expo.out", immediateRender: false }, 39.08);
+      tl.fromTo(memoryItems[0], { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.42, ease: "circ.out", immediateRender: false }, 40.35);
+      tl.fromTo(memoryItems[1], { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.42, ease: "circ.out", immediateRender: false }, 41.58);
+      tl.fromTo(memoryItems[2], { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.42, ease: "circ.out", immediateRender: false }, 42.82);
+      tl.to(".s6-loop-node--memory", { scale: 1.035, borderColor: "#2C9A9A", duration: 0.42, yoyo: true, repeat: 1, ease: "sine.inOut" }, 43.54);
+      tl.fromTo(".s6-loop-ring-bg", { opacity: 0, scale: 0.94, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.46, ease: "power3.out", immediateRender: false }, 43.92);
+      tl.to(".s6-loop-node--memory", { y: 0, duration: 0.78, ease: "power3.inOut" }, 44.04);
+
+      tl.fromTo(".s6-loop-node--verify", { opacity: 0, x: -44, y: 34, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "circ.out", immediateRender: false }, 45.0);
+      tl.fromTo(".s6-loop-arrow-path--memory", { opacity: 0, strokeDashoffset: 1000 }, { opacity: 1, strokeDashoffset: 0, duration: 0.56, ease: "power2.out", immediateRender: false }, 45.7);
+      tl.to(".s6-loop-node--verify", { scale: 1.045, boxShadow: "0 28px 58px rgba(47,111,143,0.2)", duration: 0.44, yoyo: true, repeat: 1, ease: "sine.inOut" }, 46.32);
+
+      tl.fromTo(".s6-loop-node--delivery", { opacity: 0, x: 44, y: 34, scale: 0.9 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.12)", immediateRender: false }, 47.08);
+      tl.fromTo(".s6-loop-arrow-path--verify", { opacity: 0, strokeDashoffset: 1000 }, { opacity: 1, strokeDashoffset: 0, duration: 0.56, ease: "power2.out", immediateRender: false }, 47.8);
+      tl.fromTo(".s6-loop-arrow-path--delivery", { opacity: 0, strokeDashoffset: 1000 }, { opacity: 1, strokeDashoffset: 0, duration: 0.56, ease: "power2.out", immediateRender: false }, 48.48);
+      tl.fromTo(finalBadges, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.34, stagger: 0.22, ease: "back.out(1.18)", immediateRender: false }, 49.2);
+      tl.to(".s6-loop-node--delivery", { scale: 1.065, borderColor: "#3CAEA3", boxShadow: "0 30px 68px rgba(60,174,163,0.24)", duration: 0.52, ease: "power3.out" }, 51.2);
+      tl.to(loopArrows, { strokeWidth: 11, duration: 0.36, stagger: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut" }, 52.15);
+      tl.to(loopNodes, { boxShadow: "0 28px 62px rgba(44,154,154,0.16)", duration: 0.48, ease: "power1.inOut" }, 53.0);
+      tl.to(loopNodes, { scale: 1, duration: 0.42, ease: "sine.inOut" }, 54.2);
+
+      tl.fromTo("#s6-soft-wipe", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.32, ease: "power2.in", immediateRender: false }, 54.68);
+      tl.set("#s6-beat-loop", { opacity: 0 }, 55.0);
+      tl.set("#s6-beat-summary", { opacity: 1 }, 55.0);
+      tl.set("#s6-soft-wipe", { transformOrigin: "right center" }, 55.0);
+      tl.to("#s6-soft-wipe", { scaleX: 0, duration: 0.42, ease: "power2.out" }, 55.0);
+      tl.fromTo(summaryScreen, { opacity: 0, scale: 0.985, y: 18 }, { opacity: 1, scale: 1, y: 0, duration: 0.58, ease: "power3.out", immediateRender: false }, 55.2);
+      tl.fromTo(projectSummary, { opacity: 0, scale: 0.99 }, { opacity: 1, scale: 1, duration: 0.54, ease: "power3.out", immediateRender: false }, 55.36);
+      tl.fromTo(summaryCharacter, { opacity: 0, x: 34, y: 18, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "circ.out", immediateRender: false }, 55.5);
 
       [
-        [0, 2.7, 10.3],
-        [1, 10.6, 20.5],
-        [2, 20.8, 29.5],
-        [3, 29.8, 38.7],
-        [4, 39.0, 49.2],
-        [5, 49.5, 58.6]
+        [0, 2.7, 7.6],
+        [1, 7.8, 14.0],
+        [2, 14.2, 17.5],
+        [3, 17.7, 25.8],
+        [4, 26.0, 38.2],
+        [5, 38.5, 49.5],
+        [6, 49.7, 54.8],
+        [7, 55.2, 67.3],
+        [8, 67.6, 69.1]
       ].forEach(function (item) {
         tl.fromTo(captions[item[0]], { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: "auto", immediateRender: false }, item[1]);
         tl.to(captions[item[0]], { opacity: 0, duration: 0.22, ease: "power2.in", overwrite: "auto" }, item[2]);

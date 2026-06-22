@@ -153,11 +153,11 @@
     </main>
 
     <div class="caption" data-layout-allow-overlap="">日志往往是最难治理的地方</div>
-    <div class="caption" data-layout-allow-overlap="">上游、本系统和下游内容都可能被直接打印</div>
+    <div class="caption" data-layout-allow-overlap="">上游参数和下游返回内容都可能被直接打印</div>
     <div class="caption" data-layout-allow-overlap="">只靠人工梳理，很难保证没有遗漏</div>
-    <div class="caption" data-layout-allow-overlap="">接口响应和日志统一经过脱敏规则</div>
-    <div class="caption" data-layout-allow-overlap="">整段文本没有字段名时使用兜底识别</div>
-    <div class="caption" data-layout-allow-overlap="">兜底只处理边界明确的数据类型</div>
+    <div class="caption" data-layout-allow-overlap="">日志有明确字段名时，直接复用接口脱敏配置</div>
+    <div class="caption" data-layout-allow-overlap="">整段文本没有字段名时，就需要兜底脱敏</div>
+    <div class="caption" data-layout-allow-overlap="">兜底只处理边界明确的数据类型，控制性能影响</div>
 
     <style>
       @import url("../src/styles/runtime.css");
